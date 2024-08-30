@@ -1,4 +1,4 @@
-.header{
+header {
     width: 100%;
     height: 70px;
     background: white;
@@ -9,25 +9,27 @@
     top: 0;
 }
 
-.headerWrapper{
+.headerWrapper {
     width: 90%;
     height: 100%;
-    background: #6d5555c7;
+    background: #1a79d2c7;
     display: flex;
     justify-content: space-between;
 }
 
-.headerLeft{
+.headerLeft {
     width: 15%;
     height: 100%;
     background: #b63434c7;
 }
-.headerMiddle{
+
+.headerMiddle {
     width: 55%;
     height: 100%;
     background: #aed113d5;
 }
-.headerRight{
+
+.headerRight {
     width: 15%;
     height: 100%;
     background: #188cebc7;
@@ -36,29 +38,62 @@
     gap: 10px;
     align-items: center;
     justify-content: center;
+}
 
-    & .header-btn{
-        width: 100px;
-        height: 50px;
-        cursor: pointer;
+.sign-in{
+    background: #ffffff;
+    border: 2px solid #0066B2;
+    color: #0066B2;
+}
+
+& .laptopMenu {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    /* background: #000; */
+
+}
+
+.header-btn {
+    width: 100px;
+    height: 50px;
+    cursor: pointer;
+    outline: none;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+
+    & :first-of-type {
+        background: #fff;
+        border: 2px solid #0066B2;
+        color: #0066B2;
+    }
+
+    &:last-child {
         border: none;
-        outline: none;
-        border-radius: 5px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        text-decoration: none;
-        font-size: 1rem;
-        font-weight: 500;
+        background: #0066B2;
+        color: white;
+    }
+}
 
-        &:first-child {
-            background: #fff;
-            border: 2px solid #0066B2;
-            color: #0066B2;
-        }
-        &:last-child {
-            background: #0066B2;
-            color: white;
-        }
+.menu {
+    display: none;
+    position: relative;
+}
+
+@media screen and (max-width: 426px) {
+    .menu {
+        display: flex;
+    }
+
+    .laptopMenu {
+        display: none;
     }
 }
