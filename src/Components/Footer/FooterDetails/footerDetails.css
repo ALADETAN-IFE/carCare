@@ -1,0 +1,9 @@
+.FooterDetails{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    align-self: stretch;
+    width: 100%;
+    height: 462px;
+    background: #000;
+}

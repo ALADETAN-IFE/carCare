@@ -4,7 +4,7 @@ import "./dropdown.css";
 
 const Dropdown = () => {
   return (
-    <section>
+    <section className="dropdown">
         <Link to="/login" className="header-btn sign-in">Sign In</Link>
         <Link to="/signup" className="header-btn">Sign Up</Link>
     </section>

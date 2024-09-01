@@ -1,5 +1,15 @@
 footer{
     width: 100%;
-    height: 50vh;
+    /* height: 50vh; */
+    height: 812px;
     background: #5cc04c;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
+
+
+/* #FFFFFF
+#171717
+#0066B2
+#171717 40% */

@@ -6,7 +6,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: white;
+    background: var(--Base-Bg-White);
 
 }
 
@@ -77,17 +77,17 @@
         left: 34px;
         width: 70px;
         height: 70px;
-        border: 1px solid #000000;
+        border: 1px solid var(--Black);
         border-radius: 50%;
-        background: #EAE9E9;
+        background: var(--Home-Bg-Icon);
     }
 
     & .boxesBox{
         width: 325px;
         height: 198px;   
-        border-top: 1px solid #000000;
-        border-bottom: 1px solid #000000;    
-        border-right: 1px solid #000000;
+        border-top: 1px solid var(--Black);
+        border-bottom: 1px solid var(--Black);    
+        border-right: 1px solid var(--Black);
         display: flex;
         align-items: flex-end;
         padding: 25px;

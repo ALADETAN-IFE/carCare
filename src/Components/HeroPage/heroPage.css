@@ -20,7 +20,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    color: white;
+    color: var(--Base-Base-White);
     gap: 30px;
     /* background: #000; */
 }

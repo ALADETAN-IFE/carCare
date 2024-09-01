@@ -12,4 +12,9 @@
 
 :root{
   --Base-Base-Black: #171717;
+  --Base-Bg-Black: #171717;
+  --Base-Base-White: #FFF;
+  --Base-Bg-White: #FFF;
+  --Home-Bg-Icon: #EAE9E9;
+  --Black: #000;
 }
