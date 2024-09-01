@@ -1,4 +1,4 @@
-import React from 'react'
+import './HeroPage.css'
 import HeroPageHanger from './heroPageHanger/heroPageHanger'
 
 const HeroPage = () => {
