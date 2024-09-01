@@ -1,8 +1,11 @@
+import HowWeWork from './HowWeWork/HowWeWork'
 import'./main.css'
 
 const Main = () => {
   return (
-    <main>Main</main>
+    <main>Main
+      <HowWeWork/>
+    </main>
   )
 }
 

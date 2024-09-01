@@ -25,7 +25,13 @@ const Header = () => {
         <div className="headerLeft">
           height = {height}
           width = {width}</div>
-        <div className="headerMiddle"></div>
+        <div className="headerMiddle">
+          <p>Home</p>
+          <p>Services</p>
+          <p>Mechanics</p>
+          <p>Blog</p>
+          <p>Contact us</p>
+        </div>
         <div className="headerRight">
 
           <div className="menu" onClick={() => setshowMenu(!showMenu)} >
