@@ -4,7 +4,7 @@ import HeroPageHangerDropDown from '../heroPageHangerDropDown/HeroPageHangerDrop
 import { RxDropdownMenu } from "react-icons/rx";
 import { BsDroplet } from 'react-icons/bs';
 import { CiDroplet } from 'react-icons/ci';
-import { MdArrowDropDown } from 'react-icons/md';
+import { MdOutlineKeyboardArrowDown, MdOutlineKeyboardArrowUp } from 'react-icons/md';
 
 const HeroPageHanger = () => {
     const HeroPageHangerDropDownDetails = [
@@ -17,19 +17,22 @@ const HeroPageHanger = () => {
                     text: "Lamborghini"
                 }
             ],
-            Icon: <MdArrowDropDown  size={28}/>
+            Icon: <MdOutlineKeyboardArrowDown  size={28}/>,
+            activeIcon: <MdOutlineKeyboardArrowUp  size={28}/>
         },
         {
             id:2.0, 
             select: "Model",
-            // Icon: <MdArrowDropDown  size={28}/>,
+            // Icon: <MdOutlineKeyboardArrowDown  size={28}/>,
+            activeIcon: <MdOutlineKeyboardArrowUp  size={28}/>,
             options: [
                 {
                     id: 2.1,
                     text: "Lamborghini"
                 }
             ],
-            Icon: <MdArrowDropDown  size={28}/>
+            Icon: <MdOutlineKeyboardArrowDown  size={28}/>,
+            activeIcon: <MdOutlineKeyboardArrowUp  size={28}/>
         },
         {
             id:3.0, 
@@ -40,7 +43,8 @@ const HeroPageHanger = () => {
                     text: "Lamborghini"
                 }
             ],
-            Icon: <MdArrowDropDown  size={28}/>
+            Icon: <MdOutlineKeyboardArrowDown  size={28}/>,
+            activeIcon: <MdOutlineKeyboardArrowUp  size={28}/>
         },
         {
             id:3.0, 
@@ -51,7 +55,8 @@ const HeroPageHanger = () => {
                     text: "Lamborghini"
                 }
             ],
-            Icon: <MdArrowDropDown  size={28}/>
+            Icon: <MdOutlineKeyboardArrowDown  size={28}/>,
+            activeIcon: <MdOutlineKeyboardArrowUp  size={28}/>
         },
     ]
   return (

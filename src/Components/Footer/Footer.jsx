@@ -1,9 +1,12 @@
 import "./footer.css"
+import FooterDetails from "./FooterDetails/FooterDetails"
+import Newsletter from "./Newsletter/Newsletter"
 
 const Footer = () => {
   return (
-    <footer>Footer
-      
+    <footer>
+      <Newsletter/>
+      <FooterDetails/>
     </footer>
   )
 }

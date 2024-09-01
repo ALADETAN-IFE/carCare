@@ -9,7 +9,7 @@
     outline: none;
     border-radius: 5px;
     background: #0066B2;
-    color: white;
+    color: var(--Base-Base-White);
     font-size: 14px;
     font-weight: 700;
 }

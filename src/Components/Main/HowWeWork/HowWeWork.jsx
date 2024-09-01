@@ -3,15 +3,18 @@ import './howWeWork.css'
 const HowWeWork = () => {
   const howWeWorkBoxes = [
     {
-      borderLeft: "1px solid #000000",
+      style: {
+
+        borderLeft: "1px solid #000000",
+      },
       icon:``,
       header: `Search for Mechanics`,
-      body: `Enter your location and the type of service you need to find nearby, highly-rated and reliable mechanics`
+      body: `Enter your location and the type of service you need to find nearby, highly-rated and reliable mechanics.`
     },
     {
       icon:``,
       header: `Choose and Book`,
-      body: `Select a mechanic based on ratings and reviews, and choose a convenient time for your service`
+      body: `Select a mechanic based on ratings and reviews, and choose a convenient time for your service.`
     },
     {
       icon:``,
@@ -21,7 +24,7 @@ const HowWeWork = () => {
     {
       icon:``,
       header: `Reviews and Ratings`,
-      body: `Rate your experience and leave reviews for other car owners to help them choose the best mechanics`
+      body: `Rate your experience and leave reviews for other car owners to help them choose the best mechanics.`
     },
   ]
   return (
@@ -38,7 +41,8 @@ const HowWeWork = () => {
                   howWeWorkBoxes?.map((e, i)=>(
                 <div className="howWeWorkBox" key={i}>
                   <div className="boxIcon"></div>
-                  <div className="boxesBox" style={{borderLeft: e?.borderLeft}}>
+                  {/* <div className="boxesBox" style={{borderLeft: e?.borderLeft}}> */}
+                  <div className="boxesBox" style={e?.style}>
                     <div className="boxesBoxWrapper">
                       <h4>{e?.header}</h4>
                       <p>{e?.body}</p>

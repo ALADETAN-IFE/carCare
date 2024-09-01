@@ -10,7 +10,7 @@ const Home = () => {
       <Header/>
       <HeroPage/>
       <Main/>
-      Home
+      {/* Home */}
       <Footer/>
     </div>
   )

@@ -6,7 +6,17 @@ const HeroPageHangerDropDown = ({e}) => {
   return (
         <div key={e?.id} className='heroPageHangerDropDown' onClick={()=> setshowOptions(!showOptions)}>
             <span>{e?.select}</span>
-            {e?.Icon}
+            {
+              showOptions ? 
+                <>   
+                  {e?.activeIcon}
+                </>
+              :
+                <>
+                  {e?.Icon}
+                </>
+            }
+            
             {
               showOptions ? 
               <div className='options'>

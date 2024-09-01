@@ -1,8 +1,8 @@
-section{
+.dropdown{
     width: 120px;
     height: 130px;
     background: rgb(207, 204, 204);
-    background: white;
+    background: var(--Base-Bg-White);
     border-radius: 4px;
     box-shadow: 2px 2px 5px 1px;
     position: absolute;
