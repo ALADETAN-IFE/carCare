@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom"
+import { Link, NavLink } from "react-router-dom"
 import "./header.css"
 import { BsMenuAppFill } from "react-icons/bs"
 import { useEffect, useState } from "react"
@@ -18,6 +18,29 @@ const Header = () => {
     }
   }, [width])
 
+  const headerMiddle = [
+    {
+      text: "Home",
+      to: "/"
+    },
+    {
+      text: "About",
+      to: "/"
+    },
+    {
+      text: "Mechanics",
+      to: "/"
+    },
+    {
+      text: "Blog",
+      to: "/blog"
+    },
+    {
+      text: "Contact us",
+      to: "/"
+    },
+  ]
+
 
   return (
     <header>
@@ -25,7 +48,15 @@ const Header = () => {
         <div className="headerLeft">
           height = {height}
           width = {width}</div>
-        <div className="headerMiddle"></div>
+        <div className="headerMiddle">
+          {
+            headerMiddle?.map((e, i) => (
+              <NavLink className={ ({ isActive })  => isActive ? "headerActive headerRoute" : "headerNotActive headerRoute"} key={i} to={e?.to}>
+                {e?.text}
+              </NavLink>
+            ))
+          }
+        </div>
         <div className="headerRight">
 
           <div className="menu" onClick={() => setshowMenu(!showMenu)} >
@@ -33,7 +64,7 @@ const Header = () => {
               showMenu ?
                 <>
                   <BsMenuAppFill />
-                  <Dropdown/>
+                  <Dropdown />
                 </>
                 : <BsMenuAppFill />
             }
