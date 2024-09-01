@@ -1,6 +1,6 @@
-import { Link } from "react-router-dom"
-// import "./header.css"
-import "./dropdown.css"
+import { Link } from "react-router-dom";
+// import "./header.css";
+import "./dropdown.css";
 
 const Dropdown = () => {
   return (
