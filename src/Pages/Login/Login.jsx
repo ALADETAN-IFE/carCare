@@ -1,6 +1,7 @@
 import React from 'react'
 import './Login.css'
 import login from '../../assets/images/login.png'
+import { Link } from 'react-router-dom'
 
 const Login = () => {
   return (
