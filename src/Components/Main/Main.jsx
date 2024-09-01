@@ -1,5 +1,5 @@
 import'./main.css'
-import HowWeWork from "./HowWeWork"
+import HowWeWork from "./HowWeWork/HowWeWork"
 
 const Main = () => {
   return (
