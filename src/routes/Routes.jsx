@@ -4,6 +4,10 @@ import Home from '../Pages/Home/Home'
 import SignUp from '../Pages/SignUp/SignUp'
 import Login from '../Pages/Login/Login'
 import ForgotPassword from '../Pages/ForgotPassword/ForgotPassword'
+import Auth from '../auth/auth'
+import AdminLayout from '../Layout/AdminLayout'
+import MechanicLayout from '../Layout/MechanicLayout'
+import DriverLayout from '../Layout/DriverLayout'
 
 const Routes = createHashRouter([
     {
@@ -22,6 +26,26 @@ const Routes = createHashRouter([
         path: "/forgotPassword",
         element: <ForgotPassword/>
     },
+    {
+        element: <Auth/>,
+        children: [
+            {
+                path: "",
+                element: <AdminLayout/>,
+                children: []
+            },
+            {
+                path: "",
+                element: <MechanicLayout/>,
+                children: []
+            },
+            {
+                path: "",
+                element: <DriverLayout/>,
+                children: []
+            },
+        ]
+    }
 ])
 
 export default Routes
