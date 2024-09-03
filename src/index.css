@@ -5,10 +5,12 @@
   font-family: Merriweather;
   src: url("./assets/Fonts/Merriweather/Merriweather-Regular.ttf");
 }
+ /* font-family: "Merriweather", serif; */
 @font-face {
   font-family: Oswald;
   src: url("./assets/Fonts/Oswald/Oswald-VariableFont_wght.ttf");
 }
+ /* font-family: "Oswald", serif; */
 
 *{
   padding: 0;
