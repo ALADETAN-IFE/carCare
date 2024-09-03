@@ -1,4 +1,4 @@
-import {React, useState} from 'react';
+import {useState} from 'react';
 import './Login.css';
 import { Link } from 'react-router-dom';
 import { IoEye, IoEyeOff } from 'react-icons/io5';
