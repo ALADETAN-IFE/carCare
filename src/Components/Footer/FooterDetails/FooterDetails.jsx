@@ -2,7 +2,10 @@ import './footerDetails.css'
 
 const FooterDetails = () => {
   return (
-    <section className='FooterDetails'>FooterDetails</section>
+    <section className='FooterDetails'>
+      <div></div>
+      <div></div>
+    </section>
   )
 }
 
