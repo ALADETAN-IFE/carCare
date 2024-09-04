@@ -1,9 +1,131 @@
 .FooterDetails{
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     align-self: stretch;
     width: 100%;
     height: 462px;
-    background: #000;
+    background: #171717;
+}
+.footerColumn__1{
+    height: 382px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 100px;
+
+}
+.footerLogo{
+    width: 332px;
+    height: 202px;
+    padding-bottom: 15px;
+     background: #171717;
+   
+
+}
+.footerSocials{
+    display: flex;
+    width: 285px;
+    height: 83px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 30px;
+    
+}
+.location{
+    display: flex;
+    gap: 16px;
+}
+.locationIcon{
+    width: 20px;
+    height: 24px;
+}
+.location p{
+    width: 213px;
+    height: 24px;
+    color: #FFF;
+    font-family: Oswald;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+.socialIcons{
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    width: 24px;
+    height: 24px;
+}
+
+.footerContainer__2{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    
+    /* gap: 180px; */
+    width: 835px;
+    height: 270px;
+}
+.footerInfo, .community, .more{
+    display: inline-flex;
+    flex-direction: column;
+    display: flex;
+    width: 158px;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 10px;
+    color: #FFF;
+    font-feature-settings: 'cv01' on, 'cv03' on, 'cv04' on;
+    font-family: Oswald;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 145%; 
+    
+}
+.footerInfo h1, .community h1, .more h1{
+    color: #FFF;
+    font-feature-settings: 'cv01' on, 'cv03' on, 'cv04' on;
+    font-family: Oswald;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 145%; /* 40.6px */
+}
+
+
+.footerColumn__2{
+    display: flex;
+    flex-direction: column;
+    height: 80px;
+    /* gap: 20px; */
+    justify-content: center;
+    align-items: flex-start;
+    align-self: stretch;
+    border-bottom: #FFF;
+    
+}
+hr{
+    width: 100%;
+}
+.footerColumn2__content{
+    display: flex;
+    /* flex-direction: column; */
+   
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 26px 1124px 25px 40px;
+    
+}
+.footerColumn__2 p{
+    color: #FFF;
+    font-family: Oswald;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    width: 223px;
+    height: 29px;
+    line-height: 145%; 
 }
