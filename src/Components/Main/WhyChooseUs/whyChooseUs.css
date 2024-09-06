@@ -1,5 +1,55 @@
-.WhyChooseUs{
+.WhyChooseUs {
     background: #FBFAFA;
     width: 100%;
-    height: 752px;
+    /* height: 752px; */
+    height: 47rem;
+    padding: 126px 470px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.centerBlueCircle {
+    display: flex;
+    /* width: 500px; */
+    width: 31.25rem;
+    /* height: 500px; */
+    height: 31.25rem;
+    padding: 0px 27px;
+    justify-content: center;
+    align-items: center;
+    /* border-radius: 500px; */
+    border-radius: 50%;
+    background: var(--Secondary-Secondary, #0066B2);
+}
+
+.centerBlueCircleWrapper {
+    display: flex;
+    /* width: 446px; */
+    width: 27.875rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 27px;
+    flex-shrink: 0;
+
+    & h3 {
+        color: var(--Base-Base-White, #FFF);
+        font-family: Oswald;
+        /* font-size: 40px; */
+        font-size: 2.5rem;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+    }
+
+    & p {
+        color: var(--Base-Base-White, #FFF);
+        text-align: center;
+        font-family: Lora;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+    }
 }

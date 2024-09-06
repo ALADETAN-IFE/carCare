@@ -5,6 +5,7 @@ import WhyChooseUs from './WhyChooseUs/WhyChooseUs'
 import WeService from './We Service/WeService'
 import Reviews from './Reviews/Reviews'
 import Partner from './Partner/Partner'
+import GrowYourMechanicBusiness from './GrowYourMechanicBusiness/GrowYourMechanicBusiness'
 
 const Main = () => {
   return (
@@ -12,6 +13,7 @@ const Main = () => {
       <HowWeWork/>
       <JoinOurCommunity/>
       <WhyChooseUs/>
+      <GrowYourMechanicBusiness/>
       <WeService/>
       <Reviews/>
       <Partner/>

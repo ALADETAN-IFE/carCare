@@ -25,11 +25,11 @@ const Header = () => {
     },
     {
       text: "About",
-      to: "/"
+      to: "/about"
     },
     {
       text: "Mechanics",
-      to: "/"
+      to: "/mechanics"
     },
     {
       text: "Blog",
@@ -37,7 +37,7 @@ const Header = () => {
     },
     {
       text: "Contact us",
-      to: "/"
+      to: "/contact"
     },
   ]
 
@@ -49,7 +49,7 @@ const Header = () => {
           height = {height}
           width = {width}</div>
         <div className="headerMiddle">
-          {
+        {
             headerMiddle?.map((e, i) => (
               <NavLink className={ ({ isActive })  => isActive ? "headerActive headerRoute" : "headerNotActive headerRoute"} key={i} to={e?.to}>
                 {e?.text}
@@ -64,7 +64,7 @@ const Header = () => {
               showMenu ?
                 <>
                   <BsMenuAppFill />
-                  <Dropdown />
+                  <Dropdown headerMiddle={headerMiddle} />
                 </>
                 : <BsMenuAppFill />
             }

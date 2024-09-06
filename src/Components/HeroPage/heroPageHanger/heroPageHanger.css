@@ -1,7 +1,9 @@
 .HeroPageHanger{
     position: absolute;
     width: 95%;
-    height: 80px;
+    /* height: 80px; */
+    /* height: 100px; */
+    height: 6.25rem;
     background: #000;
     border-radius: 4px;
     color: var(--Base-Base-White);

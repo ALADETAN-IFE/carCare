@@ -23,8 +23,6 @@ const HeroPageHanger = () => {
         {
             id:2.0, 
             select: "Model",
-            // Icon: <MdOutlineKeyboardArrowDown  size={28}/>,
-            activeIcon: <MdOutlineKeyboardArrowUp  size={28}/>,
             options: [
                 {
                     id: 2.1,

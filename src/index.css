@@ -6,6 +6,19 @@
   src: url("./assets/Fonts/Merriweather/Merriweather-Regular.ttf");
 }
  /* font-family: "Merriweather", serif; */
+
+@font-face {
+  font-family: Lora;
+  src: url("./assets/Fonts/Lora/Lora-VariableFont_wght.ttf");
+}
+ /* font-family: "Lora", serif; */
+ 
+/* @font-face {
+  font-family: Inter;
+  src: url("./assets/Fonts/Inter/");
+} */
+ /* font-family: "Inter", serif; */
+
 @font-face {
   font-family: Oswald;
   src: url("./assets/Fonts/Oswald/Oswald-VariableFont_wght.ttf");

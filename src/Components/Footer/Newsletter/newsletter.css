@@ -1,6 +1,7 @@
-.Newsletter{
+.Newsletter {
     width: 100%;
-    height: 350px;
+    /* height: 350px; */
+    height: 21.875rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
