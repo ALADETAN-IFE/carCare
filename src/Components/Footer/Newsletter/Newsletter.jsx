@@ -10,9 +10,9 @@ const Newsletter = () => {
       </div>
       <div className='Newsletter__input'>
         <input type="email" placeholder='Email' />
-        <div className='Newsletter__btn'>
-        <button type="submit">Suscribe</button>
-        </div>
+        <button className='Newsletter__btn'>
+        Suscribe
+        </button>
       </div>
     </section>
   )
