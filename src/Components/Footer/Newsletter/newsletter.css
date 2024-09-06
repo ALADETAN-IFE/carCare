@@ -1,9 +1,61 @@
-.Newsletter{
+.Newsletter {
     width: 100%;
-    height: 350px;
+    /* height: 350px; */
+    height: 21.875rem;
     display: flex;
     justify-content: center;
     align-items: center;
-    background: yellowgreen;
+    background: rgba(23, 23, 23, 0.40);
+    /* background: #8e3333; */
     /* align-self: stretch; */
+    padding: 34px 168px 38px 168px;
+}
+
+.newsLetterWrpper {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    max-width: 1,104px;
+    gap: 42px;
+}
+
+.newsletterTop {
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+    text-align: center;
+
+    & h4 {
+        color: var(--Base-Base-White);
+        font-family: Oswald;
+        /* font-size: 48px; */
+        font-size: 3rem;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+    }
+
+    & p {
+        /* width: 380px; */
+        /* width:1,095px; */
+        color: var(--Base-Base-White);
+        font-family: Oswald;
+        /* font-size: 24px; */
+        font-size: 1.5rem;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+    }
+}
+
+.subScribeInput {
+    display: flex;
+    padding: 15px 17px 15px 18px;
+    justify-content: center;
+    align-items: center;
+    gap: 809px;
+    border-radius: 10px;
+    background: var(--Base-Base-White);
+    /* height: 70px; */
+    height: 4.375rem;
 }

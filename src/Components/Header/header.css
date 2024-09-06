@@ -1,11 +1,14 @@
 header {
     width: 100%;
-    height: 70px;
+    /* height: 70px; */
+    height: 4.375rem;
     background: var(--Base-Bg-White);
     border: 0px, 0px, 1px, 0px solid #CCCCCC;
     display: flex;
     justify-content: center;
-    position: sticky;
+    /* position: sticky; */
+    position: fixed;
+    z-index: 99999;
     top: 0;
     /* font-family: "Merriweather", serif; */
     font-family: Merriweather;
@@ -14,7 +17,7 @@ header {
 .headerWrapper {
     width: 90%;
     height: 100%;
-    background: #1a79d2c7;
+    /* background: #1a79d2c7; */
     display: flex;
     justify-content: space-between;
 }
@@ -22,35 +25,46 @@ header {
 .headerLeft {
     width: 15%;
     height: 100%;
-    background: #b63434c7;
+    /* background: #b63434c7; */
 }
 
 .headerMiddle {
     width: 55%;
     height: 100%;
-    background: #aed113d5;
+    /* background: #aed113d5; */
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 23px;
 }
 
-.headerRoute{
+.headerRoute {
+    text-decoration: none;
+    /* width: 60px; */
+    min-width: 60px;
+    height: 40px;
+    padding: 10px 9px 10px 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     /* font-family: Merriweather; */
+    font-family: Lora;
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
-    background: #bc7b7b;
-
+    /* background: #bc7b7b; */
+    /* border: 2px solid #0066B2; */
 }
 
-.headerActive{
-   color: var(--Base-Base-Black);
-
+.headerActive {
+    color: #0066B2;
+    
 }
-.headerNotActive{
-   color: var(--Base-Base-White);
+
+.headerNotActive {
+    color: var(--Base-Base-Black);
+    /* color: var(--Base-Base-White); */
 }
 
 .headerRight {
@@ -64,19 +78,19 @@ header {
     justify-content: center;
 }
 
-.sign-in{
+.sign-in {
     background: var(--Base-Base-White);
     border: 2px solid #0066B2;
     color: #0066B2;
-    transition: all 350ms ;
+    transition: all 350ms;
 
-    &:hover{
+    &:hover {
         color: var(--Base-Base-White);
-        background:  #0066B2;
+        background: #0066B2;
     }
 }
 
-& .laptopMenu {
+.laptopMenu {
     width: 100%;
     height: 100%;
     display: flex;
@@ -99,6 +113,7 @@ header {
     text-decoration: none;
     font-size: 1rem;
     font-weight: 500;
+    font-family: Lora;
 
     & :first-of-type {
         background: var(--Base-Bg-White);
@@ -125,12 +140,16 @@ header {
     position: relative;
 }
 
-@media screen and (max-width: 426px) {
+@media screen  {
+    
+}
+
+@media screen and (max-width:/*  426px */ 26.625rem) {
     .menu {
         display: flex;
     }
 
-    .laptopMenu {
+    .laptopMenu, .headerMiddle {
         display: none;
     }
 }
