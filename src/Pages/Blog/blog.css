@@ -1,8 +1,7 @@
-.home{
+.blog{
     width: 100%;
     min-height: 100vh;
+    height: max-content;
     display: flex;
     flex-direction: column;
-    height: max-content;
-    /* background: #b8b5b5b0; */
 }

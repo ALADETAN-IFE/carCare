@@ -74,7 +74,7 @@
         & .weServiceCarBrands {
             min-width: 120px;
             height: 145px;
-            background: #c2b8b8;
+            /* background: #c2b8b8; */
         }
     }
 }

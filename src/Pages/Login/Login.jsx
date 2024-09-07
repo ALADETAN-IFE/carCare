@@ -1,10 +1,15 @@
-import {useState} from 'react';
 import './Login.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { IoEye, IoEyeOff } from 'react-icons/io5';
+import { useState } from 'react';
 
 const Login = () => {
   const [seePassword, setSeePassword] = useState(true)
+  const navigate = useNavigate()
+  const handleLogin = (e) => {
+    e.preventDefault()
+    navigate("/app")
+  }
   return (
    <div className='Login__container'>
        <div className='login__img'>
@@ -16,7 +21,7 @@ const Login = () => {
         <p>Access your dashboard to book appointments, track your <br />
         service history, and manage your car care with ease.</p>
        
-        <form action="" className='login__form'>
+        <form onSubmit={handleLogin} className='login__form'>
          <div className='login__input'>
          <label htmlFor="">Email Address</label>
          <input type="text" placeholder='Enter your email address'/>

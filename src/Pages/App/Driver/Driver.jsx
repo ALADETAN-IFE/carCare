@@ -2,8 +2,10 @@ import './driver.css'
 
 const Driver = () => {
   return (
-    <div>Driver</div>
+    <div className='driverPage'>Drivxzher</div>
   )
 }
+
+
 
 export default Driver

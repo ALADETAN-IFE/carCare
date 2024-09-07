@@ -41,7 +41,7 @@ header {
 .headerRoute {
     text-decoration: none;
     /* width: 60px; */
-    min-width: 60px;
+    min-width: 80px;
     height: 40px;
     padding: 10px 9px 10px 6px;
     display: flex;
@@ -55,16 +55,24 @@ header {
     line-height: normal;
     /* background: #bc7b7b; */
     /* border: 2px solid #0066B2; */
+    border-radius: 8px;
 }
 
 .headerActive {
-    color: #0066B2;
-    
+    /* color: #0066B2; */
+    background: var(--Secondary-Secondary100, #D6EDFF);
+
 }
 
 .headerNotActive {
     color: var(--Base-Base-Black);
     /* color: var(--Base-Base-White); */
+    transition: all 350ms;
+
+    &:hover{
+        border: 3px solid  var(--Secondary-Secondary100, #D6EDFF);
+        /* border: 3px solid  #188cebc7; */
+    }
 }
 
 .headerRight {
@@ -84,9 +92,12 @@ header {
     color: #0066B2;
     transition: all 350ms;
 
-    &:hover {
+    /* &:hover {
         color: var(--Base-Base-White);
         background: #0066B2;
+    } */
+    &:hover {
+        border:none;
     }
 }
 
@@ -140,16 +151,17 @@ header {
     position: relative;
 }
 
-@media screen  {
-    
-}
+@media screen {}
 
-@media screen and (max-width:/*  426px */ 26.625rem) {
+@media screen and (max-width:
+    /*  426px */
+    26.625rem) {
     .menu {
         display: flex;
     }
 
-    .laptopMenu, .headerMiddle {
+    .laptopMenu,
+    .headerMiddle {
         display: none;
     }
 }
