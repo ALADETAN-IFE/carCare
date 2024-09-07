@@ -1,0 +1,14 @@
+.layout{
+    width: 100%;
+    height: max-content;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.layoutDown{
+    width: 100%;
+    height: max-content;
+    display: flex;
+    /* min-height: 100vh; */
+}
