@@ -1,0 +1,25 @@
+.layoutHeader {
+    /* height: 70px; */
+    height: 4.375rem;
+    width: 100%;
+    /* padding: 9px 62px 11px 1003px; */
+    padding-right: 62px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    background: var(--Base-Base-White, #FFF);
+    box-shadow: 0px 4px 4px 0px rgba(194, 193, 193, 0.10);
+
+}
+
+.layoutHeaderRight {
+    width: 95px;
+    height: 50px;
+    display: flex;
+    height: 50px;
+    padding: 5.097px 0px 4.903px 6px;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 25.463px;
+    /* background: #793d3d; */
+}

@@ -8,12 +8,28 @@ import AdminLayout from '../Layout/AdminLayout'
 import MechanicLayout from '../Layout/MechanicLayout'
 import DriverLayout from '../Layout/DriverLayout'
 import ForgotPassword from '../Pages/ForgotPassword/forgotPassword'
+import About from '../Pages/About/About'
+import Blog from '../Pages/Blog/Blog'
+import ContactUs from '../Pages/ContactUs/ContactUs'
+import Driver from '../Pages/App/Driver/Driver'
 
 
 const Routes = createHashRouter([
     {
         path: "/",
         element: <Home/>
+    },
+    {
+        path: "/about",
+        element: <About/>
+    },
+    {
+        path: "/blog",
+        element: <Blog/>
+    },
+    {
+        path: "/contact",
+        element: <ContactUs/>
     },
     {
         path: "/signup",
@@ -31,19 +47,24 @@ const Routes = createHashRouter([
         element: <Auth/>,
         children: [
             {
-                path: "",
+                path: "/admin",
                 element: <AdminLayout/>,
                 children: []
             },
             {
-                path: "",
+                path: "/mech",
                 element: <MechanicLayout/>,
                 children: []
             },
             {
-                path: "",
+                path: "/app",
                 element: <DriverLayout/>,
-                children: []
+                children: [
+                    {
+                        index: true,
+                        element: <Driver/>,
+                    }
+                ]
             },
         ]
     }

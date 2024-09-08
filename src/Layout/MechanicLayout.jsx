@@ -1,10 +1,13 @@
-import React from 'react'
+import "./layout.css"
 import { Outlet } from 'react-router-dom'
 
 const MechanicLayout = () => {
   return (
     <div>
-        <Outlet/>
+      <LayoutHeader />
+      <div>
+        <Outlet />
+      </div>
     </div>
   )
 }

@@ -1,70 +1,221 @@
-import './footerDetails.css'
-import footerLogo from '../../../assets/images/footerLogo.png'
-import location from '../../../assets/images/location.png'
-import facebook from '../../../assets/images/facebook.png'
-import twitter from '../../../assets/images/twitter.png'
-import instagram from '../../../assets/images/instagram.png'
-import linkedin from '../../../assets/images/linkedin.png'
-
-
-
-
+import { Link } from 'react-router-dom';
+import './footerDetails.css';
+import FooterLogo from "../../../assets/svg/FooterLogo.svg"
+import { CiLocationArrow1 } from 'react-icons/ci';
 
 const FooterDetails = () => {
+
+  // const infoRoute = ["About", "Become a partner", "FAQs", "Careers", "Blog", "Contact us"]
+  // const communityRoute = ["Networking", "Mechanic Association", "Partners"]
+  // const more_Route = ["Terms", "Privacy", "Help", "Affiliates", "Manage Cookie Preferences"]
+
+  const faceBookIcon = <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+    <g clip-path="url(#clip0_709_2412)">
+      <path d="M24 12C24 5.37258 18.6274 0 12 0C5.37258 0 0 5.37258 0 12C0 17.9895 4.3882 22.954 10.125 23.8542V15.4688H7.07812V12H10.125V9.35625C10.125 6.34875 11.9166 4.6875 14.6576 4.6875C15.9701 4.6875 17.3438 4.92188 17.3438 4.92188V7.875H15.8306C14.34 7.875 13.875 8.80008 13.875 9.75V12H17.2031L16.6711 15.4688H13.875V23.8542C19.6118 22.954 24 17.9895 24 12Z" fill="white" />
+    </g>
+    <defs>
+      <clipPath id="clip0_709_2412">
+        <rect width="24" height="24" fill="white" />
+      </clipPath>
+    </defs>
+  </svg>
+
+  const instagramIcon = <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+    <path d="M4.50508 1.0876C3.7457 1.38291 3.10352 1.77666 2.46133 2.41885C1.81914 3.05635 1.42539 3.70322 1.13008 4.45791C0.844141 5.18916 0.651953 6.02822 0.595703 7.25635C0.539453 8.48447 0.525391 8.87822 0.525391 12.0095C0.525391 15.1407 0.539453 15.5345 0.595703 16.7626C0.651953 17.9907 0.848828 18.8298 1.13008 19.561C1.42539 20.3204 1.81914 20.9626 2.46133 21.6048C3.10352 22.247 3.7457 22.6407 4.50508 22.936C5.23633 23.222 6.07539 23.4142 7.30352 23.4704C8.53164 23.5267 8.92539 23.5407 12.0566 23.5407C15.1879 23.5407 15.5816 23.5267 16.8098 23.4704C18.0379 23.4142 18.877 23.2173 19.6082 22.936C20.3676 22.6407 21.0098 22.247 21.652 21.6048C22.2941 20.9626 22.6879 20.3204 22.9832 19.561C23.2691 18.8298 23.4613 17.9907 23.5176 16.7626C23.5738 15.5345 23.5879 15.1407 23.5879 12.0095C23.5879 8.87822 23.5738 8.48447 23.5176 7.25635C23.4613 6.02822 23.2645 5.18916 22.9832 4.45791C22.6879 3.70322 22.2941 3.05635 21.6566 2.41885C21.0145 1.77666 20.3723 1.38291 19.6129 1.0876C18.8816 0.80166 18.0426 0.609473 16.8145 0.553223C15.5863 0.496973 15.1926 0.48291 12.0613 0.48291C8.93008 0.48291 8.53633 0.496973 7.3082 0.553223C6.07539 0.604785 5.23633 0.80166 4.50508 1.0876ZM16.716 2.6251C17.841 2.67666 18.4504 2.86416 18.8582 3.02354C19.3973 3.23447 19.7816 3.48291 20.1848 3.88603C20.5879 4.28916 20.8363 4.67353 21.0473 5.2126C21.2066 5.62041 21.3941 6.22978 21.4457 7.35478C21.502 8.56885 21.5113 8.93447 21.5113 12.0142C21.5113 15.0938 21.4973 15.4595 21.4457 16.6735C21.3941 17.7985 21.2066 18.4079 21.0473 18.8157C20.8363 19.3548 20.5879 19.7392 20.1848 20.1423C19.7816 20.5454 19.3973 20.7938 18.8582 21.0048C18.4504 21.1642 17.841 21.3517 16.716 21.4032C15.502 21.4595 15.1363 21.4688 12.0566 21.4688C8.97695 21.4688 8.61133 21.4548 7.39727 21.4032C6.27227 21.3517 5.66289 21.1642 5.25508 21.0048C4.71602 20.7938 4.33164 20.5454 3.92852 20.1423C3.52539 19.7392 3.27695 19.3548 3.06602 18.8157C2.90664 18.4079 2.71914 17.7985 2.66758 16.6735C2.61133 15.4595 2.60195 15.0938 2.60195 12.0142C2.60195 8.93447 2.61602 8.56885 2.66758 7.35478C2.71914 6.22978 2.90664 5.62041 3.06602 5.2126C3.27695 4.67353 3.52539 4.28916 3.92852 3.88603C4.33164 3.48291 4.71602 3.23447 5.25508 3.02354C5.66289 2.86416 6.27227 2.67666 7.39727 2.6251C8.61133 2.56885 8.97695 2.55947 12.0566 2.55947C15.1363 2.55947 15.502 2.56885 16.716 2.6251Z" fill="white" />
+    <path d="M6.13672 12.0141C6.13672 15.2859 8.78984 17.9344 12.057 17.9344C15.3242 17.9344 17.9773 15.2812 17.9773 12.0141C17.9773 8.74687 15.3289 6.09375 12.057 6.09375C8.78516 6.09375 6.13672 8.74219 6.13672 12.0141ZM15.9008 12.0141C15.9008 14.1375 14.1805 15.8578 12.057 15.8578C9.93359 15.8578 8.21328 14.1375 8.21328 12.0141C8.21328 9.89062 9.93359 8.17031 12.057 8.17031C14.1805 8.17031 15.9008 9.89062 15.9008 12.0141Z" fill="white" />
+    <path d="M18.2168 7.24219C18.9805 7.24219 19.5996 6.62308 19.5996 5.85938C19.5996 5.09567 18.9805 4.47656 18.2168 4.47656C17.4531 4.47656 16.834 5.09567 16.834 5.85938C16.834 6.62308 17.4531 7.24219 18.2168 7.24219Z" fill="white" />
+  </svg>
+
+  const twitterIcon = <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+    <g clip-path="url(#clip0_709_2414)">
+      <path d="M14.2833 10.1571L23.2178 0H21.1006L13.3427 8.81931L7.14656 0H0L9.36984 13.3364L0 23.9877H2.11732L10.3098 14.6742L16.8534 23.9877H24L14.2827 10.1571H14.2833ZM11.3833 13.4538L10.4339 12.1258L2.88022 1.55881H6.1323L12.2282 10.0867L13.1776 11.4147L21.1016 22.4998H17.8495L11.3833 13.4544V13.4538Z" fill="white" />
+    </g>
+    <defs>
+      <clipPath id="clip0_709_2414">
+        <rect width="24" height="24" fill="white" />
+      </clipPath>
+    </defs>
+  </svg>
+
+  const linkedInIcon = <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+    <g clip-path="url(#clip0_709_2415)">
+      <path d="M22.2283 0H1.77167C1.30179 0 0.851161 0.186657 0.518909 0.518909C0.186657 0.851161 0 1.30179 0 1.77167V22.2283C0 22.6982 0.186657 23.1488 0.518909 23.4811C0.851161 23.8133 1.30179 24 1.77167 24H22.2283C22.6982 24 23.1488 23.8133 23.4811 23.4811C23.8133 23.1488 24 22.6982 24 22.2283V1.77167C24 1.30179 23.8133 0.851161 23.4811 0.518909C23.1488 0.186657 22.6982 0 22.2283 0ZM7.15333 20.445H3.545V8.98333H7.15333V20.445ZM5.34667 7.395C4.93736 7.3927 4.53792 7.2692 4.19873 7.04009C3.85955 6.81098 3.59584 6.48653 3.44088 6.10769C3.28591 5.72885 3.24665 5.31259 3.32803 4.91145C3.40941 4.51032 3.6078 4.14228 3.89816 3.85378C4.18851 3.56529 4.55782 3.36927 4.95947 3.29046C5.36112 3.21165 5.77711 3.25359 6.15495 3.41099C6.53279 3.56838 6.85554 3.83417 7.08247 4.17481C7.30939 4.51546 7.43032 4.91569 7.43 5.325C7.43386 5.59903 7.38251 5.87104 7.27901 6.1248C7.17551 6.37857 7.02198 6.6089 6.82757 6.80207C6.63316 6.99523 6.40185 7.14728 6.14742 7.24915C5.893 7.35102 5.62067 7.40062 5.34667 7.395ZM20.4533 20.455H16.8467V14.1933C16.8467 12.3467 16.0617 11.7767 15.0483 11.7767C13.9783 11.7767 12.9283 12.5833 12.9283 14.24V20.455H9.32V8.99167H12.79V10.58H12.8367C13.185 9.875 14.405 8.67 16.2667 8.67C18.28 8.67 20.455 9.865 20.455 13.365L20.4533 20.455Z" fill="white" />
+    </g>
+    <defs>
+      <clipPath id="clip0_709_2415">
+        <rect width="24" height="24" fill="white" />
+      </clipPath>
+    </defs>
+  </svg>
+
+  const footerRoute = [
+    {
+      pTag: "INFORMATION",
+      className: "info",
+      // routes: ["About", "Become a partner", "FAQs", "Careers", "Blog", "Contact us"],
+      routes: [
+        {
+          text: "About",
+          to: "/about"
+        },
+        {
+          text: "Become a partner",
+          to: "/"
+        },
+        {
+          text: "FAQs",
+          to: "/"
+        },
+        {
+          text: "Careers",
+          to: "/careers"
+        },
+        {
+          text: "Blog",
+          to: "/blog"
+        },
+        {
+          text: "Contact us",
+          to: "/contact"
+        },
+      ]
+    },
+    {
+      pTag: "COMMUNITY",
+      className: "community",
+      // routes: ["Networking", "Mechanic Association", "Partners"],
+      routes: [
+        {
+          text: "Networking",
+          to: "/"
+        },
+        {
+          text: "Mechanic Association",
+          to: "/"
+        },
+        {
+          text: "Partners",
+          to: "/"
+        },
+      ]
+    },
+    {
+      pTag: "MORE",
+      className: "more",
+      // routes: ["Terms", "Privacy", "Help", "Affiliates", "Manage Cookie Preferences"],
+      routes: [
+        {
+          text: "Terms",
+          to: "/"
+        },
+        {
+          text: "Privacy",
+          to: "/"
+        },
+        {
+          text: "Help",
+          to: "/"
+        },
+        {
+          text: "Affiliates",
+          to: "/"
+        },
+        {
+          text: "Manage Cookie Preferences",
+          to: "/"
+        },
+      ]
+    },
+  ]
+
+  const socialIcons = [
+    {
+      svg: faceBookIcon,
+    },
+    {
+      svg: instagramIcon,
+    },
+    {
+      svg: twitterIcon,
+    },
+    {
+      svg: linkedInIcon,
+    }
+
+  ]
+
   return (
     <section className='FooterDetails'>
-      <div className='footerColumn__1'>
-        <div>
-          <img src={footerLogo} alt=""  className='footerLogo' />
-          <div className='footerSocials'>
-            <div className='location'>
-               <img src={location} alt="" className='locationIcon' />
-               <p>7th Avenue, Wuse 2, Abuja, Nigeria</p>
+      <div className="FooterDetailsUp">
+        <div className="footerDetailsUpLeft">
+          <img src={FooterLogo} alt="" />
+          <div className="underFooterLogo">
+            <div className="underFooterLogoUp">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="24" viewBox="0 0 20 24" fill="none">
+                <path d="M10 0C4.5 0 0 4.32 0 9.6C0 16.08 8.75 23.4 9.125 23.76C9.375 23.88 9.75 24 10 24C10.25 24 10.625 23.88 10.875 23.76C11.25 23.4 20 16.08 20 9.6C20 4.32 15.5 0 10 0ZM10 21.24C7.375 18.84 2.5 13.68 2.5 9.6C2.5 5.64 5.875 2.4 10 2.4C14.125 2.4 17.5 5.64 17.5 9.6C17.5 13.56 12.625 18.84 10 21.24ZM10 4.8C7.25 4.8 5 6.96 5 9.6C5 12.24 7.25 14.4 10 14.4C12.75 14.4 15 12.24 15 9.6C15 6.96 12.75 4.8 10 4.8ZM10 12C8.625 12 7.5 10.92 7.5 9.6C7.5 8.28 8.625 7.2 10 7.2C11.375 7.2 12.5 8.28 12.5 9.6C12.5 10.92 11.375 12 10 12Z" fill="white" />
+              </svg>
+              <p>7th Avenue, Wuse 2, Abuja, Nigeria</p>
             </div>
-            <div className='socialIcons'>
-              <img src={facebook} alt="" />
-              <img src={instagram} alt="" />
-              <img src={twitter} alt=""/>
-              <img src={linkedin} alt="" />
+            <div className="underFooterLogoDown">
+              {
+                socialIcons?.map((e, i) => (
+                  <div className="socialIcons" key={i}>{e?.svg}
+                  </div>
+                ))
+              }
             </div>
           </div>
         </div>
-       <div className='footerContainer__2'>
-           <div className='footerInfo'>
-            <h1>Information</h1>
-            <p>About</p>
-            <p>Become a Partner</p>
-            <p>FAQ</p>
-            <p>Careers</p>
-            <p>Blog</p>
-            <p>Contact Us</p>
-           </div>
-           <div className='community'> 
-            <h1>Community</h1>
-            <p>Networking</p>
-            <p>Mechanic Association</p>
-            <p>Partners</p>
-           </div>
-           <div className='more'>
-            <h1>More</h1>
-            <p>Terms</p>
-            <p>Privacy</p>
-            <p>Help</p>
-            <p>Affiliates</p>
-            <p>Manage Cookie Preferences</p>
+        <div className="footerDetailsUpright">
 
-           </div>
-       </div>
-
-      </div>
-     
-      <div className='footerColumn__2'>
-      <hr />
-       <div className='footerColumn2__content'>
-       <img src={location} alt="" />
-       <p>CarCare Inc. All right reserved.</p>
-       </div>
+          {
+            footerRoute?.map((e, i) => (
+              <div className={e?.className} key={i}>
+                <p>{e?.pTag}</p>
+                <div className="infoRoutes">
+                  {
+                    e?.routes?.map((e, i) => (
+                      <Link className="infoRoute" to={e?.to} key={i} >
+                        <span>{e?.text}</span>
+                      </Link>
+                    ))
+                  }
+                </div>
+              </div>
+            ))
+          }
+          {/* <div className="community">
+            <p>COMMUNITY</p>
+            <div className="infoRoutes">
+              {
+                communityRoute?.map((e, i) => (
+                  <Link className="infoRoute" to={e} key={i} >
+                    <span>{e}</span>
+                  </Link>
+                ))
+              }
+            </div>
+          </div>
+          <div className="more">
+            <p>MORE</p>
+            <div className="infoRoutes">
+              {
+                more_Route?.map((e, i) => (
+                  <Link className="infoRoute" to={e} key={i} >
+                    <span>{e}</span>
+                  </Link>
+                ))
+              }
+            </div>
+          </div> */}
         </div>
+      </div>
+      <div className="FooterDetailsDown">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="21" viewBox="0 0 20 21" fill="none">
+          <path d="M9.88 7.64C11.16 7.7 11.49 8.79 11.51 9.3H13.3C13.22 7.32 11.81 6.11 9.85 6.11C7.64 6.11 6 7.5 6 10.64C6 12.58 6.93 14.88 9.84 14.88C12.06 14.88 13.25 13.23 13.28 11.93H11.49C11.46 12.52 11.04 13.31 9.86 13.37C8.55 13.33 8 12.31 8 10.64C8 7.75 9.28 7.66 9.88 7.64ZM10 0.5C4.48 0.5 0 4.98 0 10.5C0 16.02 4.48 20.5 10 20.5C15.52 20.5 20 16.02 20 10.5C20 4.98 15.52 0.5 10 0.5ZM10 18.5C5.59 18.5 2 14.91 2 10.5C2 6.09 5.59 2.5 10 2.5C14.41 2.5 18 6.09 18 10.5C18 14.91 14.41 18.5 10 18.5Z" fill="white" />
+        </svg>
+        <p>CarCare Inc. All right reserved.</p>
+      </div>
     </section>
   )
 }
