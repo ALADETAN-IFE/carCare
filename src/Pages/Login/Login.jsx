@@ -7,9 +7,6 @@ const Login = () => {
   const [seePassword, setSeePassword] = useState(true)
   return (
    <div className='Login__container'>
-       <div className='login__img'>
-       <img src="" alt="" />
-       </div>
 
        <div className='Login__details'>
        <h1>WELCOME BACK</h1>

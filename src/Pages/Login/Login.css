@@ -1,22 +1,10 @@
 .Login__container{
-    display: inline-flex;
+    display: flex;
     height: 1080px;
     justify-content: center;
     align-items: center;
-   
 }
-.login__img{
-    display: flex;
-    width: 587px;
-    height: 100%;
-    padding: 33px 479, 298px 992px 18px;
-    flex-direction: column;
-    align-items: center;
-    /* online bg image */
-    /* background-image: url(https://s3-alpha-sig.figma.com/img/0645/5781/f23676b7a8829ea82edb8a0d710978e2?Expires=1726444800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=EjU~bhP6hTTx1SaQhmqRHwNnONW3jnKhRcyD~TNWvXuf~gJkksrOQIehv6bVJkb6kdxn-2MAWmwZrpOGIS1Bk5EuWjQhkhLBccH6N98iGqWl7oXbNxBmxu2MH5BriDGDTnnt-q9I6ToT94FInINDzkAD5Abki9Ecvm8E9SjV~fDxAuT2ZcZnd92TvsIqzP0QPcJuLi~C6UuyzJieDP6GbqxqBJGx0NsT5t5ng0YrjFjY331cVTsnNipeu-emCqOGuLq0idD3uNMGhaxG8OXlkhPP2RlplRol~giKdQxH2w~HMgFT6sVSwj8VppFLDww4PhztcCHVziG~Hy97zJ-mOA__); */
-   /* offline bg image */
-    background-image: url("../../assets/images/form_bg.png");
-}
+
 .Login__details{
     display: flex;
     width: 853px;
@@ -30,7 +18,7 @@
 .Login__details h1  {
     color: var(--Base-Base-Black);
     text-align: center;
-    font-family: Oswald;
+    font-family: "Alegreya SC";
     font-size: 40px;
     font-style: normal;
     font-weight: 700;
@@ -40,7 +28,7 @@
 .Login__details p{
     color: var(--Base-Base-Black);
     text-align: center;
-    font-family: Oswald;
+    font-family: Lora;
     font-size: 24px;
     font-style: normal;
     font-weight: 400;
@@ -58,7 +46,8 @@
 }
 label{
     color: var(--Base-Base-Black);
-    font-family: Oswald;
+    font-family: Lora;
+
 }
 
 .login__input input{
@@ -68,10 +57,10 @@ label{
     padding: 6.667px 10px;
     align-items: center;
     gap: 6.667px;
-    /* align-self: stretch; */
     border-radius: 6.667px;
     border: 0.667px solid #565454; 
-    font-family: Oswald;     
+    font-family: Lora;
+    
 }
 
 .login__input__password{
@@ -114,7 +103,7 @@ label{
    justify-content: end;
    align-items: end;
     color: var(--Secondary-Secondary, #0066B2);
-    font-family: Oswald;
+    font-family: Lora;
     font-size: 14px;
     font-style: normal;
     font-weight: 600;
@@ -129,7 +118,7 @@ label{
     justify-content: center;
     align-items: center;
     color: var(--Base-Base-Black);
-    font-family: Oswald;
+    font-family: Lora;
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
