@@ -4,7 +4,7 @@ import { BsMenuAppFill } from "react-icons/bs"
 import { useEffect, useState } from "react"
 import Dropdown from "./Dropdown"
 
-const Header = () => {
+const Header = ({ isLoggedIn }) => {
   const height = window.innerHeight
   // const widthL = window.innerWidth
   const [showMenu, setshowMenu] = useState(false)
@@ -49,30 +49,35 @@ const Header = () => {
           height = {height}
           width = {width}</div>
         <div className="headerMiddle">
-        {
+          {
             headerMiddle?.map((e, i) => (
-              <NavLink className={ ({ isActive })  => isActive ? "headerActive headerRoute" : "headerNotActive headerRoute"} key={i} to={e?.to}>
+              <NavLink className={({ isActive }) => isActive ? "headerActive headerRoute" : "headerNotActive headerRoute"} key={i} to={e?.to}>
                 {e?.text}
               </NavLink>
             ))
           }
         </div>
         <div className="headerRight">
+          {
+            isLoggedIn ? "" :
+              <>
+                <div className="menu" onClick={() => setshowMenu(!showMenu)} >
+                  {
+                    showMenu ?
+                      <>
+                        <BsMenuAppFill />
+                        <Dropdown headerMiddle={headerMiddle} />
+                      </>
+                      : <BsMenuAppFill />
+                  }
+                </div>
+                <div className="laptopMenu">
+                  <Link to="/login" className="header-btn sign-in">Sign In</Link>
+                  <Link to="/signup" className="header-btn">Sign Up</Link>
+                </div>
+              </>
 
-          <div className="menu" onClick={() => setshowMenu(!showMenu)} >
-            {
-              showMenu ?
-                <>
-                  <BsMenuAppFill />
-                  <Dropdown headerMiddle={headerMiddle} />
-                </>
-                : <BsMenuAppFill />
-            }
-          </div>
-          <div className="laptopMenu">
-            <Link to="/login" className="header-btn sign-in">Sign In</Link>
-            <Link to="/signup" className="header-btn">Sign Up</Link>
-          </div>
+          }
         </div>
       </div>
     </header>
