@@ -6,9 +6,9 @@ import SideBar from "./SideBar/SideBar"
 const DriverLayout = () => {
   return (
     <div className="layout">
-      <LayoutHeader />
-      <div className="layoutDown">
       <SideBar/>
+      <div className="layoutDown">
+      <LayoutHeader />
         <Outlet />
       </div>
     </div>
