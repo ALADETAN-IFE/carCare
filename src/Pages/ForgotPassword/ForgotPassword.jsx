@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import Overlay from '../Overlay/Overlay';
 import AuthHeader from '../AuthHeader/AuthHeader';
+import './ForgotPassword.css'
 
 const ForgotPassword = () => {
   const [showPopUp, setShowPopUp] = useState(false)
