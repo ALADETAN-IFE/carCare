@@ -12,6 +12,8 @@ import About from '../Pages/About/About'
 import Blog from '../Pages/Blog/Blog'
 import ContactUs from '../Pages/ContactUs/ContactUs'
 import Driver from '../Pages/App/Driver/Driver'
+import Booking from '../Pages/App/Driver/Booking/Booking'
+// import LoggedInHome from '../Pages/LoggedInHome/LoggedInHome'
 
 
 const Routes = createHashRouter([
@@ -46,25 +48,38 @@ const Routes = createHashRouter([
     {
         element: <Auth/>,
         children: [
+            // {
+            //     path: "/app/mechanics",
+            //     element: 
+            // },
+            // {
+            //     path: "/home",
+            //     element: <LoggedInHome/>
+            // },
             {
-                path: "/admin",
+                path: "/app/admin",
                 element: <AdminLayout/>,
                 children: []
             },
             {
-                path: "/mech",
+                path: "/app/mech",
                 element: <MechanicLayout/>,
                 children: []
             },
             {
                 path: "/app",
                 element: <DriverLayout/>,
-                children: [
-                    {
-                        index: true,
-                        element: <Driver/>,
-                    }
-                ]
+                // children: [
+                //     {
+                //         // index: true,
+                //         path:"/app",
+                //         element: <Driver/>,
+                //     },
+                //     // {
+                //     //     path:"booking",
+                //     //     element: <Booking/>,
+                //     // }
+                // ]
             },
         ]
     }

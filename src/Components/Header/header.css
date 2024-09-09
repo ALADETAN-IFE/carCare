@@ -69,8 +69,8 @@ header {
     /* color: var(--Base-Base-White); */
     transition: all 350ms;
 
-    &:hover{
-        border: 3px solid  var(--Secondary-Secondary100, #D6EDFF);
+    &:hover {
+        border: 3px solid var(--Secondary-Secondary100, #D6EDFF);
         /* border: 3px solid  #188cebc7; */
     }
 }
@@ -78,12 +78,37 @@ header {
 .headerRight {
     width: 15%;
     height: 100%;
-    background: #188cebc7;
+    /* background: #188cebc7; */
     background: var(--Base-Bg-White);
     display: flex;
     gap: 10px;
     align-items: center;
     justify-content: center;
+}
+
+.headerRightLoggedIn {
+    width: 15%;
+    height: 100%;
+    background: #188cebc7;
+    background: var(--Base-Bg-White);
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: flex-end;
+
+    & div {
+        justify-self: flex-end;
+        display: flex;
+        padding: 5.097px 9.537px 4.903px 43px;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 23.463px;
+
+        & svg{
+            cursor: pointer;
+        }
+
+    }
 }
 
 .sign-in {
@@ -97,7 +122,7 @@ header {
         background: #0066B2;
     } */
     &:hover {
-        border:none;
+        border: none;
     }
 }
 
