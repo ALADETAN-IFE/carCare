@@ -1,11 +1,13 @@
 import { useState } from 'react'
 import './addBooking.css'
 import { MdCalendarToday } from 'react-icons/md'
+import { useNavigate } from 'react-router-dom'
 
 const AddBooking = () => {
     // const Car Brand = []
     // const Brand Model = []
     // const Car Yeard = []
+    const navigate = useNavigate()
     const Location = ["Agege", "Amuwo - Odofin", "Apapa", "Epe", "Eti-Osa", "Ibeju - Lekki",]
     const [bookingForms, setbookingForms] = useState(0)
     // console.log(new Date().)
@@ -74,7 +76,7 @@ const AddBooking = () => {
                                         <div className='pickServiceInfo'>
                                             <p>Select your Service</p>
                                         </div>
-                                        <button className="pickServicebtn">Select</button>
+                                        <button className="pickServicebtn" onClick={()=> navigate("/serviceList")}>Select</button>
                                     </div>
                                     <div className="pickService">
                                         <div className='pickServiceInfo'>

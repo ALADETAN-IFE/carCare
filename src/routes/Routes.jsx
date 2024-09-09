@@ -11,14 +11,12 @@ import ForgotPassword from '../Pages/ForgotPassword/forgotPassword'
 import About from '../Pages/About/About'
 import Blog from '../Pages/Blog/Blog'
 import ContactUs from '../Pages/ContactUs/ContactUs'
-import Driver from '../Pages/App/Driver/Driver'
-<<<<<<< HEAD
+// import Driver from '../Pages/App/Driver/Driver'
 import ChangePassword from '../Pages/ChangePassword/ChangePassword'
 import VerifyEmail from '../Pages/VerifyEmail/VerifyEmail'
-=======
-import Booking from '../Pages/App/Driver/Booking/Booking'
+import ServiceList from '../Pages/App/Driver/ServiceList/ServiceList'
+// import Booking from '../Pages/App/Driver/Booking/Booking'
 // import LoggedInHome from '../Pages/LoggedInHome/LoggedInHome'
->>>>>>> 88cea4fe8ee8bffc1b6b5207c2cc14d008c0adca
 
 
 const Routes = createHashRouter([
@@ -57,6 +55,10 @@ const Routes = createHashRouter([
     {
         path: '/verifyEmail',
         element: <VerifyEmail/>,
+    },
+    {
+        path: '/serviceList',
+        element: <ServiceList/>,
     },
     {
         element: <Auth/>,
