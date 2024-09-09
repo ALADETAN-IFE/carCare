@@ -2,6 +2,7 @@ import './Login.css';
 import { Link, useNavigate } from 'react-router-dom';
 import { IoEye, IoEyeOff } from 'react-icons/io5';
 import { useState } from 'react';
+import AuthHeader from '../AuthHeader/AuthHeader';
 
 const Login = () => {
   const [seePassword, setSeePassword] = useState(true)
@@ -12,6 +13,9 @@ const Login = () => {
   }
   return (
    <div className='Login__container'>
+        <div>
+          <AuthHeader/>
+        </div>
 
        <div className='Login__details'>
        <div className='login__details__text'>
@@ -35,10 +39,11 @@ const Login = () => {
          </div>
          <button type="submit" className='login__btn'>Login</button>
         </form>
-  
+
         <div className="underbutton__text">
         <p>New in Carcare?  <Link to='/signup' className='signup__link'>SignUp</Link></p>
         </div>
+
        </div>
 
    </div>

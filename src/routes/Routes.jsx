@@ -12,6 +12,8 @@ import About from '../Pages/About/About'
 import Blog from '../Pages/Blog/Blog'
 import ContactUs from '../Pages/ContactUs/ContactUs'
 import Driver from '../Pages/App/Driver/Driver'
+import ChangePassword from '../Pages/ChangePassword/ChangePassword'
+import VerifyEmail from '../Pages/VerifyEmail/VerifyEmail'
 
 
 const Routes = createHashRouter([
@@ -41,7 +43,15 @@ const Routes = createHashRouter([
     },
     {
         path: "/forgotPassword",
-        element: <ForgotPassword/>
+        element: <ForgotPassword/>,
+    },
+    { 
+        path: "/changePassword",
+        element: <ChangePassword/>,
+    },
+    {
+        path: '/verifyEmail',
+        element: <VerifyEmail/>,
     },
     {
         element: <Auth/>,
