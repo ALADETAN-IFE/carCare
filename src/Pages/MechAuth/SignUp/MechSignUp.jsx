@@ -5,7 +5,7 @@ import { IoEye, IoEyeOff } from 'react-icons/io5';
 import { useState } from 'react';
 import AuthHeader from '../AuthHeader/AuthHeader'
 
-const SignUp = () => {
+const MechSignUp = () => {
   const [seePassword, setSeePassword] = useState(true)
   const navigate = useNavigate()
   const handlesignUp = (e) => {
@@ -70,4 +70,4 @@ const SignUp = () => {
 }
 
 
-export default SignUp
+export default MechSignUp
