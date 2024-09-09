@@ -13,7 +13,10 @@
   src: url("./assets/Fonts/Merriweather/Merriweather-Regular.ttf");
 }
  /* font-family: "Merriweather", serif; */
-
+@font-face {
+  font-family: Alegreya SC;
+  src: url(./assets/Fonts/AlegreyaSC/AlegreyaSC-Regular.ttf)
+}
 @font-face {
   font-family: Lora;
   src: url("./assets/Fonts/Lora/Lora-VariableFont_wght.ttf");
