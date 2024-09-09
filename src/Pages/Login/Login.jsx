@@ -9,7 +9,8 @@ const Login = () => {
   const navigate = useNavigate()
   const handleLogin = (e) => {
     e.preventDefault()
-    navigate("/app")
+    navigate("/")
+    localStorage.setItem("isLoggedIn", true)
   }
   return (
    <div className='Login__container'>

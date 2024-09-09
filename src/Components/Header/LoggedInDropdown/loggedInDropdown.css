@@ -1,0 +1,128 @@
+.loggedInDropdown {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    max-height: 100vh;
+    background: #5f5d5d76;
+    overflow: hidden;
+
+}
+
+.loggedInDropdownWrapper {
+    display: flex;
+    position: relative;
+
+}
+
+.loggedInDropdownBox {
+    position: absolute;
+    top: 75px;
+    top: 4.6875rem;
+    /* width: 250px; */
+    width: 15.625rem;
+    /* height: 275px; */
+    height: 17.1875rem;
+    border-radius: 6px;
+    border: 0px solid #565454;
+    background: var(--Base-Base-White, #FFF);
+    box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.15);
+    /* left: 100%; */
+    animation-name: animateDropDown;
+    animation-duration: .2s;
+    right: 55px;
+    /* right: 10%; */
+    animation-timing-function: ease-in;
+    animation-fill-mode: forwards;
+    display: flex;
+    flex-direction: column;
+    gap: 11.9px;
+    /* padding-top: 10px; */
+    padding-bottom: 10px;
+}
+
+@keyframes animateDropDown {
+    from {
+        right: -200px;
+    }
+
+    to {
+        right: 55px;
+    }
+}
+
+.removeDropDown {
+    position: absolute;
+    top: 75px;
+    top: 4.6875rem;
+    /* width: 250px; */
+    width: 15.625rem;
+    /* height: 275px; */
+    height: 17.1875rem;
+    border-radius: 6px;
+    border: 0px solid #565454;
+    /* background: #000; */
+    box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.15);
+    /* left: 100%; */
+    animation-name: animateremoveDropDown;
+    animation-duration: .2s;
+    right: 55px;
+    animation-timing-function: ease-in;
+    animation-fill-mode: forwards;
+    display: flex;
+    flex-direction: column;
+    gap: 11.9px;
+}
+
+@keyframes animateremoveDropDown {
+    from {
+        right: 55px;
+    }
+
+    to {
+        right: -250px;
+    }
+}
+
+.loggedInDropdownBoxUp {
+    width: 100%;
+    border-bottom: 0.579px solid #CCC;
+    padding: 11.9px;
+}
+
+.loggedInDropdownBoxUpWrap {
+    display: flex;
+    align-items: center;
+    gap: 12.153px;
+    padding-left: 12px;
+
+    & p {
+        color: var(--Secondary-Secondary1000, #003257);
+        font-family: "Alegreya SC";
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+    }
+}
+
+.loggedInDropdownBoxDown {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 22.5px;
+}
+
+.loggedInDropdownBoxDownBox{
+    display: flex;
+    width: 250px;
+    height: 30px;
+    padding: 0px 20px;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+    cursor: pointer;
+    color: var(--Base-Base-Black);
+    text-decoration: none;
+
+}

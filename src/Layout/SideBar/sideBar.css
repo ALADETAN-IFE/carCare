@@ -1,10 +1,11 @@
 .sidebar {
     /* width: 30%; */
-    height: max-content;
-    width: 280px;
+    /* height: max-content; */
+    min-width: 280px;
     /* height: 1024px; */
+    width: 12%;
     flex-shrink: 0;
-    min-height: 100vh;
+    /* min-height: 100vh; */
     border-right: 1px solid #CCC;
     background: #F5FBFF;
     box-shadow: -41px 112px 33px 0px rgba(146, 144, 144, 0.00), -26px 72px 31px 0px rgba(146, 144, 144, 0.01), -15px 40px 26px 0px rgba(146, 144, 144, 0.05), -7px 18px 19px 0px rgba(146, 144, 144, 0.09), -2px 4px 11px 0px rgba(146, 144, 144, 0.10);
@@ -66,11 +67,11 @@
 
 .sideBarNavActive {
     background: var(--Secondary-Secondary, #0066B2);
+    color: var(--Base-Base-White, #FFF);
 
     & svg {
         fill: var(--Base-Base-White, #FFF);
-        color: var(--Base-Base-White, #FFF);
-        background: var(--Base-Base-White, #FFF);
+        /* background: var(--Base-Base-White, #FFF); */
     }
 
 }
@@ -89,4 +90,6 @@
     font-style: normal;
     font-weight: 600;
     line-height: normal;
+    cursor: pointer;
+    border-top: 1px solid var(--Secondary-Secondary1000, #003257);
 }
