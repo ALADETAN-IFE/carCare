@@ -12,13 +12,10 @@ import About from '../Pages/About/About'
 import Blog from '../Pages/Blog/Blog'
 import ContactUs from '../Pages/ContactUs/ContactUs'
 import Driver from '../Pages/App/Driver/Driver'
-<<<<<<< HEAD
 import ChangePassword from '../Pages/ChangePassword/ChangePassword'
 import VerifyEmail from '../Pages/VerifyEmail/VerifyEmail'
-=======
 import Booking from '../Pages/App/Driver/Booking/Booking'
 // import LoggedInHome from '../Pages/LoggedInHome/LoggedInHome'
->>>>>>> 88cea4fe8ee8bffc1b6b5207c2cc14d008c0adca
 
 
 const Routes = createHashRouter([
