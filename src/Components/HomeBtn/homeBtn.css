@@ -1,0 +1,15 @@
+.HomeBtn{
+    /* width: 100px; */
+    /* justify-self: flex-start; */
+    align-self: flex-start;
+    padding: 12px;
+    height: 40px;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    background: #0066B2;
+    color: var(--Base-Base-White);
+    font-size: 14px;
+    font-weight: 700;
+}

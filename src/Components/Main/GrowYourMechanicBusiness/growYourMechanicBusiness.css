@@ -1,0 +1,88 @@
+.GrowYourMechanicBusiness {
+    width: 100%;
+    /* height: 700px; */
+    height: 43.75rem;
+    flex-shrink: 0;
+    background: var(--Base-Base-Black, #171717);
+    padding: 31px;
+    padding-right: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.GrowYourMechanicBusinessWrapper {
+    display: flex;
+    gap: 116px;
+
+    & .leftGrowMech {
+        /* width: 632px;  */
+        width: 39.5rem;
+        /* height: 629px;  */
+        height: 39.3125rem;
+        background: white;
+        border-radius: 10px;
+    }
+
+    & .rightGrowMech {
+        display: flex;
+        width: 487px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 46px;
+
+        & .rightGrowMechTop {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 26px;
+            align-self: stretch;
+
+            & h4 {
+                color: var(--Base-Base-White);
+                font-family: Oswald;
+                /* font-size: 40px; */
+                font-size: 2.5rem;
+                font-style: normal;
+                font-weight: 500;
+                line-height: normal;
+            }
+
+            & p {
+                color: var(--Base-Base-White);
+                font-family: Oswald;
+                /* font-size: 24px; */
+                font-size: 1.5rem;
+                font-style: normal;
+                font-weight: 300;
+                line-height: normal;
+            }
+        }
+
+        & .rightGrowMechBtn {
+            padding: 14px 39px 13px 39px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 8px;
+            border: 1px solid #F5F5F5;
+            color: var(--Base-Base-White, #FFF);
+            font-family: Lora;
+            /* font-size: 18px; */
+            font-size: 1.125rem;
+            font-style: normal;
+            font-weight: 700;
+            line-height: normal;
+            outline: none;
+            background: transparent;
+            cursor: pointer;
+            transition: 650ms all ease-out;
+
+            &:hover {
+                color: var(--Base-Base-Black);
+                background: var(--Base-Base-White);
+                transform: scale(1.03);
+            }
+        }
+    }
+}

@@ -1,0 +1,46 @@
+.HeroPage{
+    margin-top: 70px;
+    width: 100%;
+    /* height: 90vh; */
+    /* height: 600px; */
+    height: 37.5rem;
+    background: #5cc04c;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.wrapTheHeroTxt{
+    width: 95%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.heropageWrapper{
+    width: 65%;
+    /* height: 80%; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    color: var(--Base-Base-White);
+    gap: 30px;
+    /* background: #000; */
+}
+
+.heroBigText{
+    font-family: sans-serif;
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 60px;
+    /* width: 100%; */
+}
+
+.heroSmallText{
+    font-family: sans-serif;
+    font-size: 20px;
+    width: 75%;
+    font-weight: 500;
+    line-height: 29px;
+}

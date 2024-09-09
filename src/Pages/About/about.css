@@ -1,0 +1,8 @@
+.about{
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    height: max-content;
+    /* background: #b8b5b5b0; */
+}

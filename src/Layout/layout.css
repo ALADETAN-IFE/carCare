@@ -1,0 +1,15 @@
+.layout{
+    width: 100%;
+    height: max-content;
+    min-height: 100vh;
+    display: flex;
+}
+
+.layoutDown{
+    width: 100%;
+    height: max-content;
+    flex-direction: column;
+    display: flex;
+    gap: 2px;
+    /* min-height: 100vh; */
+}
