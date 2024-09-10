@@ -5,10 +5,12 @@ import { FiHelpCircle } from "react-icons/fi"
 import { useState } from "react"
 
 const LayoutHeader = () => {
-  const height = window.innerHeight
+  // const height = window.innerHeight
   const [width, setwidth] = useState(window.innerWidth)  
+  const [height, setheight] = useState(window.innerHeight)  
   setInterval(() => {
     setwidth(window.innerWidth)
+    setheight(window.innerHeight)
   }, 500);
   return (
     <div className="layoutHeader">
