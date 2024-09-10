@@ -12,8 +12,8 @@ const LayoutHeader = () => {
   }, 500);
   return (
     <div className="layoutHeader">
-       height = {height}
        width = {width}
+       height = {height}
       <div className="layoutHeaderRight">
         <FiHelpCircle size={24}/>
         <IoPersonCircleSharp size={40}/>

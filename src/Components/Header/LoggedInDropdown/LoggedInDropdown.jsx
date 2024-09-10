@@ -5,10 +5,12 @@ import { RiLogoutCircleLine } from 'react-icons/ri'
 import { RiDashboardFill } from "react-icons/ri";
 import { BiQuestionMark } from 'react-icons/bi';
 import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { logOut } from '../../../Global/Redux-actions/carCare';
 
 const LoggedInDropdown = ({ setshowMenu2, showMenu2 }) => {
     const [showMenu3, setshowMenu3] = useState(true)
-    const [dashboardPath, setdashboardPath] = useState("/app")
+    // const [dashboardPath, setdashboardPath] = useState("/app")
     const removeDropDown = () => {
         setshowMenu3(false)
         setTimeout(() => {
@@ -16,32 +18,32 @@ const LoggedInDropdown = ({ setshowMenu2, showMenu2 }) => {
         }, 205);
         // document.getElementsByClassName("loggedInDropdownBox").classList.add("removeDropDown")
     }
-
+    const dispatch = useDispatch()
 
     const loggedInDropdownBoxDown = [
         {
             text: "Dashboard",
             icon: <RiDashboardFill />,
-            to : dashboardPath
+            to: "/app"
         },
         {
 
             text: "FAQs",
             icon: <BiQuestionMark />,
-            to : ""
+            to: ""
         },
         {
 
             text: "Help center",
             icon: <BiQuestionMark />,
-            to : ""
+            to: ""
         },
-        {
+        // {
 
-            text: "Logout",
-            icon: <RiLogoutCircleLine />,
-        
-        }
+        //     text: "Logout",
+        //     icon: <RiLogoutCircleLine />,
+        //     to: dispatch(logOut())
+        // }
 
     ]
     return (
@@ -62,6 +64,9 @@ const LoggedInDropdown = ({ setshowMenu2, showMenu2 }) => {
                                 </Link>
                             ))
                         }
+                        <div className="loggedInDropdownBoxDownBox" onClick={() => dispatch(logOut())}>
+                            <RiLogoutCircleLine /><p>Logout</p>
+                        </div>
                     </div>
                 </div>
             </div>
