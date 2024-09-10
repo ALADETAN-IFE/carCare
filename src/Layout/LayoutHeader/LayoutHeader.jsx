@@ -7,10 +7,13 @@ import { useState } from "react"
 const LayoutHeader = () => {
   const height = window.innerHeight
   const [width, setwidth] = useState(window.innerWidth)  
+  setInterval(() => {
+    setwidth(window.innerWidth)
+  }, 500);
   return (
     <div className="layoutHeader">
-       height = {height}
        width = {width}
+       height = {height}
       <div className="layoutHeaderRight">
         <FiHelpCircle size={24}/>
         <IoPersonCircleSharp size={40}/>

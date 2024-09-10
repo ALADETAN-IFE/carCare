@@ -4,9 +4,12 @@ import { NavLink, useNavigate } from "react-router-dom"
 import { IoNotifications } from "react-icons/io5";
 import { IoMdSettings } from "react-icons/io";
 import { RiLogoutCircleLine } from "react-icons/ri";
+import { logOut } from "../../Global/Redux-actions/carCare";
+import { useDispatch } from "react-redux";
 
 const SideBar = ({pages, setpages}) => {
   const navigate = useNavigate()
+  const dispatch = useDispatch()
   const sideBarNav = [
     {
       text: "Home",
@@ -49,7 +52,7 @@ const SideBar = ({pages, setpages}) => {
         </div>
         
       </div>
-      <div className="sideBarBottom" onClick={()=> localStorage.setItem("isLoggedIn", false)}>
+      <div className="sideBarBottom" onClick={()=> dispatch(logOut())}>
         <RiLogoutCircleLine /> Logout
       </div>
     </div>
