@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import './addBooking.css'
 import { MdCalendarToday } from 'react-icons/md'
+import { useNavigate } from 'react-router-dom'
 import { FaDotCircle, FaRegCircle } from 'react-icons/fa'
 import Select, { components } from 'react-select';
 import { customStyles } from "../../../../../Components/reactSelectStyles"
@@ -62,6 +63,7 @@ const AddBooking = () => {
         { value: 'yaba', label: 'Yaba' }
     ];
 
+    const navigate = useNavigate()
     const [bookingForms, setbookingForms] = useState(0)
     const [dateInput, setdateInput] = useState("")
     // const d = Date
@@ -232,6 +234,7 @@ const AddBooking = () => {
                                             </div>
                                             <button className="pickServicebtn">Select</button>
                                         </div>
+                                        <button className="pickServicebtn" onClick={()=> navigate("/serviceList")}>Select</button>
                                     </div>
                                     <div className="pickServiceLocation">
                                         <h3>Service Location</h3>
