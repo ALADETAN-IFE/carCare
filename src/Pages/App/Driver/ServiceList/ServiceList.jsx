@@ -14,7 +14,7 @@ const ServiceList = () => (
     </div>
 
     <div className="serviceList__main">
-      <div>
+      <div className="serviceCategoryCall">
            <ServiceCategory/>
       </div>
       <div className="serviceSelect">
@@ -97,8 +97,8 @@ const ServiceList = () => (
             </div>
         </div>
         </div>
-
       </div>
+
       <div className="selection__card">
         <div className="selection__card__text">
           <h1>Your Selection</h1>
@@ -108,6 +108,7 @@ const ServiceList = () => (
           <button>Book Now</button>
         </div>
       </div>
+      
     </div>
     
 
