@@ -15,6 +15,7 @@ import Driver from '../Pages/App/Driver/Driver'
 import ChangePassword from '../Pages/ChangePassword/ChangePassword'
 import VerifyEmail from '../Pages/VerifyEmail/VerifyEmail'
 import Booking from '../Pages/App/Driver/Booking/Booking'
+import ServiceList from '../Pages/App/Driver/ServiceList/ServiceList'
 // import LoggedInHome from '../Pages/LoggedInHome/LoggedInHome'
 
 
@@ -62,10 +63,10 @@ const Routes = createHashRouter([
             //     path: "/app/mechanics",
             //     element: 
             // },
-            // {
-            //     path: "/home",
-            //     element: <LoggedInHome/>
-            // },
+            {
+                path: "/services",
+                element: <ServiceList/>
+            },
             {
                 path: "/app/admin",
                 element: <AdminLayout/>,

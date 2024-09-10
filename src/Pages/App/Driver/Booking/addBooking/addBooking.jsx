@@ -7,12 +7,26 @@ import { customStyles } from "../../../../../Components/reactSelectStyles"
 import { AiOutlineClockCircle } from 'react-icons/ai';
 import TimeInput from './TimeInput';
 import Confirm from '../Confirm/Confirm';
+import { useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { setAppbookingForm } from '../../../../../Global/Redux-actions/carCare';
 
 const AddBooking = ({book, setbook}) => {
     // const Car Brand = []
     // const Brand Model = []
     // const Car Yeard = []
     // const  = ["Agege", "Amuwo - Odofin", "Apapa", "Epe", "Eti-Osa", "Ibeju - Lekki",]
+    const navigate = useNavigate()
+    const AppbookingForm = useSelector((state)=> state.carCare.AppbookingForm)
+    const [bookingForms, setbookingForms1] = useState(AppbookingForm)
+    const dispatch = useDispatch()
+    useEffect(() => {
+        setbookingForms1(AppbookingForm)
+    }, [AppbookingForm])
+        
+    const setbookingForms = (pageName) => {
+      dispatch(setAppbookingForm(pageName))
+    }
     const brandOptions = [
         { value: "Acura", label: "Acura" },
         { value: "Ford", label: "Ford" },
@@ -63,7 +77,7 @@ const AddBooking = ({book, setbook}) => {
         { value: 'yaba', label: 'Yaba' }
     ];
 
-    const [bookingForms, setbookingForms] = useState(0)
+    
    
     const [dateInput, setdateInput] = useState("")
     // const d = Date
@@ -225,7 +239,7 @@ const AddBooking = ({book, setbook}) => {
                                             <div className='pickServiceInfo'>
                                                 <p>Select your Service</p>
                                             </div>
-                                            <button className="pickServicebtn">Select</button>
+                                            <button className="pickServicebtn" onClick={()=> navigate("/services")}>Select</button>
                                         </div>
                                     </div>
                                     <div className="pickServiceHolder">

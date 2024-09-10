@@ -1,3 +1,4 @@
+import { useDispatch, useSelector } from "react-redux"
 import AddBooking from "../Pages/App/Driver/Booking/addBooking/addBooking"
 import Booking from "../Pages/App/Driver/Booking/Booking"
 import Confirm from "../Pages/App/Driver/Booking/Confirm/Confirm"
@@ -6,13 +7,23 @@ import "./layout.css"
 // import { Outlet } from 'react-router-dom'
 import LayoutHeader from "./LayoutHeader/LayoutHeader"
 import SideBar from "./SideBar/SideBar"
-import { useState } from "react"
+import { useEffect, useState } from "react"
+import { setAppPages } from "../Global/Redux-actions/carCare"
 
 const DriverLayout = () => {
   // addBooking
-  const [pages, setpages] = useState("app")
+  const AppPages = useSelector((state)=> state.carCare.appPages)
+  const dispatch = useDispatch()
+  useEffect(() => {
+    setpages1(AppPages)
+  }, [AppPages])
+  
+  const [pages, setpages1] = useState(AppPages)
   const [book, setbook] = useState(false)
-  console.log(pages)
+  const setpages = (pageName) => {
+    dispatch(setAppPages(pageName))
+  }
+  // console.log(pages)
   return (
     <div className="layout" 
     style={book ? {overflow: "hidden", height: "100vh"} : {overflow: "auto"}}
@@ -22,12 +33,12 @@ const DriverLayout = () => {
                 <Confirm setbook={setbook} book={book} />
                 : null
             }
-      <SideBar pages={pages}setpages={setpages}/>
+      <SideBar pages={pages} setpages={setpages}/>
       <div className="layoutDown">
       <LayoutHeader />
         {/* <Outlet /> */}
         {
-          pages == "app" ?
+          pages == "app" || pages == "" ?
           <Driver setpages={setpages}/>
           : 
           pages == "booking" ?

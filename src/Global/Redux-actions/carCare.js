@@ -16,7 +16,9 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
     UserData :undefined,
     UserDatas :undefined,
-    isLoggedIn: false
+    isLoggedIn: false,
+    appPages : "app",
+    AppbookingForm: 0
 }
 
 
@@ -42,11 +44,19 @@ export const carCareSlice = createSlice({
             // state.UserData = undefined; 
             state.isLoggedIn = false; 
         },
+        setAppPages: (state, {payload}) => {
+            // state.UserData = undefined; 
+            state.appPages = payload; 
+        },
+        setAppbookingForm: (state, {payload}) => {
+            // state.UserData = undefined; 
+            state.AppbookingForm = payload; 
+        },
 
     }
 });
 
-export const { logIn, logOut, 
+export const { logIn, logOut, setAppPages, setAppbookingForm,
     } = carCareSlice.actions;
 export default carCareSlice.reducer;
 
