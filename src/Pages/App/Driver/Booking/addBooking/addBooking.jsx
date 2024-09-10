@@ -1,7 +1,8 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './addBooking.css'
-import { MdCalendarToday } from 'react-icons/md'
 import { useNavigate } from 'react-router-dom'
+// import { MdCalendarToday } from 'react-icons/md'
+import { FaDotCircle, FaRegCircle } from 'react-icons/fa'
 
 const AddBooking = () => {
     // const Car Brand = []
@@ -11,6 +12,22 @@ const AddBooking = () => {
     const Location = ["Agege", "Amuwo - Odofin", "Apapa", "Epe", "Eti-Osa", "Ibeju - Lekki",]
     const [bookingForms, setbookingForms] = useState(0)
     // console.log(new Date().)
+    const [selectedService, setSelectedService] = useState(null); // Use null initially or any index representing the selected service
+
+    // const [select, setselect] = useState([
+    //     false, false, false
+    // ])
+    // useEffect(() => {
+    //     setselect((p) => select.map((e) => {
+    //         if (e == true) {
+    //             return e
+    //         } else {
+    //             e == false
+    //             return e
+    //         }
+    //     }))
+    // }, [select])
+
     return (
         <div className='addBookingPage'>
             <div className="addBookingPageWrapper">
@@ -62,7 +79,7 @@ const AddBooking = () => {
                                     <div className="doubleInput">
                                         <div className="inputHolder">
                                             <label htmlFor="Date">Date</label>
-                                            <input type="date" id='date'/>
+                                            <input type="date" id='date' />
                                             {/* <label htmlFor="date">
                                                 <MdCalendarToday />
                                             </label> */}
@@ -72,17 +89,59 @@ const AddBooking = () => {
                                             <input type="datetime-local" name="" id="" />
                                         </div>
                                     </div>
-                                    <div className="pickService">
-                                        <div className='pickServiceInfo'>
-                                            <p>Select your Service</p>
+                                    <div className="pickServiceHolder">
+                                        <div className="pickService">
+                                            <div className='pickServiceInfo'>
+                                                <p>Select your Service</p>
+                                            </div>
+                                            <button className="pickServicebtn">Select</button>
                                         </div>
-                                        <button className="pickServicebtn" onClick={()=> navigate("/serviceList")}>Select</button>
                                     </div>
-                                    <div className="pickService">
-                                        <div className='pickServiceInfo'>
-                                            <p>Select a Mechanic</p>
+                                    <div className="pickServiceHolder">
+                                        <div className="pickService">
+                                            <div className='pickServiceInfo'>
+                                                <p>Select a Mechanic</p>
+                                            </div>
+                                            <button className="pickServicebtn">Select</button>
                                         </div>
-                                        <button className="pickServicebtn">Select</button>
+                                    </div>
+                                    <div className="pickServiceLocation">
+                                        <h3>Service Location</h3>
+                                        
+                                        <div className="servicesLocationPicksHolder">
+                                            <div className="servicesLocationPicks">
+                                                {
+                                                    selectedService === 0 ?
+                                                        <FaDotCircle color='#0066B2' size={35}
+                                                            onClick={() => setSelectedService(0)} />
+                                                        :
+                                                        <div className="picksCircle" onClick={() => setSelectedService(0)}></div>
+                                                }
+                                                <p>Home Service</p>
+                                            </div>
+                                            <div className="servicesLocationPicks">
+                                                {
+                                                    selectedService === 1 ?
+                                                        <FaDotCircle color='#0066B2' size={35}
+                                                            onClick={() => setSelectedService(1)} />
+                                                        :
+                                                        <div className="picksCircle" onClick={() => setSelectedService(1)}></div>
+                                                }
+                                                <p>Pickup & Delivery</p>
+                                            </div>
+                                            <div className="servicesLocationPicks">
+                                                {
+                                                    selectedService === 2 ?
+                                                        <FaDotCircle color='#0066B2' size={35}
+                                                            onClick={() => setSelectedService(2)} />
+                                                        :
+                                                        <div className="picksCircle" onClick={() => setSelectedService(2)}></div>
+                                                }
+                                                <p>Visit Autoshop</p>
+                                            </div>
+                                        </div>
+
+
                                     </div>
                                 </div>
                             </>
