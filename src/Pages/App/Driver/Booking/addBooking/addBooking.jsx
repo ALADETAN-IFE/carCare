@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import './addBooking.css'
+import { MdCalendarToday } from 'react-icons/md'
 import { useNavigate } from 'react-router-dom'
-// import { MdCalendarToday } from 'react-icons/md'
 import { FaDotCircle, FaRegCircle } from 'react-icons/fa'
 
 const AddBooking = () => {
@@ -104,6 +104,7 @@ const AddBooking = () => {
                                             </div>
                                             <button className="pickServicebtn">Select</button>
                                         </div>
+                                        <button className="pickServicebtn" onClick={()=> navigate("/serviceList")}>Select</button>
                                     </div>
                                     <div className="pickServiceLocation">
                                         <h3>Service Location</h3>

@@ -7,6 +7,9 @@ import { useState } from "react"
 const LayoutHeader = () => {
   const height = window.innerHeight
   const [width, setwidth] = useState(window.innerWidth)  
+  setInterval(() => {
+    setwidth(window.innerWidth)
+  }, 500);
   return (
     <div className="layoutHeader">
        height = {height}
