@@ -1,7 +1,7 @@
 .GrowYourMechanicBusiness {
     width: 100%;
     /* height: 700px; */
-    height: 43.75rem;
+    /* height: 43.75rem; */
     flex-shrink: 0;
     background: var(--Base-Base-Black, #171717);
     padding: 31px;
@@ -12,16 +12,21 @@
 }
 
 .GrowYourMechanicBusinessWrapper {
-    display: flex;
-    gap: 116px;
+    /* display: flex; */
+    /* gap: 116px; */
 
     & .leftGrowMech {
         /* width: 632px;  */
         width: 39.5rem;
+        /* width: 50%; */
         /* height: 629px;  */
         height: 39.3125rem;
         background: white;
         border-radius: 10px;
+        background: url("../../../assets/images/growYourbusiness.png");
+        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat;
     }
 
     & .rightGrowMech {
@@ -84,5 +89,23 @@
                 transform: scale(1.03);
             }
         }
+    }
+}
+
+@media screen and (max-width: 63.75rem) {
+    .GrowYourMechanicBusiness{
+        padding-bottom: 15px;
+    }
+
+    .GrowYourMechanicBusinessWrapper{
+        flex-direction: column;
+        gap: 0px;
+
+        & .leftGrowMech, .rightGrowMech{
+            width: 100%;
+        }
+        /* & .rightJoin{
+            width: 100%;
+        } */
     }
 }

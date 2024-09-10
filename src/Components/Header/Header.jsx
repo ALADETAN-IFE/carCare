@@ -6,14 +6,17 @@ import Dropdown from "./Dropdown"
 import { FiHelpCircle } from "react-icons/fi"
 import { IoPersonCircleSharp } from "react-icons/io5"
 import LoggedInDropdown from "./LoggedInDropdown/LoggedInDropdown"
+import { useSelector } from "react-redux"
 
 const Header = () => {
-  const isLoggedIn1 = localStorage.getItem("isLoggedIn")
-  const [isLoggedIn, setisLoggedIn] = useState(isLoggedIn1)
-  console.log(isLoggedIn1)
-  useEffect(() => {
-    setisLoggedIn(isLoggedIn1)
-  }, [isLoggedIn1])
+  // const isLoggedIn1 = localStorage.getItem("isLoggedIn")
+  // const [isLoggedIn, setisLoggedIn] = useState(isLoggedIn1)
+  // console.log(isLoggedIn1)
+  // useEffect(() => {
+  //   setisLoggedIn(isLoggedIn1)
+  // }, [isLoggedIn1])
+
+  const isLoggedIn = useSelector((state)=> state.carCare.isLoggedIn)
   
   const height = window.innerHeight
   const [width, setwidth] = useState(window.innerWidth)  

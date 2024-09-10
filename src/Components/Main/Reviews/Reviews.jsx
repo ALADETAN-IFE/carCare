@@ -1,5 +1,6 @@
 import { RxAvatar } from 'react-icons/rx'
 import './reviews.css'
+import geoge from "../../../assets/images/geoge.png"
 
 const Reviews = () => {
   return (
@@ -22,7 +23,8 @@ const Reviews = () => {
 
             </div>
             <div className="userReviewImg">
-              <RxAvatar size={400} />
+              {/* <RxAvatar size={400} /> */}
+              <img src={geoge} alt="" />
             </div>
             <div className="userReviewDetails"></div>
             <div className="userReviewCard">
