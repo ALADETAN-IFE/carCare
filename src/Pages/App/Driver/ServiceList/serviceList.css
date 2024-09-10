@@ -3,6 +3,7 @@
     flex-direction: column;
     width: 100%;
     height: 100%;
+    
 }
 .heropicture{
     width: 1440px;
@@ -13,6 +14,10 @@
 }
 .serviceList__main{
     display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    padding-top: 60px;
 }
 .serviceSelect{
     display: flex;

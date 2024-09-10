@@ -8,3 +8,26 @@
     border-right: 1px solid var(--Primary-Primary500, #9F9F9F);
     background: var(--Base-Base-White, green);
 }
+.categoryHeader{
+    display: flex;
+    width: 353.033px;
+    flex-direction: column;
+    align-items: center;
+    gap: 19px;
+}
+
+.categoryOption{
+    display: flex;
+    width: 368px;
+    height: 68px;
+    padding: 10px 20px 10px 40px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+   color: Base/Base Black;
+
+}
+.categoryOptionActive {
+    background: var(--Secondary-Secondary100, #D6EDFF);
+    color: var(Base/Base, Black);}
