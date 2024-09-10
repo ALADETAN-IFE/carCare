@@ -56,6 +56,7 @@ header {
     /* background: #bc7b7b; */
     /* border: 2px solid #0066B2; */
     border-radius: 8px;
+    color: var(--Base-Base-Black);
 }
 
 .headerActive {
@@ -65,7 +66,7 @@ header {
 }
 
 .headerNotActive {
-    color: var(--Base-Base-Black);
+    /* color: var(--Base-Base-Black); */
     /* color: var(--Base-Base-White); */
     transition: all 350ms;
 

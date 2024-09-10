@@ -1,9 +1,4 @@
-import Footer from "../../../../Components/Footer/Footer"
-import LayoutHeader from "../../../../Layout/LayoutHeader/LayoutHeader"
 import "./serviceList.css"
-import serviceListimg from '../../../../assets/images/serviceListimg.png'
-import ServiceCategory from "./ServiceCategory/ServiceCategory"
-
 const ServiceList = () => (
   <div className="ServiceList__container">
     <div>
