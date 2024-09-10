@@ -3,14 +3,17 @@ import { Link, useNavigate } from 'react-router-dom';
 import { IoEye, IoEyeOff } from 'react-icons/io5';
 import { useState } from 'react';
 import AuthHeader from '../AuthHeader/AuthHeader';
+import { useDispatch } from 'react-redux';
+import { logIn } from '../../Global/Redux-actions/carCare';
 
 const Login = () => {
   const [seePassword, setSeePassword] = useState(true)
   const navigate = useNavigate()
+  const dispatch = useDispatch()
   const handleLogin = (e) => {
     e.preventDefault()
     navigate("/")
-    localStorage.setItem("isLoggedIn", true)
+    dispatch(logIn())
   }
   return (
    <div className='Login__container'>

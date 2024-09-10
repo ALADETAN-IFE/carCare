@@ -18,8 +18,18 @@
         font-style: normal;
         font-weight: 700;
         line-height: normal;
+        /* font-size: 2.5vw; */
     }
+
 }
+
+/* @media (max-width: 868px) {
+    .driverPageTop {
+        & h3 {
+            font-size: 6vw;
+        }
+    }
+} */
 
 .driverPageMiddle {
     width: 100%;
@@ -27,16 +37,23 @@
     height: 9.1875rem;
     flex-shrink: 0;
     background: #FAFDFF;
-    padding-left: 82px;
-    padding-right: 70.5px;
+    /* padding-left: 82px; */
+    /* padding-right: 70.5px; */
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    justify-content: center;
+
+    & .driverPageMiddleWrapper {
+        width: 90%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+    }
 
     & .driverPageMiddleLeft {
         display: flex;
         /* width: 562px; */
-        width: 35.125rem;
+        /* width: 35.125rem; */
         flex-direction: column;
         align-items: flex-start;
         /* background: #000; */
