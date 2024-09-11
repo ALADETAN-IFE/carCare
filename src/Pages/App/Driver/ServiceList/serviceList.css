@@ -3,6 +3,7 @@
     flex-direction: column;
     width: 100%;
     height: 100%;
+    padding: 10px;
 }
 .heropicture{
     width: 1440px;
@@ -13,7 +14,12 @@
 }
 .serviceList__main{
     display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 30px;
+    /* padding-top: 60px; */
 }
+
 .serviceSelect{
     display: flex;
     width: 633px;
@@ -92,6 +98,7 @@
     border-radius: 10px;
     background: var(--Base-Base-White, #FFF);
     padding: 30px;
+    
 
     /* Card shadows */
     box-shadow: 0px 46px 13px 0px rgba(182, 184, 185, 0.00), 0px 29px 12px 0px rgba(182, 184, 185, 0.01), 0px 17px 10px 0px rgba(182, 184, 185, 0.05), 0px 7px 7px 0px rgba(182, 184, 185, 0.09), 0px 2px 4px 0px rgba(182, 184, 185, 0.10);

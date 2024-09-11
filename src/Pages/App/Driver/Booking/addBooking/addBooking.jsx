@@ -1,18 +1,32 @@
 import { useEffect, useState } from 'react'
 import './addBooking.css'
 import { MdCalendarToday } from 'react-icons/md'
-import { useNavigate } from 'react-router-dom'
 import { FaDotCircle, FaRegCircle } from 'react-icons/fa'
 import Select, { components } from 'react-select';
 import { customStyles } from "../../../../../Components/reactSelectStyles"
 import { AiOutlineClockCircle } from 'react-icons/ai';
 import TimeInput from './TimeInput';
+import Confirm from '../Confirm/Confirm';
+import { useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { setAppbookingForm } from '../../../../../Global/Redux-actions/carCare';
 
-const AddBooking = () => {
+const AddBooking = ({book, setbook}) => {
     // const Car Brand = []
     // const Brand Model = []
     // const Car Yeard = []
     // const  = ["Agege", "Amuwo - Odofin", "Apapa", "Epe", "Eti-Osa", "Ibeju - Lekki",]
+    const navigate = useNavigate()
+    const AppbookingForm = useSelector((state)=> state.carCare.AppbookingForm)
+    const [bookingForms, setbookingForms1] = useState(AppbookingForm)
+    const dispatch = useDispatch()
+    useEffect(() => {
+        setbookingForms1(AppbookingForm)
+    }, [AppbookingForm])
+        
+    const setbookingForms = (pageName) => {
+      dispatch(setAppbookingForm(pageName))
+    }
     const brandOptions = [
         { value: "Acura", label: "Acura" },
         { value: "Ford", label: "Ford" },
@@ -63,8 +77,8 @@ const AddBooking = () => {
         { value: 'yaba', label: 'Yaba' }
     ];
 
-    const navigate = useNavigate()
-    const [bookingForms, setbookingForms] = useState(0)
+    
+   
     const [dateInput, setdateInput] = useState("")
     // const d = Date
     // console.log()
@@ -122,6 +136,7 @@ const AddBooking = () => {
 
     return (
         <div className='addBookingPage'>
+          
             <div className="addBookingPageWrapper">
                 <div className="addBookingHeader">
                     <h3>Create A New BOOKING</h3>
@@ -224,7 +239,7 @@ const AddBooking = () => {
                                             <div className='pickServiceInfo'>
                                                 <p>Select your Service</p>
                                             </div>
-                                            <button className="pickServicebtn">Select</button>
+                                            <button className="pickServicebtn" onClick={()=> navigate("/services")}>Select</button>
                                         </div>
                                     </div>
                                     <div className="pickServiceHolder">
@@ -234,7 +249,6 @@ const AddBooking = () => {
                                             </div>
                                             <button className="pickServicebtn">Select</button>
                                         </div>
-                                        <button className="pickServicebtn" onClick={()=> navigate("/serviceList")}>Select</button>
                                     </div>
                                     <div className="pickServiceLocation">
                                         <h3>Service Location</h3>
@@ -254,6 +268,7 @@ const AddBooking = () => {
                                                 {
                                                     selectedService === 1 ?
                                                         <FaDotCircle color='#0066B2' size={35}
+                                                        style={{width: "35px", height: "35px"}}
                                                             onClick={() => setSelectedService(1)} />
                                                         :
                                                         <div className="picksCircle" onClick={() => setSelectedService(1)}></div>
@@ -281,7 +296,7 @@ const AddBooking = () => {
                                 </div>
                                 <div className="preAndNextBtn">
                                     <button className='addBooking_btn' onClick={() => setbookingForms(0)}>Previous</button>
-                                    <button className='addBooking_btn' onClick={() => setbookingForms(2)}>Book Now</button>
+                                    <button className='addBooking_btn' onClick={() => setbook(true)}>Book Now</button>
                                 </div>
                             </>
                     }
