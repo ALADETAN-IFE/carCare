@@ -110,14 +110,13 @@
         font-size: 1.25rem;
         font-style: normal;
         font-weight: 500;
-        position: relative;
-        
-        
+        position: relative;        
     }
     
     & input::-webkit-calendar-picker-indicator {
         position: absolute;
         right: 20px;
+        /* left: 100%; */
         cursor: pointer;
     }
 
@@ -318,6 +317,7 @@
         /* align-self: stretch; */
         width: 100%;
         color: var(--Primary-Primary500, #9F9F9F);
+        color: var(--Base-Base-Black);
         font-family: Lora;
         font-size: 20px;
         font-style: normal;
@@ -325,6 +325,7 @@
         line-height: 130%;
         border-radius: 8px;
         border: 1px solid #000;
+        resize: none;
         /* 26px */
     }
 }

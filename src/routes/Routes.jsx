@@ -11,7 +11,6 @@ import ForgotPassword from '../Pages/ForgotPassword/ForgotPassword'
 import About from '../Pages/About/About'
 import Blog from '../Pages/Blog/Blog'
 import ContactUs from '../Pages/ContactUs/ContactUs'
-import ServiceList from '../Pages/App/Driver/ServiceList/ServiceList'
 import Driver from '../Pages/App/Driver/Driver'
 import ChangePassword from '../Pages/ChangePassword/ChangePassword'
 import VerifyEmail from '../Pages/VerifyEmail/VerifyEmail'
@@ -55,10 +54,6 @@ const Routes = createHashRouter([
     {
         path: '/verifyEmail',
         element: <VerifyEmail/>,
-    },
-    {
-        path: '/serviceList',
-        element: <ServiceList/>,
     },
     {
         element: <Auth/>,

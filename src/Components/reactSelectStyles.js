@@ -28,7 +28,7 @@ export const customStyles = {
         hover: {
             border: "1px solid #000",
         },
-        // cursor: "pointer",
+        cursor: "pointer",
     }),
     option: (provided, state) => ({
         ...provided,

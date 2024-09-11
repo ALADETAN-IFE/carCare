@@ -1,6 +1,5 @@
-import Footer from "../../../../Components/Footer/Footer"
-import LayoutHeader from "../../../../Layout/LayoutHeader/LayoutHeader"
 import "./serviceList.css"
+const ServiceList = () => (
 import serviceListimg from '../../../../assets/images/serviceListimg.png'
 import ServiceCategory from "./ServiceCategory/ServiceCategory"
 import { useState } from "react"
