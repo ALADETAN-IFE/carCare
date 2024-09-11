@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import './confirm.css'
 
 const Confirm = ({ setbook }) => {
@@ -29,14 +30,37 @@ const Confirm = ({ setbook }) => {
                   <span className='span2'>On-site Service at [No. 45, Ojulegba road, Ojuelegba, Lagos]</span>
                 </div>
               </div>
-              <div className="confirmBookingMiddleTopMech">aa</div>
-              <div className="confirmBookingMiddleTopCost">aa</div>
+              <div className="confirmBookingMiddleTopMech">
+                <div className="confirmBookingMiddleTopMechLeft"></div>
+                <div className="confirmBookingMiddleTopMechRight">
+                  <h3>Williams Olagoke</h3>
+                  <h4>Rating: ★★★★☆ (4.5/5)</h4>
+                  <p>Years of Experience: <span>10 Years</span></p>
+                  <Link>Change</Link>
+                </div>
+              </div>
+              <div className="confirmBookingMiddleTopCost">
+                <div>
+                  <h3>Service Cost:</h3>
+                  <p>₦ <span>70,000</span></p>
+                </div>
+                <div>
+                  <h3>Parts Replacement:</h3>
+                  <p>₦ <span>8,000</span></p>
+                </div>
+                <div>
+                  <h3>Labor  Cost</h3>
+                  <p>₦ <span>15,000</span></p>
+                </div>
+              </div>
             </div>
           </div>
-            <div className="confirmBookingMiddleBottom">
+          <div className="confirmBookingMiddleBottom">
+            <div className="confirmBookingMiddleBottomWrapper">
               <h3>Total</h3>
               <p>₦<span> 93,000</span></p>
             </div>
+          </div>
         </div>
         <div className="confirmBookingBottom">
           <div className="confirmBookingBottomWrapper">
