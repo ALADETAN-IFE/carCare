@@ -4,6 +4,7 @@ import LayoutHeader from "../../../../Layout/LayoutHeader/LayoutHeader"
 import ServiceCategory from "./ServiceCategory/ServiceCategory"
 // import serviceListimg from '../../../../assets/images/serviceListimg.png'
 import "./serviceList.css"
+import serviceListimg from "../../../../assets/images/serviceListimg.png"
 const ServiceList = () => {
   const navigate = useNavigate()
   return (
@@ -12,7 +13,7 @@ const ServiceList = () => {
       <LayoutHeader />
     </div>
     <div className="heropicture">
-      {/* <img src={serviceListimg} alt="" /> */}
+      <img src={serviceListimg} alt="" />
     </div>
 
     <div className="serviceList__main">
@@ -21,7 +22,7 @@ const ServiceList = () => {
       </div>
       <div className="serviceSelect">
         <div className="selectBox">
-          <input type="checkbox" name="" id="" />
+          <input type="checkbox" name="" id="" onClick={handleCheckboxClick}/>
           <div className="categoryDetails">
             <div className="categoryDetails__text">
               <h1>Tire Replacement (One)</h1>
@@ -105,6 +106,11 @@ const ServiceList = () => {
         <div className="selection__card__text">
           <h1>Your Selection</h1>
           <p>Service Selected (0)</p>
+          <div className="theSeviceContainer">
+            <div className="theService">
+              
+            </div>
+          </div>
         </div>
         <div className="service__btn">
           <button onClick={() => navigate("/app")}>Book Now</button>
@@ -119,7 +125,8 @@ const ServiceList = () => {
     </div>
 
 
-  </div>);
+  </div>
+)
 }
 
 export default ServiceList
