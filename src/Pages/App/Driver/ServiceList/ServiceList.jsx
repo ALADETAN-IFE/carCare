@@ -1,5 +1,4 @@
 import "./serviceList.css"
-const ServiceList = () => (
 import serviceListimg from '../../../../assets/images/serviceListimg.png'
 import ServiceCategory from "./ServiceCategory/ServiceCategory"
 import { useState } from "react"
