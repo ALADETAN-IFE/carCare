@@ -43,6 +43,8 @@ export const carCareSlice = createSlice({
         logOut: (state) => {
             // state.UserData = undefined; 
             state.isLoggedIn = false; 
+            state.appPages = "app"; 
+            state.AppbookingForm = 0; 
         },
         setAppPages: (state, {payload}) => {
             // state.UserData = undefined; 
