@@ -268,6 +268,7 @@ const AddBooking = ({book, setbook}) => {
                                                 {
                                                     selectedService === 1 ?
                                                         <FaDotCircle color='#0066B2' size={35}
+                                                        style={{width: "35px", height: "35px"}}
                                                             onClick={() => setSelectedService(1)} />
                                                         :
                                                         <div className="picksCircle" onClick={() => setSelectedService(1)}></div>
