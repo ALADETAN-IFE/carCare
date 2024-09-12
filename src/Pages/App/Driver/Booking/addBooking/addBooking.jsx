@@ -260,7 +260,7 @@ const AddBooking = ({book, setbook}) => {
                                             <div className='pickServiceInfo'>
                                                 <p>Select a Mechanic</p>
                                             </div>
-                                            <button className="pickServicebtn">Select</button>
+                                            <button className="pickServicebtn" onClick={()=> navigate("/mechanics")}>Select</button>
                                         </div>
                                     </div>
                                     <div className="pickServiceLocation">
