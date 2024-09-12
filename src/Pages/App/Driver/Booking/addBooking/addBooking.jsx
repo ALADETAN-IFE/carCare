@@ -9,23 +9,20 @@ import TimeInput from './TimeInput';
 import Confirm from '../Confirm/Confirm';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { setAppbookingForm } from '../../../../../Global/Redux-actions/carCare';
+import { setAppbookingFormPage } from '../../../../../Global/Redux-actions/carCare';
 
 const AddBooking = ({book, setbook}) => {
-    // const Car Brand = []
-    // const Brand Model = []
-    // const Car Yeard = []
-    // const  = ["Agege", "Amuwo - Odofin", "Apapa", "Epe", "Eti-Osa", "Ibeju - Lekki",]
     const navigate = useNavigate()
-    const AppbookingForm = useSelector((state)=> state.carCare.AppbookingForm)
-    const [bookingForms, setbookingForms1] = useState(AppbookingForm)
+    const AppbookingFormPage = useSelector((state)=> state.carCare.AppbookingFormPage)
+    const [bookingFormsPage, setbookingFormsPage1] = useState(AppbookingFormPage)
+    const [bookingInputsArray, setbookingInputsArray] = useState([])
     const dispatch = useDispatch()
     useEffect(() => {
-        setbookingForms1(AppbookingForm)
-    }, [AppbookingForm])
+        setbookingFormsPage1(AppbookingFormPage) 
+    }, [AppbookingFormPage])
         
-    const setbookingForms = (pageName) => {
-      dispatch(setAppbookingForm(pageName))
+    const setbookingFormsPage = (pageName) => {
+      dispatch(setAppbookingFormPage(pageName))
     }
     const brandOptions = [
         { value: "Acura", label: "Acura" },
@@ -44,45 +41,47 @@ const AddBooking = ({book, setbook}) => {
         { value: "Suzuki", label: "Suzuki" }
     ]
     const modelOptions = [
-        { value: 'avalon', label: 'Avalon' },
-        { value: 'camry', label: 'Camry' },
-        { value: 'corolla', label: 'Corolla' },
-        { value: 'highlander', label: 'Highlander' },
-        { value: 'land_cruiser', label: 'Land Cruiser' },
-        { value: 'pickup', label: 'Pickup' },
-        { value: 'prius', label: 'Prius' },
-        { value: 'rav4', label: 'RAV 4' },
-        { value: 'sienna', label: 'Sienna' },
-        { value: 'solara', label: 'Solara' },
-        { value: 'tacoma', label: 'Tacoma' },
-        { value: 'venza', label: 'Venza' },
-        { value: 'yaris', label: 'Yaris' }
-    ]
-    const locationOptions = [
-        { value: 'agege', label: 'Agege' },
-        { value: 'amuwo_odofin', label: 'Amuwo-Odofin' },
-        { value: 'apapa', label: 'Apapa' },
-        { value: 'epe', label: 'Epe' },
-        { value: 'eti_osa', label: 'Eti-Osa' },
-        { value: 'ibeju_lekki', label: 'Ibeju-Lekki' },
-        { value: 'ikeja', label: 'Ikeja' },
-        { value: 'ikorodu', label: 'Ikorodu' },
-        { value: 'lagos_island', label: 'Lagos Island' },
-        { value: 'lagos_mainland', label: 'Lagos Mainland' },
-        { value: 'mushin', label: 'Mushin' },
-        { value: 'ojo', label: 'Ojo' },
-        { value: 'oshodi_isolo', label: 'Oshodi-Isolo' },
-        { value: 'shomolu', label: 'Shomolu' },
-        { value: 'surulere', label: 'Surulere' },
-        { value: 'yaba', label: 'Yaba' }
+        { value: 'Avalon', label: 'Avalon' },
+        { value: 'Camry', label: 'Camry' },
+        { value: 'Corolla', label: 'Corolla' },
+        { value: 'Highlander', label: 'Highlander' },
+        { value: 'Land Cruiser', label: 'Land Cruiser' },
+        { value: 'Pickup', label: 'Pickup' },
+        { value: 'Prius', label: 'Prius' },
+        { value: 'RAV 4', label: 'RAV 4' },
+        { value: 'Sienna', label: 'Sienna' },
+        { value: 'Solara', label: 'Solara' },
+        { value: 'Tacoma', label: 'Tacoma' },
+        { value: 'Venza', label: 'Venza' },
+        { value: 'Yaris', label: 'Yaris' }
     ];
+    
+    const locationOptions = [
+        { value: 'Agege', label: 'Agege' },
+        { value: 'Amuwo-Odofin', label: 'Amuwo-Odofin' },
+        { value: 'Apapa', label: 'Apapa' },
+        { value: 'Epe', label: 'Epe' },
+        { value: 'Eti-Osa', label: 'Eti-Osa' },
+        { value: 'Ibeju-Lekki', label: 'Ibeju-Lekki' },
+        { value: 'Ikeja', label: 'Ikeja' },
+        { value: 'Ikorodu', label: 'Ikorodu' },
+        { value: 'Lagos Island', label: 'Lagos Island' },
+        { value: 'Lagos Mainland', label: 'Lagos Mainland' },
+        { value: 'Mushin', label: 'Mushin' },
+        { value: 'Ojo', label: 'Ojo' },
+        { value: 'Oshodi-Isolo', label: 'Oshodi-Isolo' },
+        { value: 'Shomolu', label: 'Shomolu' },
+        { value: 'Surulere', label: 'Surulere' },
+        { value: 'Yaba', label: 'Yaba' }
+    ];
+    
+
+    console.log(bookingInputsArray)
+
 
     
    
     const [dateInput, setdateInput] = useState("")
-    // const d = Date
-    // console.log()
-    // Date.now()
     const [time, settime] = useState()
     const [showTimeInput, setshowTimeInput] = useState(false)
     const generateYearOptions = (startYear, endYear) => {
@@ -110,28 +109,30 @@ const AddBooking = ({book, setbook}) => {
     // }, [select])
 
     // line-height: 130%; /* 1.625rem */
+    
     const handleDateInput = (e) => {
         setdateInput(e.target.value)
         console.log(e.target.value)
-        console.log(e)
+        // console.log(e)
+     setbookingInputsArray({...bookingInputsArray, date: e.target.value} )
     }
 
-    const customDateDropdownIndicator = (props) => {
-        return (
-            <components.DropdownIndicator {...props}>
-                {/* Custom Icon */}
-                <MdCalendarToday />
-            </components.DropdownIndicator>
-        );
-    };
-    const customTimeDropdownIndicator = (props) => {
-        return (
-            <components.DropdownIndicator {...props}>
-                {/* Custom Icon */}
-                <AiOutlineClockCircle size={20} />
-            </components.DropdownIndicator>
-        );
-    };
+    // const customDateDropdownIndicator = (props) => {
+    //     return (
+    //         <components.DropdownIndicator {...props}>
+    //             {/* Custom Icon */}
+    //             <MdCalendarToday />
+    //         </components.DropdownIndicator>
+    //     );
+    // };
+    // const customTimeDropdownIndicator = (props) => {
+    //     return (
+    //         <components.DropdownIndicator {...props}>
+    //             {/* Custom Icon */}
+    //             <AiOutlineClockCircle size={20} />
+    //         </components.DropdownIndicator>
+    //     );
+    // };
 
 
     return (
@@ -143,7 +144,7 @@ const AddBooking = ({book, setbook}) => {
                 </div>
                 <div className="addBookingFormWrapper">
                     {
-                        bookingForms == 0 ?
+                        bookingFormsPage == 0 ?
                             <>
                                 <div className="inputs">
                                     <div className="doubleInput">
@@ -151,13 +152,17 @@ const AddBooking = ({book, setbook}) => {
                                             <label htmlFor="Car Brand">Car Brand</label>
                                             <Select options={brandOptions}
                                                 placeholder=""
-                                                styles={customStyles} />
+                                                styles={customStyles}
+                                                 onChange={(e)=> setbookingInputsArray({...bookingInputsArray, carBrand: e.value} )}
+                                                  />
                                         </div>
                                         <div className="inputHolder">
                                             <label htmlFor="Brand Model">Brand Model</label>
                                             <Select options={modelOptions}
                                                 placeholder=""
-                                                styles={customStyles} />
+                                                styles={customStyles} 
+                                                onChange={(e)=> setbookingInputsArray({...bookingInputsArray, carModel: e.value} )}
+                                                />
                                         </div>
                                     </div>
                                     <div className="inputHolder">
@@ -165,25 +170,30 @@ const AddBooking = ({book, setbook}) => {
                                         {/* <input type="month" maxDetail="decade" /> */}
                                         <Select options={yearOptions}
                                             placeholder=""
-                                            styles={customStyles} />
+                                            styles={customStyles}
+                                            onChange={(e)=> setbookingInputsArray({...bookingInputsArray, carYear: e.value} )}
+                                            />
                                     </div>
                                     <div className="inputHolder">
                                         <label htmlFor="State">State</label>
                                         <input type="text" value="Lagos" contentEditable="false" 
                                         style={{cursor: "not-allowed", background: 'white'}} 
                                         disabled 
+                                        onChange={(e)=> setbookingInputsArray({...bookingInputsArray, carState: e.value} )}
                                         />
                                     </div>
                                     <div className="inputHolder">
                                         <label htmlFor="City">City</label>
                                         <Select options={locationOptions}
                                             placeholder=""
-                                            styles={customStyles} />
+                                            styles={customStyles}
+                                            onChange={(e)=> setbookingInputsArray({...bookingInputsArray, carLocation: e.value} )}
+                                            />
                                     </div>
                                 </div>
-                                <button className='addBooking_btn' onClick={() => setbookingForms(1)}>Next</button>
+                                <button className='addBooking_btn' onClick={() => setbookingFormsPage(1)}>Next</button>
                             </>
-                            :
+                            : bookingFormsPage == 1 ?
                             <>
                                 <div className="inputs inputs2">
                                     <div className="doubleInput">
@@ -221,10 +231,13 @@ const AddBooking = ({book, setbook}) => {
                                                 }
                                             </label>
                                             <div className="timeHolderInput" onClick={() => setshowTimeInput(!showTimeInput)}>
-                                                <input type="text" name="" id="" value={time} />
+                                                <input type="text" name="" id="" value={time}
+                                                 onChange={(e)=> setbookingInputsArray({...bookingInputsArray, time: e.target.value} )}
+                                                />
                                                 <AiOutlineClockCircle size={20}
                                                     style={{ position: "absolute", right: "20px", top: "20px", cursor: "pointer" }}
-                                                />
+                                               
+                                               />
                                                 {/* {} */}
                                             </div>
 
@@ -258,7 +271,8 @@ const AddBooking = ({book, setbook}) => {
                                                 {
                                                     selectedService === 0 ?
                                                         <FaDotCircle color='#0066B2' size={35}
-                                                            onClick={() => setSelectedService(0)} />
+                                                            onClick={() => {setSelectedService(0), setbookingInputsArray({...bookingInputsArray, serviceLocation: "Home Service"}) }} 
+                                                            />
                                                         :
                                                         <div className="picksCircle" onClick={() => setSelectedService(0)}></div>
                                                 }
@@ -269,7 +283,7 @@ const AddBooking = ({book, setbook}) => {
                                                     selectedService === 1 ?
                                                         <FaDotCircle color='#0066B2' size={35}
                                                         style={{width: "35px", height: "35px"}}
-                                                            onClick={() => setSelectedService(1)} />
+                                                            onClick={() => {setSelectedService(1), setbookingInputsArray({...bookingInputsArray, serviceLocation: "Pickup & Delivery"}) }} />
                                                         :
                                                         <div className="picksCircle" onClick={() => setSelectedService(1)}></div>
                                                 }
@@ -279,7 +293,7 @@ const AddBooking = ({book, setbook}) => {
                                                 {
                                                     selectedService === 2 ?
                                                         <FaDotCircle color='#0066B2' size={35}
-                                                            onClick={() => setSelectedService(2)} />
+                                                            onClick={() => {setSelectedService(2), setbookingInputsArray({...bookingInputsArray, serviceLocation: "Visit Autoshop"})}} />
                                                         :
                                                         <div className="picksCircle" onClick={() => setSelectedService(2)}></div>
                                                 }
@@ -291,14 +305,17 @@ const AddBooking = ({book, setbook}) => {
                                     </div>
                                     <div className="additionalInfoInput">
                                         <h3>Add special/additional instructions</h3>
-                                        <textarea placeholder='Add any special requests or concerns here…' ></textarea>
+                                        <textarea placeholder='Add any special requests or concerns here…' 
+                                         onChange={(e)=> setbookingInputsArray({...bookingInputsArray, additionalInfo: e.target.value} )}
+                                        ></textarea>
                                     </div>
                                 </div>
                                 <div className="preAndNextBtn">
-                                    <button className='addBooking_btn' onClick={() => setbookingForms(0)}>Previous</button>
+                                    <button className='addBooking_btn' onClick={() => setbookingFormsPage(0)}>Previous</button>
                                     <button className='addBooking_btn' onClick={() => setbook(true)}>Book Now</button>
                                 </div>
                             </>
+                            : null
                     }
                 </div>
             </div>

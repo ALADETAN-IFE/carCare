@@ -19,7 +19,7 @@ const LayoutHeader = ({ LayoutHeaderStyle }) => {
   function getInitials(fullName) {
     // Split the full name into an array of words (assuming names are separated by spaces)
     let nameParts = fullName.trim().split(" ");
-    console.log(nameParts)
+    // console.log(nameParts)
 
     if (nameParts.length < 2) {
       // Handle cases where there is only one name

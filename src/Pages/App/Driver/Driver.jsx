@@ -3,10 +3,17 @@ import dasboardBlueIcon from "../../../assets/svg/dasboardBlueIcon.svg"
 import { useState } from 'react'
 import { BiPlus } from 'react-icons/bi'
 import { useNavigate } from 'react-router-dom'
+import { setAppbookingFormPage } from '../../../Global/Redux-actions/carCare'
+import { useDispatch } from 'react-redux'
 
 const Driver = ({ setpages }) => {
   const [bookingHistory, setbookingHistory] = useState(0)
   const navigate = useNavigate()
+  const dispatch = useDispatch()
+  const startBooking = () => {
+    dispatch(setAppbookingFormPage(0))
+    setpages("addbooking")
+  }
   return (
     <div className='driverPage'>
       <div className="driverPageTop">
@@ -33,7 +40,7 @@ const Driver = ({ setpages }) => {
               <h3>No Service Request</h3>
               <p>You haven’t requested any service yet. Your active request will show up here</p>
             </div>
-            <button className='booking_btn' onClick={() => setpages("addbooking")}>+ New Booking</button>
+            <button className='booking_btn' onClick={startBooking}>+ New Booking</button>
           </div>
         </div>
       </div>
