@@ -17,10 +17,11 @@ const Login = () => {
   }
   return (
    <div className='Login__container'>
-        <div>
+          <header className='authHeader'>
           <AuthHeader/>
-        </div>
-
+          </header>
+         
+       <main className="login__details__container">
        <div className='Login__details'>
        <div className='login__details__text'>
        <h1>WELCOME BACK</h1>
@@ -50,6 +51,7 @@ const Login = () => {
 
        </div>
 
+       </main>
    </div>
   )
 }
