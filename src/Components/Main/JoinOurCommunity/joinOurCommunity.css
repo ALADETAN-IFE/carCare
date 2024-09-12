@@ -105,25 +105,32 @@
         width: 41.375rem;
         /* height: 100%; */
         /* height: 470px; */
-        height: 29.375rem;
+        /* height: 29.375rem; */
         /* flex-shrink: 0; */
-        background: white;
+        /* background: white; */
         border-radius: 10px;
-        background: url("../../../assets/images/joinOurCommunity.png");
+        /* background: url("../../../assets/images/joinOurCommunity.png"); */
         background-position: center;
         background-size: contain;
         background-repeat: no-repeat;
+        display: flex;
+        justify-content: center;
+
+        & img{
+            max-width: 100%;
+        }
+
     }
 }
 
 @media screen and (max-width: 63.75rem) {
     .joinOurCommunity{
-        padding: 0px;
+        /* padding: 10pxpx; */
     }
 
     .joinOurCommunityWrapper{
         flex-direction: column;
-        gap: 16px;
+        /* gap: 30px; */
 
         & .leftJoin, .rightJoin{
             width: 100%;

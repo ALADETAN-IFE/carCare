@@ -1,7 +1,7 @@
 import React from 'react'
 import './ServiceCategory.css'
 import { NavLink, useNavigate } from 'react-router-dom'
-import categoryImg from '../../../../../assets/images/categoryImg.png'
+// import categoryImg from '../../../../../assets/images/categoryImg.png'
 
 const ServiceCategory = ({ pages = [], setPages }) => {
   const navigate = useNavigate()
@@ -18,24 +18,24 @@ const ServiceCategory = ({ pages = [], setPages }) => {
   return (
     <div className='serviceCategory__container'>
       <div>
-      <div className='categoryHeader'>
-        <h1>Service Category</h1>
-        <p>Select a category</p>
-        <hr />
-      </div>
-      <div className='categoryOption'>
-        {selectOption.map((e, i) => (
-          <NavLink
-            className={`selectOption ${(pages && pages.includes(e.to)) ? "selectOptionActive" : ""}`}
-            key={i}
-            onClick={() => {
+        <div className='categoryHeader'>
+          <h1>Service Category</h1>
+          <p>Select a category</p>
+          <hr />
+        </div>
+        <div className='categoryOption'>
+          {selectOption.map((e, i) => (
+            <NavLink
+              className={`selectOption ${(pages && pages.includes(e.to)) ? "selectOptionActive" : ""}`}
+              key={i}
+              onClick={() => {
                 if (pages.includes(e.to)) {
                   setPages(pages.filter(page => page !== e.to))  // Deselect if it's already selected
                 } else {
                   setPages([...pages, e.to])  // Add to the selection
                 }
               }}
-              
+
             // onClick={() => {
             //   if (pages && pages.includes(e.to)) {
             //     setPages(pages.filter(page => page !== e.to));
@@ -43,14 +43,14 @@ const ServiceCategory = ({ pages = [], setPages }) => {
             //     setPages([...(pages || []), e.to]);
             //   }
             // }}
-          >
-            {e.text}
-          </NavLink>
-        ))}
+            >
+              {e.text}
+            </NavLink>
+          ))}
+        </div>
       </div>
-      </div>
-      <div>
-        <img src={categoryImg} alt="" className='categoryImg'/>
+      <div className='categoryImg'>
+        {/* <img src={categoryImg} alt="" /> */}
       </div>
     </div>
   )
