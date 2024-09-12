@@ -25,12 +25,20 @@
     align-items: center;
     flex-direction: column;
     gap: 70px;
+    position: relative;
+}
+
+.sideBarTopClose {
+    display: none;
+    /* max-width: 100%; */
+    cursor: pointer;
 }
 
 .sideBarLogo {
     width: 120px;
     height: 74px;
-    flex-shrink: 0;
+    cursor: pointer;
+    /* flex-shrink: 0; */
 }
 
 .sideBarNavs {
@@ -80,17 +88,76 @@
 .sideBarBottom {
     display: flex;
     width: 100%;
-    height: 50px;
+    height: 61px;
     padding: 0px 20px;
     align-items: center;
+    justify-content: space-between;
     gap: 10px;
     flex-shrink: 0;
-    color: var(--Secondary-Secondary1000, #003257);
+    color: var(--Base-Base-Black, #171717);
     font-family: Lora;
-    font-size: 20px;
+    font-size: 16px;
     font-style: normal;
     font-weight: 600;
-    line-height: normal;
+    line-height: 22px;
+    /* 137.5% */
+    letter-spacing: -0.112px;
     cursor: pointer;
     border-top: 1px solid var(--Secondary-Secondary1000, #003257);
+}
+
+.logOutDetails {
+    display: flex;
+    /* width: 224px; */
+    align-items: center;
+    gap: var(--spacing-spacing-sm, 12px);
+    flex-shrink: 0;
+}
+
+.logutIcon {
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+    background: #000;
+    border-radius: 50%;
+}
+
+/* @media screen and (max-width: 769px) { */
+@media screen and (max-width: 48.0625rem) {
+    .sideBarLogo {
+        width: 100px;
+        height: 74px;
+        /* width: 80px;
+        height: 70px; */
+        /* display: none; */
+    }
+
+    .sideBarTopClose {
+        display: block;
+        /* position: absolute; */
+        /* right : 10px; */
+        /* top: -20px; */
+        width: 100%;
+    }
+
+    .sideBarNav,
+    .sideBarBottom {
+        font-size: 15px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .sidebar {
+        /* width: 100px; */
+        width: 15%;
+    }
+
+    .sidebar_increase {
+        width: 100%;
+    }
+
+    .sideBarLogo {
+        width: 90% !important;
+        /* background: #000; */
+    }
 }

@@ -1,5 +1,18 @@
 import './weService.css'
-import Toyota1 from "./Toyota.svg"
+import Toyota1 from "./svg/Toyota.svg"
+import subarl from "./svg/subarl.svg"
+import honda from "./svg/honda.svg"
+import lexus from "./svg/lexus.svg"
+import peugot from "./svg/peugot.svg"
+import acura from "./svg/acura.svg"
+import mitsubishi from "./svg/mitsubishi.svg"
+import nissan from "./svg/nissan.svg"
+import ford from "./svg/ford.svg"
+import jeep from "./svg/jeep.svg"
+import suziki from "./svg/suziki.svg"
+import isuzu from "./svg/isuzu.svg"
+import mazoa from "./svg/mazoa.svg"
+import landRover from "./svg/landRover.svg"
 
 const WeService = () => {
   const carBrands1 = [
@@ -7,45 +20,45 @@ const WeService = () => {
       icon: Toyota1
     },
      {
-      icon:""
+      icon:subarl
     },
      {
-      icon:""
+      icon:honda
     },
      {
-      icon:""
+      icon:lexus
     },
      {
-      icon:""
+      icon:peugot
     },
      {
-      icon:""
+      icon:acura
     },
     {
-      icon:""
+      icon:mitsubishi
     },
   ]
   const carBrands2 = [
      {
-      icon:""
+      icon:nissan
     },
      {
-      icon:""
+      icon:ford
     },
      {
-      icon:""
+      icon:jeep
     },
      {
-      icon:""
+      icon:suziki
     },
      {
-      icon:""
+      icon:isuzu
     },
      {
-      icon:""
+      icon:mazoa
     },
     {
-      icon:""
+      icon:landRover
     },
   ]
   return (
@@ -59,14 +72,18 @@ const WeService = () => {
           <div className="weServiceBottomCarBrandsWrapper">
             {
               carBrands1?.map((e, i) => (
-                <div className="weServiceCarBrands" key={i}>{e?.icon}</div>
+                <div className="weServiceCarBrands" key={i}>
+                  <img src={e?.icon} alt="" />
+                </div>
               ))
             }
           </div>
           <div className="weServiceBottomCarBrandsWrapper">
             {
               carBrands2?.map((e, i) => (
-                <div className="weServiceCarBrands" key={i}>{e?.icon}</div>
+                <div className="weServiceCarBrands" key={i}>
+                  <img src={e?.icon} alt="" />
+                </div>
               ))
             }
           </div>

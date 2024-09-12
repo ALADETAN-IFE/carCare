@@ -9,20 +9,22 @@ const ServiceList = () => {
   const navigate = useNavigate()
   return (
   <div className="ServiceList__container">
-    <div>
+    {/* <div> */}
       <LayoutHeader />
-    </div>
+    {/* </div> */}
     <div className="heropicture">
       <img src={serviceListimg} alt="" />
     </div>
 
     <div className="serviceList__main">
-      <div className="serviceCategoryCall">
+      {/* <div className="serviceCategoryCall"> */}
         <ServiceCategory />
-      </div>
+      {/* </div> */}
       <div className="serviceSelect">
         <div className="selectBox">
-          <input type="checkbox" name="" id="" onClick={handleCheckboxClick}/>
+          <input type="checkbox" name="" id="" 
+          // onClick={handleCheckboxClick}
+          />
           <div className="categoryDetails">
             <div className="categoryDetails__text">
               <h1>Tire Replacement (One)</h1>

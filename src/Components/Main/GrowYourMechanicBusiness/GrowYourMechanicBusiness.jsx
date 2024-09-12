@@ -1,12 +1,13 @@
 import './growYourMechanicBusiness.css'
 import '../JoinOurCommunity/joinOurCommunity.css'
+import mechanicImg from "../../../assets/images/growYourbusiness.png"
 
 const GrowYourMechanicBusiness = () => {
   return (
     <section className='GrowYourMechanicBusiness'>
           <div className="joinOurCommunityWrapper GrowYourMechanicBusinessWrapper">
                 <div className="leftGrowMech">
-                    
+                    <img src={mechanicImg} alt="" />
                 </div>
                 <div className="rightGrowMech">
                     <div className="rightGrowMechTop">

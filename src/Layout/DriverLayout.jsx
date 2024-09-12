@@ -35,7 +35,7 @@ const DriverLayout = () => {
             }
       <SideBar pages={pages} setpages={setpages}/>
       <div className="layoutDown">
-      <LayoutHeader />
+      <LayoutHeader LayoutHeaderStyle/>
         {/* <Outlet /> */}
         {
           pages == "app" || pages == "" ?
