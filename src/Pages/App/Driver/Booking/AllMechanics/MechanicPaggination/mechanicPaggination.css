@@ -1,0 +1,63 @@
+.mechanicPaggination {
+    display: flex;
+    width: 172px;
+    height: 39px;
+    padding: 0px 4px;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+    /* background: #0a93c4; */
+
+    & .pagginateNum {
+        display: flex;
+        width: 40px;
+        height: 39px;
+        padding: 11.5px 0px 12.5px 0px;
+        justify-content: center;
+        align-items: center;
+        flex-shrink: 0;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        background: transparent;
+        color: #050B20;
+        text-align: center;
+        font-family: "DM Sans";
+        font-size: 15px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 15px;
+        /* 100% */
+    }
+
+    & .activePagginateNum {
+        border-radius: 50%;
+        border: 1px solid #050B20;
+        background: #050B20;
+        color: #FFF;
+        /* text-align: center; */
+        font-family: DM Sans;
+        font-size: 15px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 15px;
+        align-items: normal;
+        /* 100% */
+    }
+
+    & .pagginateNum_Btn {
+        display: flex;
+        width: 60px;
+        height: 38px;
+        padding: 12px 0px 14px 0px;
+        justify-content: center;
+        align-items: center;
+        flex-shrink: 0;
+        border-radius: 30px;
+        border: 1px solid #E9E9E9;
+        background: #F9FBFC;
+        outline: none;
+        cursor: pointer;
+    }
+}

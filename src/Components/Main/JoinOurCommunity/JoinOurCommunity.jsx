@@ -1,4 +1,5 @@
-import './joinOurCommunity.css'
+import './joinOurCommunity.css';
+import driverImg from "../../../assets/images/joinOurCommunity.png"
 
 const JoinOurCommunity = () => {
     return (
@@ -12,7 +13,7 @@ const JoinOurCommunity = () => {
                     <button className='leftJoinTopBtn'>Join now</button>
                 </div>
                 <div className="rightJoin">
-                    
+                    <img src={driverImg} alt="" />
                 </div>
             </div>
         </section>
