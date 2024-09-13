@@ -1,20 +1,21 @@
 import React from 'react'
-import './VerifyEmail.css'
-import AuthHeader from '../AuthHeader/AuthHeader'
+import '../../VerifyEmail/VerifyEmail.css'
+
 import  { Link, useNavigate } from 'react-router-dom';
+import AuthHeader from '../../AuthHeader/AuthHeader';
 
 
 const MechEmailVerf = () => {
     const navigate = useNavigate()
     const handleNavigate = (e) => {
       e.preventDefault()
-      navigate("/")
+      navigate("/mechInfo")
     }
   return (
     <div className='VerifyEmail__container'> 
-        <div>
-            <AuthHeader/>
-        </div>
+        <header>
+        <AuthHeader/>
+        </header>
         <div className='VerifyEmail__content'>
         <div className="popup__content">
                     <h1>WELCOME TO CARCARE</h1>

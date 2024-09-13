@@ -2,9 +2,10 @@ import { useNavigate } from "react-router-dom"
 import Footer from "../../../../Components/Footer/Footer"
 import LayoutHeader from "../../../../Layout/LayoutHeader/LayoutHeader"
 import ServiceCategory from "./ServiceCategory/ServiceCategory"
-// import serviceListimg from '../../../../assets/images/serviceListimg.png'
 import "./serviceList.css"
 import serviceListimg from "../../../../assets/images/serviceListimg.png"
+
+
 const ServiceList = () => {
   const navigate = useNavigate()
   return (
@@ -22,6 +23,7 @@ const ServiceList = () => {
       {/* </div> */}
       <div className="serviceSelect">
         <div className="selectBox">
+          <input type="checkbox" name="" id="" />
           <input type="checkbox" name="" id="" 
           // onClick={handleCheckboxClick}
           />

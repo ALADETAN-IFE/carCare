@@ -1,0 +1,71 @@
+.mechInfo__container{
+    width: 100%;
+    height: 1080px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+.mechInfo__content{
+    display: flex;
+    width: 800px;
+    height: 900px;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+}
+.mechInfoText{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    align-self: stretch;
+}
+.mechInfoText h1{
+    color: var(--Secondary-Secondary, #0066B2);
+    font-family: Lora;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+.mechInfoText p{
+    color: var(--Base-Base-Black, #171717);
+    text-align: center;
+    font-family: Lora;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+.mech__personalInfo{
+    width: 661px;
+    height: 681px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    align-self: stretch;
+} 
+.mech__personalInfo h1{
+    color: var(--Base-Base-Black, #171717);
+    font-family: Lora;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+.mechInput input{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    align-self: stretch;
+    width: 661px;
+    height: 65px;
+    border-radius: 8px;
+    border: 1px solid #565454;
+}

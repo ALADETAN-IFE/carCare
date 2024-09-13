@@ -1,11 +1,26 @@
 .Login__container{
     display: flex;
-    height: 620px;
-    padding: 10px;
-    gap: 10px;
+   width: 100%;
+   /* height: 1070px; */
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 85px;
+}
+
+.login__details__container{
+    width: 444px;
+    height: 620px;
+    border-radius: 10px;
+    background: var(--Base-Base-White, #FFF);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* padding-top: 85px; */
+   
+    
+    /* Card shadows */
+    box-shadow: 0px 46px 13px 0px rgba(182, 184, 185, 0.00), 0px 29px 12px 0px rgba(182, 184, 185, 0.01), 0px 17px 10px 0px rgba(182, 184, 185, 0.05), 0px 7px 7px 0px rgba(182, 184, 185, 0.09), 0px 2px 4px 0px rgba(182, 184, 185, 0.10);
 }
 
 .Login__details{
@@ -15,8 +30,10 @@
     justify-content: center;
     gap: 10px;
     width: 362px;
+    height: 620px;
     align-items: center;
-    gap: 40px;
+    /* gap: 40px; */
+  
 }
 
 .login__details__text{
@@ -42,7 +59,7 @@
     letter-spacing: 1.6px;
 }
 
-.Login__details__text p {
+.login__details__text p {
     color: var(--Base-Base-Black);
     text-align: center;
     font-family: Lora;
@@ -84,6 +101,7 @@ label {
     display: flex;
     width: 362px;
     height: 50px;
+    padding: 8px;
     /* padding: 0px 6.667px;   */
     justify-content: space-between;
     align-items: center;
@@ -149,3 +167,212 @@ label {
     text-decoration: none;
 
 }
+
+@media screen and (width <= 162px){
+     .Login__container{
+        width: 100%;
+        height: 50%;
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+       
+    } 
+   
+    
+    .login__input input{
+        display: flex;
+        height: 50px;
+        width: 100px;
+        padding: 8px;
+        align-items: center;
+        gap: 8px;
+        border-radius: 5.67px;
+        border: 0.667px solid #565454; 
+        font-family: Lora;
+    }
+    .login__input__password{
+        width: 50px; 
+        height: 50px;
+    }
+    .login__btn{
+        width: 50px;
+        height: 50px; 
+     } 
+    .authHeader{
+       width: 100%;
+       position: static;
+    }
+    .login__details__container{
+        width: 100px;
+        /* height: 50%; */
+
+    }
+    .login__details__text{
+        width: 100px;
+        /* height: 134px; */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+
+    }
+    .Login__details{
+        width: 100px;
+        /* height: 50%; */
+    }
+    .login__details__text h1 {
+        color: #0066B2;
+        width: 220px;
+        text-align: center;
+        font-family: "Alegreya SC";
+        font-size: 10px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        letter-spacing: 1.6px;
+    }
+    .login__details__text p{
+        font-size: 8px;
+    }
+    
+}
+
+@media screen and (width <= 375px){
+    .Login__container{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+       
+    }
+    
+    .login__input input{
+        width: 300px;
+        height: 50px;
+    }
+    .login__input__password{
+        width: 300px;
+        height: 50px;
+    }
+    .login__btn{
+        width: 300px;
+        height: 50px;
+    }
+    .authHeader{
+       width: 100%;
+       position: static;
+    }
+    .login__details__container{
+        width: 100%;
+        height: 100%;
+
+    }
+}
+@media screen and (width <= 490px){
+    .Login__container{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+       
+    }
+    
+    .login__input input{
+        width: 400px;
+        height: 50px;
+    }
+    .login__input__password{
+        width: 400px;
+        height: 50px;
+    }
+    .login__btn{
+        width: 400px;
+        height: 50px;
+    }
+    .login__authHeader{
+       width: 100%;
+       position: static;
+    }
+    .login__details__container{
+        width: 100%;
+        height: 100%;
+
+    }
+}
+@media screen and (width <= 768px){
+    .Login__container{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+       
+    }
+    
+    .login__input input{
+        width: 350px;
+        height: 50px;
+    }
+    .login__input__password{
+        width: 350px;
+        height: 50px;
+    }
+    .login__btn{
+        width: 350px;
+        height: 50px;
+    }
+    .login__authHeader{
+       width: 100%;
+       position: static;
+    }
+    .login__details__container{
+        width: 100%;
+        height: 100%;
+    }
+
+}
+@media screen and (width <= 968px){
+    .Login__container{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+       
+    }
+    /* .login__form{
+        width: 100%;
+        height: 100%;
+    } */
+    .login__input input{
+        width: 350px;
+        height: 50px;
+    }
+    .login__input__password{
+        width: 350px;
+        height: 50px;
+    }
+    .login__btn{
+        width: 350px;
+        height: 50px;
+    }
+    .login__authHeader{
+       width: 100%;
+       position: static;
+    }
+    .login__details__container{
+        width: 50%;
+        height: 50%;
+        display: flex;
+        justify-content: center;
+        box-shadow: 0px 46px 13px 0px rgba(182, 184, 185, 0.00), 0px 29px 12px 0px rgba(182, 184, 185, 0.01), 0px 17px 10px 0px rgba(182, 184, 185, 0.05), 0px 7px 7px 0px rgba(182, 184, 185, 0.09), 0px 2px 4px 0px rgba(182, 184, 185, 0.10);
+        padding: 80px;
+        padding-top: 60px;
+    }
+
+}
+
+
