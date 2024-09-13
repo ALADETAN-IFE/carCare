@@ -53,7 +53,8 @@ const LoggedInDropdown = ({ setshowMenu2, showMenu2 }) => {
                     <div className="loggedInDropdownBoxUp">
                         <div className="loggedInDropdownBoxUpWrap">
                             <IoPersonCircleSharp size={40} />
-                            <p>Aladetan Ife</p>
+                            {/* <p>Aladetan Ife</p>  */}
+                            <p>Favour Joy</p> 
                         </div>
                     </div>
                     <div className="loggedInDropdownBoxDown">

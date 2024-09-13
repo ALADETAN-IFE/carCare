@@ -1,22 +1,24 @@
 /* @import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap'); */
-@import url('https://fonts.googleapis.com/css2?family=Alegreya+SC:ital,wght@0,400;0,500;0,700;0,800;0,900;1,400;1,500;1,700;1,800;1,900&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Alegreya+SC:ital,wght@0,400;0,500;0,700;0,800;0,900;1,400;1,500;1,700;1,800;1,900&display=swap'); */
 
-@font-face {
+/* @font-face {
   font-family: Alegreya SC;
   src: url("./assets/Fonts/Alegreya_SC/AlegreyaSC-Black.ttf");
-}
+} */
+
  /* font-family: "Alegreya SC", serif; */
+ @font-face {
+   font-family: Alegreya SC;
+   /* src: url(./assets/Fonts/AlegreyaSC/AlegreyaSC-Regular.ttf); */
+   src: url(./assets/Fonts/AlegreyaSC/AlegreyaSC-Medium.ttf)
+ }
 
 @font-face {
   font-family: Merriweather;
   src: url("./assets/Fonts/Merriweather/Merriweather-Regular.ttf");
 }
  /* font-family: "Merriweather", serif; */
-@font-face {
-  font-family: Alegreya SC;
-  src: url(./assets/Fonts/AlegreyaSC/AlegreyaSC-Regular.ttf)
-}
 @font-face {
   font-family: Lora;
   src: url("./assets/Fonts/Lora/Lora-VariableFont_wght.ttf");
@@ -53,3 +55,5 @@
   --Home-Bg-Icon: #EAE9E9;
   --Black: #000;
 }
+
+

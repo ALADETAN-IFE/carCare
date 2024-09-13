@@ -1,0 +1,64 @@
+.AllMechanicsMainBody {
+    width: 100%;
+    min-height: 100vh;
+    height: max-content;
+    background: #000;
+}
+
+.AllMechanicsBody {
+    width: 100%;
+    border-radius: 80px 80px 80px 80px;
+    /* border-radius:  var(--Radius-Sharp, 0px) var(--Radius-Sharp, 0px); */
+    /* background: #FFF; */
+    background: #FFF;
+    height: max-content;
+    min-height: 800px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 50px;
+}
+
+.AllMechanicsBodyWrapper {
+    width: 100%;
+    height: 90%;
+    min-height: 700px;
+    /* max-height: 1506.5px; */
+    /* background: #b23e3e; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 42px;
+}
+
+.AllMechanicsBodyWrapperTop {
+    color: #050B20;
+    font-family: Lora;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 27.75px;
+    /* 185% */
+}
+
+.AllMechanicsBodyWrapperMiddle {
+    display: flex;
+    flex-wrap: wrap;
+    /* column-gap: 71px; */
+    /* row-gap: 70px; */
+    gap: 70px;
+    align-items: center;
+    background: #0db010;
+    /* justify-content: space-between;     */
+    justify-content: center;
+}
+
+.AllMechanicsBodyWrapperBottom {
+    width: 100%;
+    min-height: 39px;
+    height: 39px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+}

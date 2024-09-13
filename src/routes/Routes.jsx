@@ -16,6 +16,7 @@ import ChangePassword from '../Pages/ChangePassword/ChangePassword'
 import VerifyEmail from '../Pages/VerifyEmail/VerifyEmail'
 import Booking from '../Pages/App/Driver/Booking/Booking'
 import ServiceList from '../Pages/App/Driver/ServiceList/ServiceList'
+import AllMechanics from '../Pages/App/Driver/Booking/AllMechanics/AllMechanics'
 import MechSignUp from '../Pages/MechAuth/SignUp/MechSignUp'
 import MechEmailVerf from '../Pages/MechAuth/SignUp/MechEmailVerf'
 import MechInfo from '../Pages/MechAuth/PersonalInfo/MechInfo'
@@ -107,6 +108,14 @@ const Routes = createHashRouter([
                 //     // }
                 // ]
             },
+            {
+                path: "/mechanics",
+                element: <AllMechanics/>
+            },
+            {
+                path: "/mechanics/:pageNum",
+                element: <AllMechanics/>
+            }
         ]
     }
 ])

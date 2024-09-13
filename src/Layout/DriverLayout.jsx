@@ -30,21 +30,21 @@ const DriverLayout = () => {
     >
         {
                 book ? 
-                <Confirm setbook={setbook} book={book} />
+                <Confirm setbook={setbook} />
                 : null
             }
       <SideBar pages={pages} setpages={setpages}/>
       <div className="layoutDown">
-      <LayoutHeader />
+      <LayoutHeader LayoutHeaderStyle/>
         {/* <Outlet /> */}
         {
           pages == "app" || pages == "" ?
-          <Driver setpages={setpages}/>
+          <Driver setpages={setpages} />
           : 
           pages == "booking" ?
           <Booking />
           : pages == "addbooking" ?
-          <AddBooking setbook={setbook} book={book}/>
+          <AddBooking setbook={setbook} />
           : null
         }
       </div>

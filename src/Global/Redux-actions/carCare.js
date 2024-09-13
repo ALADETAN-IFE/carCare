@@ -14,11 +14,13 @@ import { createSlice } from "@reduxjs/toolkit";
 
 // setUser("visitor")
 const initialState = {
-    UserData :undefined,
-    UserDatas :undefined,
+    // UserData :undefined,
+    // UserDatas :undefined,
+    navBarVisibility: true,
     isLoggedIn: false,
     appPages : "app",
-    AppbookingForm: 0
+    AppbookingFormPage: 0,
+    userBookingForm: []
 }
 
 
@@ -37,6 +39,9 @@ export const carCareSlice = createSlice({
         // setUserDatas: (state, {payload}) => {
         //     state.UserDatas = payload; 
         // },
+        setNavBarVisibility: (state, {payload}) => {
+            state.navBarVisibility = !state.navBarVisibility || payload; 
+        },
         logIn: (state) => {
             state.isLoggedIn = true; 
         },
@@ -44,21 +49,27 @@ export const carCareSlice = createSlice({
             // state.UserData = undefined; 
             state.isLoggedIn = false; 
             state.appPages = "app"; 
-            state.AppbookingForm = 0; 
+            state.AppbookingFormPage = 0; 
         },
         setAppPages: (state, {payload}) => {
             // state.UserData = undefined; 
             state.appPages = payload; 
         },
-        setAppbookingForm: (state, {payload}) => {
+        setAppbookingFormPage: (state, {payload}) => {
             // state.UserData = undefined; 
-            state.AppbookingForm = payload; 
+            state.AppbookingFormPage = payload; 
+        },
+        setuserBookingForm: (state, {payload}) => {
+            // state.UserData = undefined; 
+            state.userBookingForm = payload; 
         },
 
     }
 });
 
-export const { logIn, logOut, setAppPages, setAppbookingForm,
+export const { setNavBarVisibility,
+     logIn, logOut, setAppPages, setAppbookingFormPage,
+     setuserBookingForm
     } = carCareSlice.actions;
 export default carCareSlice.reducer;
 
