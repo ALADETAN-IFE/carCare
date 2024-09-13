@@ -16,6 +16,9 @@ import ChangePassword from '../Pages/ChangePassword/ChangePassword'
 import VerifyEmail from '../Pages/VerifyEmail/VerifyEmail'
 import Booking from '../Pages/App/Driver/Booking/Booking'
 import ServiceList from '../Pages/App/Driver/ServiceList/ServiceList'
+import MechSignUp from '../Pages/MechAuth/SignUp/MechSignUp'
+import MechEmailVerf from '../Pages/MechAuth/SignUp/MechEmailVerf'
+import MechInfo from '../Pages/MechAuth/PersonalInfo/MechInfo'
 // import LoggedInHome from '../Pages/LoggedInHome/LoggedInHome'
 
 
@@ -39,7 +42,19 @@ const Routes = createHashRouter([
     {
         path: "/signup",
         element: <SignUp/>
-    },    
+    }, 
+    {
+        path: "/mechSignUp",
+        element: <MechSignUp/>
+    },
+    {
+        path: "/mechEmailVerf",
+        element: <MechEmailVerf/>,
+    },
+    {
+        path: "/mechInfo",
+        element: <MechInfo/>
+    },
     {
         path: "/login",
         element: <Login/>
