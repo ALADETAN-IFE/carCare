@@ -37,11 +37,6 @@
         background: #050B20;
         color: #FFF;
         /* text-align: center; */
-        font-family: DM Sans;
-        font-size: 15px;
-        font-style: normal;
-        font-weight: 500;
-        line-height: 15px;
         align-items: normal;
         /* 100% */
     }
@@ -59,5 +54,16 @@
         background: #F9FBFC;
         outline: none;
         cursor: pointer;
+        
+    }
+
+    & .pagginateNum_Btn:hover{
+        background: #F9FBFC !important;
+        /* background: #000; */
+    }
+    & .activePagginateNum:hover, .pagginateNum:hover {
+        background: #050B20 !important;
+        border-radius: 50%;
+        color: #FFF;
     }
 }

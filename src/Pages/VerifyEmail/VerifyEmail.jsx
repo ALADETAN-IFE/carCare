@@ -12,9 +12,9 @@ const VerifyEmail = () => {
     }
   return (
     <div className='VerifyEmail__container'> 
-        <div>
-            <AuthHeader/>
-        </div>
+        <header>
+        <AuthHeader/>
+        </header>
         <div className='VerifyEmail__content'>
         <div className="popup__content">
                     <h1>VERIFY YOUR EMAIL</h1>

@@ -17,90 +17,120 @@ import VerifyEmail from '../Pages/VerifyEmail/VerifyEmail'
 import Booking from '../Pages/App/Driver/Booking/Booking'
 import ServiceList from '../Pages/App/Driver/ServiceList/ServiceList'
 import AllMechanics from '../Pages/App/Driver/Booking/AllMechanics/AllMechanics'
+import MechSignUp from '../Pages/MechAuth/SignUp/MechSignUp'
+import MechEmailVerf from '../Pages/MechAuth/SignUp/MechEmailVerf'
+import MechInfo from '../Pages/MechAuth/PersonalInfo/MechInfo'
+import MechAuth from '../auth/MechAuth'
+import DriverAuth from '../auth/DriverAuth'
+import MechanicDetails from '../Pages/App/Driver/Booking/AllMechanics/MechanicDetails/MechanicDetails'
+import AdminAuth from '../auth/AdminAuth'
 // import LoggedInHome from '../Pages/LoggedInHome/LoggedInHome'
 
 
 const Routes = createHashRouter([
     {
         path: "/",
-        element: <Home/>
+        element: <Home />
     },
     {
         path: "/about",
-        element: <About/>
+        element: <About />
     },
     {
         path: "/blog",
-        element: <Blog/>
+        element: <Blog />
     },
     {
         path: "/contact",
-        element: <ContactUs/>
+        element: <ContactUs />
     },
     {
         path: "/signup",
-        element: <SignUp/>
-    },    
+        element: <SignUp />
+    },
+    {
+        path: "/mechSignUp",
+        element: <MechSignUp />
+    },
+    {
+        path: "/mechEmailVerf",
+        element: <MechEmailVerf />,
+    },
+    {
+        path: "/mechInfo",
+        element: <MechInfo />
+    },
     {
         path: "/login",
-        element: <Login/>
+        element: <Login />
     },
     {
         path: "/forgotPassword",
-        element: <ForgotPassword/>,
+        element: <ForgotPassword />,
     },
-    { 
+    {
         path: "/changePassword",
-        element: <ChangePassword/>,
+        element: <ChangePassword />,
     },
     {
         path: '/verifyEmail',
-        element: <VerifyEmail/>,
+        element: <VerifyEmail />,
     },
     {
-        element: <Auth/>,
+        element: <Auth />,
         children: [
-            // {
-            //     path: "/app/mechanics",
-            //     element: 
-            // },
             {
                 path: "/services",
-                element: <ServiceList/>
+                element: <ServiceList />
             },
             {
-                path: "/app/admin",
-                element: <AdminLayout/>,
-                children: []
+                element: <AdminAuth />,
+                children: [
+                    {
+                        path: "/app/admin",
+                        element: <AdminLayout />,
+                        children: []
+                    },
+                ]
             },
             {
-                path: "/app/mech",
-                element: <MechanicLayout/>,
-                children: []
+                element: <MechAuth />,
+                children: [
+                    {
+                        path: "/app/mech",
+                        element: <MechanicLayout />,
+                        children: []
+                    },
+                ]
             },
             {
-                path: "/app",
-                element: <DriverLayout/>,
-                // children: [
-                //     {
-                //         // index: true,
-                //         path:"/app",
-                //         element: <Driver/>,
-                //     },
-                //     // {
-                //     //     path:"booking",
-                //     //     element: <Booking/>,
-                //     // }
-                // ]
+                element: <DriverAuth />,
+                children: [
+                    {
+                        path: "/app",
+                        element: <DriverLayout />,
+                        // children: [
+                        //     {
+                        //         // index: true,
+                        //         path:"/app",
+                        //         element: <Driver/>,
+                        //     },
+                        //     // {
+                        //     //     path:"booking",
+                        //     //     element: <Booking/>,
+                        //     // }
+                        // ]
+                    },
+                    {
+                        path: "/mechanics/:pageNum",
+                        element: <AllMechanics />
+                    },
+                    {
+                        path: "/mechanic/:mechId",
+                        element: <MechanicDetails />
+                    }
+                ]
             },
-            {
-                path: "/mechanics",
-                element: <AllMechanics/>
-            },
-            {
-                path: "/mechanics/:pageNum",
-                element: <AllMechanics/>
-            }
         ]
     }
 ])
