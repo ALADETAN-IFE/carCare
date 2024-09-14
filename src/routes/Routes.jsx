@@ -20,6 +20,7 @@ import AllMechanics from '../Pages/App/Driver/Booking/AllMechanics/AllMechanics'
 import MechSignUp from '../Pages/MechAuth/SignUp/MechSignUp'
 import MechEmailVerf from '../Pages/MechAuth/SignUp/MechEmailVerf'
 import MechInfo from '../Pages/MechAuth/PersonalInfo/MechInfo'
+import MechDoc from '../Pages/MechAuth/PersonalInfo/Documentation/MechDoc'
 // import LoggedInHome from '../Pages/LoggedInHome/LoggedInHome'
 
 
@@ -55,6 +56,10 @@ const Routes = createHashRouter([
     {
         path: "/mechInfo",
         element: <MechInfo/>
+    },
+    {
+        path: "/mechDoc",
+        element: <MechDoc/>,
     },
     {
         path: "/login",

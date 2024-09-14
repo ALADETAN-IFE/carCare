@@ -14,9 +14,11 @@ const ForgotPassword = () => {
 
   return (
     <div className='forgotPassword__container'>
-         <div>
+         
+          <header>
           <AuthHeader/>
-        </div>
+       
+          </header>
       <div className='forgotPassword__content__wrapper'>
       <div className="forgotPassword__content">
         <div className='forgotPassword__text'>
@@ -32,7 +34,7 @@ const ForgotPassword = () => {
                 <button type="submit" className='resetPassword'onClick={handlePopup} >Request Password Reset</button>
                 {showPopUp ? <Overlay/> : null }
             </div>
-            <div>
+            <div className='remPass'>
               <p>Remember your password? <Link to='/login' className='signup__link'>Login</Link></p>
             </div>
         </div>
