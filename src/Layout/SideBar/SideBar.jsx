@@ -18,16 +18,16 @@ const SideBar = ({ pages, setpages }) => {
     setInterval(() => {
         setwidth(window.innerWidth)
     }, 500);
-    useEffect(() => {
-        if (width >= "769") {
-            dispatch(setNavBarVisibility(true))
-        }
-    }, [width])
-    useEffect(() => {
-        if (width <= "769" && !navBarVisibility) {
-            dispatch(setNavBarVisibility(false))
-        }
-    }, [width])
+    // useEffect(() => {
+    //     if (width >= "769") {
+    //         dispatch(setNavBarVisibility(true))
+    //     }
+    // }, [width])
+    // useEffect(() => {
+    //     if (width <= "769" && !navBarVisibility) {
+    //         dispatch(setNavBarVisibility(false))
+    //     }
+    // }, [width])
 
     const sideBarNav = [
         {
@@ -65,20 +65,22 @@ const SideBar = ({ pages, setpages }) => {
     }
     return (
         <div className={navBarVisibility ? "sidebar sidebar_increase" : "sidebar"}
+            style={navBarVisibility && width < 500 ? { display: "flex" } :
+                !navBarVisibility && width < 500 ? { display: "none" } : null}
         >
             <div className="sideBarTop">
-                <img src={logo} alt="" 
-                onClick={()=> navigate("/")}
-                className="sideBarLogo" style={navBarVisibility ? null : { width: "80px" }}
+                <img src={logo} alt=""
+                    onClick={() => navigate("/")}
+                    className="sideBarLogo" style={navBarVisibility ? null : { width: "80px" }}
 
                 />
                 {/* <img src={close} alt="" className="sideBarTopClose" /> */}
                 <div className="sideBarNavs">
                     {
                         navBarVisibility ?
-                            <BiMenuAltRight size={26} className="sideBarTopClose" onClick={sideBarVisibility} />
+                            <BiMenuAltRight size={26} className="sideBarTopClose" onClick={sideBarVisibility} style={!navBarVisibility && width > 500 || width  < 660 ? { display: "flex" } :  { display: "none" } } />
                             :
-                            <BiMenuAltLeft size={26} className="sideBarTopClose" onClick={sideBarVisibility} />
+                            <BiMenuAltLeft size={26} className="sideBarTopClose" onClick={sideBarVisibility} style={!navBarVisibility && width > 500 || width  < 660 ? { display: "flex" } :  { display: "none" } }  />
                     }
                     {
                         sideBarNav?.map((e, i) => (
@@ -95,12 +97,16 @@ const SideBar = ({ pages, setpages }) => {
                 </div>
 
             </div>
-            <div className="sideBarBottom" >
-                <div className="logOutDetails">
-                    <div className="logutIcon"> </div> 
+            <div className="sideBarBottom" 
+             style={navBarVisibility ? null : { justifyContent: "center" }}
+            >
+                <div className="logOutDetails" style={navBarVisibility ? null : { display: "none" }}>
+                    <div className="logutIcon">
+                        <img src="" alt="" />
+                    </div>
                     <p> Favour Joy</p>
                 </div>
-                <LuLogOut color="#A21C29" onClick={() => dispatch(logOut())}/>
+                <LuLogOut color="#A21C29" onClick={() => dispatch(logOut())} />
             </div>
         </div>
     )

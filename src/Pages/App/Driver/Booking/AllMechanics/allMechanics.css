@@ -48,7 +48,7 @@
     /* row-gap: 70px; */
     gap: 70px;
     align-items: center;
-    background: #0db010;
+    /* background: #0db010; */
     /* justify-content: space-between;     */
     justify-content: center;
 }
@@ -61,4 +61,10 @@
     justify-content: center;
     align-items: center;
     flex-shrink: 0;
+}
+
+@media screen and (max-width: 387px) {
+    .AllMechanicsBody{
+        padding: 50px 10px;
+    }
 }

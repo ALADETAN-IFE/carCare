@@ -116,6 +116,10 @@ const AddBooking = ({book, setbook}) => {
         // console.log(e)
      setbookingInputsArray({...bookingInputsArray, date: e.target.value} )
     }
+    useEffect(() => {
+        setbookingInputsArray({...bookingInputsArray, time: time} )
+    }, [time])
+    
 
     // const customDateDropdownIndicator = (props) => {
     //     return (
@@ -232,7 +236,7 @@ const AddBooking = ({book, setbook}) => {
                                             </label>
                                             <div className="timeHolderInput" onClick={() => setshowTimeInput(!showTimeInput)}>
                                                 <input type="text" name="" id="" value={time}
-                                                 onChange={(e)=> setbookingInputsArray({...bookingInputsArray, time: e.target.value} )}
+                                                 onChange={(e)=> settime(e.target.value) }
                                                 />
                                                 <AiOutlineClockCircle size={20}
                                                     style={{ position: "absolute", right: "20px", top: "20px", cursor: "pointer" }}
@@ -271,10 +275,12 @@ const AddBooking = ({book, setbook}) => {
                                                 {
                                                     selectedService === 0 ?
                                                         <FaDotCircle color='#0066B2' size={35}
-                                                            onClick={() => {setSelectedService(0), setbookingInputsArray({...bookingInputsArray, serviceLocation: "Home Service"}) }} 
-                                                            />
+                                                        onClick={() => setSelectedService(0)}
+                                                        />
                                                         :
-                                                        <div className="picksCircle" onClick={() => setSelectedService(0)}></div>
+                                                        <div className="picksCircle"
+                                                        onClick={() => {setSelectedService(0), setbookingInputsArray({...bookingInputsArray, serviceLocation: "Home Service"}), console.log(":") }} 
+                                                         ></div>
                                                 }
                                                 <p>Home Service</p>
                                             </div>
@@ -283,19 +289,25 @@ const AddBooking = ({book, setbook}) => {
                                                     selectedService === 1 ?
                                                         <FaDotCircle color='#0066B2' size={35}
                                                         style={{width: "35px", height: "35px"}}
-                                                            onClick={() => {setSelectedService(1), setbookingInputsArray({...bookingInputsArray, serviceLocation: "Pickup & Delivery"}) }} />
+                                                        onClick={() => setSelectedService(1)}
+                                                        />
                                                         :
-                                                        <div className="picksCircle" onClick={() => setSelectedService(1)}></div>
+                                                        <div className="picksCircle" 
+                                                        onClick={() => {setSelectedService(1), setbookingInputsArray({...bookingInputsArray, serviceLocation: "Pickup & Delivery"}) }}
+                                                        ></div>
                                                 }
                                                 <p>Pickup & Delivery</p>
                                             </div>
                                             <div className="servicesLocationPicks">
                                                 {
                                                     selectedService === 2 ?
-                                                        <FaDotCircle color='#0066B2' size={35}
-                                                            onClick={() => {setSelectedService(2), setbookingInputsArray({...bookingInputsArray, serviceLocation: "Visit Autoshop"})}} />
+                                                        <FaDotCircle color='#0066B2' size={35} 
+                                                        onClick={() => setSelectedService(2)}
+                                                        />
                                                         :
-                                                        <div className="picksCircle" onClick={() => setSelectedService(2)}></div>
+                                                        <div className="picksCircle"
+                                                        onClick={() => {setSelectedService(2), setbookingInputsArray({...bookingInputsArray, serviceLocation: "Visit Autoshop"}) }} 
+                                                        ></div>
                                                 }
                                                 <p>Visit Autoshop</p>
                                             </div>

@@ -44,7 +44,8 @@
         font-weight: 700;
         color: var(--Base-Base-Black);
         text-align: center;
-        font-family: Oswald;
+        /* font-family: Oswald; */
+        font-family: Alegreya SC;
     }
 
     & p {

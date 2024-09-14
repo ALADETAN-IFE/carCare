@@ -6,16 +6,12 @@ import { useState } from "react"
 import Logo from "../../assets/svg/Logo.svg"
 import { IoIosArrowDown } from "react-icons/io"
 import { AiOutlineQuestionCircle } from "react-icons/ai"
+import { useDispatch, useSelector } from "react-redux"
+import { BiMenuAltLeft, BiMenuAltRight } from "react-icons/bi"
+import { setNavBarVisibility } from "../../Global/Redux-actions/carCare"
 
 const LayoutHeader = ({ LayoutHeaderStyle }) => {
-  // const height = window.innerHeight
-  const [width, setwidth] = useState(window.innerWidth)
-  const [height, setheight] = useState(window.innerHeight)
-  setInterval(() => {
-    setwidth(window.innerWidth)
-    setheight(window.innerHeight)
-  }, 500);
-
+  const navBarVisibility = useSelector((state) => state.carCare.navBarVisibility)
   function getInitials(fullName) {
     // Split the full name into an array of words (assuming names are separated by spaces)
     let nameParts = fullName.trim().split(" ");
@@ -39,16 +35,26 @@ const LayoutHeader = ({ LayoutHeaderStyle }) => {
 
   // Example usage:
   let initials = getInitials("John Doe"); // Output: JD
+  const dispatch = useDispatch()
+  const sideBarVisibility = () => {
+    dispatch(setNavBarVisibility())
+  }
   return (
     <>
       {
         LayoutHeaderStyle ?
           <div className="layoutHeader">
-            width = {width}
-            "  "height = {height}
             <div className="layoutHeaderRight">
               <AiOutlineQuestionCircle size={24} />
               <IoPersonCircleSharp size={40} />
+              <div className="layoutHeaderMenu">
+                {
+                  navBarVisibility ?
+                    <BiMenuAltRight size={26} onClick={sideBarVisibility} style={{ cursor: "pointer" }} />
+                    :
+                    <BiMenuAltLeft size={26} onClick={sideBarVisibility} style={{ cursor: "pointer" }} />
+                }
+              </div>
             </div>
           </div>
           :
@@ -70,6 +76,12 @@ const LayoutHeader = ({ LayoutHeaderStyle }) => {
                   <IoIosArrowDown
                     width="12" height="6"
                   />
+                  {
+                    navBarVisibility ?
+                      <BiMenuAltRight size={26} className="sideBarTopClose" onClick={sideBarVisibility} />
+                      :
+                      <BiMenuAltLeft size={26} className="sideBarTopClose" onClick={sideBarVisibility} />
+                  }
                 </div>
               </div>
             </div>
