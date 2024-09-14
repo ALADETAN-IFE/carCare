@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import Footer from "../../../../../Components/Footer/Footer"
 import LayoutHeader from "../../../../../Layout/LayoutHeader/LayoutHeader"
 import "./allMechanics.css"
@@ -25,7 +25,18 @@ const AllMechanics = () => {
     // Initialize the current page from URL parameter or default to 1
     // const [currentPage, setCurrentPage] = useState(Number(pageNum) || 1);
     // console.log(pageNum?.split("")[pageNum.length-1], "hello")
-    const [currentPage, setCurrentPage] = useState(Number(pageNum?.split("")[pageNum.length-1]));
+    const [currentPage, setCurrentPage] = useState(1);
+    const setpageNum = () => {
+        if (!pageNum || pageNum < 1) {
+          return setCurrentPage(1)
+        } else {
+          return  setCurrentPage(Number(pageNum?.split("")[pageNum.length-1]))
+        }
+    }
+    useEffect(() => {
+        setpageNum()
+    }, [])
+    
     const itemsPerPage = 9;
     // useEffect(() => {
     //     // Assuming you have a logic to fetch paginated data here

@@ -36,7 +36,7 @@ const Confirm = ({ setbook }) => {
                   <h3>Williams Olagoke</h3>
                   <h4>Rating: ★★★★☆ (4.5/5)</h4>
                   <p>Years of Experience: <span>10 Years</span></p>
-                  <Link>Change</Link>
+                  <Link to={"/mechanics"}>Change</Link>
                 </div>
               </div>
               <div className="confirmBookingMiddleTopCost">

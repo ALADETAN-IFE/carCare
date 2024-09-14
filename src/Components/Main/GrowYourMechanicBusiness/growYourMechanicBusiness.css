@@ -40,7 +40,7 @@
         display: flex;
         justify-content: center;
 
-        & img{
+        & img {
             max-width: 100%;
         }
 
@@ -49,7 +49,7 @@
 
     & .rightGrowMech {
         display: flex;
-        width: 487px;
+        width: 457px;
         flex-direction: column;
         align-items: flex-start;
         gap: 46px;
@@ -60,24 +60,30 @@
             align-items: flex-start;
             gap: 26px;
             align-self: stretch;
+            /* background: wheat; */
 
             & h4 {
                 color: var(--Base-Base-White);
-                font-family: Oswald;
+                /* font-family: Oswald; */
+                font-family: Alegreya SC;
                 /* font-size: 40px; */
                 font-size: 2.5rem;
                 font-style: normal;
                 font-weight: 500;
                 line-height: normal;
+
+                & span {
+                    color: var(--Secondary-Secondary, #0066B2);
+                }
             }
 
             & p {
                 color: var(--Base-Base-White);
-                font-family: Oswald;
+                font-family: Lora;
                 /* font-size: 24px; */
                 font-size: 1.5rem;
                 font-style: normal;
-                font-weight: 300;
+                font-weight: 400;
                 line-height: normal;
             }
         }
@@ -115,7 +121,7 @@
         padding-bottom: 15px;
     } */
 
-    .GrowYourMechanicBusinessWrapper{
+    .GrowYourMechanicBusinessWrapper {
         width: 100%;
         display: flex;
         flex-direction: column;
@@ -123,10 +129,12 @@
         align-items: center;
         justify-content: center;
 
-        & .leftGrowMech, .rightGrowMech{
+        & .leftGrowMech,
+        .rightGrowMech {
             width: 100%;
             height: 50%;
         }
+
         /* & .rightJoin{
             width: 100%;
         } */

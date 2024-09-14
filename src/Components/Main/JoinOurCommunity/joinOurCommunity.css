@@ -27,8 +27,8 @@
         /* width: 33.82%; */
         /* width: 40%; */
         /* width: 487px; */
-        width: 38%;
-        width: 30.4375rem;
+        /* width: 38%; */
+        width: 33.4375rem;
         height: 100%;
 
         display: flex;
@@ -51,9 +51,10 @@
 
         & h4 {
             color: var(--Base-Base-White);
-            font-family: Oswald;
-            /* font-size: 40px; */
-            font-size: 2.5rem;
+            /* font-family: Oswald; */
+            font-family: Alegreya SC;
+            /* font-size: 36px; */
+            font-size: 2.25rem;
             font-style: normal;
             font-weight: 500;
             line-height: normal;
@@ -61,7 +62,7 @@
 
         & p {
             color: var(--Base-Base-White);
-            font-family: Oswald;
+            font-family: Lora;
             /* font-size: 24px; */
             font-size: 1.5rem;
             font-style: normal;

@@ -56,4 +56,85 @@
   --Black: #000;
 }
 
+button{
+  transition: all 350ms ease-in;
+  cursor: pointer;
+}
 
+button:hover{
+  /* background-color: #D6EDFF; */
+  background-color: #0066b2 !important;
+}
+
+
+
+.rating-stars {
+  display: flex;
+  align-items: center;
+}
+
+.full-star {
+  color: #C7CB1C; /* Color of the filled star */
+  font-size: 1.5rem; /* Size of the star icon */
+}
+
+.half-star {
+  position: relative;
+  color: #C7CB1C; /* Color of the half star */
+  font-size: 1.5rem; /* Size of the star icon */
+}
+
+.empty-star {
+  color: lightgray; /* Color of the empty star */
+  font-size: 1.5rem; /* Size of the star icon */
+}
+
+/* content: '\f005'; FontAwesome star icon */
+/* .half-star::before{
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: #C7CB1C;
+  color: teal;
+  z-index: 1;
+  overflow: hidden;
+} */
+/* width: 50%; Adjust the width for partial effect */
+
+.half-star {
+  position: relative;
+}
+
+.half-star .react-icon {
+  color: #C7CB1C; /* Overwrite color for the half star */
+}
+
+
+@media screen  and (max-width: 409px){
+  .full-star {
+    font-size: 1.25rem; /* Size of the star icon */
+  }
+  
+  .half-star {
+    font-size: 1.25rem; /* Size of the star icon */
+  }
+  
+  .empty-star {
+    font-size: 1.25rem; /* Size of the star icon */
+  }
+}
+
+
+@media screen  and (max-width: 329px){
+  .full-star {
+    font-size: 1rem; /* Size of the star icon */
+  }
+  
+  .half-star {
+    font-size: 1rem; /* Size of the star icon */
+  }
+  
+  .empty-star {
+    font-size: 1rem; /* Size of the star icon */
+  }
+}

@@ -39,8 +39,8 @@ export const carCareSlice = createSlice({
         // setUserDatas: (state, {payload}) => {
         //     state.UserDatas = payload; 
         // },
-        setNavBarVisibility: (state, {payload}) => {
-            state.navBarVisibility = !state.navBarVisibility || payload; 
+        setNavBarVisibility: (state) => {
+            state.navBarVisibility = !state.navBarVisibility; 
         },
         logIn: (state) => {
             state.isLoggedIn = true; 
