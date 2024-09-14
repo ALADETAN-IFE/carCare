@@ -10,16 +10,7 @@ const Auth = () => {
   // useEffect(() => {
   //   setisLoggedIn(isLoggedIn1)
   // }, )
-  return (
-    <div>
-        {
-            isLoggedIn ? 
-            <Outlet/>
-            : 
-            <Navigate to="/" replace={true}/>
-        }
-    </div>
-  )
+  return isLoggedIn ? <Outlet/>  :  <Navigate to="/login" replace={true}/>
 }
 
 export default Auth

@@ -15,7 +15,7 @@ import mazoa from "./svg/mazoa.svg"
 import landRover from "./svg/landRover.svg"
 
 const WeService = () => {
-  const carBrands1 = [
+  const carBrands = [
     {
       icon: Toyota1
     },
@@ -37,30 +37,29 @@ const WeService = () => {
     {
       icon:mitsubishi
     },
-  ]
-  const carBrands2 = [
-     {
-      icon:nissan
-    },
-     {
-      icon:ford
-    },
-     {
-      icon:jeep
-    },
-     {
-      icon:suziki
-    },
-     {
-      icon:isuzu
-    },
-     {
-      icon:mazoa
-    },
     {
-      icon:landRover
-    },
+     icon:nissan
+   },
+    {
+     icon:ford
+   },
+    {
+     icon:jeep
+   },
+    {
+     icon:suziki
+   },
+    {
+     icon:isuzu
+   },
+    {
+     icon:mazoa
+   },
+   {
+     icon:landRover
+   },
   ]
+
   return (
     <section className='WeService'>
       <div className="weServiceWrapper">
@@ -71,16 +70,7 @@ const WeService = () => {
         <div className="weServiceBottom">
           <div className="weServiceBottomCarBrandsWrapper">
             {
-              carBrands1?.map((e, i) => (
-                <div className="weServiceCarBrands" key={i}>
-                  <img src={e?.icon} alt="" />
-                </div>
-              ))
-            }
-          </div>
-          <div className="weServiceBottomCarBrandsWrapper">
-            {
-              carBrands2?.map((e, i) => (
+              carBrands?.map((e, i) => (
                 <div className="weServiceCarBrands" key={i}>
                   <img src={e?.icon} alt="" />
                 </div>

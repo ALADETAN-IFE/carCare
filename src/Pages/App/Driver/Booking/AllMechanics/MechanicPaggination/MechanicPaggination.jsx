@@ -146,7 +146,7 @@ const MechanicPaggination = ({ currentPage, setCurrentPage, totalItems, itemsPer
     useEffect(() => {
         // Update the URL whenever the currentPage changes
         navigate(`/mechanics/page=${currentPage}`);
-    }, [currentPage, navigate]);
+    }, [currentPage]);
 
     const goToPage = (page) => {
         if (page >= 1 && page <= totalPages) {

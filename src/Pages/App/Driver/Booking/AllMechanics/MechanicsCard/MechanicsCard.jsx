@@ -1,5 +1,7 @@
 import "./mechanicsCard.css"
-import { FaStar, FaStarHalfAlt } from 'react-icons/fa';
+import { IoStar } from "react-icons/io5";
+import { IoIosStarHalf } from "react-icons/io";
+import { useNavigate } from "react-router-dom";
 
 // const ratingStars = (rating) => {
 //     const fullStars = Math.floor(rating);
@@ -13,7 +15,7 @@ import { FaStar, FaStarHalfAlt } from 'react-icons/fa';
 //             {decimal >= 0.75 ? (
 //                 <FaStar className="full-star" />
 //             ) : decimal >= 0.25 ? (
-//                 <FaStarHalfAlt className="half-star" />
+//                 <IoIosStarHalf className="half-star" />
 //             ) : null}
 //             {[...Array(5 - fullStars - (decimal >= 0.25 ? 1 : 0))].map((_, i) => (
 //                 <FaStar key={`empty-${i}`} className="empty-star" />
@@ -29,15 +31,15 @@ const ratingStars = (rating) => {
     return (
         <div className="rating-stars">
             {[...Array(fullStars)].map((_, i) => (
-                <FaStar key={`full-${i}`} className="full-star" />
+                <IoStar key={`full-${i}`} className="full-star" />
             ))}
             {decimal >= 0.75 ? (
-                <FaStar className="full-star" />
+                <IoStar className="full-star" />
             ) : decimal >= 0.25 ? (
-                <FaStarHalfAlt className="half-star" />
+                <IoIosStarHalf className="half-star" />
             ) : null}
             {[...Array(5 - fullStars - (decimal >= 0.25 ? 1 : 0))].map((_, i) => (
-                <FaStar key={`empty-${i}`} className="empty-star" />
+                <IoStar key={`empty-${i}`} className="empty-star" />
             ))}
         </div>
     );
@@ -141,6 +143,7 @@ const ratingStars = (rating) => {
 //   };
 
 const MechanicsCard = ({mech}) => { 
+    const navigate = useNavigate()
   return (
     <div className="mechanicsCard">
         <div className="mechanicsCardTop">
@@ -152,14 +155,23 @@ const MechanicsCard = ({mech}) => {
                 <span>{ratingStars(mech?.rating)}</span>
             </div>
             <div className="mechanicsCardBottomDetails">
-            Specializations: {
+            Specializations:   
+             {/* {
                 mech?.specialization?.map((e, i)=> (
                     <span key={i}>{e}</span>
                 ))
-            }.
+            }. */}
+            <span> {mech?.specialization?.join(", ")}</span>.
             </div>
-            <div className="mechanicsCardBottomDetails"></div>
-            <div className="mechanicsCardBottomDetails"></div>
+            <div className="mechanicsCardBottomDetails1">
+                {mech?.certification.join(", ")}
+            </div>
+            <div className="mechanicsCardBottomDetails2"
+            >
+                <button className="viewMechProfile"
+                onClick={()=> navigate(`/mechanic/${mech?._id}`)}
+                >View Profile</button>
+            </div>
         </div>
     </div>
   )

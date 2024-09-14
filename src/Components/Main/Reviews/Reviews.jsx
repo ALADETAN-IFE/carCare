@@ -1,8 +1,31 @@
 import { RxAvatar } from 'react-icons/rx'
 import './reviews.css'
 import geoge from "../../../assets/images/geoge.png"
+import { IoStar } from "react-icons/io5";
+import { IoIosStarHalf } from "react-icons/io";
 
 const Reviews = () => {
+
+  const ratingStars = (rating) => {
+    const fullStars = Math.floor(rating);
+    const decimal = rating - fullStars;
+
+    return (
+        <div className="rating-stars">
+            {[...Array(fullStars)].map((_, i) => (
+                <IoStar key={`full-${i}`} className="full-star" />
+            ))}
+            {decimal >= 0.75 ? (
+                <IoStar className="full-star" />
+            ) : decimal >= 0.25 ? (
+                <IoIosStarHalf className="half-star" />
+            ) : null}
+            {[...Array(5 - fullStars - (decimal >= 0.25 ? 1 : 0))].map((_, i) => (
+                <IoStar key={`empty-${i}`} className="empty-star" />
+            ))}
+        </div>
+    );
+};
   return (
     <section className='Reviews'>
       <div className="reviewsBgBlueCard"></div>
@@ -26,7 +49,13 @@ const Reviews = () => {
               {/* <RxAvatar size={400} /> */}
               <img src={geoge} alt="" />
             </div>
-            <div className="userReviewDetails"></div>
+            <div className="userReviewDetails">
+              <h4>GEORGE ONYEDIKACHI</h4>
+              <p>Software Developer</p>
+              <div className="ratings">
+              {ratingStars(2.9)}
+              </div>
+            </div>
             <div className="userReviewCard">
               <div className="userReviwCardWrapper">
                 <div className="userReviewCardQuoteIcon">

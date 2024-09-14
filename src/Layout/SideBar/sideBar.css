@@ -133,11 +133,11 @@
     }
 
     .sideBarTopClose {
-        display: block;
+        /* display: block; */
         /* position: absolute; */
         /* right : 10px; */
         /* top: -20px; */
-        width: 100%;
+        /* width: 100%; */
     }
 
     .sideBarNav,
@@ -157,7 +157,7 @@
     }
 
     .sideBarLogo {
-        width: 90% !important;
+        /* width: 90% !important; */
         /* background: #000; */
     }
 }
