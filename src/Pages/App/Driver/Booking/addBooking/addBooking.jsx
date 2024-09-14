@@ -15,7 +15,7 @@ const AddBooking = ({book, setbook}) => {
     const navigate = useNavigate()
     const AppbookingFormPage = useSelector((state)=> state.carCare.AppbookingFormPage)
     const [bookingFormsPage, setbookingFormsPage1] = useState(AppbookingFormPage)
-    const [bookingInputsArray, setbookingInputsArray] = useState([])
+    const [bookingInputsObject, setbookingInputsObject] = useState({})
     const dispatch = useDispatch()
     useEffect(() => {
         setbookingFormsPage1(AppbookingFormPage) 
@@ -76,7 +76,7 @@ const AddBooking = ({book, setbook}) => {
     ];
     
 
-    console.log(bookingInputsArray)
+    console.log(bookingInputsObject)
 
 
     
@@ -114,11 +114,16 @@ const AddBooking = ({book, setbook}) => {
         setdateInput(e.target.value)
         console.log(e.target.value)
         // console.log(e)
-     setbookingInputsArray({...bookingInputsArray, date: e.target.value} )
+     setbookingInputsObject({...bookingInputsObject, date: e.target.value} )
     }
     useEffect(() => {
-        setbookingInputsArray({...bookingInputsArray, time: time} )
+        setbookingInputsObject({...bookingInputsObject, time: time} )
+
     }, [time])
+    useEffect(() => {
+      dispatch(userBookingForm(bookingInputsObject))
+    }, [bookingInputsObject])
+    
     
 
     // const customDateDropdownIndicator = (props) => {
@@ -157,7 +162,7 @@ const AddBooking = ({book, setbook}) => {
                                             <Select options={brandOptions}
                                                 placeholder=""
                                                 styles={customStyles}
-                                                 onChange={(e)=> setbookingInputsArray({...bookingInputsArray, carBrand: e.value} )}
+                                                 onChange={(e)=> setbookingInputsObject({...bookingInputsObject, carBrand: e.value} )}
                                                   />
                                         </div>
                                         <div className="inputHolder">
@@ -165,7 +170,7 @@ const AddBooking = ({book, setbook}) => {
                                             <Select options={modelOptions}
                                                 placeholder=""
                                                 styles={customStyles} 
-                                                onChange={(e)=> setbookingInputsArray({...bookingInputsArray, carModel: e.value} )}
+                                                onChange={(e)=> setbookingInputsObject({...bookingInputsObject, carModel: e.value} )}
                                                 />
                                         </div>
                                     </div>
@@ -175,7 +180,7 @@ const AddBooking = ({book, setbook}) => {
                                         <Select options={yearOptions}
                                             placeholder=""
                                             styles={customStyles}
-                                            onChange={(e)=> setbookingInputsArray({...bookingInputsArray, carYear: e.value} )}
+                                            onChange={(e)=> setbookingInputsObject({...bookingInputsObject, carYear: e.value} )}
                                             />
                                     </div>
                                     <div className="inputHolder">
@@ -183,7 +188,7 @@ const AddBooking = ({book, setbook}) => {
                                         <input type="text" value="Lagos" contentEditable="false" 
                                         style={{cursor: "not-allowed", background: 'white'}} 
                                         disabled 
-                                        onChange={(e)=> setbookingInputsArray({...bookingInputsArray, carState: e.value} )}
+                                        onChange={(e)=> setbookingInputsObject({...bookingInputsObject, carState: e.value} )}
                                         />
                                     </div>
                                     <div className="inputHolder">
@@ -191,7 +196,7 @@ const AddBooking = ({book, setbook}) => {
                                         <Select options={locationOptions}
                                             placeholder=""
                                             styles={customStyles}
-                                            onChange={(e)=> setbookingInputsArray({...bookingInputsArray, carLocation: e.value} )}
+                                            onChange={(e)=> setbookingInputsObject({...bookingInputsObject, carLocation: e.value} )}
                                             />
                                     </div>
                                 </div>
@@ -279,7 +284,7 @@ const AddBooking = ({book, setbook}) => {
                                                         />
                                                         :
                                                         <div className="picksCircle"
-                                                        onClick={() => {setSelectedService(0), setbookingInputsArray({...bookingInputsArray, serviceLocation: "Home Service"}), console.log(":") }} 
+                                                        onClick={() => {setSelectedService(0), setbookingInputsObject({...bookingInputsObject, serviceLocation: "Home Service"}), console.log(":") }} 
                                                          ></div>
                                                 }
                                                 <p>Home Service</p>
@@ -293,7 +298,7 @@ const AddBooking = ({book, setbook}) => {
                                                         />
                                                         :
                                                         <div className="picksCircle" 
-                                                        onClick={() => {setSelectedService(1), setbookingInputsArray({...bookingInputsArray, serviceLocation: "Pickup & Delivery"}) }}
+                                                        onClick={() => {setSelectedService(1), setbookingInputsObject({...bookingInputsObject, serviceLocation: "Pickup & Delivery"}) }}
                                                         ></div>
                                                 }
                                                 <p>Pickup & Delivery</p>
@@ -306,7 +311,7 @@ const AddBooking = ({book, setbook}) => {
                                                         />
                                                         :
                                                         <div className="picksCircle"
-                                                        onClick={() => {setSelectedService(2), setbookingInputsArray({...bookingInputsArray, serviceLocation: "Visit Autoshop"}) }} 
+                                                        onClick={() => {setSelectedService(2), setbookingInputsObject({...bookingInputsObject, serviceLocation: "Visit Autoshop"}) }} 
                                                         ></div>
                                                 }
                                                 <p>Visit Autoshop</p>
@@ -318,7 +323,7 @@ const AddBooking = ({book, setbook}) => {
                                     <div className="additionalInfoInput">
                                         <h3>Add special/additional instructions</h3>
                                         <textarea placeholder='Add any special requests or concerns here…' 
-                                         onChange={(e)=> setbookingInputsArray({...bookingInputsArray, additionalInfo: e.target.value} )}
+                                         onChange={(e)=> setbookingInputsObject({...bookingInputsObject, additionalInfo: e.target.value} )}
                                         ></textarea>
                                     </div>
                                 </div>

@@ -25,6 +25,8 @@ header {
 .headerLeft {
     width: 15%;
     height: 100%;
+    display: flex;
+    align-items: center;
     /* background: #b63434c7; */
 }
 

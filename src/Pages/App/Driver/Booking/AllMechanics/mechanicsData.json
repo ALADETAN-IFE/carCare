@@ -4,11 +4,11 @@
         "image": "mechanic1.jpg",
         "name": "John Doe",
         "specialization": [ "Brake Repair", "Transmission Service", "Engine Overhaul" ],
-        "rating": 4.5,
+        "rating": 3.5,
         "certification": [ "ASE Certified", "NASTF Certified" ],
         "location": "Lagos, Nigeria",
-        "experience": 10,
-        "description": "Expert mechanic with 10 years of experience in brake repair and transmission service."
+        "experience": 12,
+        "description": "Anjola is a seasoned auto mechanic with over a decade of experience, specializing n engine repairs and diagnostics. Known for his meticulous attention to detail and commitment to quality service, Anjola has earned a reputation as one of the top mechanics in Lagos. Whether it's a complex engine issue or routine maintenance, Anjola’s expertise ensures your car is in the best hands."
     },
     {
         "_id": 2,
@@ -360,7 +360,7 @@
         "rating": 4.8,
         "certification": ["ASE Master Technician", "NASTF Advanced Diagnostic Technician"],
         "location": "Kogi, Nigeria",
-        "experience": 19,
+        "experience": 29,
         "description": "Highly skilled mechanic with 19 years of experience in transmission repair and wheel alignment."
     }
 ]
