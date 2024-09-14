@@ -20,7 +20,7 @@ const initialState = {
     isLoggedIn: false,
     appPages : "app",
     AppbookingFormPage: 0,
-    userBookingForm: []
+    userBookingForm: {},
 }
 
 
