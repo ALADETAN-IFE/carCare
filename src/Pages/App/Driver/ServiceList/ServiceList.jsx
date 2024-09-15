@@ -23,10 +23,7 @@ const ServiceList = () => {
       {/* </div> */}
       <div className="serviceSelect">
         <div className="selectBox">
-          <input type="checkbox" name="" id="" />
-          <input type="checkbox" name="" id="" 
-          // onClick={handleCheckboxClick}
-          />
+          <input type="checkbox" name="" id=""/>
           <div className="categoryDetails">
             <div className="categoryDetails__text">
               <h1>Tire Replacement (One)</h1>

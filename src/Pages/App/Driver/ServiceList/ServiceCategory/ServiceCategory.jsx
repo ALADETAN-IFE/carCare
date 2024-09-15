@@ -35,14 +35,6 @@ const ServiceCategory = ({ pages = [], setPages }) => {
                   setPages([...pages, e.to])  // Add to the selection
                 }
               }}
-
-            // onClick={() => {
-            //   if (pages && pages.includes(e.to)) {
-            //     setPages(pages.filter(page => page !== e.to));
-            //   } else {
-            //     setPages([...(pages || []), e.to]);
-            //   }
-            // }}
             >
               {e.text}
             </NavLink>
