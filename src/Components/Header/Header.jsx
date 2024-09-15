@@ -7,6 +7,7 @@ import { FiHelpCircle } from "react-icons/fi"
 import { IoPersonCircleSharp } from "react-icons/io5"
 import LoggedInDropdown from "./LoggedInDropdown/LoggedInDropdown"
 import { useSelector } from "react-redux"
+import Logo from "../../assets/svg/Logo.svg"
 
 const Header = () => {
   // const [isLoggedIn, setisLoggedIn] = useState(isLoggedIn1)
@@ -63,8 +64,9 @@ const Header = () => {
       }
       <div className="headerWrapper">
         <div className="headerLeft">
-          height = {height}
-          width = {width}
+          {/* height = {height}
+          width = {width} */}
+          <img src={Logo} alt={Logo} style={{maxWidth: "100%"}} />
           </div>
         <div className="headerMiddle">
           {

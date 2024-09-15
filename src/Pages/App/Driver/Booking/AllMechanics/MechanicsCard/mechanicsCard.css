@@ -95,9 +95,10 @@
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
+
   }
 
-  & .mechanicsCardBottomDetails2{
+  & .mechanicsCardBottomDetails2 {
     width: 100%;
   }
 
