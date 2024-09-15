@@ -32,7 +32,7 @@ const Login = () => {
         <form onSubmit={handleLogin} className='login__form'>
          <div className='login__input'>
          <label htmlFor="">Email Address</label>
-         <input type="text" placeholder='Enter your email address'/>
+         <input type="text" placeholder='Enter your email address' />
          </div>
          <div className='login__input'>
          <label htmlFor="">Password</label>

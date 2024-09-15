@@ -1,13 +1,14 @@
-.mechInfo__container{
+/* Base styles */
+.mechInfo__container {
     width: 100%;
     height: 1080px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    
 }
-.mechInfo__content{
+
+.mechInfo__content {
     display: flex;
     width: 800px;
     height: 900px;
@@ -15,16 +16,20 @@
     justify-content: center;
     align-items: center;
     gap: 10px;
-    flex-shrink: 0;
+    background: var(--Base-Base-White, #FFF);
+    box-shadow: 0px 61px 17px 0px rgba(179, 179, 179, 0.00), 0px 39px 16px 0px rgba(179, 179, 179, 0.01), 0px 22px 13px 0px rgba(179, 179, 179, 0.05), 0px 10px 10px 0px rgba(179, 179, 179, 0.09), 0px 2px 5px 0px rgba(179, 179, 179, 0.10);
+    
 }
-.mechInfoText{
+
+.mechInfoText {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
     gap: 20px;
-    align-self: stretch;
 }
-.mechInfoText h1{
+
+.mechInfoText h1 {
     color: var(--Secondary-Secondary, #0066B2);
     font-family: Lora;
     font-size: 32px;
@@ -32,7 +37,8 @@
     font-weight: 700;
     line-height: normal;
 }
-.mechInfoText p{
+
+.mechInfoText p {
     color: var(--Base-Base-Black, #171717);
     text-align: center;
     font-family: Lora;
@@ -41,16 +47,19 @@
     font-weight: 500;
     line-height: normal;
 }
-.mech__personalInfo{
+
+.mech__personalInfo {
     width: 661px;
     height: 681px;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
+    justify-content: center;
     gap: 30px;
-    align-self: stretch;
-} 
-.mech__personalInfo h1{
+   
+}
+
+.mechForm__title h1 {
     color: var(--Base-Base-Black, #171717);
     font-family: Lora;
     font-size: 24px;
@@ -58,14 +67,165 @@
     font-weight: 600;
     line-height: normal;
 }
-.mechInput input{
+
+.mechInput .infoInput {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     gap: 12px;
-    align-self: stretch;
     width: 661px;
     height: 65px;
     border-radius: 8px;
     border: 1px solid #565454;
 }
+
+.mechInfo__btn {
+    display: flex;
+    width: 230px;
+    height: 50px;
+    padding: 8.253px;
+    justify-content: center;
+    align-items: center;
+    gap: 8.253px;
+    border-radius: 5.505px;
+    cursor: pointer;
+    background: var(--Secondary-Secondary900, #004375);
+    transition: transform 300ms ease-in, opacity 300ms ease-in;
+   
+}
+.mechInfoBtn__container{
+    padding-bottom: 40px;
+}
+
+/* Animation keyframes */
+@keyframes smartAnimate {
+    0% {
+        transform: scale(1);
+        opacity: 0.5;
+    }
+    100% {
+        transform: scale(1.1);
+        opacity: 1;
+    }
+}
+
+.animate-btn {
+    animation-name: smartAnimate;
+    animation-timing-function: ease-in;
+    animation-duration: 300ms;
+    animation-fill-mode: forwards;
+}
+
+/* Media Queries */
+
+/* Phones (Portrait) */
+@media screen and (max-width: 375px) {
+    .mechInfo__content {
+        width: 100%;
+        height: auto;
+        padding: 5px;
+    }
+
+    .mech__personalInfo{
+        width: 320px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .mechInput .infoInput{
+        width: 300px;
+        height: 65px;
+    }
+
+    .mechInfoText h1 {
+        font-size: 24px;
+        text-align: center;
+    }
+
+    .mechInfoText p {
+        font-size: 14px;
+        flex-wrap: wrap;
+    }
+
+    .mechForm__title h1 {
+        font-size: 18px;
+    }
+}
+@media screen and (min-width: 375px) {
+    .mechInfo__content {
+        width: 100%;
+        height: auto;
+        padding: 5px;
+    }
+
+    .mech__personalInfo{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .mechInput .infoInput{
+        width: 320px;
+        height: 65px;
+    }
+
+    .mechInfoText h1 {
+        font-size: 24px;
+        text-align: center;
+    }
+
+    .mechInfoText p {
+        font-size: 16px;
+    }
+
+    .mechForm__title h1 {
+        font-size: 18px;
+    }
+}
+
+
+/* Tablets (Portrait and Landscape) */
+@media screen and (min-width: 768px) {
+    .mechInfo__content {
+        width: 90%;
+        height: auto;
+    }
+
+    .mech__personalInfo {
+        width: 678px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .mechInput .infoInput{
+        width: 661px;
+        height: 65px;
+    }
+
+    .mechInfoText h1 {
+        font-size: 32px;
+    }
+
+    .mechInfoText p {
+        font-size: 20px;
+    }
+
+    .mechForm__title h1 {
+        font-size: 22px;
+        
+    }
+}
+
+
+
+
+
+
+
+
+
+
+ 

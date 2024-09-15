@@ -2,9 +2,10 @@ import React from 'react'
 import './ChangePassword.css'
 import { IoEye, IoEyeOff } from 'react-icons/io5';
 import { useState } from 'react';
-import Overlay from '../Overlay/Overlay';
+// import Overlay from '../Overlay/Overlay';
 import { Link } from 'react-router-dom';
 import AuthHeader from '../AuthHeader/AuthHeader';
+import PasswordSuccess from './PasswordSuccess/PasswordSuccess';
 
 const ChangePassword = () => {
     const [seePassword, setSeePassword] = useState(true);
@@ -14,9 +15,11 @@ const ChangePassword = () => {
       };  
   return (
     <div className='changePassword__container'>
-      <div>
+      
+          <header>
           <AuthHeader/>
-        </div>
+          </header>
+        
     <div className="changePassword__content">
           <h1> Reset Password</h1>
       <div className='forgot__input__wrapper' >
@@ -38,7 +41,7 @@ const ChangePassword = () => {
          </div>
           <div className='forgotPassword__btn'>
               <button type="submit" className='resetPassword'onClick={handlePopup} >Reset Password</button>
-              {showPopUp ? <Overlay/> : null }
+              {showPopUp ? <PasswordSuccess/> : null }
           </div>
           {/* <div>
             <p>Remember your password? <Link to='/login' className='signup__link'>Login</Link></p>

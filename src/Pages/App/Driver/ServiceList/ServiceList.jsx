@@ -10,9 +10,9 @@ const ServiceList = () => {
   const navigate = useNavigate()
   return (
   <div className="ServiceList__container">
-    {/* <div> */}
+     <div> 
       <LayoutHeader />
-    {/* </div> */}
+    </div> 
     <div className="heropicture">
       <img src={serviceListimg} alt="" />
     </div>
