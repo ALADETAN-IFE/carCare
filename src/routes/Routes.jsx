@@ -83,6 +83,10 @@ const Routes = createHashRouter([
         element: <VerifyEmail />,
     },
     {
+        path: '/verifyEmail/:token',
+        element: <VerifyEmail />,
+    },
+    {
         element: <Auth />,
         children: [
             {
@@ -144,5 +148,7 @@ const Routes = createHashRouter([
         ]
     }
 ])
+
+
 
 export default Routes

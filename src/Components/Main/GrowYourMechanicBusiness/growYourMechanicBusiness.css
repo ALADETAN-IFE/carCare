@@ -73,6 +73,14 @@
                 line-height: normal;
 
                 & span {
+                    color: var(--Base-Base-White);
+                    /* font-family: Oswald; */
+                    font-family: Alegreya SC;
+                    /* font-size: 40px; */
+                    font-size: 2.5rem;
+                    font-style: normal;
+                    font-weight: 500;
+                    line-height: normal;
                     color: var(--Secondary-Secondary, #0066B2);
                 }
             }
@@ -109,7 +117,7 @@
 
             &:hover {
                 color: var(--Base-Base-Black);
-                background: var(--Base-Base-White);
+                background: var(--Base-Base-White) !important;
                 transform: scale(1.03);
             }
         }
