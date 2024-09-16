@@ -28,7 +28,12 @@
     align-items: flex-start;
     gap: 33px;
     padding-top: 30px;
+    /* background-color: #171717;
+     border: 1px solid red; */
+     
 }
+
+
 .selectBox{
     display: flex;
     align-items: center;
@@ -90,8 +95,8 @@
     line-height: normal;
 }
 .selection__card{
-    width: 320px;
-    height: 383px;
+    width: 400px;
+    min-height: 383px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -129,10 +134,11 @@
     display: flex;
     width: 268px;
     height: 57px;
-    padding: 14px 59px 13px 60px;
+    padding: 10px;
+    /* padding: 14px 59px 13px 60px; */
     justify-content: center;
     align-items: center;
-    flex-shrink: 0;
+    /* flex-shrink: 0; */
     background: var(--Secondary-Secondary100, #D6EDFF);
 }
 .service__btn button{
@@ -145,7 +151,44 @@
     gap: 7.5px;
     flex-shrink: 0;
     border-radius: 10px;
+    border-color: #0066B2;
     background: var(--Secondary-Secondary, #0066B2);
+}
+.service__map{
+    width: 250px;
+    display: flex;
+    justify-content: flex-start;
+    /* background: #000; */
+    flex-direction: column;
+    align-items: flex-start;
+    /* height: max-content; */
+    /* height: 70px; */
+    /* border: 10px solid black; */
+    padding: 4px;
+    border: 0.5px solid #808080;
+    border-radius: 10px 0px 10px 0px;
+    background: var(--Base-Base-White, #FFF);
+
+
+}
+.service__map h1{
+    color:  #0066B2;
+    text-align: center;
+    font-family: Lora;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: 0.64px
+}
+.service__map p{
+    color: var(--Base-Base-Black, #171717);
+    text-align: center;
+    font-family: Lora;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
 }
 
 .theService{
@@ -155,7 +198,13 @@
     justify-content: center;
     align-items: flex-start;
     gap: 2.9px;
-    align-self: stretch;
+     border-radius: 10px 0px 10px 0px;
+    border-radius: 10px;
+    gap: 10px;
+    background: var(--Base-Base-White, #FFF);
+
+/* Card shadows */
+    box-shadow: 0px 46px 13px 0px rgba(182, 184, 185, 0.00), 0px 29px 12px 0px rgba(182, 184, 185, 0.01), 0px 17px 10px 0px rgba(182, 184, 185, 0.05), 0px 7px 7px 0px rgba(182, 184, 185, 0.09), 0px 2px 4px 0px rgba(182, 184, 185, 0.10);
 }
 .theServiceContainer{
     border-radius: 10px var(--Spacing-xxs, 2px);
