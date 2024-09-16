@@ -74,7 +74,7 @@
     font-weight: 600;
     line-height: normal;
 }
-span{
+.requirement__details span{
     color: var(--Error-Error300, #A21C29);
     font-family: Lora;
     font-size: 24px;

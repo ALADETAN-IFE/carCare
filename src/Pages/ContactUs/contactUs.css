@@ -1,7 +1,167 @@
-.ContactUs{
+.ContactUs {
+    margin-top: 70px;
     width: 100%;
     height: max-content;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    background: #000;
+}
+
+.ContactUsBody {
+    width: 100%;
+    border-radius: 80px 80px 80px 80px;
+    /* border-radius:  var(--Radius-Sharp, 0px) var(--Radius-Sharp, 0px); */
+    /* background: #FFF; */
+    background: #FFF;
+    height: max-content;
+    min-height: 800px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 50px;
+}
+
+.ContactUsBodyWrapper {
+    width: 100%;
+    height: 90%;
+    min-height: 700px;
+    /* max-height: 1506.5px; */
+    /* background: #b23e3e; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 69px;
+}
+
+.ContactUsBodyTop {
+    padding-top: 50px;
+    display: flex;
+    max-width: 753px;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: center; */
+    gap: 20px;
+
+    & h3 {
+        color: #171717;
+        text-align: center;
+        font-family: "Alegreya SC";
+        font-size: 40px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 40px;
+        /* 100% */
+    }
+
+    & p {
+        color: #171717;
+        text-align: center;
+        font-family: Lora;
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 27.75px;
+        /* 115.625% */
+        letter-spacing: 1.2px;
+    }
+}
+
+.ContactUsBodyBottom {
+    display: flex;
+    align-items: center;
+    gap: 58px;
+    width: 100%;
+    /* background: red; */
+
+}
+
+.ContactUsBodyBottomLeft {
+    width: 57%;
+    /* background: #000; */
+    padding-top: 10px;
+    padding-bottom: 10px;
+    /* height: 485.25px; */
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+
+    & .contactInputHolder {
+        width: 100%;
+        display: flex;
+        gap: 32px;
+
+        & input {
+            width: 50%;
+            height: 57.75px;
+            padding: 17px 263.441px 16.7px 10px;
+            border-radius: 8px;
+            border: 1px solid #565454;
+            background: #FFF;
+            outline: none;
+
+        }
+
+        & input::placeholder {
+            color: #818181;
+            font-family: Oswald;
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 24.05px;
+            /* 171.786% */
+        }
+    }
+
+    & textarea {
+        width: 100%;
+        height: 218px;
+        border-radius: 8px;
+        border: 1px solid #565454;
+        background: #FFF;
+        padding: 8px;
+        outline: none;
+        resize: none;
+    }
+
+    & textarea::placeholder {
+        color: #818181;
+        font-family: Oswald;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 24.05px;
+        /* 171.786% */
+    }
+
+    & button {
+        display: flex;
+        width: 200px;
+        height: 50px;
+        padding: 7.5px;
+        justify-content: center;
+        align-items: center;
+        gap: 7.5px;
+        flex-shrink: 0;
+        border-radius: 8px;
+        background: var(--Secondary-Secondary, #0066B2);
+        color: #FFF;
+        font-family: Lora;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        border: none;
+        outline: none;
+    }
+}
+
+.ContactUsBodyBottomRight {
+    width: 43%;
+    background: #000;
+    height: 485.25px;
+    border-radius: 10px;
+border: 1px solid #565454;
+box-shadow: 1px 5px 15px 0px rgba(0, 0, 0, 0.25);
 }
