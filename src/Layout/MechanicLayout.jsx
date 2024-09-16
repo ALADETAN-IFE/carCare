@@ -11,6 +11,7 @@ import { useEffect, useState } from "react"
 import { setAppPages } from "../Global/Redux-actions/carCare"
 import Settings from "../Pages/App/Driver/settings/settings"
 import Mechanic from "../Pages/App/Mechanic/Mechanics"
+import MechanicBooking from "../Pages/App/Mechanic/MechanicBooking/MechanicBooking"
 
 const MechanicLayout = () => {
   // addBooking
@@ -44,7 +45,7 @@ const MechanicLayout = () => {
           <Mechanic setpages={setpages} />
           : 
           pages == "booking" ?
-          <Booking setpages={setpages} />
+          <MechanicBooking setpages={setpages} />
           : pages == "settings" ?
           <Settings/>
           : null

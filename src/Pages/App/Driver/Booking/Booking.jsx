@@ -1,4 +1,3 @@
-import { SiEclipsemosquitto } from 'react-icons/si'
 import './booking.css'
 import { useEffect, useState } from 'react'
 import BookingPagePagination from './BookingPagePagination/BookingPagePagination'

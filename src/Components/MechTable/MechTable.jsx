@@ -2,7 +2,7 @@ import { useDispatch } from "react-redux"
 import BookingPagePagination from "../../Pages/App/Driver/Booking/BookingPagePagination/BookingPagePagination"
 import "./mechTable.css"
 import { CgMoreVertical } from "react-icons/cg"
-import MechTableDatas from "./MechTableDatas"
+import MechTableDatas from "./mechTableDatas"
 
 const MechTable = ({ totalPages, currentPage, setCurrentPage,
     indexOfFirstBooking, indexOfLastBooking, currentBookings1, currentBookings,
