@@ -219,9 +219,17 @@
         & button:first-child {
             background: var(--Success-Success, #28A745);
         }
+        & button:first-child:hover {
+            background: var(--Success-Success, #28A745) !important;
+        }
 
         & button:last-child {
             background: var(--Error-Error, #DC3545);
         }
+        & button:last-child:hover {
+            background: var(--Error-Error, #DC3545) !important;
+        }
+
+
     }
 }
