@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../ServiceList/ServiceList.css'
+import '../ServiceList.css'
 
 
 const ServiceSelection = () => {
