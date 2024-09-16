@@ -13,7 +13,7 @@
     position: relative;
     background-position: 100% !important;
     background-repeat: no-repeat !important;
-    background-size: contain !important;
+    background-size: cover !important;
 
 }
 
@@ -37,6 +37,7 @@
     max-width: 661px;
     /* background: #000; */
 }
+
 
 .TextSeperator {
     display: flex;
@@ -94,3 +95,68 @@
     border: none;
     outline: none;
 }
+
+@media screen and (max-width: 800px) {
+    .heropageWrapper {
+        width: 95%;
+    }
+}
+@media screen and (max-width: 426px) {
+    .heroBigText {
+        color: #FFF;
+        font-family: "Alegreya SC";
+        font-size: 28px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        /* flex: 1 0 0; */
+    
+        & .span2 {
+            color: var(--Secondary-Secondary, #0066B2);
+            font-family: "Alegreya SC";
+            font-size: 28px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: normal;
+        }
+    }
+    
+    .heroSmallText {
+        color: #FFF;
+        font-family: Lora;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+        width: 80%;
+    }
+}
+/* @media screen and (max-width: 350px) {
+    .heroBigText {
+        color: #FFF;
+        font-family: "Alegreya SC";
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+    
+        & .span2 {
+            color: var(--Secondary-Secondary, #0066B2);
+            font-family: "Alegreya SC";
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: normal;
+        }
+    }
+    
+    .heroSmallText {
+        color: #FFF;
+        font-family: Lora;
+        font-size: 8px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+        width: 80%;
+    }
+} */

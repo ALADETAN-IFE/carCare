@@ -25,7 +25,6 @@ import MechAuth from '../auth/MechAuth'
 import DriverAuth from '../auth/DriverAuth'
 import MechanicDetails from '../Pages/App/Driver/Booking/AllMechanics/MechanicDetails/MechanicDetails'
 import AdminAuth from '../auth/AdminAuth'
-// >>>>>>> 2a7b5ae915e3460c4f20e71ee076f3d5449118ab
 // import LoggedInHome from '../Pages/LoggedInHome/LoggedInHome'
 
 
