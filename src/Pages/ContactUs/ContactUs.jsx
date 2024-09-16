@@ -25,6 +25,7 @@ const ContactUs = () => {
               <textarea placeholder="Message"></textarea>
 
               <button>Send Message</button>
+              
             </div>
             <div className="ContactUsBodyBottomRight">
               sd
