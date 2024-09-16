@@ -1,0 +1,297 @@
+.settings {
+    width: 100%;
+    /* background: #d9c1c1; */
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.settingsMechWrapper {
+    width: 100%;
+    height: 100%;
+    padding: 49px 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+
+    & .settingsMechUp {
+        width: 100%;
+
+        & h4 {
+            color: var(--Secondary-Secondary, #0066B2);
+            font-family: "Alegreya SC";
+            font-size: 32px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 20px;
+            /* 62.5% */
+            letter-spacing: -0.224px;
+        }
+    }
+
+
+
+}
+
+.settingsMechDown {
+    display: flex;
+    /* justify-content: space-between; */
+    gap: 59px;
+
+    & .settingsMechLeft {
+        display: flex;
+        width: 286px;
+        padding: 22px 0px 37px 0px;
+        height: 275px;
+
+        flex-direction: column;
+        align-items: flex-start;
+        flex-shrink: 0;
+        border-radius: 6px;
+        border: 1px solid var(--Primary-Primary100, #F9F9F9);
+        background: var(--Base-Base-White, #FFF);
+        /* background: #000; */
+
+        & .settingsMechNav {
+            display: flex;
+            height: 54px;
+            padding: 0px 20px;
+            align-items: center;
+            gap: 10px;
+            width: 100%;
+            color: var(--Secondary-Secondary1000, #003257);
+            font-family: Lora;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: normal;
+            cursor: pointer;
+        }
+
+        & .settingsMechNavActive {
+            border-right: 5px solid var(--Secondary-Secondary, #0066B2);
+            background: var(--Secondary-Secondary100, #D6EDFF);
+        }
+    }
+
+    & .mechFormHolder {
+        display: flex;
+        width: 67%;
+        /* height: 836px; */
+        height: max-content;
+        padding: 36px 35px;
+        flex-direction: column;
+        justify-content: center;
+        /* align-items: flex-end; */
+        align-items: center;
+        gap: 60px;
+        flex-shrink: 0;
+        /* background: #000; */
+
+        & .mechFormHolderWrapper {
+            padding: 0;
+            border-radius: 10px;
+            border: 1px solid var(--Primary-Primary100, #F9F9F9);
+            background: var(--Base-Base-White, #FFF);
+            width: 100%;
+            padding: 10px;
+
+        }
+    }
+}
+
+.settingsWrapper {
+    padding: 115px 15px;
+    min-width: 320px;
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    /* background: pink; */
+}
+
+.settingsWrapperUp {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 41px;
+    /* align-self: stretch; */
+    width: 100%;
+
+    & .settingsHead {
+        display: flex;
+        width: 138.5px;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: var(--Radius-sm, 15px);
+
+        & h3 {
+            color: var(--Secondary-Secondary1000, #003257);
+            font-family: "Alegreya SC";
+            font-size: 30px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: 38px;
+            /* 126.667% */
+            letter-spacing: -0.39px;
+        }
+
+        & .profilePic {
+            width: 120px;
+            height: 120px;
+            flex-shrink: 0;
+            border-radius: 50%;
+            /* background: gray; */
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            & img {
+                max-width: 100%;
+                /* max-height: 100%; */
+                width: 120px;
+                height: 120px;
+                border-radius: 100%;
+                object-fit: cover;
+                object-position: center;
+            }
+
+            & .penHolder {
+                display: flex;
+                position: absolute;
+                width: 28px;
+                height: 28px;
+                justify-content: center;
+                align-items: center;
+                gap: 10px;
+                flex-shrink: 0;
+                bottom: 14px;
+                right: 10px;
+                border-radius: 50%;
+                background: #D2D8DE;
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+.settingsFormUser {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    /* align-self: stretch; */
+    width: 100%;
+    /* background: #27bd3b; */
+
+    & .inpuHolder {
+        width: 100%;
+        height: 98px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        justify-content: flex-start;
+
+        & label {
+            color: #171717;
+            font-family: Lora;
+            font-size: 20px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+        }
+
+        & input {
+            display: flex;
+            height: 60px;
+            padding: 10px;
+            align-items: center;
+            width: 100%;
+            border-radius: 8px;
+            border: 1px solid #565454;
+            outline: none;
+            /* background: #000; */
+            color: #565454;
+            font-family: Lora;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+            letter-spacing: 0.64px;
+        }
+
+        & .passwordInputHolder {
+            display: flex;
+            height: 60px;
+            padding: 10px;
+            align-items: center;
+            width: 100%;
+            border-radius: 8px;
+            border: 1px solid #565454;
+            display: flex;
+            justify-content: space-between;
+            gap: 5px;
+
+            & input {
+                border: none;
+                outline: none;
+                height: 100%;
+                /* background: #000; */
+                padding-left: 0;
+            }
+
+            & svg {
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+.settingsWrapperDown {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    justify-content: flex-end;
+
+    & button {
+        outline: none;
+        width: 100px;
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        border-radius: 8px;
+    }
+
+    & button:first-child {
+        background-color: transparent;
+        border: var(--Radius-Sharp, 1px) solid var(--Secondary-Secondary, #0066B2);
+        color: var(--Secondary-Secondary, #0066B2);
+        font-family: Lora;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 20px;
+        letter-spacing: -0.096px;
+
+        &:hover {
+            background-color: transparent !important;
+        }
+    }
+
+    & button:last-child {
+        background: var(--Secondary-Secondary, #0066B2);
+        border: none;
+        color: var(--gray-0-white, #FFF);
+        font-family: Lora;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 20px;
+    }
+}

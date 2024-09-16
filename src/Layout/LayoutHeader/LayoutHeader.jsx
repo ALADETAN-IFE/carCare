@@ -8,7 +8,7 @@ import { IoIosArrowDown } from "react-icons/io"
 import { AiOutlineQuestionCircle } from "react-icons/ai"
 import { useDispatch, useSelector } from "react-redux"
 import { BiMenuAltLeft, BiMenuAltRight } from "react-icons/bi"
-import { setNavBarVisibility } from "../../Global/Redux-actions/carCare"
+import { closeNavBarVisibility, openNavBarVisibility } from "../../Global/Redux-actions/carCare"
 
 const LayoutHeader = ({ LayoutHeaderStyle }) => {
   const navBarVisibility = useSelector((state) => state.carCare.navBarVisibility)
@@ -36,9 +36,12 @@ const LayoutHeader = ({ LayoutHeaderStyle }) => {
   // Example usage:
   let initials = getInitials("John Doe"); // Output: JD
   const dispatch = useDispatch()
-  const sideBarVisibility = () => {
-    dispatch(setNavBarVisibility())
-  }
+  const opensideBarVisibility = () => {
+    dispatch(openNavBarVisibility())
+}
+const closesideBarVisibility = () => {
+    dispatch(closeNavBarVisibility())
+}
   return (
     <>
       {
@@ -50,9 +53,9 @@ const LayoutHeader = ({ LayoutHeaderStyle }) => {
               <div className="layoutHeaderMenu">
                 {
                   navBarVisibility ?
-                    <BiMenuAltRight size={26} onClick={sideBarVisibility} style={{ cursor: "pointer" }} />
+                    <BiMenuAltRight size={26} onClick={closesideBarVisibility} style={{ cursor: "pointer" }} />
                     :
-                    <BiMenuAltLeft size={26} onClick={sideBarVisibility} style={{ cursor: "pointer" }} />
+                    <BiMenuAltLeft size={26} onClick={opensideBarVisibility} style={{ cursor: "pointer" }} />
                 }
               </div>
             </div>

@@ -1,6 +1,6 @@
 import { RxAvatar } from 'react-icons/rx'
 import './reviews.css'
-import geoge from "../../../assets/images/geoge.png"
+import geoge from "../../../assets/images/Review/geoge.png"
 import { IoStar } from "react-icons/io5";
 import { IoIosStarHalf } from "react-icons/io";
 
