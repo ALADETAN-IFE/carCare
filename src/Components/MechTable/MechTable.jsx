@@ -6,7 +6,7 @@ import MechTableDatas from "./mechTableDatas"
 
 const MechTable = ({ totalPages, currentPage, setCurrentPage,
     indexOfFirstBooking, indexOfLastBooking, currentBookings1, currentBookings,
-    setpages }) => {
+    bookingPage }) => {
     const dispatch = useDispatch()
     // {
     //     customer: "Anjola Akindoju",
@@ -18,49 +18,100 @@ const MechTable = ({ totalPages, currentPage, setCurrentPage,
     //     customersLocation: "123 main street, Ikeja",
     //   },
     return (
-        <div className="mechTable">
-            <div className="tableHead">
-                <span className="span1">Customer</span>
-                <span className="span2">Vehicle Details</span>
-                <span className="span3">Service Type</span>
-                <span className="span4">Date & Time</span>
-                <span className="span5">Location</span>
-                <span className="span6">Action</span>
-                {/* <span className="span7"><CgMoreVertical /></span> */}
-            </div>
-            <div className="tableMiddle">
-                {
-                    currentBookings?.length < 1 ?
-                        <div className="no_bookings" style={{alignItems: "flex-start"}}>
-                            <div className='no_bookings_wrapper'>
-                                <div className="no_bookings_text">
-                                    <h3>No Appointment found</h3>
-                                    <p>You have no current bookings now.</p>
-                                </div>
-                            </div>
-                        </div>
-                        :
-                        <>
-                            {currentBookings.map((booking, index) => (
-                                <MechTableDatas booking={booking} key={index} i={index} />
-
-                            ))}
-                        </>
-                }
-            </div>
+        <>
             {
-                currentBookings?.length < 1 ?
-                    null
+                bookingPage ?
+                    <div className="mechTable_for_mech_booking">
+                        <div className="tableHead tableHead_for_mech_booking">
+                            <span className="span1">Customer</span>
+                            <span className="span2">Vehicle Details</span>
+                            <span className="span3">Service Type</span>
+                            <span className="span4">Date & Time</span>
+                            <span className="span5">Location</span>
+                            <span className="span6">Status</span>
+                            <span className="span7">Action</span>
+                            {/* <span className="span7"><CgMoreVertical /></span> */}
+                        </div>
+                        <div className="tableMiddle">
+                            {
+                                currentBookings?.length < 1 ?
+                                    <div className="no_bookings" style={{ alignItems: "flex-start" }}>
+                                        <div className='no_bookings_wrapper'>
+                                            <div className="no_bookings_text">
+                                                <h3>No Appointment found</h3>
+                                                <p>You have not had any bookings.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    :
+                                    <>
+                                        {currentBookings.map((booking, index) => (
+                                            <MechTableDatas booking={booking} key={index} i={index} bookingPage />
+
+                                        ))}
+                                    </>
+                            }
+                        </div>
+                        {
+                            currentBookings?.length < 1 ?
+                                null
+                                :
+                                <BookingPagePagination totalPages={totalPages}
+                                    currentPage={currentPage}
+                                    setCurrentPage={setCurrentPage}
+                                    currentBookings1={currentBookings1}
+                                    indexOfFirstBooking={indexOfFirstBooking}
+                                    indexOfLastBooking={indexOfLastBooking}
+                                />
+                        }
+                    </div>
                     :
-                    <BookingPagePagination totalPages={totalPages}
-                        currentPage={currentPage}
-                        setCurrentPage={setCurrentPage}
-                        currentBookings1={currentBookings1}
-                        indexOfFirstBooking={indexOfFirstBooking}
-                        indexOfLastBooking={indexOfLastBooking}
-                    />
+                    <div className="mechTable">
+                        <div className="tableHead">
+                            <span className="span1">Customer</span>
+                            <span className="span2">Vehicle Details</span>
+                            <span className="span3">Service Type</span>
+                            <span className="span4">Date & Time</span>
+                            <span className="span5">Location</span>
+                            <span className="span6">Action</span>
+                            {/* <span className="span7"><CgMoreVertical /></span> */}
+                        </div>
+                        <div className="tableMiddle">
+                            {
+                                currentBookings?.length < 1 ?
+                                    <div className="no_bookings" style={{ alignItems: "flex-start" }}>
+                                        <div className='no_bookings_wrapper'>
+                                            <div className="no_bookings_text">
+                                                <h3>No Appointment found</h3>
+                                                <p>You have no current bookings now.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    :
+                                    <>
+                                        {currentBookings.map((booking, index) => (
+                                            <MechTableDatas booking={booking} key={index} i={index} />
+
+                                        ))}
+                                    </>
+                            }
+                        </div>
+                        {
+                            currentBookings?.length < 1 ?
+                                null
+                                :
+                                <BookingPagePagination totalPages={totalPages}
+                                    currentPage={currentPage}
+                                    setCurrentPage={setCurrentPage}
+                                    currentBookings1={currentBookings1}
+                                    indexOfFirstBooking={indexOfFirstBooking}
+                                    indexOfLastBooking={indexOfLastBooking}
+                                />
+                        }
+                    </div>
             }
-        </div>
+
+        </>
     )
 }
 

@@ -12,6 +12,9 @@ header {
     top: 0;
     /* font-family: "Merriweather", serif; */
     font-family: Merriweather;
+    border-bottom: 1px solid #CCC;
+    background: #FFF;
+    box-shadow: 0px 4px 10px 1px rgba(0, 0, 0, 0.15);
 }
 
 .headerWrapper {
@@ -29,10 +32,11 @@ header {
     align-items: center;
     /* background: #000; */
 
-    & img{
+    & img {
         max-width: 100%;
         max-height: 100%;
     }
+
     /* background: #b63434c7; */
 }
 
@@ -113,9 +117,10 @@ header {
         align-items: center;
         gap: 23.463px;
 
-        
+
     }
-    & svg{
+
+    & svg {
         cursor: pointer;
     }
 }
@@ -198,14 +203,15 @@ header {
     .headerMiddle {
         display: none;
     }
+
     .headerLeft {
         width: 23%;
         height: 100%;
         display: flex;
         align-items: center;
         /* background: #000; */
-    
-        & img{
+
+        & img {
             max-width: 100%;
             max-height: 100%;
         }
