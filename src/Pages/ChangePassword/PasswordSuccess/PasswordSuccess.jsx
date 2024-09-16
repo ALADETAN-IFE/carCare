@@ -1,5 +1,5 @@
 import React from 'react'
-import './Overlay.css'
+import '../../Overlay/Overlay.css'
 import  { Link, useNavigate } from 'react-router-dom';
 
 const PasswordSuccess = () => {
@@ -15,7 +15,7 @@ const PasswordSuccess = () => {
                    <p>Your password has been updated. You can<br />
                     now log in with your new password. </p>
                     <button className='resetPassword'  onClick={handleNavigate}
-       >Verify Email</button>
+       >Back to Login</button>
             
             
         </div>

@@ -1,0 +1,143 @@
+.mechDoc{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%; 
+    gap: 85px;
+    padding-top: 116px;
+
+}
+
+.mechDoc__content{
+    display: flex;
+    width: 683px;
+    justify-content: center;
+    /* height: 1226px; */
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+    padding-bottom: 116px;
+
+}
+.mechDoc__hr{
+    border-bottom: 1px solid var(--Primary-Primary700, #757575);
+    width: 683px;
+
+}
+.mechDoc__Text{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    /* align-self: stretch; */
+}
+.mechDoc__Text h1{
+    color: var(--Secondary-Secondary, #0066B2);
+    font-family: Lora;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+.mechDoc__Text p{
+    color: var(--Base-Base-Black, #171717);
+    text-align: center;
+    font-family: Lora;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+.doc__requirement{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 37px;
+    /* align-self: stretch; */
+}
+.requirement__details{
+    display: flex;
+    height: 213px;
+    padding: 0px 10px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 30px;
+    /* align-self: stretch; */
+}
+.requirement__details h5{
+    color: var(--Base-Base-Black, #171717);
+    font-family: Lora;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+span{
+    color: var(--Error-Error300, #A21C29);
+    font-family: Lora;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+.requirement__details p{
+    color: var(--Primary-Primary1000, #363636);
+    font-family: Lora;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+@media screen and (max-width: 375px){
+    .mechDoc__content{
+        width: 320px;
+        
+    }
+    .mechDoc__hr{
+        width: 90%;
+    }
+    .mechDoc__Text h1{
+        font-size: 20px;
+    }
+    .mechDoc__Text p{
+        font-size: 14px;
+    }
+    .requirement__details h5{
+        font-size: 16px;
+    }
+    span{
+        font-size: 16px;
+    }
+    .requirement__details p{
+        font-size: 14px;
+    }
+}
+
+@media screen and (min-width: 375px) and (max-width: 768px) {
+    .mechDoc__content{
+        width: 360px;
+        
+    }
+    .mechDoc__hr{
+        width: 90%;
+    }
+    .mechDoc__Text h1{
+        font-size: 22px;
+    }
+    .mechDoc__Text p{
+        font-size: 16px;
+    }
+    .requirement__details h5{
+        font-size: 18px;
+    }
+    span{
+        font-size: 18px;
+    }
+    .requirement__details p{
+        font-size: 16px;
+    }
+}
+
