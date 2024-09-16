@@ -131,7 +131,7 @@
         width: 80%;
     }
 }
-@media screen and (max-width: 350px) {
+/* @media screen and (max-width: 350px) {
     .heroBigText {
         color: #FFF;
         font-family: "Alegreya SC";
@@ -139,7 +139,6 @@
         font-style: normal;
         font-weight: 700;
         line-height: normal;
-        /* flex: 1 0 0; */
     
         & .span2 {
             color: var(--Secondary-Secondary, #0066B2);
@@ -160,4 +159,4 @@
         line-height: normal;
         width: 80%;
     }
-}
+} */
