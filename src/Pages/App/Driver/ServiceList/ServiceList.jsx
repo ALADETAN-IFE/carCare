@@ -4,6 +4,7 @@ import LayoutHeader from "../../../../Layout/LayoutHeader/LayoutHeader"
 import ServiceCategory from "./ServiceCategory/ServiceCategory"
 import "./serviceList.css"
 import serviceListimg from "../../../../assets/images/serviceListimg.png"
+import ServiceSelection from "./ServiceSelect/ServiceSelect"
 
 
 const ServiceList = () => {
@@ -22,7 +23,10 @@ const ServiceList = () => {
         <ServiceCategory />
       {/* </div> */}
       <div className="serviceSelect">
-        <div className="selectBox">
+        <ServiceSelection/>
+
+
+        {/* <div className="selectBox">
           <input type="checkbox" name="" id=""/>
           <div className="categoryDetails">
             <div className="categoryDetails__text">
@@ -57,7 +61,7 @@ const ServiceList = () => {
                 - Tire Balancing Weights (optional)      </p>
             </div>
           </div>
-        </div>
+        </div> 
         <div className="selectBox">
           <input type="checkbox" name="" id="" />
           <div className="categoryDetails">
@@ -100,7 +104,7 @@ const ServiceList = () => {
               </p>
             </div>
           </div>
-        </div>
+        </div>*/}
       </div>
 
       <div className="selection__card">

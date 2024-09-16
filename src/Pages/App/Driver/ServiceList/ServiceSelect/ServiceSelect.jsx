@@ -5,7 +5,6 @@ import '../ServiceList/ServiceList.css'
 const ServiceSelection = () => {
   const [selectedServices, setSelectedServices] = useState([]);
 
-   /* List of services (you can replace this with data from a server) */
   const services = [
     { id: 1, name: 'Tire Replacement (One)', details: 'Parts Needed:\n- 1 Tire\n- Valve Stems\n- Tire Balancing Weights (optional)' },
     { id: 2, name: 'Tire Replacement (Two)', details: 'Parts Needed:\n- 2 Tire\n- Valve Stems\n- Tire Balancing Weights (optional)' },
@@ -23,18 +22,8 @@ const ServiceSelection = () => {
     setSelectedServices(
   isChecked
     ? [...selectedServices, service] 
-    : selectedServices.filter(item => item.id !== service.id) // If unchecked, remove service
+    : selectedServices.filter(item => item.id !== service.id) 
 );
-
-
-    /* if (isChecked) {
-      // Add the selected service to the list
-      setSelectedServices([...selectedServices, service]);
-    } else {
-      // Remove the unselected service from the list
-      setSelectedServices(selectedServices.filter(item => item.id !== service.id));
-    }
-  }; */
 
   return (
     <div className="serviceSelect">
