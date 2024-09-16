@@ -9,6 +9,7 @@ import LoggedInDropdown from "./LoggedInDropdown/LoggedInDropdown"
 import { useSelector } from "react-redux"
 import Logo from "../../assets/svg/Logo.svg"
 import { BiMenuAltLeft, BiMenuAltRight } from "react-icons/bi"
+import ScrollToTop from "../ScrollToTop"
 
 const Header = () => {
   // const [isLoggedIn, setisLoggedIn] = useState(isLoggedIn1)
@@ -125,6 +126,7 @@ const Header = () => {
           }
         </>
       </div>
+      <ScrollToTop/>
     </header>
   )
 }
