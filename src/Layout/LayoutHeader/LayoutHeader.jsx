@@ -81,9 +81,9 @@ const closesideBarVisibility = () => {
                   />
                   {
                     navBarVisibility ?
-                      <BiMenuAltRight size={26} className="sideBarTopClose" onClick={sideBarVisibility} />
+                      <BiMenuAltRight size={26} className="sideBarTopClose" onClick={closesideBarVisibility} />
                       :
-                      <BiMenuAltLeft size={26} className="sideBarTopClose" onClick={sideBarVisibility} />
+                      <BiMenuAltLeft size={26} className="sideBarTopClose" onClick={opensideBarVisibility} />
                   }
                 </div>
               </div>
