@@ -102,6 +102,13 @@
     }
 }
 @media screen and (max-width: 426px) {
+    .HeroPage {
+        min-height: 22.5rem;
+        /* background-position: center !important;
+        background-repeat: no-repeat !important;
+        background-size: cover !important; */
+    }
+
     .heroBigText {
         color: #FFF;
         font-family: "Alegreya SC";
