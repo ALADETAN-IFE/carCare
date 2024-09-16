@@ -4,16 +4,18 @@ import { IoEye, IoEyeOff } from 'react-icons/io5';
 import { useState } from 'react';
 import AuthHeader from '../AuthHeader/AuthHeader';
 import { useDispatch } from 'react-redux';
-import { logIn } from '../../Global/Redux-actions/carCare';
+import { logIn, setTypeOfUser } from '../../Global/Redux-actions/carCare';
 
 const Login = () => {
   const [seePassword, setSeePassword] = useState(true)
+  const [email, setemail] = useState("")
   const navigate = useNavigate()
   const dispatch = useDispatch()
   const handleLogin = (e) => {
     e.preventDefault()
     navigate("/")
     dispatch(logIn())
+    dispatch(setTypeOfUser(email))
   }
   return (
    <div className='Login__container'>
@@ -32,7 +34,9 @@ const Login = () => {
         <form onSubmit={handleLogin} className='login__form'>
          <div className='login__input'>
          <label htmlFor="">Email Address</label>
-         <input type="text" placeholder='Enter your email address' />
+         <input type="text" placeholder='Enter your email address'
+         onChange={(e)=> setemail(e.target.value)}
+         />
          </div>
          <div className='login__input'>
          <label htmlFor="">Password</label>

@@ -224,6 +224,7 @@
             & .userReviewReview {
                 /* width: 400px; */
                 height: 115px;
+                /* height: max-content; */
                 gap: 0px;
                 opacity: 0px;
                 color: var(--Black, #000);
@@ -233,6 +234,12 @@
                 font-weight: 400;
                 line-height: normal;
                 letter-spacing: 1.12px;
+                display: -webkit-box;
+                -webkit-line-clamp: 6;
+                line-clamp: 6;
+                -webkit-box-orient: vertical;
+                text-overflow: ellipsis;
+                overflow: hidden;
 
             }
 
@@ -246,7 +253,7 @@
                 gap: 10px;
                 flex-shrink: 0;
                 opacity: 0.6;
-                background: var(--Base-Base-White, #FFF);
+                /* background: var(--Base-Base-White, #FFF); */
             }
         }
 
@@ -355,15 +362,15 @@
 
         & .userReviewDetails {
             padding: 10px;
-    
+
             & h4 {
                 font-size: 16px;
             }
-    
+
             & p {
                 font-size: 14px;
             }
-    
+
             & .ratings {
                 margin-top: 4px;
                 display: flex;
@@ -378,15 +385,38 @@
 
 
 @media screen and (max-width: 417px) {
+    .userReview {
+        /* min-height: 422px; */
+        /* align-items: flex-end; */
+        /* margin-bottom: 46px; */
+        
+        & .userReviewCard {
+            /* min-height:400px; */
+            /* background: #000; */
+            /* padding-bottom: 46px; */
+            /* padding-top: 14006px; */
+    
+
+            & .userReviwCardWrapper {
+                & .userReviewReview {
+                    /* width: 400px; */
+                    /* min-height: 115px; */
+                    font-size: 15px;
+                }
+            }
+        }
+    }
+
     .reviewsBlackCardLeft {
         padding-left: 10px;
         padding-right: 10px;
+
         & .reviewsBlackCardLeftTop {
 
             & h4 {
                 font-size: 30px;
             }
-            
+
             & p {
                 width: 100%;
                 font-size: 20px;
@@ -405,15 +435,15 @@
 
         & .userReviewDetails {
             /* padding: 10px; */
-    
+
             & h4 {
                 font-size: 15px;
             }
-    
+
             & p {
                 font-size: 13px;
             }
-    
+
             & .ratings {
                 margin-top: 4px;
                 display: flex;
@@ -424,5 +454,3 @@
         }
     }
 }
-
-

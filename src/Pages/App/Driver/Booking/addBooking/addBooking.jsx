@@ -9,7 +9,7 @@ import TimeInput from './TimeInput';
 import Confirm from '../Confirm/Confirm';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { setAppbookingFormPage } from '../../../../../Global/Redux-actions/carCare';
+import { setAppbookingFormPage, setuserBookingForm } from '../../../../../Global/Redux-actions/carCare';
 
 const AddBooking = ({book, setbook}) => {
     const navigate = useNavigate()
@@ -121,7 +121,7 @@ const AddBooking = ({book, setbook}) => {
 
     }, [time])
     useEffect(() => {
-      dispatch(userBookingForm(bookingInputsObject))
+      dispatch(setuserBookingForm(bookingInputsObject))
     }, [bookingInputsObject])
     
     

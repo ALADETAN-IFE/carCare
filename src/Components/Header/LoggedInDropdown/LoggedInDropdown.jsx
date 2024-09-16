@@ -1,16 +1,29 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './loggedInDropdown.css'
 import { IoPersonCircleSharp } from 'react-icons/io5'
 import { RiLogoutCircleLine } from 'react-icons/ri'
 import { RiDashboardFill } from "react-icons/ri";
 import { BiQuestionMark } from 'react-icons/bi';
 import { Link } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { logOut } from '../../../Global/Redux-actions/carCare';
 
 const LoggedInDropdown = ({ setshowMenu2, showMenu2 }) => {
+    const typeOfUser = useSelector((state) => state.carCare.typeOfUser);
     const [showMenu3, setshowMenu3] = useState(true)
-    // const [dashboardPath, setdashboardPath] = useState("/app")
+    const [dashboardPath, setdashboardPath] = useState("/app")
+    useEffect(() => {
+     if (typeOfUser == "Driver") {
+         setdashboardPath("/app")   
+     } 
+    if (typeOfUser == "Mechanic") {
+         setdashboardPath("/app/mech")  
+     }
+    if (typeOfUser == "Admin") {
+         setdashboardPath("/app/admin")  
+     }
+    }, [])
+    
     const removeDropDown = () => {
         setshowMenu3(false)
         setTimeout(() => {
@@ -24,7 +37,7 @@ const LoggedInDropdown = ({ setshowMenu2, showMenu2 }) => {
         {
             text: "Dashboard",
             icon: <RiDashboardFill />,
-            to: "/app"
+            to: dashboardPath
         },
         {
 

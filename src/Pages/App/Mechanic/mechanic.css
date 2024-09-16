@@ -1,0 +1,138 @@
+.mechHomePage {
+    width: 100%;
+    /* height: max-content; */
+    background: white;
+}
+
+.mechHomePageTop {
+    width: 100%;
+    /* height: 81px; */
+    min-height: 5.0625rem;
+    height: max-content;
+    padding-left: 37px;
+    padding-top: 16px;
+
+    & h3 {
+        color: var(--Secondary-Secondary, #0066B2);
+        font-family: "Alegreya SC";
+        font-size: 40px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        /* font-size: 2.5vw; */
+    }
+
+}
+
+/* @media (max-width: 868px) {
+    .mechHomePageTop {
+        & h3 {
+            font-size: 6vw;
+        }
+    }
+} */
+
+.mechHomePageMiddle {
+    width: 100%;
+    /* height: 147px; */
+    height: 9.1875rem;
+    flex-shrink: 0;
+    background: #FAFDFF;
+    /* padding-left: 82px; */
+    /* padding-right: 70.5px; */
+    display: flex;
+    justify-content: center;
+
+    & .mechHomePageMiddleWrapper {
+        width: 90%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24.499px;
+
+    }
+
+    & .mechHomePageMiddleLeft {
+        display: flex;
+        /* width: 562px; */
+        /* width: 35.125rem; */
+        flex-direction: column;
+        align-items: flex-start;
+        /* background: #000; */
+
+        & h3 {
+            color: var(--Base-Base-Black, #171717);
+            font-family: Lora;
+            font-size: 32px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: normal;
+        }
+
+        & p {
+            color: #000;
+            font-family: Lora;
+            font-size: 24px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+        }
+    }
+
+    & .mechHomePageMiddleRight {
+        width: max-content;
+        height: max-content;
+    }
+}
+
+.mechHomePageBottom {
+    width: 100%;
+    /* height: 726px; */
+    /* height: 45.375rem; */
+    /* background: #ab4444; */
+    padding-top: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    & .mechHomePageBottomUp {
+        width: 95%;
+        padding-left: 14px;
+        color: #000;
+        font-family: Lora;
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+        /* background: greenyellow; */
+    }
+
+    & .mechHomePageBottomDown {
+        padding-top: 33px;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 95%;
+
+    }
+}
+
+@media screen and (max-width:364px) {
+    .mechHomePageTop {
+        padding-left: 7px;
+        /* padding-top: 0; */
+    }
+
+    .mechHomePageMiddle {
+        & .mechHomePageMiddleLeft {
+            & h3 {
+                font-size: 26px;
+            }
+            & p {
+                font-size: 18px;
+            }
+        }
+    }
+}
