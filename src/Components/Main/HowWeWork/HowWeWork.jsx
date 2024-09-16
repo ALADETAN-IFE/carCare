@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react'
 const HowWeWork = () => {
   const [border, setborder] = useState(["none", "none", "none"])
   const [width, setwidth] = useState(window.innerWidth)
-  console.log(border)
+  // console.log(border)
    // Update the width when the window resizes
   setInterval(() => {
     setwidth(window.innerWidth)

@@ -103,10 +103,15 @@
 }
 @media screen and (max-width: 426px) {
     .HeroPage {
-        min-height: 22.5rem;
+        min-height: 25rem;
         /* background-position: center !important;
         background-repeat: no-repeat !important;
         background-size: cover !important; */
+    }
+
+    .heropageWrapper {
+        padding-bottom: 30px;
+        padding-top: 30px;
     }
 
     .heroBigText {

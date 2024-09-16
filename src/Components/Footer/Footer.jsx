@@ -1,3 +1,4 @@
+import ScrollToTop from "../ScrollToTop"
 import "./footer.css"
 import FooterDetails from "./FooterDetails/FooterDetails"
 import Newsletter from "./Newsletter/Newsletter"
@@ -7,6 +8,7 @@ const Footer = () => {
     <footer>
       <Newsletter/>
       <FooterDetails/>
+      <ScrollToTop/>
     </footer>
   )
 }
