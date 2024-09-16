@@ -9,10 +9,7 @@ const App = () => {
   return (
     <>
     <RouterProvider router={Routes} fallbackElement={<div>Something is wrong</div>} />
-    <ToastContainer 
-    position='top-right' 
-    autoClose="1000"
-    />
+    <ToastContainer position='top-right' autoClose="1000" />
    </>
   )
 }
