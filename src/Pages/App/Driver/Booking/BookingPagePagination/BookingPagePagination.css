@@ -1,4 +1,5 @@
-.table, .mechTable {
+.table, .mechTable ,
+.mechTable_for_mech_booking{
 
     & .pagination {
         display: flex;
