@@ -122,6 +122,7 @@
         background: #FFF;
         padding: 8px;
         outline: none;
+        resize: none;
     }
 
     & textarea::placeholder {
