@@ -1,0 +1,88 @@
+.table, .mechTable {
+
+    & .pagination {
+        display: flex;
+        /* justify-content: center; */
+        /* margin-top: 20px; */
+        width: 100%;
+        padding-left: 10px;
+        padding-right: 10px;
+        height: 56px;
+        min-height: 56px;
+        align-items: center;
+        /* background: #000; */
+        justify-content: flex-end;
+        border-top: var(--Radius-Sharp, 1px) solid var(--obsidian-obsidian-50, #E7E7E8);
+    }
+
+    & .paginationBodyWrapper {
+        width: 57%;
+        height: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        /* background: #000; */
+    }
+
+    & .paginationWrapper {
+        padding-left: 10px;
+        padding-right: 10px;
+        border-radius: 8px;
+        border: 0.8px solid var(--obsidian-obsidian-100, #B3B6B6);
+        height: 38px;
+        width: max-content;
+    }
+
+    & .pagination button {
+        /* padding: 10px;
+        margin: 0 5px; */
+        width: 30px;
+        height: 100%;
+        border: none;
+        outline: none;
+        /* border: 1px solid #007bff; */
+        /* background-color: white; */
+        /* background: var(--Secondary-Secondary100, #D6EDFF); */
+        color: #007bff;
+        border-radius: 5px;
+        cursor: pointer;
+        font-family: "Proxima Nova", sans-serif;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+        background: transparent;
+    }
+
+    & .pagination button.active {
+        background: var(--Secondary-Secondary100, #D6EDFF);
+        color: #007bff;
+        border-radius: 5px;
+        cursor: pointer;
+        border: none;
+        color: var(--Secondary-Secondary, #0066B2);
+
+    }
+
+    & .pagination button:hover {
+        background-color: #0056b3;
+        color: white;
+    }
+
+    & span {
+        color: #000;
+        font-family: Lora;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    }
+}
+
+/* Explanation:
+Table Structure: The React component renders a table with the booking details. The image of the mechanic and status color (orange for "Pending") are also included.
+Pagination: Pagination is handled using React’s state. A fixed number of bookings are displayed per page (1 in this case), and users can navigate between pages using the buttons.
+Styling: Custom styles are added for the table, buttons, and pagination. The active class highlights the current page.
+This implementation should work for the design you are aiming for. You can expand the bookingsData array to include more bookings for testing pagination.
+
+Let me know if you need more tweaks! */

@@ -27,6 +27,12 @@ header {
     height: 100%;
     display: flex;
     align-items: center;
+    /* background: #000; */
+
+    & img{
+        max-width: 100%;
+        max-height: 100%;
+    }
     /* background: #b63434c7; */
 }
 
@@ -99,7 +105,7 @@ header {
     align-items: center;
     justify-content: flex-end;
 
-    & div {
+    & .headerRightLoggedInIcons {
         justify-self: flex-end;
         display: flex;
         padding: 5.097px 9.537px 4.903px 43px;
@@ -107,10 +113,10 @@ header {
         align-items: center;
         gap: 23.463px;
 
-        & svg{
-            cursor: pointer;
-        }
-
+        
+    }
+    & svg{
+        cursor: pointer;
     }
 }
 
@@ -182,8 +188,8 @@ header {
 @media screen {}
 
 @media screen and (max-width:
-    /*  426px */
-    26.625rem) {
+    /*  559px */
+    34.9375rem) {
     .menu {
         display: flex;
     }
@@ -191,5 +197,17 @@ header {
     .laptopMenu,
     .headerMiddle {
         display: none;
+    }
+    .headerLeft {
+        width: 23%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        /* background: #000; */
+    
+        & img{
+            max-width: 100%;
+            max-height: 100%;
+        }
     }
 }

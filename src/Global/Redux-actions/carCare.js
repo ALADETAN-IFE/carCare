@@ -18,9 +18,15 @@ const initialState = {
     // UserDatas :undefined,
     navBarVisibility: true,
     isLoggedIn: false,
-    appPages : "app",
+    appPages: "app",
+    // app, booking, addbooking, settings 
     AppbookingFormPage: 0,
     userBookingForm: {},
+    typeOfUser: "Mechanic",
+    // Driver, Mechanic, Admin
+    mechSettingsPage: "Personal Information"
+    // Personal Information, Professional Details,
+    // Service Pricing Account Settings 
 }
 
 
@@ -39,38 +45,52 @@ export const carCareSlice = createSlice({
         // setUserDatas: (state, {payload}) => {
         //     state.UserDatas = payload; 
         // },
-        setNavBarVisibility: (state) => {
-            state.navBarVisibility = !state.navBarVisibility; 
+        openNavBarVisibility: (state) => {
+            state.navBarVisibility = true;
+        },
+        closeNavBarVisibility: (state) => {
+            state.navBarVisibility = false;
         },
         logIn: (state) => {
-            state.isLoggedIn = true; 
+            state.isLoggedIn = true;
         },
         logOut: (state) => {
             // state.UserData = undefined; 
-            state.isLoggedIn = false; 
-            state.appPages = "app"; 
-            state.AppbookingFormPage = 0; 
+            state.isLoggedIn = false;
+            state.appPages = "app";
+            state.AppbookingFormPage = 0;
+            state.typeOfUser = "";
+            state.mechSettingsPage = "Personal Information";
+            state.userBookingForm = {};
         },
-        setAppPages: (state, {payload}) => {
+        setAppPages: (state, { payload }) => {
             // state.UserData = undefined; 
-            state.appPages = payload; 
+            state.appPages = payload;
         },
-        setAppbookingFormPage: (state, {payload}) => {
+        setAppbookingFormPage: (state, { payload }) => {
             // state.UserData = undefined; 
-            state.AppbookingFormPage = payload; 
+            state.AppbookingFormPage = payload;
         },
-        setuserBookingForm: (state, {payload}) => {
+        setuserBookingForm: (state, { payload }) => {
             // state.UserData = undefined; 
-            state.userBookingForm = payload; 
+            state.userBookingForm = payload;
+        },
+        setTypeOfUser: (state, { payload }) => {
+            // state.UserData = undefined; 
+            state.typeOfUser = payload;
+        },
+        setmechSettingsPage: (state, { payload }) => {
+            // state.UserData = undefined; 
+            state.mechSettingsPage = payload;
         },
 
     }
 });
 
-export const { setNavBarVisibility,
-     logIn, logOut, setAppPages, setAppbookingFormPage,
-     setuserBookingForm
-    } = carCareSlice.actions;
+export const { openNavBarVisibility, closeNavBarVisibility,
+    logIn, logOut, setAppPages, setAppbookingFormPage,
+    setuserBookingForm, setTypeOfUser, setmechSettingsPage
+} = carCareSlice.actions;
 export default carCareSlice.reducer;
 
 

@@ -8,6 +8,7 @@ import { IoPersonCircleSharp } from "react-icons/io5"
 import LoggedInDropdown from "./LoggedInDropdown/LoggedInDropdown"
 import { useSelector } from "react-redux"
 import Logo from "../../assets/svg/Logo.svg"
+import { BiMenuAltLeft, BiMenuAltRight } from "react-icons/bi"
 
 const Header = () => {
   // const [isLoggedIn, setisLoggedIn] = useState(isLoggedIn1)
@@ -66,7 +67,9 @@ const Header = () => {
         <div className="headerLeft">
           {/* height = {height}
           width = {width} */}
-          <img src={Logo} alt={Logo} style={{maxWidth: "100%"}} />
+          <img src={Logo} alt={Logo} 
+          // style={{maxWidth: "100%"}} 
+          />
           </div>
         <div className="headerMiddle">
           {
@@ -81,12 +84,24 @@ const Header = () => {
           {
             isLoggedIn  ?
               <div className="headerRightLoggedIn">
-                <div >
+                <div className="headerRightLoggedInIcons">
                   <FiHelpCircle size={24} />
                   <IoPersonCircleSharp size={40} onClick={() => setshowMenu2(!showMenu2)} />
                 </div>
                 {/* <div className="menu" onClick={() => setshowMenu(!showMenu)} > */}
-
+                <div className="menu" onClick={() => setshowMenu(!showMenu)} >
+                  {
+                    showMenu ?
+                      <>
+                        <BiMenuAltRight size={26} />
+                        <Dropdown
+                         headerMiddle={headerMiddle} 
+                         loggedIn
+                         />
+                      </>
+                      : <BiMenuAltLeft  size={26}/>
+                  }
+                </div>
 
               </div> 
               :
