@@ -1,7 +1,8 @@
 .confirmBookingContainer {
     width: 100%;
     height: 100vh;
-    max-height: 100vh;
+    /* max-height: 100vh; */
+    /* min-height: 100vh; */
     position: fixed;
     top: 0;
     background: #524d4d72;
@@ -11,20 +12,20 @@
     justify-content: center;
     z-index: 999;
     animation-name: slideIn;
-    animation-duration: .2s;
+    animation-duration: 0.2s;
     animation-fill-mode: forwards;
     animation-direction: normal;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 @keyframes slideIn {
     from {
         transform: translateY(-100%);
     }
-
+/* 
     to {
         transform: translateY(0%);
-    }
+    } */
 }
 
 .confirmBookingBox {

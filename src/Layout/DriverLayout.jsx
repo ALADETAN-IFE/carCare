@@ -9,6 +9,7 @@ import LayoutHeader from "./LayoutHeader/LayoutHeader"
 import SideBar from "./SideBar/SideBar"
 import { useEffect, useState } from "react"
 import { setAppPages } from "../Global/Redux-actions/carCare"
+import Settings from "../Pages/App/Driver/settings/settings"
 
 const DriverLayout = () => {
   // addBooking
@@ -26,7 +27,7 @@ const DriverLayout = () => {
   // console.log(pages)
   return (
     <div className="layout" 
-    style={book ? {overflow: "hidden", height: "100vh"} : {overflow: "auto"}}
+    // style={book ? {overflow: "hidden", height: "100vh"} : {overflow: "auto"}}
     >
         {
                 book ? 
@@ -42,9 +43,11 @@ const DriverLayout = () => {
           <Driver setpages={setpages} />
           : 
           pages == "booking" ?
-          <Booking />
+          <Booking setpages={setpages} />
           : pages == "addbooking" ?
           <AddBooking setbook={setbook} />
+          : pages == "settings" ?
+          <Settings/>
           : null
         }
       </div>

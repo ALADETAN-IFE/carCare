@@ -57,7 +57,7 @@
 }
 
 .mechDetailsRating {
-    display: inline-flex;
+    display: flex;
     align-items: center;
     gap: 9.906px;
     color: #3A3A3A;

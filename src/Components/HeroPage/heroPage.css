@@ -9,6 +9,10 @@
     align-items: center;
     justify-content: center;
     position: relative;
+
+    & img{
+        max-width: 100%;
+    }
 }
 
 .wrapTheHeroTxt{
