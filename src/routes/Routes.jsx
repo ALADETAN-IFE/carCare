@@ -127,6 +127,10 @@ const Routes = createHashRouter([
                         // ]
                     },
                     {
+                        path: "/mechanics",
+                        element: <AllMechanics />
+                    },
+                    {
                         path: "/mechanics/:pageNum",
                         element: <AllMechanics />
                     },
