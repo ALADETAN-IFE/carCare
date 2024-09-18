@@ -6,11 +6,11 @@ const Auth = () => {
   // const isLoggedIn1 = localStorage.getItem("isLoggedIn")
   // console.log(isLoggedIn1)
   // const [isLoggedIn, setisLoggedIn] = useState(isLoggedIn1)
-  const isLoggedIn = useSelector((state)=> state.carCare.isLoggedIn)
+  const {isLoggedIn, typeOfUser} = useSelector((state) => state.carCare);
   // useEffect(() => {
   //   setisLoggedIn(isLoggedIn1)
   // }, )
-  return isLoggedIn ? <Outlet/>  :  <Navigate to="/login" replace={true}/>
+  return isLoggedIn && typeOfUser.trim() !== ""? <Outlet/>  :  <Navigate to="/login" replace={true}/>
 }
 
 export default Auth
