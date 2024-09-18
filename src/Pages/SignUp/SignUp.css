@@ -1,40 +1,81 @@
-.signUp__container{
+.signUp__container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 100%; 
+    /* height: 100%;  */
+    height: max-content;
+    /* height: 100vh; */
+    /* max-height: 100vh; */
+    min-height: 100vh;
+    background: white;
+    /* background: #000; */
+    gap: 71px;
 }
-.signUp__content{
+
+.authHeader{
+    z-index: 1;
+}
+
+.signUp__content {
     display: flex;
-    width: 600px;
-    height: 768px;
-    padding: 0px 15px;
+    width: 450px;
+    /* height: 768px; */
+    /* max-height: 80vh; */
+    padding: 15px;
     flex-direction: column;
     justify-content: center;
     align-items: flex-end;
     gap: 40px;
     flex-shrink: 0;
     border-radius: 10px;
-     background: var(--Base-Base-White, #FFF);
-    box-shadow: 0px 46px 13px 0px rgba(182, 184, 185, 0.00), 0px 29px 12px 0px rgba(182, 184, 185, 0.01), 0px 17px 10px 0px rgba(182, 184, 185, 0.05), 0px 7px 7px 0px rgba(182, 184, 185, 0.09), 0px 2px 4px 0px rgba(182, 184, 185, 0.10); 
-    
+    background: var(--Base-Base-White, #FFF);
+    box-shadow: 0px 46px 13px 0px rgba(182, 184, 185, 0.00), 0px 29px 12px 0px rgba(182, 184, 185, 0.01), 0px 17px 10px 0px rgba(182, 184, 185, 0.05), 0px 7px 7px 0px rgba(182, 184, 185, 0.09), 0px 2px 4px 0px rgba(182, 184, 185, 0.10);
+    /* background: gold; */
+    margin-bottom: 71px;
 }
-.signUp__input input{
+
+.signUp__input {
+    width: 100%;
+    /* background: #09a9df; */
     display: flex;
-    width: 275px;
-height: 49.778px;
-padding: 5.502px 16px;
-align-items: center;
-gap: 5.502px;
-align-self: stretch;
-border-radius: 5.502px;
-border: 0.89px solid #565454;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10.667px;
+
+    & label {
+        color: var(--Base-Base-Black, #171717);
+        font-family: Lora;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        letter-spacing: 0.42px;
+    }
 }
+
+input {
+    outline: none;
+}
+
+
+.signUp__input input {
+    display: flex;
+    width: 100%;
+    height: 49.778px;
+    padding: 5.502px 16px;
+    align-items: center;
+    /* gap: 5.502px; */
+    /* align-self: stretch; */
+    border-radius: 5.502px;
+    border: 0.89px solid #565454;
+}
+
 .signUp__input__password {
     display: flex;
-    width: 275px;
+    /* width: 275px; */
+    width: 100%;
     height: 49.778px;
     padding: 8px;
     justify-content: space-between;
@@ -43,38 +84,76 @@ border: 0.89px solid #565454;
     /* align-self: stretch; */
     border-radius: 5.502px;
     border: 0.89px solid #565454;
-  
+    background: white;
 
+    & svg {
+        cursor: pointer;
+        /* width: 12.105px;
+        height: 10.454px;
+        flex-shrink: 0; */
+        fill: #565454;
+    }
 }
-.signUp__input__password input{
+
+.signUp__input__password input {
     background: none;
     border: none;
     outline: none;
-    padding-left: 10px;
+    padding: 0;
+    display: flex;
+    width: 100%;
+    /* height: 49.778px; */
+    height: 100%;
+    /* padding: 5.502px 16px; */
+    align-items: center;
+    /* gap: 5.502px; */
+    align-self: stretch;
+    border-radius: 5.502px;
+    /* border: 0.89px solid #565454; */
+    /* background: white; */
 }
 
-.signUp__details{
+.signUp__details {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 35.556px;
     align-self: stretch;
 }
-.mechanicLink p{
+
+.mechanicLink p {
     display: flex;
-    justify-content: right;
+    justify-content: flex-end;
     align-items: right;
-    gap: 8.889px;
-    color: #0066B2;
-    animation: Smart animate;
+    /* gap: 8.889px; */
+    /* animation: Smart animate;
     animation-timing-function: ease-in;
     animation-duration: 300ms;
-    text-decoration: none;
+    text-decoration: none; */
+    /* background: #ae3f3f; */
+
+    & a {
+        text-decoration: none;
+        color: #0066B2;
+
+    }
 
 }
 
+.mechanicLink p a:hover {
+    color: #007bff;
 
-.signUp__details__text h1{
+}
+
+.signUp__details__text {
+    display: flex;
+    flex-direction: column;
+    gap: 13.33px;
+    /* background: rebeccapurple; */
+    width: 90%;
+}
+
+.signUp__details__text h1 {
     color: var(--Secondary-Secondary, #0066B2);
     text-align: center;
     font-family: "Alegreya SC";
@@ -84,19 +163,21 @@ border: 0.89px solid #565454;
     line-height: normal;
     letter-spacing: 1.321px;
 }
-.signUp__details__text p{
+
+.signUp__details__text p {
     color: var(--Base-Base-Black, #171717);
     text-align: center;
     font-family: Lora;
-    font-size: 14px;
+    font-size: 16px;
     font-style: normal;
     font-weight: 500;
-    /* line-height: normal; */
+    line-height: normal;
 }
 
-.signUp__btn{
+.signUp__btn {
     display: flex;
-    width: 362px;
+    /* width: 362px; */
+    width: 100%;
     height: 49.778px;
     padding: 8.253px;
     justify-content: center;
@@ -111,193 +192,218 @@ border: 0.89px solid #565454;
     font-weight: 500;
     line-height: normal;
     letter-spacing: 0.66px;
+    border: none;
 }
-.signUp__text{
+
+.signUp__text {
     display: flex;
-    width: 270px;
+    width: 100%;
     justify-content: center;
     flex-direction: column;
     align-items: center;
     gap: 4.444px;
+
+    & p {
+        color: var(--Base-Base-Black, #171717);
+        font-family: Lora;
+        font-style: normal;
+        line-height: normal;
+    }
+
+    & p:first-child {
+        font-size: 13.205px;
+        font-weight: 400;
+    }
+
+    & p:last-child {
+        font-size: 11.555px;
+        font-weight: 500;
+    }
 }
 
+/*  */
 
-@media screen and (min-width: 320px){
-    .signUp__container{
+@media screen and (width <=968px) {
+    .signUp__container {
         width: 100%;
         height: 100%;
         display: flex;
         justify-content: center;
         gap: 30px;
+
+    }
+
+    /* .login__input input {
+        width: 350px;
+        height: 50px;
+    }
+
+    .login__input__password {
+        width: 350px;
+        height: 50px;
+    }
+
+    .signUp__btn {
+        width: 350px;
+        height: 50px;
+    }
+
+    .authHeader {
+        width: 100%;
+        position: static;
+    } */
+
+    .signUp__content {
+        width: 450px;
+        /* height: 50%; */
+        display: flex;
+        justify-content: center;
+        /* padding: 80px;
+        padding-top: 60px; */
+    }
+
+}
+
+@media screen and (max-width: 498px) {
+    .signUp__content {
+        width: 90%;
+    }
+
+    /* .mechanicLink {
+        & a {
+            color: var(--Secondary-Secondary, #0066B2);
+            font-family: Lora;
+            font-size: 10.11px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: normal;
+        }
+    }
+
+    .signUp__details__text h1 {
+        text-align: center;
+        font-family: "Alegreya SC";
+        font-size: 20.596px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        letter-spacing: 0.824px;
+    }
+
+    .signUp__details__text p {
+        text-align: center;
+        font-family: Lora;
+        font-size: 9.982px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+    }
+
+    .signUp__input {
+        & label {
+            color: var(--Base-Base-Black, #171717);
+            font-family: Lora;
+            font-size: 10.734px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+            letter-spacing: 0.262px;
+        }
+
        
+    } */
+}
+@media screen and (max-width: 342px) {
+    .signUp__content {
+        width: 90%;
+    }
+
+    .mechanicLink {
+        & a {
+            color: var(--Secondary-Secondary, #0066B2);
+            font-family: Lora;
+            font-size: 10.11px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: normal;
+        }
+    }
+
+    .signUp__details__text h1 {
+        text-align: center;
+        font-family: "Alegreya SC";
+        font-size: 20.596px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        letter-spacing: 0.824px;
+    }
+
+    .signUp__details__text p {
+        text-align: center;
+        font-family: Lora;
+        font-size: 9.982px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+    }
+
+    .signUp__input {
+        & label {
+            color: var(--Base-Base-Black, #171717);
+            font-family: Lora;
+            font-size: 10.734px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+            letter-spacing: 0.262px;
+        }
+
+        & input{
+            height: 45.055px;
+            padding: 3.433px 9.982px;
+        }
     }
     
-    .login__input input{
-        width: 280px;
-        height: 50px;
+    .signUp__input__password {
+        height: 45.055px;
+        padding: 3.433px 9.982px;
+
     }
-    .login__input__password{
-        width: 280px;
-        height: 50px;
-    }
-    .signUp__btn{
-        width: 280px;
-        height: 50px;
-    }
-    .authHeader{
-       width: 100%;
-       position: static;
-    }
-    .signUp__content{
-        width: 320px;
+
+    .signUp__input__password input {
         height: 100%;
- 
+        padding: 0;
     }
-    .Login__details{
+    .signUp__btn {
+        height: 45.055px;
+    }
+
+    .signUp__text {
         display: flex;
-        flex-direction: column;
-        padding: 10px;
+        width: 100%;
         justify-content: center;
-        gap: 10px;
-        width: 320px;
-        height: 620px;
+        flex-direction: column;
         align-items: center;
-        /* gap: 40px; */
-      
- }
+        gap: 4.444px;
+    
+        & p {
+            color: var(--Base-Base-Black, #171717);
+            font-family: Lora;
+            font-style: normal;
+            line-height: normal;
+        }
+        
+        & p:first-child {
+            font-size: 10.238px;
+            /* font-weight: 400; */
+        }
+    
+        & p:last-child {
+            font-size: 8.209px;
+            font-style: normal;
+            /* font-weight: 500; */
+        }
+    }
+    
 }
-
-@media screen and (width <= 375px){
-   .signUp__container{
-       width: 100%;
-       height: 100%;
-       display: flex;
-       justify-content: center;
-       gap: 30px;
-      
-   }
-   
-   .login__input input{
-       width: 300px;
-       height: 50px;
-   }
-   .login__input__password{
-       width: 300px;
-       height: 50px;
-   }
-   .singUp__btn{
-       width: 300px;
-       height: 50px;
-   }
-   .authHeader{
-      width: 100%;
-      position: static;
-   }
-   .signUp__content{
-       width: 100%;
-       height: 100%;
-
-   }
-}
-@media screen and (width <= 490px){
-   .signUp__container{
-       width: 100%;
-       height: 100%;
-       display: flex;
-       justify-content: center;
-       gap: 30px;
-      
-   }
-   
-   .login__input input{
-       width: 400px;
-       height: 50px;
-   }
-   .login__input__password{
-       width: 400px;
-       height: 50px;
-   }
-   .signUp__btn{
-       width: 400px;
-       height: 50px;
-   }
-   .authHeader{
-      width: 100%;
-      position: static;
-   }
-   .signUp__content{
-       width: 100%;
-       height: 100%;
-
-   }
-}
-@media screen and (width <= 768px){
-   .signUp__container{
-       width: 100%;
-       height: 100%;
-       display: flex;
-       justify-content: center;
-       gap: 30px;
-      
-   }
-  
-   .login__input input{
-       width: 350px;
-       height: 50px;
-   }
-   .login__input__password{
-       width: 350px;
-       height: 50px;
-   }
-   .signUp__btn{
-       width: 350px;
-       height: 50px;
-   }
-   .authHeader{
-      width: 100%;
-      position: static;
-   }
-   .signUp__content{
-       width: 100%;
-       height: 100%;
-   }
-
-}
-@media screen and (width <= 968px){
-   .signUp__container{
-       width: 100%;
-       height: 100%;
-       display: flex;
-       justify-content: center;
-       gap: 30px;
-      
-   }
-   
-   .login__input input{
-       width: 350px;
-       height: 50px;
-   }
-   .login__input__password{
-       width: 350px;
-       height: 50px;
-   }
-   .signUp__btn{
-       width: 350px;
-       height: 50px;
-   }
-   .authHeader{
-      width: 100%;
-      position: static;
-   }
-   .signUp__content{
-       width: 50%;
-       height: 50%;
-       display: flex;
-       justify-content: center;
-       padding: 80px;
-       padding-top: 60px;
-   }
-
-}
-
-
