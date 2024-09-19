@@ -24,9 +24,21 @@ const initialState = {
     userBookingForm: {},
     typeOfUser: "Mechanic",
     // Driver, Mechanic, Admin
-    mechSettingsPage: "Personal Information"
+    mechSettingsPage: "Personal Information",
     // Personal Information, Professional Details,
-    // Service Pricing Account Settings 
+    // Service Pricing Account Settings ,
+    mechCompleteDetails: {}
+        // {
+    //     "businessName": "string",
+    //     "businessAddress": "string",
+    //     "areaOfSpecialization": "string",
+    //     "yearsOfExperience": "number",
+    //     "businessRegNumber": "string"
+    //      profilePicture: Required.
+    //      identification: Required.
+    //      certification: Required.
+    //      insurance: Optional.
+    //   }
 }
 
 
@@ -53,6 +65,9 @@ export const carCareSlice = createSlice({
         },
         logIn: (state) => {
             state.isLoggedIn = true;
+        },
+        setmechCompleteDetails: (state) => {
+            state.mechCompleteDetails = {...state?.mechCompleteDetails, payload};
         },
         logOut: (state) => {
             // state.UserData = undefined; 
@@ -87,7 +102,7 @@ export const carCareSlice = createSlice({
     }
 });
 
-export const { openNavBarVisibility, closeNavBarVisibility,
+export const { openNavBarVisibility, closeNavBarVisibility, setmechCompleteDetails,
     logIn, logOut, setAppPages, setAppbookingFormPage,
     setuserBookingForm, setTypeOfUser, setmechSettingsPage
 } = carCareSlice.actions;

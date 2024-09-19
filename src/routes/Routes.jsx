@@ -54,10 +54,10 @@ const Routes = createHashRouter([
         path: "/mechSignUp",
         element: <MechSignUp />
     },
-    {
-        path: "/mechEmailVerf",
-        element: <MechEmailVerf />,
-    },
+    // {
+    //     path: "/mechEmailVerf",
+    //     element: <MechEmailVerf />,
+    // },
     {
         path: "/mechInfo",
         element: <MechInfo />
@@ -65,10 +65,6 @@ const Routes = createHashRouter([
     {
         path: "/mechDoc",
         element: <MechDoc/>,
-    },
-    {
-        path: "/login",
-        element: <Login />
     },
     {
         path: "/forgotPassword",
@@ -87,12 +83,12 @@ const Routes = createHashRouter([
         element: <VerifyEmail />,
     },
     {
+        path: "/login",
+        element: <Login />
+    },
+    {
         element: <Auth />,
         children: [
-            {
-                path: "/services",
-                element: <ServiceList />
-            },
             {
                 element: <AdminAuth />,
                 children: [
@@ -142,7 +138,11 @@ const Routes = createHashRouter([
                     {
                         path: "/mechanic/:mechId",
                         element: <MechanicDetails />
-                    }
+                    },
+                    {
+                        path: "/services",
+                        element: <ServiceList />
+                    },
                 ]
             },
         ]

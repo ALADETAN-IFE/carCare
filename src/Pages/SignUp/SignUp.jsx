@@ -24,6 +24,7 @@ const SignUp = () => {
   const [passwordErrorSymbol, setPasswordErrorSymbol] = useState(false);
   const [passwordErrorLength, setPasswordErrorLength] = useState(false);
 
+
   const filterNumbers = (input) => {
     return input.replace(/[^0-9]/g, '');  // Remove all non-numeric characters
   };
@@ -271,6 +272,7 @@ const SignUp = () => {
       try {
         const response = await axios.post(`${url}/api/v1/sign-up`, apiData)
         console.log(response)
+        navigate("")
         setloading(false)
         toast.success(response?.data?.message)
       } catch (error) {

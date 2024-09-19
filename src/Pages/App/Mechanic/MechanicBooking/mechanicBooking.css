@@ -40,8 +40,10 @@
         width: 100%;
         height: max-content;
         display: flex;
-        gap: 30px;
+        gap: 25px;
         justify-content: space-between;
+        flex-wrap: wrap;
+        justify-content: center;
 
         & .cards {
             min-width: 246px;

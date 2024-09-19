@@ -34,7 +34,7 @@ const DriverLayout = () => {
                 <Confirm setbook={setbook} />
                 : null
             }
-      <SideBar pages={pages} setpages={setpages}/>
+      <SideBar pages={pages} setpages={setpages} book={book}/>
       <div className="layoutDown">
       <LayoutHeader LayoutHeaderStyle/>
         {/* <Outlet /> */}

@@ -91,7 +91,15 @@
     cursor: pointer;
     background: var(--Secondary-Secondary900, #004375);
     transition: transform 300ms ease-in, opacity 300ms ease-in;
-   
+    color: #FFF;
+    font-family: Lora;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: 0.8px;
+    border: none;
+    outline: none;
 }
 .mechInfoBtn__container{
     padding-bottom: 40px;

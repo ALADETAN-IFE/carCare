@@ -9,6 +9,7 @@ import { AiOutlineQuestionCircle } from "react-icons/ai"
 import { useDispatch, useSelector } from "react-redux"
 import { BiMenuAltLeft, BiMenuAltRight } from "react-icons/bi"
 import { closeNavBarVisibility, openNavBarVisibility } from "../../Global/Redux-actions/carCare"
+import ScrollToTop from "../../Components/ScrollToTop"
 
 const LayoutHeader = ({ LayoutHeaderStyle }) => {
   const navBarVisibility = useSelector((state) => state.carCare.navBarVisibility)
@@ -44,6 +45,7 @@ const closesideBarVisibility = () => {
 }
   return (
     <>
+    <ScrollToTop/>
       {
         LayoutHeaderStyle ?
           <div className="layoutHeader">

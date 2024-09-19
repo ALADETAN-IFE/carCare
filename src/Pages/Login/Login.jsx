@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { IoEye, IoEyeOff } from 'react-icons/io5';
 import { useState } from 'react';
 import AuthHeader from '../AuthHeader/AuthHeader';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { logIn, setTypeOfUser } from '../../Global/Redux-actions/carCare';
 import { BeatLoader } from 'react-spinners';
 import { toast } from 'react-toastify';
@@ -14,6 +14,7 @@ const Login = () => {
   const [email, setemail] = useState("")
   const [password, setpassword] = useState("")
   const [loading, setloading] = useState("")
+  const  typeOfUser = useSelector((state) => state.carCare.typeOfUser);
   const navigate = useNavigate()
   const dispatch = useDispatch()
   const handleLogin = async (e) => {
@@ -32,12 +33,19 @@ const Login = () => {
         setloading(false)
         dispatch(logIn())
         dispatch(setTypeOfUser(apiData.email))
+        if (typeOfUser == "Driver") {
+          navigate("/app")
+        } else if(typeOfUser == "Mechanic"){
+          navigate("/app/mech")
+          
+        } else{
+          navigate("/login")
+        }
       } catch (error) {
         console.log(error)
         setloading(false)
       }
     }
-    // navigate("/")
   }
   return (
     <div className='Login__container'>
@@ -81,7 +89,7 @@ const Login = () => {
                     className='login__btn' ><BeatLoader size={20} /></button>
                   :
                   <button  type="submit"
-                    className='login__btn'>Sign Up</button>
+                    className='login__btn'>Login</button>
               }
             <div className="underbutton__text">
               <p>New in Carcare?  <Link to='/signup' className='signup__link'>  SignUp</Link></p>

@@ -195,7 +195,7 @@ const MechSignUp = () => {
   //   } 
   // }, [password])
   const navigate = useNavigate()
-  const handlesignUp = (e) => {
+  const handlesignUp = async (e) => {
     e.preventDefault()
     // navigate("/mechEmailVerf")
     const url = "https://carcareconnectproject.onrender.com"
@@ -261,7 +261,19 @@ const MechSignUp = () => {
 
     } else {
       const apiData = { fullName, email, password, phoneNumber }
-      console.log(apiData)
+      // console.log(apiData)
+      setloading(true)
+      try {
+        const response = await axios.post(`${url}/api/v1/mech/sign-up`, apiData)
+        console.log(response)
+        navigate("")
+        setloading(false)
+        toast.success(response?.data?.message)
+      } catch (error) {
+        console.log(error)
+        setloading(false)
+        toast.error(error?.response?.data?.message)
+      }
     }
     // {
     //   "fullName": "John Doe",
