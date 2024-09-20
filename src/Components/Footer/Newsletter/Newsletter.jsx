@@ -1,4 +1,5 @@
 import './newsletter.css'
+import mobileImg from '../../../assets/images/NewsLetter/mobile NewsLetter img.png'
 
 const Newsletter = () => {
   return (
