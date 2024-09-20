@@ -32,7 +32,7 @@ const MechanicLayout = () => {
   // console.log(pages)
   const setmechId = () => {
     if (!mechId) {
-      navigate(`/app/${UserDatas._id}`)
+      navigate(`/app/mech/${UserDatas._id}`)
     }
   }
   const getUserDetails = async () =>{
