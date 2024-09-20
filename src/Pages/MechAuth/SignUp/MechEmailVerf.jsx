@@ -21,7 +21,7 @@ const MechEmailVerf = () => {
   const handleSubmit = async () => {
     try {
       const url = "https://carcareconnectproject.onrender.com"
-      const response = await axios.get(`${url}/api/v1/verifyEmail/${token}`)
+      const response = await axios.post(`${url}/api/v1/mech/verifyEmail/${token}`)
       console.log(response)
       setLoading(true);
       if (response.status === 200) {
