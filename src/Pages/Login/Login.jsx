@@ -39,7 +39,7 @@ const Login = () => {
         dispatch(logIn())
         if (response?.data?.data?.position == "customer") {
           dispatch(setTypeOfUser("Driver"))
-          } else if (response?.data?.data?.position == "") {
+          } else if (response?.data?.data?.position == "mechanic") {
             dispatch(setTypeOfUser("Mechanic"))
         }
         // dispatch(setTypeOfUser(apiData.email))
