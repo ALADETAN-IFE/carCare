@@ -34,13 +34,14 @@ const ImageUploadButton = ({ setimages, images, setSelectedImageName,
 
   const handleImageChange = (event) => {
     const file = event.target.files[0];
+    console.log(file, "file")
 
     // if (!file || !file.type.startsWith('image/')) {
     //   alert('Please select a valid image file');
     //   return;
 
     // Valid file types: images and documents
-    const validImageTypes = ['image/jpeg', 'image/png', 'image/gif', 'image/jpg'];
+    const validImageTypes = ['image/jpeg', 'image/png', 'image/gif', 'image/jpg', 'image/svg+xml'];
     const validDocumentTypes = ['application/pdf', 'application/msword',
       'application/vnd.openxmlformats-officedocument.wordprocessingml.document'];
 

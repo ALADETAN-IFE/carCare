@@ -8,25 +8,53 @@ import "./layout.css"
 import LayoutHeader from "./LayoutHeader/LayoutHeader"
 import SideBar from "./SideBar/SideBar"
 import { useEffect, useState } from "react"
-import { setAppPages } from "../Global/Redux-actions/carCare"
+import { clearnotVerified, setAppPages } from "../Global/Redux-actions/carCare"
 import Settings from "../Pages/App/Driver/settings/settings"
 import Mechanic from "../Pages/App/Mechanic/Mechanics"
 import MechanicBooking from "../Pages/App/Mechanic/MechanicBooking/MechanicBooking"
+import { useParams } from "react-router-dom"
 
 const MechanicLayout = () => {
   // addBooking
-  const AppPages = useSelector((state)=> state.carCare.appPages)
+  const {mechId} = useParams()
+  const {appPages, UserDatas} = useSelector((state)=> state.carCare)
   const dispatch = useDispatch()
   useEffect(() => {
-    setpages1(AppPages)
-  }, [AppPages])
+    setpages1(appPages)
+  }, [appPages])
   
-  const [pages, setpages1] = useState(AppPages)
+  const [pages, setpages1] = useState(appPages)
   const [book, setbook] = useState(false)
   const setpages = (pageName) => {
     dispatch(setAppPages(pageName))
   }
   // console.log(pages)
+  const setmechId = () => {
+    if (!mechId) {
+      navigate(`/app/${UserDatas._id}`)
+    }
+  }
+  const getUserDetails = async () =>{
+    try {
+      // const mechId = UserDatas._id
+      const url = "https://carcareconnectproject.onrender.com"
+      const res = await axios.get(`${url}/api/v1/mech/${mechId}`)
+      console.log(res)
+    } catch (error) {
+      console.log(error)
+      if (!navigator.onLine) {
+        alert("You are currently offline")
+        dispatch(clearnotVerified())
+      }
+    }
+  }
+  useEffect(()=>{
+    if (!mechId) {
+      setmechId()
+    } else {
+      getUserDetails()
+    }
+  },[appPages])
   return (
     <div className="layout" 
     // style={book ? {overflow: "hidden", height: "100vh"} : {overflow: "auto"}}

@@ -6,6 +6,9 @@ import { useState } from 'react';
 import AuthHeader from '../../AuthHeader/AuthHeader';
 import { toast } from 'react-toastify';
 import { BeatLoader } from 'react-spinners';
+import axios from 'axios';
+import { useDispatch } from 'react-redux';
+import { clearnotVerified, setUserDataWithToken } from '../../../Global/Redux-actions/carCare';
 
 
 const MechSignUp = () => {
@@ -23,6 +26,8 @@ const MechSignUp = () => {
   const [passwordErrorNumber, setPasswordErrorNumber] = useState(false);
   const [passwordErrorSymbol, setPasswordErrorSymbol] = useState(false);
   const [passwordErrorLength, setPasswordErrorLength] = useState(false);
+
+  const dispatch = useDispatch()
 
   const filterNumbers = (input) => {
     return input.replace(/[^0-9]/g, '');  // Remove all non-numeric characters
@@ -266,11 +271,19 @@ const MechSignUp = () => {
       try {
         const response = await axios.post(`${url}/api/v1/mech/sign-up`, apiData)
         console.log(response)
-        navigate("")
+       
         setloading(false)
         toast.success(response?.data?.message)
+        dispatch(setUserDataWithToken(response?.data?.data))
+        setTimeout(() => {
+          navigate("/mechInfo")
+        }, 3000);
       } catch (error) {
         console.log(error)
+        if (!navigator.onLine) {
+          alert("You are currently offline")
+          dispatch(clearnotVerified())
+        }
         setloading(false)
         toast.error(error?.response?.data?.message)
       }

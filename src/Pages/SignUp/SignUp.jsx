@@ -7,6 +7,8 @@ import AuthHeader from '../AuthHeader/AuthHeader'
 import { toast } from 'react-toastify';
 import { BeatLoader } from 'react-spinners';
 import axios from "axios";
+import { clearnotVerified } from '../../Global/Redux-actions/carCare';
+import { useDispatch } from 'react-redux';
 
 const SignUp = () => {
   const [fullName, setfullName] = useState("")
@@ -24,6 +26,7 @@ const SignUp = () => {
   const [passwordErrorSymbol, setPasswordErrorSymbol] = useState(false);
   const [passwordErrorLength, setPasswordErrorLength] = useState(false);
 
+  const dispatch = useDispatch()
 
   const filterNumbers = (input) => {
     return input.replace(/[^0-9]/g, '');  // Remove all non-numeric characters
@@ -196,12 +199,12 @@ const SignUp = () => {
     e.preventDefault()
     const url = "https://carcareconnectproject.onrender.com"
     // navigate("/verifyEmail")
-    console.log(passwordError, "apiData")
-    console.log(passwordErrorlow, "passwordErrorlow")
-    console.log(passwordErrorUpper, "passwordErrorUpper")
-    console.log(passwordErrorNumber, "passwordErrorNumber")
-    console.log(passwordErrorLength, "passwordErrorLength")
-    console.log(passwordErrorSymbol, "passwordErrorSymbol")
+    // console.log(passwordError, "apiData")
+    // console.log(passwordErrorlow, "passwordErrorlow")
+    // console.log(passwordErrorUpper, "passwordErrorUpper")
+    // console.log(passwordErrorNumber, "passwordErrorNumber")
+    // console.log(passwordErrorLength, "passwordErrorLength")
+    // console.log(passwordErrorSymbol, "passwordErrorSymbol")
 
     if (!fullName ||
       !email ||
@@ -277,6 +280,10 @@ const SignUp = () => {
         toast.success(response?.data?.message)
       } catch (error) {
         console.log(error)
+        if (!navigator.onLine) {
+          alert("You are currently offline")
+          dispatch(clearnotVerified())
+        }
         setloading(false)
         toast.error(error?.response?.data?.message)
       }

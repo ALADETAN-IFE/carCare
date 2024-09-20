@@ -14,8 +14,9 @@ import { createSlice } from "@reduxjs/toolkit";
 
 // setUser("visitor")
 const initialState = {
-    // UserData :undefined,
-    // UserDatas :undefined,
+    UserDataWithToken :{},
+    UserDatas: {},
+    notVerified: [],
     navBarVisibility: true,
     isLoggedIn: false,
     appPages: "app",
@@ -50,13 +51,19 @@ export const carCareSlice = createSlice({
     name: "carCare",
     initialState,
     reducers: {
-        // setUserData: (state, {payload}) => {
-        //     state.UserData = payload; 
-        //     state.NavBarvisibilty = false
-        // },
-        // setUserDatas: (state, {payload}) => {
-        //     state.UserDatas = payload; 
-        // },
+        setUserDataWithToken: (state, {payload}) => {
+            state.UserDataWithToken = payload; 
+            // state.NavBarvisibilty = false
+        },
+        setUserDataWithTokens: (state, {payload}) => {
+            state.UserDatas = payload; 
+        },
+        setnotVerified: (state, {payload}) => {
+            state.notVerified.push(payload);
+        },
+        clearnotVerified: (state) => {
+            state.notVerified = [];
+        },
         openNavBarVisibility: (state) => {
             state.navBarVisibility = true;
         },
@@ -66,8 +73,8 @@ export const carCareSlice = createSlice({
         logIn: (state) => {
             state.isLoggedIn = true;
         },
-        setmechCompleteDetails: (state) => {
-            state.mechCompleteDetails = {...state?.mechCompleteDetails, payload};
+        setmechCompleteDetails: (state, {payload}) => {
+            state.mechCompleteDetails = payload;
         },
         logOut: (state) => {
             // state.UserData = undefined; 
@@ -77,6 +84,7 @@ export const carCareSlice = createSlice({
             state.typeOfUser = "";
             state.mechSettingsPage = "Personal Information";
             state.userBookingForm = {};
+            state.UserDatas = {}; 
         },
         setAppPages: (state, { payload }) => {
             // state.UserData = undefined; 
@@ -102,8 +110,9 @@ export const carCareSlice = createSlice({
     }
 });
 
-export const { openNavBarVisibility, closeNavBarVisibility, setmechCompleteDetails,
-    logIn, logOut, setAppPages, setAppbookingFormPage,
+export const { setnotVerified, clearnotVerified, openNavBarVisibility, closeNavBarVisibility, 
+    setmechCompleteDetails, setUserDataWithToken,
+    logIn, logOut, setAppPages, setAppbookingFormPage,setUserDatas,
     setuserBookingForm, setTypeOfUser, setmechSettingsPage
 } = carCareSlice.actions;
 export default carCareSlice.reducer;

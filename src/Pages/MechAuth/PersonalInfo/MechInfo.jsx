@@ -4,6 +4,7 @@ import AuthHeader from '../../AuthHeader/AuthHeader'
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+import { setmechCompleteDetails } from '../../../Global/Redux-actions/carCare';
 
 const MechInfo = () => {
     const [isAnimating, setIsAnimating] = useState(false);
@@ -33,7 +34,8 @@ const MechInfo = () => {
     console.log(mechCompleteDetailsState)
 
     const handleClick = () => {
-
+        console.log(mechCompleteDetails)
+        dispatch(setmechCompleteDetails(mechCompleteDetailsState))
         setIsAnimating(true);
         setTimeout(() => {
             navigate("/mechDoc"); // Replace with your actual route
@@ -42,7 +44,7 @@ const MechInfo = () => {
 
     return (
         <div className='mechInfo__container'>
-            <header>
+             <header className='authHeader'>
                 <AuthHeader />
             </header>
             <main className='mechInfo__content'>
@@ -60,7 +62,7 @@ const MechInfo = () => {
                             Business Name
                         </label>
                         <input type="text" className='infoInput'
-                           value={(e)=> mechCompleteDetailsState?.e.target.name}
+                           
                            name='businessName'
                             onChange={setData}
                         />
@@ -70,7 +72,7 @@ const MechInfo = () => {
                             Business Registration Number*
                         </label>
                         <input type="text" className='infoInput' 
-                       value={(e)=> mechCompleteDetailsState?.e.target.name}
+                       
                        name="businessRegNumber"
                         onChange={setData}
                         />
@@ -80,7 +82,7 @@ const MechInfo = () => {
                             Business Address
                         </label>
                         <input type="text" className='infoInput' 
-                       value={(e)=> mechCompleteDetailsState?.e.target.name}
+                       
                        name='businessAddress'
                         onChange={setData}
                         />
@@ -90,7 +92,7 @@ const MechInfo = () => {
                             Area of Specialization
                         </label>
                         <input type="text" className='infoInput'
-                       value={(e)=> mechCompleteDetailsState?.e.target.name}
+                       
                        name='areaOfSpecialization'
                         onChange={setData}
                         />
@@ -100,15 +102,15 @@ const MechInfo = () => {
                             Years of Experiences
                         </label>
                         <input type="text" className='infoInput'
-                       value={(e)=> mechCompleteDetailsState?.e.target.name}
+                       
                        name='yearsOfExperience'
                         onChange={setData}
                         />
                     </div>
 
-                </div>
                 <div className='mechInfoBtn__container'>
                     <button className={`mechInfo__btn ${isAnimating ? 'animate-btn' : ''}`} onClick={handleClick}> Next</button>
+                </div>
                 </div>
 
             </main>

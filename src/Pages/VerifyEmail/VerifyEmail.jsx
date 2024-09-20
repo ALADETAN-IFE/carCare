@@ -3,30 +3,43 @@ import './VerifyEmail.css'
 import AuthHeader from '../AuthHeader/AuthHeader'
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { BeatLoader } from 'react-spinners';
+import axios from 'axios';
+import { clearnotVerified } from '../../Global/Redux-actions/carCare';
+import { useDispatch } from 'react-redux';
 
 
 const VerifyEmail = () => {
   const { token } = useParams()
   console.log(token)
   const navigate = useNavigate()
+  const dispatch = useDispatch()
   const [loading, setLoading] = useState(true)
 
   const [error, setError] = useState(null)
+
+
+
   const handleSubmit = async () => {
     try {
-      const response = await axios.patch(`${url} / ${token}`)
-      // console.log(response)
+      const url = "https://carcareconnectproject.onrender.com"
+      const response = await axios.get(`${url}/api/v1/verifyEmail/${token}`)
+      console.log(response)
       setLoading(true);
       if (response.status === 200) {
         setLoading(false);
         setError(null);
-        setTimeout(() => {
-          navigate('/login');
-        }, 3000); // Adding a delay before redirecting
+        // setTimeout(() => {
+        //   navigate('/login');
+        // }, 3000); // Adding a delay before redirecting
       } else if (response.status === 400 || response.status === 401) {
         setError('Invalid or expired token.');
       }
     } catch (error) {
+      if (!navigator.onLine) {
+        alert("You are currently offline")
+        dispatch(clearnotVerified())
+      }
+        console.log(error)
       setError('Verification Failed. Please check your network or try again later.');
       setLoading(false); // Ensure loading is set to false if error occurs
     }
@@ -34,16 +47,6 @@ const VerifyEmail = () => {
   useEffect(() => {
     handleSubmit()
   }, [])
-
-
-  const style = {
-    width: '100%',
-    height: '100vh',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: '#f8f8f8',
-  }
   const stylesLoading = {
     display: "flex",
     flexDirection: "column",
@@ -51,20 +54,52 @@ const VerifyEmail = () => {
     alignItems: "center",
   }
   return (
-    <div style={style}>
-      {
-        loading ?
-          <div style={stylesLoading}>
-            <h1>Please Wait...</h1>
-            <BeatLoader size={20} />
-          </div>
-          : !token ?
-            <h1>{"error"}</h1>
-          : error ?
-            <h1>{error}</h1>
-            :
-            <h1>Verification was successful! Redirecting to login...</h1>
-      }
+
+    <div className='VerifyEmail__container'>
+      <header className='authHeader'>
+        <AuthHeader />
+      </header>
+      <div className="VerifyEmail__containerWrapper">
+        <div className='VerifyEmail__content'>
+          {
+            loading ?
+              <div style={stylesLoading}>
+                <h1>Please Wait...</h1>
+                <BeatLoader size={20} />
+              </div>
+              : !token ?
+                <h1>{"error"}</h1>
+                : error ?
+                  <h1>{error}</h1>
+                  :
+                  // <h1>Verification was successful! Redirecting to login...</h1>
+                  <div className="popup__content">
+                    <div className="popup__content__top">
+                      <h1>VERIFY YOUR EMAIL</h1>
+                      <p>We're excited to have you on board, Fave Joy! <br />
+                        Click the button to verify your email and <br />
+                        start enjoying effortless car care </p>
+                    </div>
+                    <div className="popup__content__bottom">
+                      <button className='resetPassword'
+                        // onClick={handleNavigate}
+                        style={{ transitionDuration: '0ms' }}>
+                          Proceed to Login</button>
+                      <div>
+                        <p>Didn't Receive the Email? Check your spam <br />
+                          folder or <Link to='/signup' className='signup__link'>
+                          Click here to resend</Link>
+                        </p>
+                      </div>
+                    </div>
+
+                  </div>
+
+          }
+
+        </div>
+      </div>
+
     </div>
   )
 }

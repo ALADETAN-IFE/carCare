@@ -14,7 +14,7 @@ import ScrollToTop from "../../Components/ScrollToTop";
 const SideBar = ({ pages, setpages, book }) => {
     const navigate = useNavigate()
     const dispatch = useDispatch()
-    const navBarVisibility = useSelector((state) => state.carCare.navBarVisibility)
+    const {navBarVisibility, UserDatas} = useSelector((state) => state.carCare)
     const typeOfUser = useSelector((state) => state.carCare.typeOfUser)
     const [width, setwidth] = useState(window.innerWidth)
     const [User, setUser] = useState(typeOfUser)
@@ -240,7 +240,7 @@ const SideBar = ({ pages, setpages, book }) => {
                     <div className="logutIcon">
                         <img src="" alt="" />
                     </div>
-                    <p> Favour Joy</p>
+                    <p> {UserDatas?.fullName}</p>
                 </div>
                 <LuLogOut color="#A21C29" onClick={() => dispatch(logOut())} />
             </div>

@@ -5,17 +5,20 @@ import ImageUploadButton from './Upload/Upload'
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { setmechCompleteDetails } from '../../../../Global/Redux-actions/carCare';
+import { toast } from 'react-toastify';
+import axios from 'axios';
 
 
 const MechDoc = () => {
 
     const [isAnimating, setIsAnimating] = useState(false);
+    const [loading, setloading] = useState(false);
     const navigate = useNavigate();
     const [images, setimages] = useState({})
     const [selectedImageName, setSelectedImageName] = useState({});
 
     const dispatch = useDispatch()
-    const mechCompleteDetails = useSelector((state) => state?.carCare?.mechCompleteDetails)
+    const {mechCompleteDetails, UserDataWithToken} = useSelector((state) => state?.carCare)
     const [mechCompleteDetailsState, setmechCompleteDetailsState] = useState(mechCompleteDetails)
 
     // {
@@ -30,48 +33,119 @@ const MechDoc = () => {
     //      insurance: Optional.
     //   }
 
-    const handleClick = () => {
-        console.log(Object.create(images))
+    const handleClick = async () => {
+        // console.log(Object.create(images), "obj")
+        setmechCompleteDetailsState((prev) => ({
+            ...prev,
+            ...images
+        }))
+        console.log(mechCompleteDetailsState, "mechCompleteDetails")
+        dispatch(setmechCompleteDetails({}))
+            const url = "https://carcareconnectproject.onrender.com"
+        console.log(mechCompleteDetails)
         setIsAnimating(true);
+        if (!mechCompleteDetails.businessName ||
+            !mechCompleteDetails.businessRegNumber || 
+            !mechCompleteDetails.businessAddress ||
+            !mechCompleteDetails.areaOfSpecialization ||
+            !mechCompleteDetails.yearsOfExperience ||
+            !mechCompleteDetails.profilePicture ||
+            !mechCompleteDetails.identification ||
+            !mechCompleteDetails.certification 
+        ) {
+            if (!mechCompleteDetails.businessName) {
+                toast.error("Business name is required")
+            }
+            else if (!mechCompleteDetails.businessRegNumber) {
+                toast.error("Business registration number is required")
+            }
+            else if (!mechCompleteDetails.businessAddress) {
+                toast.error("Business address is required")
+            }
+            else if (!mechCompleteDetails.areaOfSpecialization) {
+                toast.error("Area of specialization is required")
+            }
+            else if (!mechCompleteDetails.yearsOfExperience) {
+                toast.error("Years of experience is required")
+            }
+            else if (!mechCompleteDetails.profilePicture) {
+                toast.error("Profile picture is required")
+            }
+            else if (!mechCompleteDetails.identification) {
+                toast.error("Identification is required")
+            }
+            else if (!mechCompleteDetails.certification) {
+                toast.error("Certification is required")
+            }
+        } else {
+            console.log(mechCompleteDetails, "hello")       
+            try {
+                const response = await axios.post(`${url}/api/v1/mech/completeProfile`, mechCompleteDetails, {
+                    headers: {
+                      'Content-Type': 'multipart/form-data',
+                      token : UserDataWithToken.token
+                    }
+                });
+                console.log(response)
+                navigate("/login")
+                setloading(false)
+                toast.success(response?.data?.message)
+              } catch (error) {
+                console.log(error)
+                if (!navigator.onLine) {
+                  alert("You are currently offline")
+                  dispatch(clearnotVerified())
+                }
+                setloading(false)
+                toast.error(error?.response?.data?.message)
+              }
+          
+              
+            // 
+        }
         // dispatch(setmechCompleteDetails())
         // setTimeout(() => {
         //     navigate("/login");
         // }, 300); // 300ms to match the animation duration
     };
-    console.log(images, "images")
-    console.log(selectedImageName, "selectedImageName")
+    // console.log(images, "images")
+    // console.log(selectedImageName, "selectedImageName")
 
     const requirements = [
         {
             h5: "Profile pictures",
             p: `Please provide a clear portrait picture of yourself. It should show your 
                     full face, front view, with eyes open on a white background. `,
+            hash: "*",
             uploadKey: "profilePicture"
         },
         {
             h5: "Identification",
             p: `Please upload a clear image of your government-issued ID (e.g., Driver's 
                         License, National ID, Passport). This helps us confirm your identity."`,
+            hash: "*",
             uploadKey: "identification"
-                    },
+        },
         {
             h5: "Certification",
             p: `Please provide any automotive certifications you have. This helps us
                             match you with the right jobs.`,
+            hash: "*",
             uploadKey: "certification"
-                        },
+        },
         {
             h5: "Insurance Documentation",
             p: `If you have liability insurance, please upload your insurance
                             documentation. This is required to protect you and your clients.`,
+            hash: null,
             uploadKey: "insurance"
-                        },
+        },
     ]
 
 
     return (
         <div className='mechDoc'>
-            <header>
+            <header className='authHeader'>
                 <AuthHeader />
             </header>
 
@@ -85,7 +159,7 @@ const MechDoc = () => {
                     {
                         requirements?.map((e, i) => (
                             <div className='requirement__details' key={i}>
-                                <h5>{e?.h5}<span>*</span></h5>
+                                <h5>{e?.h5}<span>{e?.hash}</span></h5>
                                 <p>{e?.p}</p>
                                 <div style={{ display: "flex", gap: "5px", alignItems: "center" }}>
                                     <ImageUploadButton
@@ -141,8 +215,22 @@ const MechDoc = () => {
                         <hr className='mechDoc__hr' />
                     </div> */}
                 </div>
-                <div >
-                    <button className={`mechInfo__btn ${isAnimating ? 'animate-btn' : ''}`} onClick={handleClick}> Submit</button>
+                <div style={{
+                    width: "100%", display: "flex", gap: "10px",
+                    alignItems: "center", justifyContent: "space-around"
+                }}>
+                       {
+              loading ?
+                <button type="submit"
+                  disabled style={{ background: "#ccc5c5be !important" }} color="#2c64d4"
+                  className={`mechInfo__btn ${isAnimating ? 'animate-btn' : ''}`}   ><BeatLoader size={20} /></button>
+                :
+                <>
+                
+                <button className={`mechInfo__btn ${isAnimating ? 'animate-btn' : ''}`} onClick={() => navigate("/mechInfo")}> Go Back</button>
+                <button className={`mechInfo__btn ${isAnimating ? 'animate-btn' : ''}`} onClick={handleClick}> Submit</button>
+                </>
+            }
                 </div>
 
 

@@ -54,10 +54,14 @@ const Routes = createHashRouter([
         path: "/mechSignUp",
         element: <MechSignUp />
     },
-    // {
-    //     path: "/mechEmailVerf",
-    //     element: <MechEmailVerf />,
-    // },
+    {
+        path: "/mechEmailVerf",
+        element: <MechEmailVerf />,
+    },
+    {
+        path: "/mechEmailVerf/:token",
+        element: <MechEmailVerf />,
+    },
     {
         path: "/mechInfo",
         element: <MechInfo />
@@ -107,6 +111,11 @@ const Routes = createHashRouter([
                         element: <MechanicLayout />,
                         children: []
                     },
+                    {
+                        path: "/app/mech/:mechId",
+                        element: <MechanicLayout />,
+                        children: []
+                    },
                 ]
             },
             {
@@ -114,6 +123,21 @@ const Routes = createHashRouter([
                 children: [
                     {
                         path: "/app",
+                        element: <DriverLayout />,
+                        // children: [
+                        //     {
+                        //         // index: true,
+                        //         path:"/app",
+                        //         element: <Driver/>,
+                        //     },
+                        //     // {
+                        //     //     path:"booking",
+                        //     //     element: <Booking/>,
+                        //     // }
+                        // ]
+                    },
+                    {
+                        path: "/app/:customerId",
                         element: <DriverLayout />,
                         // children: [
                         //     {
