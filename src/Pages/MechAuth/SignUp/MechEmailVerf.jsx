@@ -11,7 +11,7 @@ import axios from 'axios';
 
 const MechEmailVerf = () => {
   const { token } = useParams()
-  console.log(token)
+  // console.log(token)
   const navigate = useNavigate()
   const dispatch = useDispatch()
   const [loading, setLoading] = useState(true)
@@ -24,7 +24,7 @@ const MechEmailVerf = () => {
     try {
       const url = "https://carcareconnectproject.onrender.com"
       const response = await axios.patch(`${url}/api/v1/mech/verifyEmail/${token}`)
-      console.log(response)
+      // console.log(response)
       setLoading(true);
       if (response.status === 200) {
         setLoading(false);
@@ -53,6 +53,10 @@ const MechEmailVerf = () => {
     flexDirection: "column",
     gap: "20px",
     alignItems: "center",
+  }
+  const handleNavigate = (e) => {
+    e.preventDefault()
+    navigate("/login")
   }
   return (
 
@@ -83,7 +87,7 @@ const MechEmailVerf = () => {
                     </div>
                     <div className="popup__content__bottom">
                       <button className='resetPassword'
-                        // onClick={handleNavigate}
+                        onClick={handleNavigate}
                         style={{ transitionDuration: '0ms' }}>continue</button>
                       <div>
                         <p>Didn't Receive the Email? Check your spam <br />

@@ -12,13 +12,14 @@ import { clearnotVerified, setAppPages } from "../Global/Redux-actions/carCare"
 import Settings from "../Pages/App/Driver/settings/settings"
 import Mechanic from "../Pages/App/Mechanic/Mechanics"
 import MechanicBooking from "../Pages/App/Mechanic/MechanicBooking/MechanicBooking"
-import { useParams } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 
 const MechanicLayout = () => {
   // addBooking
   const {mechId} = useParams()
   const {appPages, UserDatas} = useSelector((state)=> state.carCare)
   const dispatch = useDispatch()
+  const navigate = useNavigate()
   useEffect(() => {
     setpages1(appPages)
   }, [appPages])
