@@ -6,6 +6,7 @@ import AuthHeader from '../../AuthHeader/AuthHeader';
 import { clearnotVerified } from '../../../Global/Redux-actions/carCare';
 import { useDispatch } from 'react-redux';
 import { BeatLoader } from 'react-spinners';
+import axios from 'axios';
 
 
 const MechEmailVerf = () => {
