@@ -5,6 +5,7 @@ import { Link, useNavigate, useParams } from 'react-router-dom';
 import AuthHeader from '../../AuthHeader/AuthHeader';
 import { clearnotVerified } from '../../../Global/Redux-actions/carCare';
 import { useDispatch } from 'react-redux';
+import { BeatLoader } from 'react-spinners';
 
 
 const MechEmailVerf = () => {
