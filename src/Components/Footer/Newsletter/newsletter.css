@@ -32,6 +32,7 @@
     .Newsletter{
         padding-left: 0;
         padding-right: 0;
+       
     }
 
     .NewsletterWrapper{
@@ -122,4 +123,16 @@
     font-weight: 400;
     line-height: normal;
     background: var(--Secondary-Secondary, #0066B2);
+}
+@media screen and (max-width: 421px){
+    .Newsletter{
+        background: url(../../../assets/images/NewsLetter/mobile\ Newsletter\ img.png);
+    }
+    .Newsletter h1 {
+        font-size: 32px;
+    }
+    .Newsletter p{
+        font-size: 16px;
+    }
+
 }

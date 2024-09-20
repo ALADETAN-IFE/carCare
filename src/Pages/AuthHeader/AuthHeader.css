@@ -1,3 +1,7 @@
+.authHeader{
+    position: static;
+}
+
 .authHeader__container{
     display: flex;
     width: 100%;

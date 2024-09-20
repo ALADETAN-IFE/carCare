@@ -7,7 +7,7 @@ const GrowYourMechanicBusiness = () => {
   const navigate = useNavigate()
   return (
     <section className='GrowYourMechanicBusiness'>
-          <div className="joinOurCommunityWrapper GrowYourMechanicBusinessWrapper">
+          <div className="GrowYourMechanicBusinessWrapper">
                 <div className="leftGrowMech">
                     <img src={mechanicImg} alt="" />
                 </div>

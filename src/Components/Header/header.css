@@ -197,6 +197,7 @@ header {
     34.9375rem) {
     .menu {
         display: flex;
+        width: 100%;
     }
 
     .laptopMenu,

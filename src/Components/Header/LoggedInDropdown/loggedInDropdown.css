@@ -25,7 +25,7 @@
     height: 17.1875rem;
     border-radius: 6px;
     border: 0px solid #565454;
-    background: var(--Base-Base-White, #FFF);
+    background: var(--Base-Base-White, #FFf);
     box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.15);
     /* left: 100%; */
     animation-name: animateDropDown;

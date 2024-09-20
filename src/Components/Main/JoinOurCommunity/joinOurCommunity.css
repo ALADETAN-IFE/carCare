@@ -1,39 +1,26 @@
 .joinOurCommunity {
     width: 100%;
-    /* height: 75vh; */
-    /* height: 555px; */
-    /* height: 34.6875rem; */
-    /* flex-shrink: 0; */
     background: var(--Base-Base-Black);
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 35px;
     padding-top: 50px;
-
 }
 
 .joinOurCommunityWrapper {
     max-width: 95%;
-    /* background: burlywood; */
     height: 100%;
     display: flex;
-    /* width: 95%; */
-    /* justify-content: space-between; */
+    justify-content: center;
     align-items: center;
-    gap: 116px;
+    gap: 26px;
 
     & .leftJoin {
-        /* width: 33.82%; */
-        /* width: 40%; */
-        /* width: 487px; */
-        /* width: 38%; */
         width: 33.4375rem;
         height: 100%;
-
         display: flex;
         flex-direction: column;
-        /* justify-content: space-evenly; */
         justify-content: center;
         /* background: #000; */
         gap: 45px;
@@ -43,31 +30,29 @@
     & .leftJoinTop {
         width: 100%;
         height: max-content;
-        /* background: #904d4d; */
         display: flex;
         flex-direction: column;
         align-items: flex-start;
         gap: 26px;
 
         & h4 {
-            color: var(--Base-Base-White);
-            /* font-family: Oswald; */
-            font-family: Alegreya SC;
-            /* font-size: 36px; */
-            font-size: 2.25rem;
+            color: #FFF;
+            font-family: "Alegreya SC";
+            font-size: 2.3rem;
             font-style: normal;
             font-weight: 500;
             line-height: normal;
+            letter-spacing: -0.4px;
         }
 
         & p {
-            color: var(--Base-Base-White);
+            color: #FFF;
             font-family: Lora;
-            /* font-size: 24px; */
             font-size: 1.5rem;
             font-style: normal;
-            font-weight: 300;
+            font-weight: 400;
             line-height: normal;
+
         }
     }
 
@@ -81,7 +66,6 @@
         border-radius: 8px;
         border: 1px solid #F5F5F5;
         color: var(--Base-Base-White);
-        /* font-family: "Merriweather", serif; */
         font-family: Merriweather;
         /* font-size: 18px; */
         font-size: 1.125rem;
@@ -101,8 +85,6 @@
     }
 
     & .rightJoin {
-        /* width: 50%; */
-        /* width: 662px; */
         width: 41.375rem;
         /* height: 100%; */
         /* height: 470px; */
@@ -110,7 +92,6 @@
         /* flex-shrink: 0; */
         /* background: white; */
         border-radius: 10px;
-        /* background: url("../../../assets/images/joinOurCommunity.png"); */
         background-position: center;
         background-size: contain;
         background-repeat: no-repeat;
@@ -124,21 +105,98 @@
     }
 }
 
-@media screen and (max-width: 63.75rem) {
-    .joinOurCommunity{
-        /* padding: 10pxpx; */
-    }
+@media screen and (max-width: 490px) {
 
-    .joinOurCommunityWrapper{
+     .joinOurCommunity{
+        display: flex;
+        width: 100%;
+        padding-top: 35px;
         flex-direction: column;
-        /* gap: 30px; */
-
-        & .leftJoin, .rightJoin{
+        justify-content: flex-end;
+        align-items: center;
+        gap: 33.338px;
+     }
+    .joinOurCommunityWrapper{
+      display: flex;
+      width: 320px;
+      flex-direction: column-reverse;
+      gap: 12px;
+    }
+        .leftJoin, .rightJoin{
             width: 100%;
         }
-        /* & .rightJoin{
-            width: 100%;
-        } */
+        .rightJoin img{
+            border-radius: 4.184px; 
+
+        }
+        .leftJoinTop  h4{
+            font-size: 1.8rem;
+
+        }
+        .leftJoinTop p{
+            font-size: 1rem;
+        }
+        .leftJoinTopBtn{
+            display: flex;
+            padding: 8px 16px 7px 16px;
+            justify-content: center;
+            align-items: center;
+            border-radius: var(--Radius-xxs, 5px);
+            border: 1px solid #F5F5F5;
+            color: #FFF;
+            font-family: Lora;
+            font-size: 12px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: normal;
+        }
     }
+    @media screen and (max-width: 768px) {
+
+        .joinOurCommunity{
+           display: flex;
+           width: 100%;
+           padding-top: 35px;
+           flex-direction: column;
+           justify-content: flex-end;
+           align-items: center;
+           gap: 33.338px;
+        }
+       .joinOurCommunityWrapper{
+         display: flex;
+         width: 400px;
+         flex-direction: column-reverse;
+         gap: 12px;
+   
+           & .leftJoin, .rightJoin{
+               width: 100%;
+           }
+           .rightJoin img{
+               border-radius: 4.184px; 
+   
+           }
+           .leftJoinTop  h4{
+            font-size: 2rem;
+
+        }
+        .leftJoinTop p{
+            font-size: 1.2rem;
+        }
+           .leftJoinTopBtn{
+               display: flex;
+               padding: 8px 16px 7px 16px;
+               justify-content: center;
+               align-items: center;
+               border-radius: var(--Radius-xxs, 5px);
+               border: 1px solid #F5F5F5;
+               color: #FFF;
+               font-family: Lora;
+               font-size: 12px;
+               font-style: normal;
+               font-weight: 600;
+               line-height: normal;
+           }
+       }
 }
+
 

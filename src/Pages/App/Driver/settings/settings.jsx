@@ -101,7 +101,7 @@ const Settings = () => {
                   <label htmlFor="Phone Number">Phone Number</label>
                   <input type="number" />
                 </div>
-                <div className="inpuHolder">
+                {/* <div className="inpuHolder">
                   <label htmlFor="Password">Password</label>
                   <div className="passwordInputHolder">
                     <input type={showPassword ? "text" : "password"} />
@@ -112,7 +112,7 @@ const Settings = () => {
                         <BsEyeFill onClick={() => setshowPassword(true)} />
                     }
                   </div>
-                </div>
+                </div> */}
               </div>
             </div>
             <div className="settingsWrapperDown">
