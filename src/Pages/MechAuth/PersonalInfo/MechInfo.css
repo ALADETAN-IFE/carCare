@@ -1,21 +1,22 @@
 /* Base styles */
 .mechInfo__container {
     width: 100%;
-    height: 1080px;
+    /* height: 1080px; */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 85px;
 }
 
 .mechInfo__content {
     display: flex;
-    width: 800px;
+    width: 700px;
     height: 900px;
-    padding: 10px;
+    padding: 33px;
     justify-content: center;
     align-items: center;
-    gap: 10px;
+    gap: 40px;
     background: var(--Base-Base-White, #FFF);
     box-shadow: 0px 61px 17px 0px rgba(179, 179, 179, 0.00), 0px 39px 16px 0px rgba(179, 179, 179, 0.01), 0px 22px 13px 0px rgba(179, 179, 179, 0.05), 0px 10px 10px 0px rgba(179, 179, 179, 0.09), 0px 2px 5px 0px rgba(179, 179, 179, 0.10);
     
@@ -49,13 +50,14 @@
 }
 
 .mech__personalInfo {
-    width: 661px;
-    height: 681px;
+    width: 95%;
+    /* background: #000; */
+    /* height: 681px; */
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
-    gap: 30px;
+    gap: 20px;
    
 }
 
@@ -68,12 +70,17 @@
     line-height: normal;
 }
 
+.mechInput{
+    width: 100%;
+}
+
 .mechInput .infoInput {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     gap: 12px;
-    width: 661px;
+    width: 100%;
+    padding: 10px;
     height: 65px;
     border-radius: 8px;
     border: 1px solid #565454;
@@ -91,10 +98,19 @@
     cursor: pointer;
     background: var(--Secondary-Secondary900, #004375);
     transition: transform 300ms ease-in, opacity 300ms ease-in;
-   
+    color: #FFF;
+    font-family: Lora;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: 0.8px;
+    border: none;
+    outline: none;
 }
 .mechInfoBtn__container{
-    padding-bottom: 40px;
+    padding-top: 5px;
+    align-self: center;
 }
 
 /* Animation keyframes */
@@ -119,7 +135,7 @@
 /* Media Queries */
 
 /* Phones (Portrait) */
-@media screen and (max-width: 375px) {
+@media screen and (max-width: 675px) {
     .mechInfo__content {
         width: 100%;
         height: auto;
@@ -127,14 +143,14 @@
     }
 
     .mech__personalInfo{
-        width: 320px;
+        /* width: 320px; */
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
     }
     .mechInput .infoInput{
-        width: 300px;
+        width: 100%;
         height: 65px;
     }
 
@@ -152,7 +168,7 @@
         font-size: 18px;
     }
 }
-@media screen and (min-width: 375px) {
+/* @media screen and (min-width: 375px) {
     .mechInfo__content {
         width: 100%;
         height: auto;
@@ -183,11 +199,11 @@
     .mechForm__title h1 {
         font-size: 18px;
     }
-}
+} */
 
 
 /* Tablets (Portrait and Landscape) */
-@media screen and (min-width: 768px) {
+/* @media screen and (min-width: 768px) {
     .mechInfo__content {
         width: 90%;
         height: auto;
@@ -217,7 +233,7 @@
         font-size: 22px;
         
     }
-}
+} */
 
 
 

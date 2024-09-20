@@ -5,7 +5,8 @@
     /* height: 1024px; */
     /* width: 12%; */
     flex-shrink: 0;
-    /* min-height: 100vh; */
+    min-height: 100vh;
+    max-height: 100vh;
     border-right: 1px solid #CCC;
     background: #F5FBFF;
     box-shadow: -41px 112px 33px 0px rgba(146, 144, 144, 0.00), -26px 72px 31px 0px rgba(146, 144, 144, 0.01), -15px 40px 26px 0px rgba(146, 144, 144, 0.05), -7px 18px 19px 0px rgba(146, 144, 144, 0.09), -2px 4px 11px 0px rgba(146, 144, 144, 0.10);
