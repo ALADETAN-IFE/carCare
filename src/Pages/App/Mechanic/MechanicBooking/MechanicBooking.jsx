@@ -88,7 +88,7 @@ const MechanicBooking = ({ setpages }) => {
           },
     ])
     const [currentPage, setCurrentPage] = useState(1);
-    const bookingsPerPage = 5; // Number of bookings per page
+    const bookingsPerPage = 8; // Number of bookings per page
 
     // Get the current bookings based on the pagination
     const indexOfLastBooking = currentPage * bookingsPerPage;

@@ -2,10 +2,10 @@
     width: 100%;
     height: 100%;
     border-radius: 8px;
-    height: 436px;
+    /* height: 436px; */
     min-height: 436px;
-    max-height: 436px;
-    overflow: hidden;
+    /* max-height: 436px; */
+    /* overflow: hidden; */
     border: var(--Radius-Sharp, 1px) solid var(--obsidian-obsidian-50, #E7E7E8);
     display: flex;
     flex-direction: column;
@@ -15,85 +15,55 @@
         cursor: pointer;
     }
 
-    & span {
-        color: var(--Base-Base-Black, #171717);
-        text-align: center;
+    & .Action1 {
+        display: flex;
+        width: 70px;
+        height: 30px;
+        padding: 10px;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        flex-shrink: 0;
+        border-radius: 8px;
+        border: none;
+        outline: none;
+        color: var(--Base-Base-White, #FFF);
         font-family: Lora;
-        font-size: 18px;
+        font-size: 14px;
         font-style: normal;
         font-weight: 600;
-        line-height: 130%;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-        overflow: hidden;
-
+        line-height: normal;
+        background: var(--Success-Success, #28A745);
     }
-
-    & .span1 {
+    & .Action2 {
         display: flex;
-        width: 170px;
-        max-width: 170px;
-        height: 40px;
-        padding: 4.551px 5.4px;
+        width: 70px;
+        height: 30px;
+        padding: 10px;
         justify-content: center;
         align-items: center;
-
-        & span {
-            text-overflow: ellipsis;
-            white-space: nowrap;
-            overflow: hidden;
-        }
+        gap: 10px;
+        flex-shrink: 0;
+        border-radius: 8px;
+        border: none;
+        outline: none;
+        color: var(--Base-Base-White, #FFF);
+        font-family: Lora;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+        background: var(--Error-Error, #DC3545);
     }
 
-    & .span2 {
-        display: flex;
-        width: 170px;
-        max-width: 170px;
-        height: 40px;
-        /* padding: 9.551px 11.461px; */
-        justify-content: center;
-        align-items: center;
+    & .Action1:hover {
+        background: var(--Success-Success, #28A745) !important;
     }
 
-    & .span3 {
-        display: flex;
-        width: 220px;
-        max-width: 220px;
-        height: 40px;
-        /* padding: 9.551px 11.461px; */
-        justify-content: center;
-        align-items: center;
+    & .Action2:hover {
+        background: var(--Error-Error, #DC3545) !important;
     }
 
-    & .span4 {
-        display: flex;
-        width: 140px;
-        max-width: 140px;
-        height: 40px;
-        /* padding: 9.551px 11.461px; */
-        justify-content: center;
-        align-items: center;
-    }
-
-    & .span5 {
-        display: flex;
-        width: 190px;
-        max-width: 190px;
-        height: 40px;
-        /* padding: 9.551px 11.461px; */
-        justify-content: center;
-        align-items: center;
-    }
-
-    & .span6 {
-        display: flex;
-        width: 180px;
-        max-width: 180px;
-        height: 40px;
-        /* padding: 9.551px 11.461px; */
-        justify-content: center;
-        align-items: center;
-    }
 }
 
 
@@ -178,10 +148,10 @@
     width: 100%;
     height: 100%;
     border-radius: 8px;
-    height: 436px;
+    /* height: 436px; */
     min-height: 436px;
-    max-height: 436px;
-    overflow: hidden;
+    /* max-height: 436px; */
+    /* overflow: hidden; */
     border: var(--Radius-Sharp, 1px) solid var(--obsidian-obsidian-50, #E7E7E8);
     display: flex;
     flex-direction: column;
@@ -192,94 +162,13 @@
 
     }
 
-    & span {
-        color: var(--Base-Base-Black, #171717);
-        text-align: center;
+    td{
         font-family: Lora;
-        font-size: 18px;
+        font-size: 15px;
         font-style: normal;
         font-weight: 600;
-        line-height: 130%;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-        overflow: hidden;
-
-    }
-
-    & .span1 {
-        display: flex;
-        width: 170px;
-        max-width: 170px;
-        height: 40px;
-        padding: 4.551px 5.4px;
-        justify-content: center;
-        align-items: center;
-
-        & span {
-            text-overflow: ellipsis;
-            white-space: nowrap;
-            overflow: hidden;
-        }
-    }
-
-    & .span2 {
-        display: flex;
-        width: 170px;
-        max-width: 170px;
-        height: 40px;
-        /* padding: 9.551px 11.461px; */
-        justify-content: center;
-        align-items: center;
-    }
-
-    & .span3 {
-        display: flex;
-        width: 205px;
-        max-width: 205px;
-        height: 40px;
-        /* padding: 9.551px 11.461px; */
-        justify-content: center;
-        align-items: center;
-    }
-
-    & .span4 {
-        display: flex;
-        width: 140px;
-        max-width: 140px;
-        height: 40px;
-        /* padding: 9.551px 11.461px; */
-        justify-content: center;
-        align-items: center;
-    }
-
-    & .span5 {
-        display: flex;
-        width: 190px;
-        max-width: 190px;
-        height: 40px;
-        /* padding: 9.551px 11.461px; */
-        justify-content: center;
-        align-items: center;
-    }
-
-    & .span6 {
-        display: flex;
-        width: 100px;
-        max-width: 100px;
-        height: 40px;
-        /* padding: 9.551px 11.461px; */
-        justify-content: center;
-        align-items: center;
-    }
-
-    & .span7 {
-        display: flex;
-        width: 100px;
-        max-width: 100px;
-        height: 40px;
-        /* padding: 9.551px 11.461px; */
-        justify-content: center;
-        align-items: center;
+        line-height: normal;
+        text-align: center;
     }
 
     & .TableDatas {
@@ -299,7 +188,7 @@
     }
 }
 
-.tableHead_for_mech_booking {}
+
 
 
 .TableDatas {
@@ -356,22 +245,28 @@
 
     }
 
-    & .actions {
-        display: flex;
-        width: 85px;
-        height: 30px;
-        padding: 10px;
-        justify-content: center;
-        align-items: center;
-        gap: 10px;
-        flex-shrink: 0;
-        border-radius: 8px;
-        background: var(--Success-Success, #28A745);
-        color: var(--Base-Base-White, #FFF) !important;
-        font-family: Lora;
-        font-size: 14px;
-        font-style: normal;
-        font-weight: 600;
-        line-height: normal;
-    }
+}
+
+.booking_table_staus{
+    color: var(--Error-Error300, #A21C29);
+ 
+}
+
+ .booking_table_active {
+    display: flex;
+    width: 85px;
+    height: 30px;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+    border-radius: 8px;
+    background: var(--Success-Success, #28A745);
+    color: var(--Base-Base-White, #FFF) !important;
+    font-family: Lora;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
 }

@@ -10,7 +10,7 @@ import './index.css'
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <Provider store={store}>
-      <PersistGate loading={<h3>Loading...</h3>} persistor={persistor}>
+      <PersistGate loading={<h3 color='black'>Loading...</h3>} persistor={persistor}>
         <App />
       </PersistGate>
     </Provider>

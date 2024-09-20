@@ -1,15 +1,21 @@
 .layout{
     width: 100%;
-    height: max-content;
-    min-height: 100vh;
+    /* height: max-content; */
+    /* min-height: 100vh; */
+    max-height: 100vh;
     display: flex;
+    overflow: hidden;
 }
 
 .layoutDown{
     width: 100%;
-    height: max-content;
+    /* height: max-content; */
+    max-height: 100vh;
     flex-direction: column;
     display: flex;
     gap: 2px;
+    overflow: auto;
+    overflow-x: hidden;
+    padding-bottom: 40px;
     /* min-height: 100vh; */
 }

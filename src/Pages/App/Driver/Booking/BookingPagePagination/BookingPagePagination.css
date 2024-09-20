@@ -1,11 +1,11 @@
-.table, .mechTable ,
-.mechTable_for_mech_booking{
-
-    & .pagination {
+.pagination {
         display: flex;
         /* justify-content: center; */
         /* margin-top: 20px; */
         width: 100%;
+        /* column-count: 8; */
+        /* column-span: all; */
+        /* span */
         padding-left: 10px;
         padding-right: 10px;
         height: 56px;
@@ -16,16 +16,25 @@
         border-top: var(--Radius-Sharp, 1px) solid var(--obsidian-obsidian-50, #E7E7E8);
     }
 
-    & .paginationBodyWrapper {
+     .paginationBodyWrapper {
         width: 57%;
         height: 100%;
         display: flex;
         justify-content: space-between;
         align-items: center;
         /* background: #000; */
+
+        &   span {
+            color: #000;
+            font-family: Lora;
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+        }
     }
 
-    & .paginationWrapper {
+     .paginationWrapper {
         padding-left: 10px;
         padding-right: 10px;
         border-radius: 8px;
@@ -34,7 +43,7 @@
         width: max-content;
     }
 
-    & .pagination button {
+     .pagination button {
         /* padding: 10px;
         margin: 0 5px; */
         width: 30px;
@@ -55,7 +64,7 @@
         background: transparent;
     }
 
-    & .pagination button.active {
+     .pagination button.active {
         background: var(--Secondary-Secondary100, #D6EDFF);
         color: #007bff;
         border-radius: 5px;
@@ -65,20 +74,36 @@
 
     }
 
-    & .pagination button:hover {
+     .pagination button:hover {
         background-color: #0056b3;
         color: white;
     }
 
-    & span {
-        color: #000;
-        font-family: Lora;
-        font-size: 14px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: normal;
+   
+
+   
+
+    @media screen and (max-width: 678px) {
+        .pagination{
+            & .paginationBodyWrapper{
+                width: 90%;
+            }
+
+            & .paginationWrapper {
+                min-height: 38px;
+            }
+        }
+
+         span{
+            color: #000;
+            font-family: Lora;
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+        }
     }
-}
+
 
 /* Explanation:
 Table Structure: The React component renders a table with the booking details. The image of the mechanic and status color (orange for "Pending") are also included.

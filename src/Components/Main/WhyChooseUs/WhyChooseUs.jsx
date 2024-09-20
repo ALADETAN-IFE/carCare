@@ -1,6 +1,6 @@
 
 import React from "react";
-import "./WhyChooseUs.css";
+import "./whyChooseUs.css";
 import icon1 from "../../../assets/images/whyChooseUs/Frame 189.png"
 import icon2 from "../../../assets/images/whyChooseUs/Frame 190.png"
 import icon3 from "../../../assets/images/whyChooseUs/Frame 191.png"

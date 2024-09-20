@@ -6,19 +6,20 @@ const DriverAuth = () => {
     const {isLoggedIn, typeOfUser} = useSelector((state) => state.carCare);
     const location = useLocation();
   
+    const redirectPath = sessionStorage.getItem('lastVisitedPage') || '/';
     useEffect(() => {
       // Store the current path in sessionStorage if the user is logged in
       if (isLoggedIn ) {
         sessionStorage.setItem('lastVisitedPage', location.pathname);
       }
-      if (redirectPath == "/app") {
+      if (redirectPath == "/app" || redirectPath.includes("/mechanics")
+       || redirectPath.includes("/mechanic") ) {
         sessionStorage.setItem('lastVisitedPage', "/login");
       }
     }, [isLoggedIn, location.pathname]);
     console.log(typeOfUser, "driv")
   
     // Determine the redirect path
-    const redirectPath = sessionStorage.getItem('lastVisitedPage') || '/';
   
     return isLoggedIn && typeOfUser === "Driver" ? <Outlet /> :
      <Navigate to={redirectPath} replace />;

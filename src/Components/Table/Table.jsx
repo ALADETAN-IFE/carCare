@@ -47,6 +47,7 @@ const Table = ({ totalPages, currentPage, setCurrentPage,
               ))}
             </>
         }
+        
       </div>
       {
         currentBookings?.length < 1 ?
