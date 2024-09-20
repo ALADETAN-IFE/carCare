@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import '../../VerifyEmail/VerifyEmail.css'
 
 import { Link, useNavigate, useParams } from 'react-router-dom';
