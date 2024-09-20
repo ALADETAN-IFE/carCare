@@ -280,9 +280,9 @@ const SignUp = () => {
         toast.success(response?.data?.message)
       } catch (error) {
         console.log(error)
+        dispatch(clearnotVerified())
         if (!navigator.onLine) {
           alert("You are currently offline")
-          dispatch(clearnotVerified())
         }
         setloading(false)
         toast.error(error?.response?.data?.message)
