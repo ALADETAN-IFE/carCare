@@ -1,7 +1,7 @@
 import React from 'react'
 import '../../VerifyEmail/VerifyEmail.css'
 
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import AuthHeader from '../../AuthHeader/AuthHeader';
 import { clearnotVerified } from '../../../Global/Redux-actions/carCare';
 import { useDispatch } from 'react-redux';

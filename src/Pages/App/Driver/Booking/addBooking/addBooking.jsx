@@ -24,6 +24,66 @@ const AddBooking = ({book, setbook}) => {
     const setbookingFormsPage = (pageName) => {
       dispatch(setAppbookingFormPage(pageName))
     }
+    const carData = [
+       { Acura: [
+            { value: 'MDX', label: 'MDX' },
+            { value: 'RDX', label: 'RDX' }
+        ]},
+       { Ford: [
+            { value: 'Explorer', label: 'Explorer' },
+            { value: 'F-150', label: 'F-150' }
+        ]},
+       { LandRover: [
+            { value: 'Defender', label: 'Defender' },
+            { value: 'Discovery', label: 'Discovery' }
+        ]},
+        {Jeep: [
+            { value: 'Cherokee', label: 'Cherokee' },
+            { value: 'Wrangler', label: 'Wrangler' }
+        ]},
+       { Isuzu: [
+            { value: 'D-Max', label: 'D-Max' },
+            { value: 'MU-X', label: 'MU-X' }
+        ]},
+       { Honda: [
+            { value: 'Accord', label: 'Accord' },
+            { value: 'Civic', label: 'Civic' }
+        ]},
+       { Lexus: [
+            { value: 'RX', label: 'RX' },
+            { value: 'GX', label: 'GX' }
+        ]},
+       { Mazda: [
+            { value: 'CX-5', label: 'CX-5' },
+            { value: 'Mazda3', label: 'Mazda3' }
+        ]},
+        {Mitsubishi: [
+            { value: 'Outlander', label: 'Outlander' },
+            { value: 'Pajero', label: 'Pajero' }
+        ]},
+       { Nissan: [
+            { value: 'Altima', label: 'Altima' },
+            { value: 'Patrol', label: 'Patrol' }
+        ]},
+        {Peugeot: [
+            { value: '3008', label: '3008' },
+            { value: '5008', label: '5008' }
+        ]},
+        {Subaru: [
+            { value: 'Forester', label: 'Forester' },
+            { value: 'Outback', label: 'Outback' }
+        ]},
+       { Toyota: [
+            { value: 'Camry', label: 'Camry' },
+            { value: 'Corolla', label: 'Corolla' },
+            { value: 'RAV 4', label: 'RAV 4' },
+            { value: 'Sienna', label: 'Sienna' }
+        ]},
+       { Suzuki: [
+            { value: 'Swift', label: 'Swift' },
+            { value: 'Vitara', label: 'Vitara' }
+        ]}
+    ];
     const brandOptions = [
         { value: "Acura", label: "Acura" },
         { value: "Ford", label: "Ford" },
@@ -142,7 +202,25 @@ const AddBooking = ({book, setbook}) => {
     //         </components.DropdownIndicator>
     //     );
     // };
+// const BrandModels = () => {
+//     if (!bookingInputsObject?.brand ) {
+//         return [{
+//             value: "please select a car brand first",
+//             label: "please select a car brand first"
+//         }]
+//     } else {
+//        const brands = carData.filter((e)=> e !== bookingInputsObject?.brand )
+//        console.log(brands, "brands")
+//        console.log(bookingInputsObject?.brand , "bookingInputsObject")
+//        return brands
+//     }
+// }
 
+
+
+// console.log(carData, "carData")
+// console.log(BrandModels(), "BrandModels")
+// console.log(bookingInputsObject, "BrandModels")
 
     return (
         <div className='addBookingPage'>
@@ -162,15 +240,17 @@ const AddBooking = ({book, setbook}) => {
                                             <Select options={brandOptions}
                                                 placeholder=""
                                                 styles={customStyles}
-                                                 onChange={(e)=> setbookingInputsObject({...bookingInputsObject, carBrand: e.value} )}
+                                                 onChange={(e)=> setbookingInputsObject({...bookingInputsObject, brand: e.value} )}
                                                   />
                                         </div>
                                         <div className="inputHolder">
                                             <label htmlFor="Brand Model">Brand Model</label>
-                                            <Select options={modelOptions}
+                                            <Select 
+                                            // options={BrandModels()}
+                                            options={modelOptions}
                                                 placeholder=""
                                                 styles={customStyles} 
-                                                onChange={(e)=> setbookingInputsObject({...bookingInputsObject, carModel: e.value} )}
+                                                onChange={(e)=> setbookingInputsObject({...bookingInputsObject, model: e.value} )}
                                                 />
                                         </div>
                                     </div>
@@ -180,7 +260,7 @@ const AddBooking = ({book, setbook}) => {
                                         <Select options={yearOptions}
                                             placeholder=""
                                             styles={customStyles}
-                                            onChange={(e)=> setbookingInputsObject({...bookingInputsObject, carYear: e.value} )}
+                                            onChange={(e)=> setbookingInputsObject({...bookingInputsObject, year: e.value} )}
                                             />
                                     </div>
                                     <div className="inputHolder">
@@ -188,7 +268,7 @@ const AddBooking = ({book, setbook}) => {
                                         <input type="text" value="Lagos" contentEditable="false" 
                                         style={{cursor: "not-allowed", background: 'white'}} 
                                         disabled 
-                                        onChange={(e)=> setbookingInputsObject({...bookingInputsObject, carState: e.value} )}
+                                        onChange={(e)=> setbookingInputsObject({...bookingInputsObject, city: e.value} )}
                                         />
                                     </div>
                                     <div className="inputHolder">

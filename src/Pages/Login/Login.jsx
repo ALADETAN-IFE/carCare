@@ -4,7 +4,7 @@ import { IoEye, IoEyeOff } from 'react-icons/io5';
 import { useState } from 'react';
 import AuthHeader from '../AuthHeader/AuthHeader';
 import { useDispatch, useSelector } from 'react-redux';
-import { clearnotVerified, logIn, setnotVerified, setTypeOfUser, setUserDatas } from '../../Global/Redux-actions/carCare';
+import { clearnotVerified, logIn, setnotVerified, setTypeOfUser, setUserDatas, setUserDataWithToken } from '../../Global/Redux-actions/carCare';
 import { BeatLoader } from 'react-spinners';
 import { toast } from 'react-toastify';
 import axios from "axios";
@@ -31,17 +31,19 @@ const Login = () => {
         const response = await axios.post(`${url}/api/v1/signin`, apiData)
         console.log(response)
         dispatch(clearnotVerified())
-        dispatch(setUserDatas(response?.data?.user))
-        console.log(response?.data?.user?.position)
+        dispatch(setUserDataWithToken(response?.data))
+        toast.success(response?.data?.message)
+        dispatch(setUserDatas(response?.data?.data))
+        console.log(response?.data?.data?.position)
         setloading(false)
         dispatch(logIn())
-        if (response?.data?.user?.position == "customer") {
+        if (response?.data?.data?.position == "customer") {
           dispatch(setTypeOfUser("Driver"))
-          } else if (response?.data?.user?.position == "") {
+          } else if (response?.data?.data?.position == "") {
             dispatch(setTypeOfUser("Mechanic"))
-          
         }
         // dispatch(setTypeOfUser(apiData.email))
+      setTimeout(() => {
         if (typeOfUser == "Driver") {
           navigate("/app")
         } else if(typeOfUser == "Mechanic"){
@@ -49,6 +51,7 @@ const Login = () => {
         } else{
           navigate("/login")
         }
+      }, 3000);
         
       } catch (error) {
         console.log(error)
