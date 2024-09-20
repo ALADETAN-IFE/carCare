@@ -1,7 +1,7 @@
 
 import './AboutDetails.css'
 import React, {useEffect, useState } from "react";
-import "../../../Components/HeroPage/HeroPage.css";
+import "../../../Components/HeroPage/heroPage.css";
 // import hero3 from "../../../assets/images/HeroPage/hero section3.png";
 // import mobilehero3 from "../../../assets/images/HeroPage/mobile hero section3.png";
 
