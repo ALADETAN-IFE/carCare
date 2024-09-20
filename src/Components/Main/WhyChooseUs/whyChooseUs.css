@@ -1,55 +1,197 @@
-.WhyChooseUs {
-    background: #FBFAFA;
-    width: 100%;
-    /* height: 752px; */
-    height: 47rem;
-    padding: 126px 470px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.centerBlueCircle {
-    display: flex;
-    /* width: 500px; */
-    width: 31.25rem;
-    /* height: 500px; */
-    height: 31.25rem;
-    padding: 0px 27px;
-    justify-content: center;
-    align-items: center;
-    /* border-radius: 500px; */
-    border-radius: 50%;
-    background: var(--Secondary-Secondary, #0066B2);
-}
-
-.centerBlueCircleWrapper {
-    display: flex;
-    /* width: 446px; */
-    width: 27.875rem;
+ .whyChooseUs {
+    gap: 25px;
     flex-direction: column;
+    background: var(--Primary-Primary100, #F9F9F9);
+    display: flex;
+    width: 100%;
+    height: 100%;
+    padding: 60px;
     justify-content: center;
     align-items: center;
-    gap: 27px;
-    flex-shrink: 0;
+} 
 
-    & h3 {
-        color: var(--Base-Base-White, #FFF);
-        font-family: Oswald;
-        /* font-size: 40px; */
-        font-size: 2.5rem;
-        font-style: normal;
-        font-weight: 700;
-        line-height: normal;
+/* Base styles for WhyChooseUs component */
+.whyChooseUs__title {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    gap: 1.25rem;
+  }
+  
+  .whyChooseUs h2 {
+    color: var(--Base-Base-Black, #171717);
+    font-family: Oswald;
+    font-size: 3rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    
+  }
+  
+  .whyChooseUs p {
+    color: var(--Base-Base-Black, #171717);
+    text-align: center;
+    font-family: Lora;
+    font-size: 2rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+  
+  
+  .benefits-grid {
+    width: 100%;
+    align-items: center;
+    padding: 20px;
+    display: grid; 
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 2.5rem;
+  }
+  
+  .benefit-card {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    gap: 1.83rem; 
+  }
+  .icon{
+    width: 4rem;
+    height: 4rem;
+    margin-bottom: 40px;
+  }
+  
+   .icon img{
+    width: 4.62794rem;
+    height: 4.62794rem;
+    /* flex-shrink: 0; */
+    /* padding-top: 10px; */
+    border-radius: 0.79731rem;
+
+
+  }
+  .benefit-text{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    align-items: flex-start;
+    height: 10.8rem;
+    width: 29.3rem;
+    gap: 0.79731rem;
+  }
+  
+  .benefit__text h3 {
+    color: var(--Secondary-Secondary1000, #003257);
+    font-family: Lora;
+    font-size: 2.5rem;
+    font-style: normal;
+    font-weight: 600;
+    /* line-height: 2.87038rem;  */
+  }
+  
+  .benefit__text p {
+    text-align: start;
+    color: var(--Base-Base-Black, #171717);
+    font-family: Lora;
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+
+
+    
+  
+  }
+  
+  /* Responsive design for medium screens (laptop) */
+  @media (max-width: 1024px) {
+    .benefits-grid {
+      grid-template-columns: repeat(2, 1fr); /* Two columns */
+    }
+  
+    .whyChooseUs__title h2 {
+      font-size: 2.2rem;
+    }
+    .whyChooseUs__title p{
+        font-size: 1rem;
+    }
+  
+    .benefit-card {
+      padding: 1rem;
+    }
+  }
+  
+  /* Responsive design for mobile screens */
+  @media (max-width: 768px) {
+    .benefits-grid {
+      grid-template-columns: 1fr; /* Single column */
+    }
+  
+    .whyChooseUs {
+      padding: 1.8rem;
+    }
+  
+    .whyChooseUs__title h2 {
+      font-size: 2.2rem;
+    }
+  
+    .benefit-card {
+      padding: 0.75rem;
+    }
+    .whyChooseUs__title p{
+      font-size: 18px;
+
+    }
+    .benefit__text h3{
+      font-size: 24px;
+      padding-bottom: 10px;
+    }
+    .benefit__text p{
+      font-size: 20px;
+      padding-bottom: 10px;
+    }
+  
+    .benefit-card .icon {
+      font-size: 2rem;
+    }
+  }
+  
+  @media (max-width: 421px) {
+    .benefits-grid {
+      grid-template-columns: 1fr; /* Single column */
+    }
+  
+    .whyChooseUs {
+      padding: 2rem;
+    }
+  
+    .whyChooseUs__title h2 {
+      font-size: 1.5rem;
     }
 
-    & p {
-        color: var(--Base-Base-White, #FFF);
-        text-align: center;
-        font-family: Lora;
-        font-size: 20px;
-        font-style: normal;
-        font-weight: 500;
-        line-height: normal;
+    .whyChooseUs__title p{
+      font-size: 14px;
+
     }
-}
+    .benefit__text h3{
+      font-size: 20px;
+      padding-bottom: 10px;
+    }
+    .benefit__text p{
+      font-size: 16px;
+      padding-bottom: 10px;
+    }
+
+  
+    .benefit-card {
+      padding: 0.75rem;
+    }
+  
+     .icon img{
+      width: 2.92794rem;
+    height: 2.92794rem;
+    border-radius: 0.79731rem;
+      /* font-size: 2rem; */
+    }
+  }
+  
