@@ -7,18 +7,22 @@ import MechanicsCard from "./MechanicsCard/MechanicsCard"
 import mechDatasJSON from "./mechanicsData.json"
 import mechImg from "./mechImg.png"
 import { useParams } from "react-router-dom"
+import axios from "axios"
+import { useSelector } from "react-redux"
+import { toast } from "react-toastify"
 
 const AllMechanics = () => {
-    const inputImg = () => {
-        return (
-            mechDatasJSON?.map(e => {
-                return e.image = mechImg
-            })
-        )
-        //    console.log()
-    }
-    inputImg()
-    const [mechDatas, setmechDatas] = useState(mechDatasJSON)
+    const UserDataWithToken = useSelector((state) => state?.carCare?.UserDataWithToken)
+    // const inputImg = () => {
+    //     return (
+    //         mechDatasJSON?.map(e => {
+    //             return e.image = mechImg
+    //         })
+    //     )
+    //     //    console.log()
+    // }
+    // inputImg()
+    const [mechDatas, setmechDatas] = useState([])
     const { pageNum } = useParams();
     // console.log(pageNum)
     // const [currentPage, setCurrentPage] = useState(1);
@@ -28,15 +32,40 @@ const AllMechanics = () => {
     const [currentPage, setCurrentPage] = useState(1);
     const setpageNum = () => {
         if (!pageNum || pageNum < 1) {
-          return setCurrentPage(1)
+            return setCurrentPage(1)
         } else {
-          return  setCurrentPage(Number(pageNum?.split("")[pageNum.length-1]))
+            return setCurrentPage(Number(pageNum?.split("")[pageNum.length - 1]))
+        }
+    }
+    const getAllMechs = async () => {
+        const url = "https://carcareconnectproject.onrender.com"
+        // console.log(UserDataWithToken.token, "UserDataWithToken")
+        const token = UserDataWithToken.token
+        try {
+            const response = await axios.get(`${url}/api/v1/allMech`,
+                {
+                    headers: {
+                        Authorization: `Bearer ${token}`,  // Add token for authentication
+                    },
+                })
+            console.log(response)
+            console.log(response?.response?.data?.message)
+        } catch (error) {
+            console.log(error)
+            const noApprovedMech = error?.response?.data?.message
+            console.log(error?.response?.data?.message)
+            if (noApprovedMech == "No approved mechanics") {
+                toast.info("No approved mechanics yet")
+                setmechDatas([])
+            } 
+
         }
     }
     useEffect(() => {
         setpageNum()
+        getAllMechs()
     }, [])
-    
+
     const itemsPerPage = 9;
     // useEffect(() => {
     //     // Assuming you have a logic to fetch paginated data here
@@ -56,8 +85,8 @@ const AllMechanics = () => {
             <LayoutHeader />
             <div className="AllMechanicsBody">
                 <div className="AllMechanicsBodyWrapper">
-                    <div className="AllMechanicsBodyWrapperTop"> 
-                    Showing {indexOfFirstMechanic + 1}-{Math.min(indexOfLastMechanic, mechDatas.length)} of {mechDatas.length} results
+                    <div className="AllMechanicsBodyWrapperTop">
+                        Showing {indexOfFirstMechanic + 1}-{Math.min(indexOfLastMechanic, mechDatas.length)} of {mechDatas.length} results
                     </div>
                     <div className="AllMechanicsBodyWrapperMiddle">
                         {

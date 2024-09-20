@@ -55,7 +55,7 @@ export const carCareSlice = createSlice({
             state.UserDataWithToken = payload; 
             // state.NavBarvisibilty = false
         },
-        setUserDataWithTokens: (state, {payload}) => {
+        setUserDatas: (state, {payload}) => {
             state.UserDatas = payload; 
         },
         setnotVerified: (state, {payload}) => {

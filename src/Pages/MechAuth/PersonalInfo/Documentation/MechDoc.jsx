@@ -80,11 +80,11 @@ const MechDoc = () => {
         } else {
             console.log(mechCompleteDetails, "hello")       
             try {
+                const token = UserDataWithToken.token
                 const response = await axios.post(`${url}/api/v1/mech/completeProfile`, mechCompleteDetails, {
                     headers: {
-                      'Content-Type': 'multipart/form-data',
-                      token : UserDataWithToken.token
-                    }
+                        Authorization: `Bearer ${token}`,  // Add token for authentication
+                    },
                 });
                 console.log(response)
                 navigate("/login")

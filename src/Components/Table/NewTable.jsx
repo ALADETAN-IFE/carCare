@@ -3,6 +3,7 @@ import { CgMoreVertical } from 'react-icons/cg'
 import { useDispatch, useSelector } from "react-redux"
 import BookingPagePagination from '../../Pages/App/Driver/Booking/BookingPagePagination/BookingPagePagination'
 import "./NewTable.css";
+import { setAppbookingFormPage } from '../../Global/Redux-actions/carCare';
 
 const NewTable = ({ totalPages, currentPage, setCurrentPage,
     indexOfFirstBooking, indexOfLastBooking, currentBookings1, currentBookings,
