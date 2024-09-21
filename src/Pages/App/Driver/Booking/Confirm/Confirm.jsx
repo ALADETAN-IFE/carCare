@@ -198,8 +198,8 @@ const Confirm = ({ setbook }) => {
           <div className="confirmBookingBottomWrapper">
             <button className='go_back' onClick={() => setbook(false)}>BACK</button>
             <button className='checkout_btn'
-              // onClick={payKorapay}
-              onClick={()=> dispatch(setuserBookingForm({}))}
+              onClick={payKorapay}
+              // onClick={()=> dispatch(setuserBookingForm({}))}
             >CHECKOUT</button>
           </div>
         </div>
