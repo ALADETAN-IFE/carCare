@@ -199,12 +199,12 @@ const SignUp = () => {
     e.preventDefault()
     const url = import.meta.env.VITE_API_Url
     // navigate("/verifyEmail")
-    // console.log(passwordError, "apiData")
-    // console.log(passwordErrorlow, "passwordErrorlow")
-    // console.log(passwordErrorUpper, "passwordErrorUpper")
-    // console.log(passwordErrorNumber, "passwordErrorNumber")
-    // console.log(passwordErrorLength, "passwordErrorLength")
-    // console.log(passwordErrorSymbol, "passwordErrorSymbol")
+    console.log(passwordError, "apiData")
+    console.log(passwordErrorlow, "passwordErrorlow")
+    console.log(passwordErrorUpper, "passwordErrorUpper")
+    console.log(passwordErrorNumber, "passwordErrorNumber")
+    console.log(passwordErrorLength, "passwordErrorLength")
+    console.log(passwordErrorSymbol, "passwordErrorSymbol")
 
     console.log(url, "url")
     if (!fullName ||
@@ -281,12 +281,16 @@ const SignUp = () => {
         toast.success(response?.data?.message)
       } catch (error) {
         console.log(error)
-        dispatch(clearnotVerified())
-        if (!navigator.onLine) {
-          alert("You are currently offline")
-        }
+        // dispatch(clearnotVerified())
+        // if (!navigator.onLine) {
+        //   alert("You are currently offline")
+        // }
         setloading(false)
+        const fullName = error?.response?.data?.errors[0]
         toast.error(error?.response?.data?.message)
+        if (fullName) {
+          toast.error(fullName)
+        }
       }
     }
     // {
