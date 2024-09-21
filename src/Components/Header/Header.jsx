@@ -12,6 +12,7 @@ import { BiMenuAltLeft, BiMenuAltRight } from "react-icons/bi"
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoCloseSharp } from "react-icons/io5";
 import ScrollToTop from "../ScrollToTop"
+import NotLoggedIn from "./NotLoggedIn/NotLoggedIn"
 
 const Header = () => {
   // const [isLoggedIn, setisLoggedIn] = useState(isLoggedIn1)
@@ -89,22 +90,22 @@ const Header = () => {
               <div className="headerRightLoggedIn">
                 <div className="headerRightLoggedInIcons">
                   <FiHelpCircle size={24} />
-                  <IoPersonCircleSharp size={40} onClick={() => setshowMenu2(!showMenu2)} />
+                  <IoPersonCircleSharp size={30} onClick={() => setshowMenu2(!showMenu2)} />
                 </div>
                 {/* <div className="menu" onClick={() => setshowMenu(!showMenu)} > */}
                 <div className="menu" onClick={() => setshowMenu(!showMenu)} >
                   {
                     showMenu ?
                       <>
-                      <IoCloseSharp size={26}/>
+                      <IoCloseSharp/>
                       {/* <GiHamburgerMenu size={28} /> */}
                         {/* <BiMenuAltRight size={26} /> */}
-                        <Dropdown
+                        <LoggedInDropdown
                          headerMiddle={headerMiddle} 
                          loggedIn
                          />
                       </>
-                      : <GiHamburgerMenu size={28} />  
+                      : <GiHamburgerMenu    style={{cursor: "pointer"}}/>  
                   }
                 </div>
 
@@ -115,10 +116,10 @@ const Header = () => {
                   {
                     showMenu ?
                       <>
-                        <BsMenuAppFill />
-                        <Dropdown headerMiddle={headerMiddle} />
+                        <IoCloseSharp    style={{cursor: "pointer"}}/>
+                        <NotLoggedIn headerMiddle={headerMiddle} />
                       </>
-                      : <BsMenuAppFill />
+                      : <GiHamburgerMenu    style={{cursor: "pointer"}} />
                   }
                 </div>
                 <div className="laptopMenu">

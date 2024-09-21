@@ -378,6 +378,10 @@
     .inputs2 {
         & .doubleInput {
             flex-direction: column;
+
+            & input{
+                /* width: 100%; */
+            }
         }
     }
 }

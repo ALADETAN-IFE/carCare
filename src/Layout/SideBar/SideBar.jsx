@@ -1,7 +1,7 @@
 import "./sideBar.css"
 import logo from "../../assets/svg/Logo.svg"
 import { NavLink, useNavigate } from "react-router-dom"
-import { IoNotifications } from "react-icons/io5";
+import { IoCloseSharp, IoNotifications } from "react-icons/io5";
 import { IoMdSettings } from "react-icons/io";
 import { RiLogoutCircleLine } from "react-icons/ri";
 import { closeNavBarVisibility, logOut, openNavBarVisibility } from "../../Global/Redux-actions/carCare";
@@ -11,6 +11,7 @@ import { BiMenuAltLeft, BiMenuAltRight } from "react-icons/bi";
 import { LuLogOut } from "react-icons/lu";
 import ScrollToTop from "../../Components/ScrollToTop";
 import axios from "axios";
+import { GiHamburgerMenu } from "react-icons/gi";
 
 const SideBar = ({ pages, setpages, book }) => {
     const navigate = useNavigate()
@@ -34,11 +35,11 @@ const SideBar = ({ pages, setpages, book }) => {
             dispatch(closeNavBarVisibility())
         }
     }, [])
-    // useEffect(() => {
-    //     if (width <= "769" && !navBarVisibility) {
-    //         dispatch(openNavBarVisibility(false))
-    //     }
-    // }, [width])
+    useEffect(() => {
+        if (width >= "769" && !navBarVisibility) {
+            dispatch(openNavBarVisibility(false))
+        }
+    }, [width])
     useEffect(() => {
         if (typeOfUser === "Mechanic") {
             setlogOutEndPoint("api/v1/mech/signout")
@@ -177,7 +178,7 @@ const SideBar = ({ pages, setpages, book }) => {
     }
 
     // const logOut = async () => {
-    const logOutFunc =  () => {
+    const logOutFunc = () => {
         // const url = import.meta.env.VITE_API_Url
         // const token = UserDataWithToken.token
         // console.log(UserDataWithToken.token, "UserDataWithToken")
@@ -198,23 +199,38 @@ const SideBar = ({ pages, setpages, book }) => {
     }
     return (
         <div className={navBarVisibility ? "sidebar sidebar_increase" : "sidebar"}
-            style={navBarVisibility && width < 500 ? { display: "flex" } :
+            style={navBarVisibility && width < 500 ? { display: "flex", paddingTop: 0} :
                 !navBarVisibility && width < 500 ? { display: "none" } : null}
         >
             <div className="sideBarTop">
-                <img src={logo} alt=""
-                    onClick={() => navigate("/")}
-                    className="sideBarLogo" style={navBarVisibility ? null : { width: "80px" }}
 
-                />
+                {
+                    navBarVisibility && width < 500 ?
+                        <div className="NotLoggedInHead">
+                            <div className="NotLoggedInHeadWrapper">
+                                <img src={logo} alt="" />
+                                <IoCloseSharp
+                                    style={{ cursor: "pointer" }}
+                                    onClick={closesideBarVisibility}
+                                />
+                            </div>
+                        </div>
+                        :
+                        <img src={logo} alt=""
+                            onClick={() => navigate("/")}
+                            className="sideBarLogo" style={navBarVisibility ? null : { width: "80px" }}
+
+                        />
+                }
+
                 {/* <img src={close} alt="" className="sideBarTopClose" /> */}
                 <div className="sideBarNavs">
-                    {
+                    {/* {
                         navBarVisibility ?
-                            <BiMenuAltRight size={26} className="sideBarTopClose" onClick={closesideBarVisibility} style={!navBarVisibility && width > 500 || width < 660 ? { display: "flex" } : { display: "none" }} />
+                            <IoCloseSharp size={26} className="sideBarTopClose" onClick={closesideBarVisibility} style={!navBarVisibility && width > 500 || width < 660 ? { display: "flex" } : { display: "none" }} />
                             :
-                            <BiMenuAltLeft size={26} className="sideBarTopClose" onClick={opensideBarVisibility} style={!navBarVisibility && width > 500 || width < 660 ? { display: "flex" } : { display: "none" }} />
-                    }
+                            <GiHamburgerMenu size={26} className="sideBarTopClose" onClick={opensideBarVisibility} style={!navBarVisibility && width > 500 || width < 660 ? { display: "flex" } : { display: "none" }} />
+                    } */}
                     {
                         User === "Admin" ?
                             <>

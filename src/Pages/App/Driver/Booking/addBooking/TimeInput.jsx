@@ -7,7 +7,7 @@ const TimeInput = ({ settime, setbookingInputsObject, time, bookingInputsObject 
 
     const [hour, setHour] = useState(`${(new Date().getHours() % 12) || 12}`);
     const [minute, setMinute] = useState(`${new Date().getMinutes()}`);
-    const [period, setPeriod] = useState('AM');
+    const [period, setPeriod] = useState('');
     
     useEffect(()=> {
         if (currentHour < 12) {
@@ -16,8 +16,8 @@ const TimeInput = ({ settime, setbookingInputsObject, time, bookingInputsObject 
         setPeriod("PM")
     }
 },[])
+console.log(`${hour}:${minute} ${period}`, "helloworkld")
 const handleHourChange = (e) => {
-    console.log(`${hour}:${minute} ${period}`, "helloworkld")
     const value = e.target.value;
     // Ensure hour is between 1 and 12
     if (value >= 0 && value <= 12) {
@@ -41,7 +41,7 @@ const handleHourChange = (e) => {
     useEffect(() => {
         // Set the time whenever hour, minute, or period changes
         settime(`${hour}:${minute} ${period}`);
-        setbookingInputsObject({ ...bookingInputsObject, time: time })
+        setbookingInputsObject({ ...bookingInputsObject, time: `${hour}:${minute} ${period}` })
     }, [hour, minute, period, settime]);
 
     return (

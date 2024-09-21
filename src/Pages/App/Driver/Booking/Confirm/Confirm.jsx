@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react'
 import axios from 'axios'
 import { toast } from 'react-toastify'
 
-const Confirm = ({ setbook }) => {
+const Confirm = ({ setbook, setpages }) => {
   const { mechId } = useParams()
   const { mechTobeBooked,
     userBookingForm,
@@ -78,7 +78,7 @@ const Confirm = ({ setbook }) => {
         name: UserDatas.fullName,
         email: UserDatas.email
       },
-      notification_url: "",
+      notification_url: "https://example.com/webhook",
       // notification_url: sendUserDetails(),
       // onClose: function () {
       //   // Handle when modal is closed
@@ -88,20 +88,36 @@ const Confirm = ({ setbook }) => {
       onSuccess: function (data) {
         // Handle when payment is successful
         console.log(data, "data")
-        // const token = UserDataWithToken.token
-        // axios.post(`${url}/api/v1/customer-Booking/${mechId}`,
-        //   bookingInputsObject,
-        //   {
-        //     headers: {
-        //       Authorization: `Bearer ${token}`,  // Add token for authentication
-        //     },
-        //   }).then(res => {
-        //     console.log(res, "res")
-        dispatch(setuserBookingForm({}))
-        //   }).catch((error) => {
-        //     console.log(error, "error")
-        //   }
-        //   )
+        const url = import.meta.env.VITE_API_Url
+        const token = UserDataWithToken.token
+        axios.post(`${url}/api/v1/customer-Booking/${mechId}`,
+          bookingInputsObject,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,  // Add token for authentication
+            },
+          }).then(res => {
+            console.log(res, "res")
+            toast.success(res?.data?.message)
+            setTimeout(() => {
+              dispatch(setuserBookingForm({}))
+              navigate("/app")
+              setbook(false)
+              setpages("booking")
+            }, 2000);
+          }).catch((error) => {
+            console.log(error, "error")
+            if (error?.response?.data?.message == "You cannot book again until 30 minutes have passed since your last pending appointment.") {
+              toast.info("You cannot book again until 30 minutes have passed since your last pending appointment.")
+              setTimeout(() => {
+                dispatch(setuserBookingForm({}))
+                navigate("/app")
+                setbook(false)
+                setpages("booking")
+              }, 2000);
+            }
+          }
+          )
       },
 
       onFailed: function (data) {
@@ -121,6 +137,7 @@ const Confirm = ({ setbook }) => {
       },
     });
   }
+
   return (
     <div className="confirmBookingContainer" >
       <div className='confirmBookingBox'>
@@ -199,7 +216,7 @@ const Confirm = ({ setbook }) => {
             <button className='go_back' onClick={() => setbook(false)}>BACK</button>
             <button className='checkout_btn'
               onClick={payKorapay}
-              // onClick={()=> dispatch(setuserBookingForm({}))}
+            // onClick={()=> dispatch(setuserBookingForm({}))}
             >CHECKOUT</button>
           </div>
         </div>
