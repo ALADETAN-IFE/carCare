@@ -576,7 +576,9 @@ const AddBooking = ({ book, setbook }) => {
                                             </div>
                                         </div>
                                         {
-                                        bookingInputsObject?.service ?  <h3 className='pickedServiceOrMech'>
+                                        bookingInputsObject?.service ?  <h3 className='pickedServiceOrMech'
+                                        style={{display: "flex", flexDirection: "column", gap: "3px"}}
+                                        >
                                             {
                                                 bookingInputsObject?.service.map((e, i)=> (
                                                     <span key={i}>{e?.name}</span>

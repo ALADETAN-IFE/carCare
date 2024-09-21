@@ -54,10 +54,10 @@ const DriverLayout = () => {
       console.log(res)
     } catch (error) {
       console.log(error)
-      if (!navigator.onLine) {
-        alert("You are currently offline")
-        dispatch(clearnotVerified())
-      }
+      // if (!navigator.onLine) {
+      //   alert("You are currently offline")
+      //   dispatch(clearnotVerified())
+      // }
     }
   }
   useEffect(() => {
@@ -83,7 +83,7 @@ const DriverLayout = () => {
     >
       {
         book ?
-          <Confirm setbook={setbook} />
+          <Confirm setbook={setbook} setpages={setpages}/>
           : null
       }
       <SideBar pages={pages} setpages={setpages} book={book} />
@@ -95,7 +95,7 @@ const DriverLayout = () => {
             <Driver setpages={setpages} />
             :
             pages == "booking" ?
-              <Booking setpages={setpages} />
+              <Booking setpages={setpages} pages={pages} />
               : pages == "addbooking" ?
                 <AddBooking setbook={setbook} />
                 : pages == "settings" ?
