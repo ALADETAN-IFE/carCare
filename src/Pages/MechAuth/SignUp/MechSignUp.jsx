@@ -223,7 +223,7 @@ const MechSignUp = () => {
       else if (email.trim() === "") {
         toast.error("Email is required");
       }
-      else if (!validateGmail(trimEmail) {
+      else if (!validateGmail(trimEmail)) {
         // setEmailError(true);
         toast.error("Inavlid G-mail format")
       }
