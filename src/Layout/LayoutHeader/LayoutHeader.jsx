@@ -2,7 +2,7 @@ import { IoPersonCircleSharp } from "react-icons/io5"
 import "./layoutHeader.css"
 // import { BiHelpCircle } from "react-icons/bi"
 import { FiHelpCircle } from "react-icons/fi"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import Logo from "../../assets/svg/Logo.svg"
 import { IoIosArrowDown } from "react-icons/io"
 import { AiOutlineQuestionCircle } from "react-icons/ai"
@@ -10,10 +10,13 @@ import { useDispatch, useSelector } from "react-redux"
 import { BiMenuAltLeft, BiMenuAltRight } from "react-icons/bi"
 import { closeNavBarVisibility, openNavBarVisibility } from "../../Global/Redux-actions/carCare"
 import ScrollToTop from "../../Components/ScrollToTop"
+import { useNavigate } from "react-router-dom"
 
 const LayoutHeader = ({ LayoutHeaderStyle }) => {
-  const navBarVisibility = useSelector((state) => state.carCare.navBarVisibility)
-  function getInitials(fullName) {
+  const {navBarVisibility, UserDatas} = useSelector((state) => state.carCare)
+  const [initials, setInitials] = useState()
+  const navigate = useNavigate()
+  const  getInitials = (fullName) => {
     // Split the full name into an array of words (assuming names are separated by spaces)
     let nameParts = fullName.trim().split(" ");
     // console.log(nameParts)
@@ -35,7 +38,10 @@ const LayoutHeader = ({ LayoutHeaderStyle }) => {
   }
 
   // Example usage:
-  let initials = getInitials("John Doe"); // Output: JD
+  // let initials = getInitials("John Doe"); // Output: JD
+  useEffect(()=>{
+    setInitials(getInitials(UserDatas?.fullName))
+  },[])
   const dispatch = useDispatch()
   const opensideBarVisibility = () => {
     dispatch(openNavBarVisibility())
@@ -68,7 +74,9 @@ const closesideBarVisibility = () => {
               {/* width = {width}
        "  "height = {height} */}
               <div className="layoutHeaderLeft">
-                <img src={Logo} alt="" />
+                <img src={Logo} alt="" onClick={()=> navigate(-1)} 
+                style={{cursor: "pointer"}}
+                />
               </div>
               <div className="layoutHeaderRight">
                 <AiOutlineQuestionCircle size={24} />

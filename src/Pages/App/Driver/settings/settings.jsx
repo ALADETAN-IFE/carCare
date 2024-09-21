@@ -12,11 +12,12 @@ import { useDispatch, useSelector } from "react-redux"
 import { setmechSettingsPage } from "../../../../Global/Redux-actions/carCare"
 
 const Settings = () => {
-  const {typeOfUser, mechSettingsPage} = useSelector((state)=> state?.carCare)
+  const {typeOfUser, mechSettingsPage, UserDatas} = useSelector((state)=> state?.carCare)
   const [typeOfuser, settypeOfuser] = useState(typeOfUser)
   const [showPassword, setshowPassword] = useState(false)
   const [mechSettings, setmechSettings] = useState(mechSettingsPage)
   const [selectedImage, setSelectedImage] = useState(null);
+  const [fullName, setfullName] = useState(UserDatas?.fullName);
   const dispatch = useDispatch()
   const handleImageChange = (event) => {
     const file = event.target.files[0];
@@ -51,11 +52,15 @@ const Settings = () => {
   ]
   useEffect(() => {
     setmechSettings(mechSettingsPage)
-    settypeOfuser(typeOfUser)
+    // settypeOfuser(typeOfUser)
   }, [mechSettingsPage])
   
   const changeMechSettingsPage = (typeOfSettings) => {
     dispatch(setmechSettingsPage(typeOfSettings))
+  }
+
+  const updatProfile = () => {
+
   }
   return (
     <div className="settings">
@@ -76,7 +81,7 @@ const Settings = () => {
                       <IoPersonCircleSharp
                         // width="100px" 
                         size={122}
-                      // style={{width: "100px", height: "100px"}}
+                      style={ selectedImage ? {bottom: "4px"}: null}
                       />
                   }
                   <input type="file" accept="image/*" hidden id="img_upload"
@@ -86,12 +91,15 @@ const Settings = () => {
                     <LuPencil />
                   </label>
                 </div>
-                <h3>Favour Joy</h3>
+                <h3>{UserDatas?.fullName}</h3>
               </div>
               <div className="settingsFormUser">
                 <div className="inpuHolder">
                   <label htmlFor="Full name">Full name</label>
-                  <input type="text" />
+                  <input type="text" 
+                  value={fullName}
+                  onChange={(e)=> setfullName(e.target.value)}
+                  />
                 </div>
                 <div className="inpuHolder">
                   <label htmlFor="Address">Address</label>
@@ -117,7 +125,7 @@ const Settings = () => {
             </div>
             <div className="settingsWrapperDown">
               <button>Cancel <BiX /></button>
-              <button>Save <FaCheck /></button>
+              <button onClick={updatProfile}>Save <FaCheck /></button>
             </div>
           </div>
           : typeOfuser == "Mechanic" ?

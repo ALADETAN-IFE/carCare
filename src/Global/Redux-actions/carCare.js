@@ -23,12 +23,12 @@ const initialState = {
     // app, booking, addbooking, settings 
     AppbookingFormPage: 0,
     userBookingForm: {},
-    typeOfUser: "Mechanic",
+    typeOfUser: "",
     // Driver, Mechanic, Admin
     mechSettingsPage: "Personal Information",
     // Personal Information, Professional Details,
     // Service Pricing Account Settings ,
-    mechCompleteDetails: {}
+    mechCompleteDetails: {},
         // {
     //     "businessName": "string",
     //     "businessAddress": "string",
@@ -40,6 +40,7 @@ const initialState = {
     //      certification: Required.
     //      insurance: Optional.
     //   }
+    mechTobeBooked: {}
 }
 
 
@@ -85,6 +86,7 @@ export const carCareSlice = createSlice({
             state.mechSettingsPage = "Personal Information";
             state.userBookingForm = {};
             state.UserDatas = {}; 
+            state.UserDataWithToken = {}; 
         },
         setAppPages: (state, { payload }) => {
             // state.UserData = undefined; 
@@ -101,10 +103,15 @@ export const carCareSlice = createSlice({
         setTypeOfUser: (state, { payload }) => {
             // state.UserData = undefined; 
             state.typeOfUser = payload;
+            // console.log(state,payload)
         },
         setmechSettingsPage: (state, { payload }) => {
             // state.UserData = undefined; 
             state.mechSettingsPage = payload;
+        },
+        setmechTobeBooked: (state, { payload }) => {
+            // state.UserData = undefined; 
+            state.mechTobeBooked = payload;
         },
 
     }
@@ -113,7 +120,7 @@ export const carCareSlice = createSlice({
 export const { setnotVerified, clearnotVerified, openNavBarVisibility, closeNavBarVisibility, 
     setmechCompleteDetails, setUserDataWithToken,
     logIn, logOut, setAppPages, setAppbookingFormPage,setUserDatas,
-    setuserBookingForm, setTypeOfUser, setmechSettingsPage
+    setuserBookingForm, setTypeOfUser, setmechSettingsPage, setmechTobeBooked,
 } = carCareSlice.actions;
 export default carCareSlice.reducer;
 

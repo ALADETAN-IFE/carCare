@@ -12,9 +12,13 @@ const DriverAuth = () => {
       if (isLoggedIn ) {
         sessionStorage.setItem('lastVisitedPage', location.pathname);
       }
-      if (redirectPath == "/app" || redirectPath.includes("/mechanics")
-       || redirectPath.includes("/mechanic") ) {
+      if ( redirectPath == "/app" || redirectPath.includes("/mechanics")
+       || redirectPath.includes("/mechanic")  ) {
+      if (typeOfUser === "Driver") {
+        sessionStorage.setItem('lastVisitedPage', location.pathname);
+      } else { 
         sessionStorage.setItem('lastVisitedPage', "/login");
+      }
       }
     }, [isLoggedIn, location.pathname]);
     console.log(typeOfUser, "driv")

@@ -24,6 +24,10 @@
   align-self: stretch;
   position: relative;
   border-radius: 6px;
+  /* object-fit: contain; */
+  background-size: cover !important;
+  /* background-position: center !important; */
+  background-repeat: no-repeat !important;
 
   & img {
     max-width: 100%;

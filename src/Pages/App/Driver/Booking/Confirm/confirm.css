@@ -197,6 +197,10 @@
                     width: 35%;
                     height: 100%;
                     background: var(--Foundation-Grey-grey-50, #FBFBFB);
+                    background-size: cover !important;
+                    /* background-position: center !important; */
+                    background-repeat: no-repeat !important;
+                  
                 }
 
                 & .confirmBookingMiddleTopMechRight {

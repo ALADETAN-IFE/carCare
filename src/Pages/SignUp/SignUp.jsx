@@ -197,7 +197,7 @@ const SignUp = () => {
   const navigate = useNavigate()
   const handlesignUp = async (e) => {
     e.preventDefault()
-    const url = "https://carcareconnectproject.onrender.com"
+    const url = import.meta.env.VITE_API_Url
     // navigate("/verifyEmail")
     // console.log(passwordError, "apiData")
     // console.log(passwordErrorlow, "passwordErrorlow")

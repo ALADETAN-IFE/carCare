@@ -203,7 +203,7 @@ const MechSignUp = () => {
   const handlesignUp = async (e) => {
     e.preventDefault()
     // navigate("/mechEmailVerf")
-    const url = "https://carcareconnectproject.onrender.com"
+    const url = import.meta.env.VITE_API_Url
     if (!fullName ||
       !email ||
       !phoneNumber ||

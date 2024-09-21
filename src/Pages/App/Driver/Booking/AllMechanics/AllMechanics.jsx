@@ -23,6 +23,7 @@ const AllMechanics = () => {
     // }
     // inputImg()
     const [mechDatas, setmechDatas] = useState([])
+    const [loading, setloading] = useState(false)
     const { pageNum } = useParams();
     // console.log(pageNum)
     // const [currentPage, setCurrentPage] = useState(1);
@@ -38,26 +39,31 @@ const AllMechanics = () => {
         }
     }
     const getAllMechs = async () => {
-        const url = "https://carcareconnectproject.onrender.com"
+        const url = import.meta.env.VITE_API_Url
         // console.log(UserDataWithToken.token, "UserDataWithToken")
         const token = UserDataWithToken.token
+        setloading(true)
         try {
-            const response = await axios.get(`${url}/api/v1/allMech`,
+            const response = await axios.get(`${url}/api/v1/mechanics/approved`,
                 {
                     headers: {
                         Authorization: `Bearer ${token}`,  // Add token for authentication
                     },
                 })
             console.log(response)
-            console.log(response?.response?.data?.message)
+            console.log(response?.data?.data)
+            console.log(response?.data?.message)
+            setmechDatas(response?.data?.data)
+            setloading(false)
         } catch (error) {
             console.log(error)
-            const noApprovedMech = error?.response?.data?.message
+            // const noApprovedMech = error?.response?.data?.message
             console.log(error?.response?.data?.message)
-            if (noApprovedMech == "No approved mechanics") {
-                toast.info("No approved mechanics yet")
-                setmechDatas([])
-            } 
+            setloading(false)
+            // if (noApprovedMech == "No approved mechanics") {
+            //     toast.info("No approved mechanics yet")
+            //     setmechDatas([])
+            // } 
 
         }
     }
@@ -90,15 +96,21 @@ const AllMechanics = () => {
                     </div>
                     <div className="AllMechanicsBodyWrapperMiddle">
                         {
-                            currentMechanics?.length < 1 ?
-                                <p>No mechanics available</p>
+                            loading ?  <p>loading...</p>
                                 :
                                 <>
                                     {
-                                        currentMechanics?.map((e, i) => (
+                                        currentMechanics?.length < 1 ?
+                                            <p>No mechanics available</p>
+                                            :
+                                            <>
+                                                {
+                                                    currentMechanics?.map((e, i) => (
 
-                                            <MechanicsCard key={i} mech={e} />
-                                        ))
+                                                        <MechanicsCard key={i} mech={e} />
+                                                    ))
+                                                }
+                                            </>
                                     }
                                 </>
                         }
