@@ -206,6 +206,7 @@ const SignUp = () => {
     // console.log(passwordErrorLength, "passwordErrorLength")
     // console.log(passwordErrorSymbol, "passwordErrorSymbol")
 
+    console.log(url, "url")
     if (!fullName ||
       !email ||
       !phoneNumber ||

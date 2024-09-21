@@ -275,9 +275,9 @@ const MechSignUp = () => {
         setloading(false)
         toast.success(response?.data?.message)
         dispatch(setUserDataWithToken(response?.data?.data))
-        setTimeout(() => {
-          navigate("/mechInfo")
-        }, 3000);
+        // setTimeout(() => {
+        //   navigate("/mechInfo")
+        // }, 3000);
       } catch (error) {
         console.log(error)
         if (!navigator.onLine) {
