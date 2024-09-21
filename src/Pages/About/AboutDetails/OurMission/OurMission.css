@@ -1,0 +1,69 @@
+.OurMission{
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #fff;
+}
+.OurMissionLeft{
+    display: flex;
+    flex-direction: column;
+    width: 48rem;
+    height: 37.3125rem;
+    padding: 9.875rem 5.5rem;
+    justify-content: center;
+    align-items: center;
+    /* flex-shrink: 0; */
+
+}
+.OurMissionRight{
+    display: flex;
+    flex-direction: column;
+    width: 48rem;
+    height: 37.3125rem;
+    padding: 9.875rem 5.5rem;
+    justify-content: center;
+    align-items: center;
+    /* flex-shrink: 0; */
+
+}
+.OurMissionLeft h1{
+    color: var(--Base-Base-Black, #171717);
+    font-family: "Alegreya SC";
+    font-size: 2.5rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-transform: capitalize;
+}
+.OurMissionLeft p{
+    color: var(--Base-Base-Black, #171717);
+    font-family: Lora;
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 180%; /* 2.7rem */
+}
+.OurMissionRight img{
+    width: 35rem;
+    border-radius: 1px;
+    border: none;
+}
+
+/* @media screen and (max-width: 421px){
+    .OurMission{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+    .OurMissionLeft{
+        width: 100%;
+    }
+    /* .OurMissionRight{
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+    } */
+ 

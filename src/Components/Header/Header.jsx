@@ -9,6 +9,8 @@ import LoggedInDropdown from "./LoggedInDropdown/LoggedInDropdown"
 import { useSelector } from "react-redux"
 import Logo from "../../assets/svg/Logo.svg"
 import { BiMenuAltLeft, BiMenuAltRight } from "react-icons/bi"
+import { GiHamburgerMenu } from "react-icons/gi";
+import { IoCloseSharp } from "react-icons/io5";
 import ScrollToTop from "../ScrollToTop"
 
 const Header = () => {
@@ -94,13 +96,15 @@ const Header = () => {
                   {
                     showMenu ?
                       <>
-                        <BiMenuAltRight size={26} />
+                      <IoCloseSharp size={26}/>
+                      {/* <GiHamburgerMenu size={28} /> */}
+                        {/* <BiMenuAltRight size={26} /> */}
                         <Dropdown
                          headerMiddle={headerMiddle} 
                          loggedIn
                          />
                       </>
-                      : <BiMenuAltLeft  size={26}/>
+                      : <GiHamburgerMenu size={28} />  
                   }
                 </div>
 
