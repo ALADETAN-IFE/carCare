@@ -96,7 +96,7 @@ const AllMechanics = () => {
                     </div>
                     <div className="AllMechanicsBodyWrapperMiddle">
                         {
-                            loading ?  <p>loading...</p>
+                            loading ? <p>loading...</p>
                                 :
                                 <>
                                     {

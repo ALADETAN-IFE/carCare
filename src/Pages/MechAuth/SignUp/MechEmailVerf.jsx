@@ -32,6 +32,9 @@ const MechEmailVerf = () => {
         // setTimeout(() => {
         //   navigate('/login');
         // }, 3000); // Adding a delay before redirecting
+        setTimeout(() => {
+          navigate("/mechInfo")
+        }, 3000);
       } else if (response.status === 400 || response.status === 401) {
         setError('Invalid or expired token.');
       }
@@ -41,7 +44,8 @@ const MechEmailVerf = () => {
         alert("You are currently offline")
         dispatch(clearnotVerified())
       }
-      setError('Verification Failed. Please check your network or try again later.');
+      // setError('Verification Failed. Please check your network or try again later.');
+      setError(`${error?.response?.data?.error}`);
       setLoading(false); // Ensure loading is set to false if error occurs
     }
   }

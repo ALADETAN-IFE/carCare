@@ -84,6 +84,7 @@ const MechDoc = () => {
         } else {
             console.log(mechCompleteDetails, "hello")       
             try {
+                setloading(true)
                 const token = UserDataWithToken.token
                 const response = await axios.post(`${url}/api/v1/mech/completeProfile`, mechCompleteDetails, {
                     headers: {
