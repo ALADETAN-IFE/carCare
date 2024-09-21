@@ -1,6 +1,6 @@
 import './driver.css'
 import dasboardBlueIcon from "../../../assets/svg/dasboardBlueIcon.svg"
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { BiPlus } from 'react-icons/bi'
 import { useNavigate } from 'react-router-dom'
 import { setAppbookingFormPage } from '../../../Global/Redux-actions/carCare'
@@ -10,6 +10,8 @@ const Driver = ({ setpages }) => {
   const [bookingHistory, setbookingHistory] = useState(0)
   const navigate = useNavigate()
   const dispatch = useDispatch()
+
+  useEffect(()=>{},[])
   const startBooking = () => {
     dispatch(setAppbookingFormPage(0))
     setpages("addbooking")

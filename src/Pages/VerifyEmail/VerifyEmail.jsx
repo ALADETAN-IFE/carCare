@@ -40,7 +40,7 @@ const VerifyEmail = () => {
         dispatch(clearnotVerified())
       }
       console.log(error)
-      setError('Verification Failed. Please check your network or try again later.');
+      setError(`${error?.response?.data?.error}`);
       setLoading(false); // Ensure loading is set to false if error occurs
     }
   }
@@ -75,11 +75,19 @@ const VerifyEmail = () => {
                 <h1>{"error"}</h1>
                 : error ?
                   <>
-                    <h1 style={{fontSize: "35px"}}>{error}</h1>
-                    <p>Didn't Receive the Email? Check your spam <br />
-                      folder or <Link to='/signup' className='signup__link'>
-                        Click here to resend</Link>
-                    </p>
+                    <h1 style={{ fontSize: "35px" }}>{error}</h1>
+                    {
+                      error == "User already verified" ?
+                        <button className='resetPassword'
+                          onClick={handleNavigate}
+                          style={{ transitionDuration: '0ms' }}>
+                          Proceed to Login</button>
+                        :
+                        <p>Didn't Receive the Email? Check your spam <br />
+                          folder or <Link to='/signup' className='signup__link'>
+                            Click here to resend</Link>
+                        </p>
+                    }
                   </>
                   :
                   // <h1>Verification was successful! Redirecting to login...</h1>

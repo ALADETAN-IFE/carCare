@@ -19,34 +19,34 @@ const ServiceList = () => {
 
   const services = [
     {
-      id: 1, name: 'Tire Replacement (One)', detailsA: 'Parts Needed: - 1 Tire',
+      name: 'Tire Replacement (One)', detailsA: 'Parts Needed: - 1 Tire',
       detailsB: '- Valve Stems',
       detailsC: '- Tire Balancing Weights (optional)'
     },
     {
-      id: 2, name: 'Tire Replacement (Two)', details: 'Parts Needed: 2 Tire',
+      name: 'Tire Replacement (Two)', details: 'Parts Needed: 2 Tire',
       detailsB: '- 2 Tire\- Valve Stems',
       detailsC: '- Tire Balancing Weights (optional)'
     },
     {
-      id: 3, name: 'Tire Replacement (All)', detailsA: 'Parts Needed:- 4 Tire',
+      name: 'Tire Replacement (All)', detailsA: 'Parts Needed:- 4 Tire',
       detailsB: '- Valve Stems',
       detailsC: '- Tire Balancing Weights (optional)'
     },
     {
-      id: 4, name: 'Wheel Alignments',
+      name: 'Wheel Alignments',
       detailsA: 'Parts Needed: None'
     },
     {
-      id: 5, name: 'Wheel Balancing',
+      name: 'Wheel Balancing',
       detailsA: 'Parts Needed: - Wheel weights'
     },
     {
-      id: 6, name: 'Tire Punctures',
+      name: 'Tire Punctures',
       details: 'Parts Needed:- Tire Patch or Plug',
       deatilsB: '- Sealant (if required)'
     },
-    { id: 7, name: 'Tire Rotation', details: 'Parts Needed:' }
+    { name: 'Tire Rotation', details: 'Parts Needed:' }
   ];
   const [bookingInputsObject, setbookingInputsObject] = useState(userBookingForm)
   const dispatch = useDispatch()
@@ -102,8 +102,8 @@ const ServiceList = () => {
           <ServiceCategory />
         </div>
         <div className="serviceSelect">
-          {services.map((service) => (
-            <div className="selectBox" key={service.id}>
+          {services.map((service, index) => (
+            <div className="selectBox" key={index}>
               <input
                 type="checkbox"
                 value={service.name}

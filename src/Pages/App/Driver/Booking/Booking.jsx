@@ -3,13 +3,15 @@ import { useEffect, useState } from 'react'
 import BookingPagePagination from './BookingPagePagination/BookingPagePagination'
 import Table from '../../../../Components/Table/Table'
 import { setAppbookingFormPage } from '../../../../Global/Redux-actions/carCare'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 // import MyBookingsTable from '../../../../Components/Table/DriverReactTable'
 // import DriverReactTable from '../../../../Components/Table/DriverReactTable'
 import { CgMoreVertical } from 'react-icons/cg'
 import NewTable from '../../../../Components/Table/NewTable'
+import axios from 'axios'
+import { useParams } from 'react-router'
 
-const Booking = ({ setpages }) => {
+const Booking = ({ setpages, pages }) => {
   const [currentBookings1, setcurrentBookings] = useState([
     // {
     //   mechanic: "Anjola Akindoju",
@@ -133,8 +135,11 @@ const Booking = ({ setpages }) => {
     // },
 
   ])
+  const UserDataWithToken = useSelector((state) => state.carCare.UserDataWithToken)
   const [width, setwidth] = useState(window.innerWidth)
   const [bookingsPerPage, setbookingsPerPage] = useState(7)
+  const [loading, setloading] = useState(false)
+  const { customerId } = useParams()
   useEffect(() => {
     const interval = setInterval(() => {
       setwidth(window.innerWidth)
@@ -150,14 +155,39 @@ const Booking = ({ setpages }) => {
   // const bookingsPerPage = 7; // Number of bookings per page
   useEffect(() => {
     // icon: <CgMoreVertical />
-  //   setcurrentBookings((prev)=> prev.map((e)=> {
-  //           e.icon = <CgMoreVertical />
-  //     return e
-  // }))
+    //   setcurrentBookings((prev)=> prev.map((e)=> {
+    //           e.icon = <CgMoreVertical />
+    //     return e
+    // }))
   }, [currentPage])
+
+
+
+  const getAllCurrentBookings = async () => {
+    const token = UserDataWithToken.token
+    const url = import.meta.env.VITE_API_Url
+    setloading(true)
+    try {
+      const res = await axios.get(`${url}/api/v1/mech/allbookings`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,  // Add token for authentication
+          },
+        }
+      )
+      // console.log(res?.data?.data, "setcurrentBookings")
+      setcurrentBookings(res?.data?.data)
+      // console.log(currentBookings1, "currentBookings1")
+      setloading(false)
+    } catch (error) {
+      console.log(error)
+
+    }
+  }
   useEffect(() => {
     // icon: <CgMoreVertical />
-  }, [])
+    getAllCurrentBookings()
+  }, [pages])
   // Get the current bookings based on the pagination
   const indexOfLastBooking = currentPage * bookingsPerPage;
   const indexOfFirstBooking = indexOfLastBooking - bookingsPerPage;
@@ -201,6 +231,7 @@ const Booking = ({ setpages }) => {
             indexOfLastBooking={indexOfLastBooking}
           /> */}
           <NewTable
+            loading={loading}
             setpages={setpages}
             currentBookings={currentBookings}
             totalPages={totalPages}
