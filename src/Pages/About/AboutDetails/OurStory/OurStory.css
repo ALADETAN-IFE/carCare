@@ -1,6 +1,7 @@
 .ourStory__container{
     display: flex;
     width: 100%;
+    height: 46rem;
     justify-content: space-around;
     align-items: center;
     background-color: #fff;
@@ -9,7 +10,6 @@
 }
 .ourStory__left{
     display: flex;
-    position: relative;
     width: 42rem;
     height: 37.3125rem;
    gap: 350px;
@@ -19,15 +19,15 @@
     
 }
 .leftbg{
-    /* position: absolute; */
     padding: 9.875rem 5.5rem;
+    padding-bottom: 25px;
     width: 18.32013rem;
     height: 31.2685rem;
     transform: rotate(-38.775deg);
     background: var(--Secondary-Secondary, #0066B2);
 }
 .rightbg{
-    /* position: absolute; */
+   
     background: var(--Secondary-Secondary, #0066B2);
     width: 6.25rem;
     height: 27.3125rem;
@@ -43,8 +43,8 @@
     flex-direction: column;
     width: 48rem;
     height: 37.3125rem;
-    padding: 9.875rem 5.5rem;
-    justify-content: center;
+    /* padding: 9.875rem 5.5rem; */
+    /* justify-content: center; */
     align-items: center;
     /* flex-shrink: 0; */
 
@@ -66,3 +66,108 @@ font-style: normal;
 font-weight: 500;
 line-height: 180%; /* 2.7rem */
 }
+
+/* For screens with a max-width of 550px */
+@media (max-width: 550px) {
+    .ourStory__container {
+        display: block;
+        /* flex-direction: column;
+        align-items: center; */
+        gap: 20px; /* Adjusted gap for smaller screens */
+    }
+
+    .ourStory__left, .ourStory__right {
+        width: 100%; /* Full width for the column layout */
+        height: auto; /* Adjust height to fit content */
+        padding: 2rem 1.5rem; /* Adjust padding for smaller screens */
+        justify-content: center;
+        align-items: center;
+    }
+
+    .leftbg, .rightbg {
+        width: 100%; /* Set width to 100% for responsiveness */
+        height: auto; /* Adjust height to fit content */
+        transform: none; /* Remove rotation for easier display */
+    }
+
+    .ourStory__right h1 {
+        font-size: 2rem; /* Adjust font size */
+        text-align: center; /* Center-align the text */
+    }
+
+    .ourStory__right p {
+        font-size: 1.25rem; /* Slightly smaller font size */
+        line-height: 1.8rem;
+        text-align: center;
+    }
+}
+
+/* For screens with a max-width of 421px */
+@media (max-width: 421px) {
+    .ourStory__container {
+        gap: 15px; /* Reduce the gap */
+    }
+
+    .ourStory__left, .ourStory__right {
+        padding: 1.5rem 1rem; /* Reduce padding */
+    }
+
+    .leftbg, .rightbg {
+        padding: 0.5rem; /* Adjust padding */
+    }
+
+    .ourStory__right h1 {
+        font-size: 1.8rem; /* Further reduce font size */
+    }
+
+    .ourStory__right p {
+        font-size: 1.2rem; /* Adjust font size */
+        line-height: 1.6rem;
+    }
+}
+
+/* For screens with a max-width of 375px */
+@media (max-width: 375px) {
+    .ourStory__container {
+        gap: 10px; /* Further reduce gap */
+    }
+
+    .ourStory__left, .ourStory__right {
+        padding: 1rem 0.5rem; /* Minimal padding */
+    }
+
+    .leftbg, .rightbg {
+        padding: 0.5rem; /* Adjust padding */
+        height: auto; /* Allow height to adjust automatically */
+    }
+
+    .ourStory__right h1 {
+        font-size: 1.5rem; /* Smaller font size for small screens */
+    }
+
+    .ourStory__right p {
+        font-size: 1rem; /* Smaller text size */
+        line-height: 1.5rem;
+    }
+}
+
+
+/* @media screen and (max-width: 421px) {
+
+
+    .ourStory__container {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        /* gap: 0px; 
+        align-items: center;
+        justify-content: center;
+
+        & .ourStory__left,
+        .ourStory__right{
+            width: 100%;
+            height: 50%;
+        }
+
+    }
+} */

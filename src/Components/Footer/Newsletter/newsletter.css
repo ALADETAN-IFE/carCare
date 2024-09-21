@@ -1,20 +1,13 @@
 .Newsletter {
     width: 100%;
-    /* height: 350px; */
-    /* height: 21.875rem; */
     min-height: 21.875rem;
     display: flex;
     /* flex-direction: column; */
     justify-content: center;
     align-items: center;
 
-    background:linear-gradient(rgba(23, 23, 23, 0.40), rgba(23, 23, 23, 0.40)), url("https://s3-alpha-sig.figma.com/img/8268/2c46/e9151c3edc84ad9e360b7d07bd74744d?Expires=1726444800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=GjpkRECaEChfRjC7FcH8D0~tmYE01y21w7oUSnerLkMKy32odslNE90E6k5FshCVyGNpyLn8Qtr1wCNP-7ZhckhWPfrP5yDAjIQQUqruLD4wppI-ybd2Z2qWBzCeGj70hCwD~jDgenLp-eLlcXsiK31v3oepHGDv1oOBIOJIYRcYiLkxiuwXMZun5ztcleBpeNr3s~ggFQfhjbRo8g7M9ngOJTpjeQv3KCUc4LDU~Q9e0D68hEP5gyFNYMGwyMcY3NwfKFCijuRzuj-~e2SndkeY8EFrab-jubiegPYpiCxnOM0OPxenNIc2u60Gxj4Er4iR2ltHAYujFBq9wGpvqQ__");
-    /* background: rgba(23, 23, 23, 0.40); */
-    /* background: url("../../../assets/images/NewsLetter/newsletter.jpg"); */
-    /* background-size: cover; */
-    /* background-image: url(/./carCare/public/newsletterMobileImg.png); */
-    /* background-position: center; */
-    object-fit: cover;
+    background:linear-gradient(rgba(23, 23, 23, 0.40), rgba(23, 23, 23, 0.40)), url("https://res.cloudinary.com/dserpv6p5/image/upload/v1726846624/qc0vcr3u8wag998jecj2.png");
+    /* object-fit: cover; */
     background-repeat: no-repeat;
     padding: 34px 168px 38px 168px;
     /* align-self: stretch; */
