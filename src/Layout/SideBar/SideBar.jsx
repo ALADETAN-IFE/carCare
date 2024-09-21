@@ -10,15 +10,17 @@ import { useEffect, useState } from "react";
 import { BiMenuAltLeft, BiMenuAltRight } from "react-icons/bi";
 import { LuLogOut } from "react-icons/lu";
 import ScrollToTop from "../../Components/ScrollToTop";
+import axios from "axios";
 
 const SideBar = ({ pages, setpages, book }) => {
     const navigate = useNavigate()
     const dispatch = useDispatch()
-    const {navBarVisibility, UserDatas} = useSelector((state) => state.carCare)
+    const { navBarVisibility, UserDatas, UserDataWithToken } = useSelector((state) => state.carCare)
     const typeOfUser = useSelector((state) => state.carCare.typeOfUser)
     const [width, setwidth] = useState(window.innerWidth)
     const [User, setUser] = useState(typeOfUser)
     const [additionalSideBar, setadditionalSideBar] = useState([])
+    const [logOutEndPoint, setlogOutEndPoint] = useState("")
     setInterval(() => {
         setwidth(window.innerWidth)
     }, 500);
@@ -37,6 +39,17 @@ const SideBar = ({ pages, setpages, book }) => {
     //         dispatch(openNavBarVisibility(false))
     //     }
     // }, [width])
+    useEffect(() => {
+        if (typeOfUser === "Mechanic") {
+            setlogOutEndPoint("api/v1/mech/signout")
+        }
+        else if (typeOfUser === "Driver") {
+            setlogOutEndPoint("api/v1/signout")
+        }
+        else {
+            setlogOutEndPoint("")
+        }
+    }, [])
 
 
     const userSideBarNav = [
@@ -162,6 +175,27 @@ const SideBar = ({ pages, setpages, book }) => {
     const closesideBarVisibility = () => {
         dispatch(closeNavBarVisibility())
     }
+
+    // const logOut = async () => {
+    const logOutFunc =  () => {
+        // const url = import.meta.env.VITE_API_Url
+        // const token = UserDataWithToken.token
+        // console.log(UserDataWithToken.token, "UserDataWithToken")
+        // setloading(true)
+
+        dispatch(logOut())
+        // try {
+        //     const response = await axios.post(`${url}/${logOutEndPoint}`,
+        //         {
+        //             headers: {
+        //                 Authorization: `Bearer ${token}`,  // Add token for authentication
+        //             },
+        //         })
+        //         console.log(response)
+        //     } catch (error) {
+        //         console.log(error)
+        // }
+    }
     return (
         <div className={navBarVisibility ? "sidebar sidebar_increase" : "sidebar"}
             style={navBarVisibility && width < 500 ? { display: "flex" } :
@@ -242,7 +276,7 @@ const SideBar = ({ pages, setpages, book }) => {
                     </div>
                     <p> {UserDatas?.fullName}</p>
                 </div>
-                <LuLogOut color="#A21C29" onClick={() => dispatch(logOut())} />
+                <LuLogOut color="#A21C29" onClick={logOutFunc} />
             </div>
             <ScrollToTop pages={pages} book={book} />
         </div>

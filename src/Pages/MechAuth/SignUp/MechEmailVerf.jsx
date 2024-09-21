@@ -41,7 +41,8 @@ const MechEmailVerf = () => {
         alert("You are currently offline")
         dispatch(clearnotVerified())
       }
-      setError('Verification Failed. Please check your network or try again later.');
+      // setError('Verification Failed. Please check your network or try again later.');
+      setError(`${error?.response?.data?.error}`);
       setLoading(false); // Ensure loading is set to false if error occurs
     }
   }
