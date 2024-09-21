@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import "./heroPage.css";
-import hero1 from "../../assets/images/HeroPage/hero section.png";
-import hero2 from "../../assets/images/HeroPage/hero section 2.png";
-import hero3 from "../../assets/images/HeroPage/hero section 3.png";
+// import hero1 from "../../assets/images/HeroPage/hero section.png";
+// import hero2 from "../../assets/images/HeroPage/hero section 2.png";
+// import hero3 from "../../assets/images/HeroPage/hero section 3.png";
 import mobilehero1 from "../../assets/images/HeroPage/mobile hero section1.png";
 import mobilehero2 from "../../assets/images/HeroPage/mobile hero section2.png";
 import mobilehero3 from "../../assets/images/HeroPage/mobile hero section3.png";
@@ -12,7 +12,10 @@ import mobilehero3 from "../../assets/images/HeroPage/mobile hero section3.png";
 const HeroPage = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
-
+    
+  const hero1 = " https://res.cloudinary.com/dgbotbi40/image/upload/v1726673205/unnamed_xn87cs.png?fbclid=IwY2xjawFZG4tleHRuA2FlbQIxMAABHeyIZLpf96IkRCLo9uiY-LO4njYbtmi5wQJB2Ey5iD_2t8eTI8aqeXL6VQ_aem_PGROu0_j9vYfNHcpOcJBKA";
+  const hero2 = "https://res.cloudinary.com/dgbotbi40/image/upload/v1726673498/unnamed_fji0jb.png?fbclid=IwY2xjawFZG31leHRuA2FlbQIxMAABHVEGFWaDpPjhuilCpy2NYGf-sj5e3ZVy4mSfjhq9ITj6T81fcEm-DfK-Eg_aem_WMeg1Vds6ihlnCgIJjfCng";
+  const hero3 = "https://res.cloudinary.com/dgbotbi40/image/upload/v1726673527/unnamed_puj9zp.png?fbclid=IwY2xjawFZG3FleHRuA2FlbQIxMAABHXxJQr1P3pCvgfAzNajG37oeFTpOrd5yHrC7_FIDxapbxcRf5yoX9wM3Rg_aem_Y24ewhMngq2GQuFT6rT-Kw";
   const desktopImages = [hero1, hero2, hero3];
   const mobileImages = [mobilehero1 , mobilehero2, mobilehero3];
   const images = isMobile ? mobileImages : desktopImages;

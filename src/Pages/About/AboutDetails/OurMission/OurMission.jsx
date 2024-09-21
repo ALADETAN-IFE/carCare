@@ -11,7 +11,7 @@ const OurMission = () => {
 
         </div>
         <div className='OurMissionRight'>
-          <img src={growYourbusiness} alt="" />
+          {/* <img src={growYourbusiness} alt="" /> */}
         </div>
 
     </div>

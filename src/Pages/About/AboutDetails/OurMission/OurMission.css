@@ -1,6 +1,7 @@
 .OurMission{
     display: flex;
     width: 100%;
+    height: 100vh;
     justify-content: space-around;
     align-items: center;
     background-color: #fff;
@@ -10,7 +11,7 @@
     flex-direction: column;
     width: 48rem;
     height: 37.3125rem;
-    padding: 9.875rem 5.5rem;
+    /* padding: 9.875rem 5.5rem; */
     justify-content: center;
     align-items: center;
     /* flex-shrink: 0; */
@@ -24,8 +25,6 @@
     padding: 9.875rem 5.5rem;
     justify-content: center;
     align-items: center;
-    /* flex-shrink: 0; */
-
 }
 .OurMissionLeft h1{
     color: var(--Base-Base-Black, #171717);
@@ -49,6 +48,87 @@
     border-radius: 1px;
     border: none;
 }
+
+/* For screens with a max-width of 550px */
+@media (max-width: 550px) {
+    .ourMission {
+        display: flex;
+        flex-direction: column; 
+        /* align-items: center;  */
+        gap: 20px; /* Adjusted gap for smaller screens */
+    }
+
+    .ourMissionLeft, .OurMissionRight {
+        width: 100%; /* Full width for the column layout */
+        height: auto; /* Adjust height to fit content */
+        padding: 2rem 1.5rem; /* Adjust padding for smaller screens */
+        justify-content: center;
+        align-items: center;
+    }
+
+   
+
+    .ourMissionLeft h1 {
+        font-size: 2rem; /* Adjust font size */
+        text-align: center; /* Center-align the text */
+    }
+
+    .ourMissionLeft p {
+        font-size: 1.25rem; /* Slightly smaller font size */
+        /* line-height: 1.8rem; */
+        text-align: center;
+    }
+}
+
+/* For screens with a max-width of 421px */
+@media (max-width: 421px) {
+    .ourMission {
+        display: flex;
+        flex-direction: column;
+        gap: 15px; /* Reduce the gap */
+    }
+
+    .ourMissionLeft, .OurMissionRight {
+        padding: 1.5rem 1rem; /* Reduce padding */
+    }
+
+    .ourMissionLeft h1 {
+        font-size: 1.8rem; /* Further reduce font size */
+    }
+
+    .ourMissionLeft p {
+        font-size: 1.2rem; /* Adjust font size */
+        line-height: 1.6rem;
+    }
+}
+
+/* For screens with a max-width of 375px */
+@media (max-width: 375px) {
+    .ourMission {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 10px; /* Further reduce gap */
+    }
+
+    .ourMissionLeft, .OurMissionRight {
+        padding: 20px; /* Minimal padding */
+    }
+
+    
+
+    .ourMissionLeft h1 {
+        font-size: 28px; /* Smaller font size for small screens */
+    }
+
+    .ourMissionLeft p {
+        font-size: 20px; /* Smaller text size */
+        /* line-height: 1.5rem; */
+    }
+}
+
+
 
 /* @media screen and (max-width: 421px){
     .OurMission{

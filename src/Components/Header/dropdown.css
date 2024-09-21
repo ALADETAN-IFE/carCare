@@ -12,13 +12,13 @@
     right: 0;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: center;
     padding: 10px;
 }
 
 .dropdown {
    width: 480px;
-    height: 275px;
+    height: 475px;
     margin-left: 10px;
     border-radius: 6px;
     border: 0px solid #565454;
