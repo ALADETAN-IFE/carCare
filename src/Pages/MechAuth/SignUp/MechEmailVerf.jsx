@@ -22,7 +22,7 @@ const MechEmailVerf = () => {
 
   const handleSubmit = async () => {
     try {
-      const url = "https://carcareconnectproject.onrender.com"
+      const url = import.meta.env.VITE_API_Url
       const response = await axios.patch(`${url}/api/v1/mech/verifyEmail/${token}`)
       // console.log(response)
       setLoading(true);

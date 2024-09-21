@@ -17,7 +17,7 @@ const ForgotPassword = () => {
   const dispatch = useDispatch()
 
   const handlePopup = async () => {
-    const url = "https://carcareconnectproject.onrender.com"
+    const url = import.meta.env.VITE_API_Url
     if (!email) {
       toast.error("Email is required")
     } else {

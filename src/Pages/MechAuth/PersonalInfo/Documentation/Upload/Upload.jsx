@@ -34,7 +34,7 @@ const ImageUploadButton = ({ setimages, images, setSelectedImageName,
 
   const handleImageChange = (event) => {
     const file = event.target.files[0];
-    console.log(file, "file")
+    // console.log(file, "file")
 
     // if (!file || !file.type.startsWith('image/')) {
     //   alert('Please select a valid image file');

@@ -15,11 +15,12 @@ const MechAuth = () => {
         sessionStorage.setItem('lastVisitedPage', "/login");
       }
     }, [isLoggedIn, location.pathname]);
-    console.log(typeOfUser, "mech")
+    // console.log(typeOfUser, "mech")
     // Determine the redirect path
     const redirectPath = sessionStorage.getItem('lastVisitedPage') || '/';
   
-    return isLoggedIn && typeOfUser === "Mechanic" ? <Outlet /> : <Navigate to={redirectPath} replace />;
+    return isLoggedIn && typeOfUser === "Mechanic" ? <Outlet /> 
+    : <Navigate to={redirectPath} replace />;
 }
 
 export default MechAuth

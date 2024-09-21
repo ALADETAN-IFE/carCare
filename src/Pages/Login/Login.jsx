@@ -19,7 +19,7 @@ const Login = () => {
   const dispatch = useDispatch()
   const handleLogin = async (e) => {
     e.preventDefault()
-    const url = "https://carcareconnectproject.onrender.com"
+    const url = import.meta.env.VITE_API_Url
 
     if (!email || !password) {
       toast.error("fill both fields")
@@ -29,61 +29,41 @@ const Login = () => {
       setloading(true)
       try {
         const response = await axios.post(`${url}/api/v1/signin`, apiData)
-        console.log(response)
-        dispatch(clearnotVerified())
+        // console.log(response)
+        // dispatch(clearnotVerified())
         dispatch(setUserDataWithToken(response?.data))
-        toast.success(response?.data?.message)
+        toast.success("Login Sucessfull")
         dispatch(setUserDatas(response?.data?.data))
-        console.log(response?.data?.data?.position)
+        // console.log(response?.data?.data?.position)
         setloading(false)
         dispatch(logIn())
         if (response?.data?.data?.position == "customer") {
           dispatch(setTypeOfUser("Driver"))
+          setTimeout(() => {
+            navigate("/app")
+          }, 3000);
           } else if (response?.data?.data?.position == "mechanic") {
+           if (response?.data?.data.approved == "Pending") {
+             toast.info("Please complete your details to continue ")
+             setTimeout(() => {
+              navigate("/mechInfo")
+            }, 2000);
+           } else {
             dispatch(setTypeOfUser("Mechanic"))
+            setTimeout(() => {
+              navigate("/app/mech")
+            }, 3000);
+           }
         }
-        // dispatch(setTypeOfUser(apiData.email))
-      setTimeout(() => {
-        if (typeOfUser == "Driver") {
-          navigate("/app")
-        } else if(typeOfUser == "Mechanic"){
-          navigate("/app/mech")
-        } else{
-          navigate("/login")
-        }
-      }, 3000);
         
       } catch (error) {
-        console.log(error)
-        const errMsg = error?.response?.data?.message
-        toast.error(errMsg)
-        if (!navigator.onLine) {
-          alert("You are currently offline")
-          dispatch(clearnotVerified())
-        }
-        if (errMsg == "Your email is not yet verified") {
-          if (notVerified.length >= 2) {
-            try {
-              const responseAgain = await axios.post(`${url}/api/v1/resendEmail`, {email})
-              console.log(responseAgain, "responseAgain")
-              const responseData = responseAgain?.data?.message.charAt(0).toLowerCase()
-              const responseData2 = responseAgain?.data?.message.slice(1)
-              toast.info(`New ${responseData}${responseData2}`)
-            } catch (error) {
-              console.log(error)
-              console.log(error?.response?.data?.error)
-              toast.error(error?.response?.data?.error)
-            }
-          } else {
-            dispatch(setnotVerified(errMsg))
-          }
-        }else{
-          dispatch(clearnotVerified())
-        }
+        toast.error(error?.response?.data?.message)
+      
         setloading(false)
       }
     }
   }
+  // console.log(typeOfUser, "typeOfUser" )
   return (
     <div className='Login__container'>
       <header className='authHeader'>

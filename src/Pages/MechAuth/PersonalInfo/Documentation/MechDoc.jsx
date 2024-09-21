@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './MechDoc.css'
 import AuthHeader from '../../../AuthHeader/AuthHeader'
 import ImageUploadButton from './Upload/Upload'
@@ -33,15 +33,19 @@ const MechDoc = () => {
     //      insurance: Optional.
     //   }
 
-    const handleClick = async () => {
-        // console.log(Object.create(images), "obj")
+    useEffect(()=> {
         setmechCompleteDetailsState((prev) => ({
             ...prev,
             ...images
         }))
+
+        dispatch(setmechCompleteDetails(mechCompleteDetailsState))
+    })
+
+    const handleClick = async () => {
+        // console.log(Object.create(images), "obj")
         console.log(mechCompleteDetailsState, "mechCompleteDetails")
-        dispatch(setmechCompleteDetails({}))
-            const url = "https://carcareconnectproject.onrender.com"
+            const url = import.meta.env.VITE_API_Url
         console.log(mechCompleteDetails)
         setIsAnimating(true);
         if (!mechCompleteDetails.businessName ||
@@ -83,6 +87,7 @@ const MechDoc = () => {
                 const token = UserDataWithToken.token
                 const response = await axios.post(`${url}/api/v1/mech/completeProfile`, mechCompleteDetails, {
                     headers: {
+                        'Content-Type': 'multipart/form-data', 
                         Authorization: `Bearer ${token}`,  // Add token for authentication
                     },
                 });
@@ -92,6 +97,10 @@ const MechDoc = () => {
                 toast.success(response?.data?.message)
               } catch (error) {
                 console.log(error)
+                if (error?.response?.data.errors) {
+                    toast.error(error?.response?.data.errors[0])
+                    toast.error(error?.response?.data.errors[1])
+                }
                 if (!navigator.onLine) {
                   alert("You are currently offline")
                   dispatch(clearnotVerified())
