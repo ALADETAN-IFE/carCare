@@ -1,9 +1,10 @@
 .ourStory__container{
     display: flex;
-    width: 96rem;
+    width: 100%;
     justify-content: space-around;
-    /* align-items: center; */
+    align-items: center;
     background-color: #fff;
+    gap: 30px;
 
 }
 .ourStory__left{
@@ -45,7 +46,7 @@
     padding: 9.875rem 5.5rem;
     justify-content: center;
     align-items: center;
-    flex-shrink: 0;
+    /* flex-shrink: 0; */
 
 }
 .ourStory__right h1{

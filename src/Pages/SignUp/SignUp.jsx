@@ -197,7 +197,7 @@ const SignUp = () => {
   const navigate = useNavigate()
   const handlesignUp = async (e) => {
     e.preventDefault()
-    const url = "https://carcareconnectproject.onrender.com"
+    const url = import.meta.env.VITE_API_Url
     // navigate("/verifyEmail")
     // console.log(passwordError, "apiData")
     // console.log(passwordErrorlow, "passwordErrorlow")
@@ -206,6 +206,7 @@ const SignUp = () => {
     // console.log(passwordErrorLength, "passwordErrorLength")
     // console.log(passwordErrorSymbol, "passwordErrorSymbol")
 
+    console.log(url, "url")
     if (!fullName ||
       !email ||
       !phoneNumber ||
@@ -280,9 +281,9 @@ const SignUp = () => {
         toast.success(response?.data?.message)
       } catch (error) {
         console.log(error)
+        dispatch(clearnotVerified())
         if (!navigator.onLine) {
           alert("You are currently offline")
-          dispatch(clearnotVerified())
         }
         setloading(false)
         toast.error(error?.response?.data?.message)

@@ -30,7 +30,7 @@ const MechSettings = ({selectedImage, mechSettings,
                         <IoPersonCircleSharp
                           // width="100px" 
                           size={122}
-                        // style={{width: "100px", height: "100px"}}
+                          style={ selectedImage ? {bottom: "4px"}: null}
                         />
                     }
                     <input type="file" accept="image/*" hidden id="img_upload"
@@ -55,7 +55,7 @@ const MechSettings = ({selectedImage, mechSettings,
                     <label htmlFor="Phone Number">Phone Number</label>
                     <input type="number" />
                   </div>
-                  <div className="inpuHolder">
+                  {/* <div className="inpuHolder">
                     <label htmlFor="Password">Password</label>
                     <div className="passwordInputHolder">
                       <input type={showPassword ? "text" : "password"} 
@@ -67,7 +67,7 @@ const MechSettings = ({selectedImage, mechSettings,
                           <BsEyeFill onClick={() => setshowPassword(true)} />
                       }
                     </div>
-                  </div>
+                  </div> */}
                 </div>
               </div>
               <div className="settingsWrapperDown">
