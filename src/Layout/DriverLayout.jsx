@@ -44,7 +44,7 @@ const DriverLayout = () => {
     try {
       // const customerId = UserDatas._id
       const url = import.meta.env.VITE_API_Url
-      const res = await axios.get(`${url}/api/v1/oneCustomers/${customerId}`,
+      const res = await axios.get(`${url}/api/v1/oneCustomer/${customerId}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,  // Add token for authentication
@@ -61,6 +61,7 @@ const DriverLayout = () => {
     }
   }
   useEffect(() => {
+    getUserDetails()
     if (mechId && pages == "addbooking") {
 
     } else {
@@ -68,7 +69,6 @@ const DriverLayout = () => {
         setcustomerId()
       } else {
         setcustomerId()
-        getUserDetails()
       }
       
     }

@@ -31,13 +31,14 @@ const Login = () => {
       setloading(true)
       try {
         const response = await axios.post(`${url}/api/v1/signin`, apiData)
-        // console.log(response)
+        console.log(response)
         // dispatch(clearnotVerified())
         dispatch(setUserDataWithToken(response?.data))
 
         dispatch(setUserDatas(response?.data?.data))
         // console.log(response?.data?.data?.position)
         setloading(false)
+     
         dispatch(logIn())
         if (response?.data?.data?.position == "customer") {
           Swal.fire({
@@ -53,8 +54,8 @@ const Login = () => {
             navigate("/app")
           }, 3000);
         } else if (response?.data?.data?.position == "mechanic") {
-          if (response?.data?.data.approved == "Pending") {
-            toast.info("Please complete your details to continue ")
+          if (response?.data?.data.isProfileComplete == false) {
+            toast.info("Please complete your details to continue")
             Swal.fire({
               icon: 'info',
               title: 'Pending Approval',
@@ -76,7 +77,7 @@ const Login = () => {
             Swal.fire({
               icon: 'success',
               title: 'Welcome!',
-              text: 'You are now logged in as a Mechanic.',
+              text: response?.data?.message,
               timer: 3000,
               showConfirmButton: false,
             }).then(() => {

@@ -49,23 +49,50 @@ const Confirm = ({ setbook, setpages }) => {
   }
 
   const sendUserDetails = async () => {
+    // onSuccess: function (data) {
+    // Handle when payment is successful
+    // console.log(data, "data")
+    const url = import.meta.env.VITE_API_Url
     const token = UserDataWithToken.token
-    try {
-      const url = import.meta.env.VITE_API_Url
-      const res = await axios.post(`${url}/api/v1/customer-Booking/${mechId}`,
-        bookingInputsObject,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,  // Add token for authentication
-          },
+    axios.post(`${url}/api/v1/customer-Booking/${mechId}`,
+      { ...bookingInputsObject, totalCost: totalAmount, labourCost: "15000",  },
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,  // Add token for authentication
+        },
+      }).then(res => {
+        console.log(res, "res")
+        toast.success(res?.data?.message)
+        setTimeout(() => {
+          dispatch(setuserBookingForm({}))
+          navigate("/app")
+          setbook(false)
+          setpages("booking")
+        }, 2000);
+      }).catch((error) => {
+        console.log(error, "error")
+        if (error?.response?.data?.message == "You cannot book again until 30 minutes have passed since your last pending appointment.") {
+          toast.info("You cannot book again until 30 minutes have passed since your last pending appointment.")
+          setTimeout(() => {
+            dispatch(setuserBookingForm({}))
+            navigate("/app")
+            setbook(false)
+            setpages("booking")
+          }, 2000);
         }
+      }
       )
-      console.log(res, "res")
-    } catch (error) {
-      console.log(error, "error")
-
-    }
+    // },
   }
+  function debounce(func, delay) {
+    let timer;
+    return function (...args) {
+      clearTimeout(timer);
+      timer = setTimeout(() => func.apply(this, args), delay);
+    };
+  }
+
+  const debouncedSendUserDetails = debounce(sendUserDetails, 300); // 300ms delay
 
 
   function payKorapay() {
@@ -87,54 +114,89 @@ const Confirm = ({ setbook, setpages }) => {
       // onSuccess: sendUserDetails(),
       onSuccess: function (data) {
         // Handle when payment is successful
-        console.log(data, "data")
-        const url = import.meta.env.VITE_API_Url
-        const token = UserDataWithToken.token
-        axios.post(`${url}/api/v1/customer-Booking/${mechId}`,
-          {...bookingInputsObject, totalCost:totalAmount },
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,  // Add token for authentication
-            },
-          }).then(res => {
-            console.log(res, "res")
-            toast.success(res?.data?.message)
-            setTimeout(() => {
-              dispatch(setuserBookingForm({}))
-              navigate("/app")
-              setbook(false)
-              setpages("booking")
-            }, 2000);
-          }).catch((error) => {
-            console.log(error, "error")
-            if (error?.response?.data?.message == "You cannot book again until 30 minutes have passed since your last pending appointment.") {
-              toast.info("You cannot book again until 30 minutes have passed since your last pending appointment.")
-              setTimeout(() => {
-                dispatch(setuserBookingForm({}))
-                navigate("/app")
-                setbook(false)
-                setpages("booking")
-              }, 2000);
-            }
-          }
-          )
+        console.log(data, "success")
+        debouncedSendUserDetails(); // Use debounced function
       },
+      // onSuccess: function (data) {
+      //   // Handle when payment is successful
+      //   console.log(data, "data")
+      //   const url = import.meta.env.VITE_API_Url
+      //   const token = UserDataWithToken.token
+      //   axios.post(`${url}/api/v1/customer-Booking/${mechId}`,
+      //     {...bookingInputsObject, totalCost:totalAmount },
+      //     {
+      //       headers: {
+      //         Authorization: `Bearer ${token}`,  // Add token for authentication
+      //       },
+      //     }).then(res => {
+      //       console.log(res, "res")
+      //       toast.success(res?.data?.message)
+      //       setTimeout(() => {
+      //         dispatch(setuserBookingForm({}))
+      //         navigate("/app")
+      //         setbook(false)
+      //         setpages("booking")
+      //       }, 2000);
+      //     }).catch((error) => {
+      //       console.log(error, "error")
+      //       if (error?.response?.data?.message == "You cannot book again until 30 minutes have passed since your last pending appointment.") {
+      //         toast.info("You cannot book again until 30 minutes have passed since your last pending appointment.")
+      //         setTimeout(() => {
+      //           dispatch(setuserBookingForm({}))
+      //           navigate("/app")
+      //           setbook(false)
+      //           setpages("booking")
+      //         }, 2000);
+      //       }
+      //     }
+      //     )
+      // },
 
       onFailed: function (data) {
         // Handle when payment fails
-        console.log(data, "data")
-        // dispatch(setuserBookingForm({}))
-      },
-      onPending: function (data) {
-        // Handle when payment fails
-        console.log(data, "data")
-        // dispatch(setuserBookingForm({}))
-      },
-      onTokenized: function (data) {
-        // Handle when payment fails
-        console.log(data, "data")
-        // dispatch(setuserBookingForm({}))
-      },
+        console.log(data, "failed");
+    
+        Swal.fire({
+            icon: 'error',
+            title: 'Payment Failed',
+            text: 'The payment process was not successful. Please try again.',
+            footer: data?.message || 'Unknown error occurred',
+        });
+    
+        // Optionally, dispatch or reset form
+        // dispatch(setuserBookingForm({}));
+    },
+    
+    onPending: function (data) {
+        // Handle when payment is pending
+        console.log(data, "pending");
+    
+        Swal.fire({
+            icon: 'info',
+            title: 'Payment Pending',
+            text: 'Your payment is currently being processed. Please wait for confirmation.',
+            footer: 'We will update you once the payment is confirmed.',
+        });
+    
+        // Optionally, dispatch or reset form
+        // dispatch(setuserBookingForm({}));
+    },
+    
+    onTokenized: function (data) {
+        // Handle when payment is tokenized
+        console.log(data, "tokenized");
+    
+        Swal.fire({
+            icon: 'success',
+            title: 'Payment Tokenized',
+            text: 'Your payment has been successfully tokenized!',
+            footer: 'You will receive further details shortly.',
+        });
+    
+        // Optionally, dispatch or reset form
+        // dispatch(setuserBookingForm({}));
+    },
+    
     });
   }
 
@@ -170,11 +232,11 @@ const Confirm = ({ setbook, setpages }) => {
                 </div>
                 <div>
                   <span className='span1'>Date & Time:</span>
-                  <span className='span2'> September 10, 2024, 2:00 PM</span>
+                  <span className='span2'> {bookingInputsObject?.date}, {bookingInputsObject?.time}</span>
                 </div>
                 <div>
                   <span className='span1'>Location:</span>
-                  <span className='span2'>On-site Service at [No. 45, Ojulegba road, Ojuelegba, Lagos]</span>
+                  <span className='span2'>{bookingInputsObject?.serviceType} at [No. 45, Ojulegba road, Ojuelegba, Lagos]</span>
                 </div>
               </div>
               <div className="confirmBookingMiddleTopMech">
@@ -184,15 +246,15 @@ const Confirm = ({ setbook, setpages }) => {
                 <div className="confirmBookingMiddleTopMechRight">
                   <h3>{mechTobeBookedDetails?.fullName}</h3>
                   <h4>Rating: ★★★★☆ (4.5/5)</h4>
-                  <p>Years of Experience: <span> 
+                  <p>Years of Experience: <span>
                     {
                       mechTobeBookedDetails?.yearsOfExperience ?
-                      <>
-                    {experienceCalc(mechTobeBookedDetails?.yearsOfExperience)}
-                      </>
-                      : <>2 years</>
+                        <>
+                          {experienceCalc(mechTobeBookedDetails?.yearsOfExperience)}
+                        </>
+                        : <>2 years</>
                     }
-                    </span></p>
+                  </span></p>
                   <Link onClick={changeMech}>Change</Link>
                 </div>
               </div>
@@ -224,6 +286,7 @@ const Confirm = ({ setbook, setpages }) => {
             <button className='go_back' onClick={() => setbook(false)}>BACK</button>
             <button className='checkout_btn'
               onClick={payKorapay}
+            // onClick={sendUserDetails}
             // onClick={()=> dispatch(setuserBookingForm({}))}
             >CHECKOUT</button>
           </div>

@@ -98,7 +98,7 @@ const MechEmailVerf = () => {
                   // <h1>Verification was successful! Redirecting to login...</h1>
                   <div className="popup__content">
                     <div className="popup__content__top">
-                      <h1>WELCOME TO CARCARE</h1>
+                      <h1>EMAIL VERIFIED</h1>
                       <p>We’re excited to have you on board! To finish setting <br />
                         up your account, simply click the button below to <br />
                         unlock all the benefits of your new account</p>

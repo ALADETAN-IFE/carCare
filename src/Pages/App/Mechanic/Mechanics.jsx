@@ -12,7 +12,9 @@ import axios from 'axios'
 const Mechanic = ({ setpages }) => {
   const { UserDataWithToken, UserDatas } = useSelector((state) => state.carCare)
   const [currentBookings1, setcurrentBookings] = useState([])
+  const [ActionTaken, setActionTaken] = useState(null)
   const [bookingHistory, setbookingHistory] = useState(currentBookings1?.length)
+  
   const getAllCurrentBookings = async () => {
     const token = UserDataWithToken.token
     const url = import.meta.env.VITE_API_Url
@@ -28,8 +30,14 @@ const Mechanic = ({ setpages }) => {
       )
       console.log(res, "setcurrentBookings")
       // console.log(res?.data?.data, "setcurrentBookings")
-      setcurrentBookings(res?.data?.data)
-      setbookingHistory(res?.data?.data.length)
+      const mechDetasils = res?.data?.data.filter((e)=>{
+        return e.status == "Pending"
+      })
+      console.log(mechDetasils, "filter")
+      setcurrentBookings(mechDetasils)
+      setbookingHistory(mechDetasils.length)
+      // setcurrentBookings(res?.data?.data)
+      // setbookingHistory(res?.data?.data.length)
       // if (res?.data) {
       //   setcurrentBookings([])
       // } else {
@@ -45,7 +53,9 @@ const Mechanic = ({ setpages }) => {
 
   useEffect(() => {
     getAllCurrentBookings()
-  }, [])
+    console.log(ActionTaken, "action")
+  }, [ActionTaken])
+
   const [currentPage, setCurrentPage] = useState(1);
   const bookingsPerPage = 7; // Number of bookings per page
   const indexOfLastBooking = currentPage * bookingsPerPage;
@@ -77,6 +87,8 @@ const Mechanic = ({ setpages }) => {
           <MechTable
             token={UserDataWithToken.token}
             setpages={setpages}
+            ActionTaken={ActionTaken}
+            setActionTaken={setActionTaken}
             currentBookings={currentBookings}
             totalPages={totalPages}
             currentPage={currentPage}

@@ -9,7 +9,7 @@ import axios from 'axios'
 
 const Driver = ({ setpages }) => {
   const [currentBookings, setcurrentBookings] = useState([])
-  const {UserDataWithToken, UserDatas} = useSelector((state) => state.carCare)
+  const { UserDataWithToken, UserDatas } = useSelector((state) => state.carCare)
   const [bookingHistory, setbookingHistory] = useState(currentBookings?.length)
   const navigate = useNavigate()
   const dispatch = useDispatch()
@@ -35,9 +35,9 @@ const Driver = ({ setpages }) => {
     }
   }
 
-  useEffect(()=>{
+  useEffect(() => {
     getAllCurrentBookings()
-  },[])
+  }, [])
   const startBooking = () => {
     dispatch(setAppbookingFormPage(0))
     setpages("addbooking")
@@ -63,13 +63,24 @@ const Driver = ({ setpages }) => {
           Booking history ({bookingHistory})
         </div>
         <div className="driverPageBottomDown">
-          <div className="driverPageBottomDownBox">
-            <div>
-              <h3>No Service Request</h3>
-              <p>You haven’t requested any service yet. Your active request will show up here</p>
-            </div>
-            <button className='booking_btn' onClick={startBooking}>+ New Booking</button>
-          </div>
+          {
+            bookingHistory < 1 ?
+              <div className="driverPageBottomDownBox">
+                <div>
+                  <h3>No Service Request</h3>
+                  <p>You haven’t requested any service yet. Your active request will show up here</p>
+                </div>
+                <button className='booking_btn' onClick={startBooking}>+ New Booking</button>
+              </div>
+              :
+              <div className="driverPageBottomDownBox">
+                <div>
+                  <h3>Active Bookings</h3>
+                  <p>You have active or previous bookings. Manage or view your requests below.</p>
+                </div>
+                <button className='booking_btn' onClick={() => setpages("booking")}> View Bookings</button>
+              </div>
+          }
         </div>
       </div>
     </div>
