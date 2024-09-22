@@ -9,7 +9,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { logOut } from '../../../Global/Redux-actions/carCare';
 
 const LoggedInDropdown = ({ setshowMenu2, showMenu2 }) => {
-    const typeOfUser = useSelector((state) => state.carCare.typeOfUser);
+    const {typeOfUser, UserDatas} = useSelector((state) => state.carCare);
     const [showMenu3, setshowMenu3] = useState(true)
     const [dashboardPath, setdashboardPath] = useState("/app")
     useEffect(() => {
@@ -67,7 +67,7 @@ const LoggedInDropdown = ({ setshowMenu2, showMenu2 }) => {
                         <div className="loggedInDropdownBoxUpWrap">
                             <IoPersonCircleSharp size={40} />
                             {/* <p>Aladetan Ife</p>  */}
-                            <p>Favour Joy</p> 
+                            <p>{UserDatas?.fullName}</p> 
                         </div>
                     </div>
                     <div className="loggedInDropdownBoxDown">
