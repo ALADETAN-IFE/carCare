@@ -1,7 +1,7 @@
 import "./sideBar.css"
 import logo from "../../assets/svg/Logo.svg"
 import { NavLink, useNavigate } from "react-router-dom"
-import { IoNotifications } from "react-icons/io5";
+import { IoCloseSharp, IoNotifications } from "react-icons/io5";
 import { IoMdSettings } from "react-icons/io";
 import { RiLogoutCircleLine } from "react-icons/ri";
 import { closeNavBarVisibility, logOut, openNavBarVisibility } from "../../Global/Redux-actions/carCare";
@@ -10,15 +10,18 @@ import { useEffect, useState } from "react";
 import { BiMenuAltLeft, BiMenuAltRight } from "react-icons/bi";
 import { LuLogOut } from "react-icons/lu";
 import ScrollToTop from "../../Components/ScrollToTop";
+import axios from "axios";
+import { GiHamburgerMenu } from "react-icons/gi";
 
 const SideBar = ({ pages, setpages, book }) => {
     const navigate = useNavigate()
     const dispatch = useDispatch()
-    const {navBarVisibility, UserDatas} = useSelector((state) => state.carCare)
+    const { navBarVisibility, UserDatas, UserDataWithToken } = useSelector((state) => state.carCare)
     const typeOfUser = useSelector((state) => state.carCare.typeOfUser)
     const [width, setwidth] = useState(window.innerWidth)
     const [User, setUser] = useState(typeOfUser)
     const [additionalSideBar, setadditionalSideBar] = useState([])
+    const [logOutEndPoint, setlogOutEndPoint] = useState("")
     setInterval(() => {
         setwidth(window.innerWidth)
     }, 500);
@@ -32,11 +35,22 @@ const SideBar = ({ pages, setpages, book }) => {
             dispatch(closeNavBarVisibility())
         }
     }, [])
-    // useEffect(() => {
-    //     if (width <= "769" && !navBarVisibility) {
-    //         dispatch(openNavBarVisibility(false))
-    //     }
-    // }, [width])
+    useEffect(() => {
+        if (width >= "769" && !navBarVisibility) {
+            dispatch(openNavBarVisibility(false))
+        }
+    }, [width])
+    useEffect(() => {
+        if (typeOfUser === "Mechanic") {
+            setlogOutEndPoint("api/v1/mech/signout")
+        }
+        else if (typeOfUser === "Driver") {
+            setlogOutEndPoint("api/v1/signout")
+        }
+        else {
+            setlogOutEndPoint("")
+        }
+    }, [])
 
 
     const userSideBarNav = [
@@ -162,25 +176,61 @@ const SideBar = ({ pages, setpages, book }) => {
     const closesideBarVisibility = () => {
         dispatch(closeNavBarVisibility())
     }
+
+    // const logOut = async () => {
+    const logOutFunc = () => {
+        // const url = import.meta.env.VITE_API_Url
+        // const token = UserDataWithToken.token
+        // console.log(UserDataWithToken.token, "UserDataWithToken")
+        // setloading(true)
+
+        dispatch(logOut())
+        // try {
+        //     const response = await axios.post(`${url}/${logOutEndPoint}`,
+        //         {
+        //             headers: {
+        //                 Authorization: `Bearer ${token}`,  // Add token for authentication
+        //             },
+        //         })
+        //         console.log(response)
+        //     } catch (error) {
+        //         console.log(error)
+        // }
+    }
     return (
         <div className={navBarVisibility ? "sidebar sidebar_increase" : "sidebar"}
-            style={navBarVisibility && width < 500 ? { display: "flex" } :
+            style={navBarVisibility && width < 500 ? { display: "flex", paddingTop: 0 } :
                 !navBarVisibility && width < 500 ? { display: "none" } : null}
         >
             <div className="sideBarTop">
-                <img src={logo} alt=""
-                    onClick={() => navigate("/")}
-                    className="sideBarLogo" style={navBarVisibility ? null : { width: "80px" }}
 
-                />
+                {
+                    navBarVisibility && width < 500 ?
+                        <div className="NotLoggedInHead">
+                            <div className="NotLoggedInHeadWrapper">
+                                <img src={logo} alt="" />
+                                <IoCloseSharp
+                                    style={{ cursor: "pointer" }}
+                                    onClick={closesideBarVisibility}
+                                />
+                            </div>
+                        </div>
+                        :
+                        <img src={logo} alt=""
+                            onClick={() => navigate("/")}
+                            className="sideBarLogo" style={navBarVisibility ? null : { width: "80px" }}
+
+                        />
+                }
+
                 {/* <img src={close} alt="" className="sideBarTopClose" /> */}
                 <div className="sideBarNavs">
-                    {
+                    {/* {
                         navBarVisibility ?
-                            <BiMenuAltRight size={26} className="sideBarTopClose" onClick={closesideBarVisibility} style={!navBarVisibility && width > 500 || width < 660 ? { display: "flex" } : { display: "none" }} />
+                            <IoCloseSharp size={26} className="sideBarTopClose" onClick={closesideBarVisibility} style={!navBarVisibility && width > 500 || width < 660 ? { display: "flex" } : { display: "none" }} />
                             :
-                            <BiMenuAltLeft size={26} className="sideBarTopClose" onClick={opensideBarVisibility} style={!navBarVisibility && width > 500 || width < 660 ? { display: "flex" } : { display: "none" }} />
-                    }
+                            <GiHamburgerMenu size={26} className="sideBarTopClose" onClick={opensideBarVisibility} style={!navBarVisibility && width > 500 || width < 660 ? { display: "flex" } : { display: "none" }} />
+                    } */}
                     {
                         User === "Admin" ?
                             <>
@@ -189,7 +239,7 @@ const SideBar = ({ pages, setpages, book }) => {
                                     adminicSideBarNav?.map((e, i) => (
                                         <NavLink className={pages.includes(e?.to) ? "sideBarNavActive sideBarNav" : "sideBarNav"}
                                             style={navBarVisibility ? null : { fontSize: "20px", justifyContent: "center", padding: "0px 0px" }}
-                                            key={i} onClick={() => setpages(e?.to)}>
+                                            key={i} onClick={() => { setpages(e?.to), width < 500 ? dispatch(closeNavBarVisibility()): null }}>
                                             {e?.icon}
                                             <span style={navBarVisibility ? null : { display: "none" }}>
                                                 {e?.text}
@@ -205,7 +255,7 @@ const SideBar = ({ pages, setpages, book }) => {
                                         mechanicSideBarNav?.map((e, i) => (
                                             <NavLink className={pages.includes(e?.to) ? "sideBarNavActive sideBarNav" : "sideBarNav"}
                                                 style={navBarVisibility ? null : { fontSize: "20px", justifyContent: "center", padding: "0px 0px" }}
-                                                key={i} onClick={() => setpages(e?.to)}>
+                                                key={i} onClick={() => { setpages(e?.to), width < 500 ? dispatch(closeNavBarVisibility()): null }}>
                                                 {e?.icon}
                                                 <span style={navBarVisibility ? null : { display: "none" }}>
                                                     {e?.text}
@@ -220,7 +270,7 @@ const SideBar = ({ pages, setpages, book }) => {
                                         userSideBarNav?.map((e, i) => (
                                             <NavLink className={pages.includes(e?.to) ? "sideBarNavActive sideBarNav" : "sideBarNav"}
                                                 style={navBarVisibility ? null : { fontSize: "20px", justifyContent: "center", padding: "0px 0px" }}
-                                                key={i} onClick={() => setpages(e?.to)}>
+                                                key={i} onClick={() => { setpages(e?.to), width < 500 ? dispatch(closeNavBarVisibility()): null }}>
                                                 {e?.icon}
                                                 <span style={navBarVisibility ? null : { display: "none" }}>
                                                     {e?.text}
@@ -242,7 +292,7 @@ const SideBar = ({ pages, setpages, book }) => {
                     </div>
                     <p> {UserDatas?.fullName}</p>
                 </div>
-                <LuLogOut color="#A21C29" onClick={() => dispatch(logOut())} />
+                <LuLogOut color="#A21C29" onClick={logOutFunc} />
             </div>
             <ScrollToTop pages={pages} book={book} />
         </div>

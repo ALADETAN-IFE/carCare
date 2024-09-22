@@ -1,0 +1,134 @@
+.NotLoggedIn {
+    position: fixed;
+    top: 0;
+    left: 0;
+    /* width: 100%; */
+    height: max-content;
+    /* min-height: 100vh; */
+    padding-bottom: 86px;
+    background: white;
+    /* overflow: ; */
+    z-index: 99999999999;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    text-decoration: none;
+}
+
+.NotLoggedInHead {
+    height: 63px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    /* padding: 0px 10px; */
+    align-items: center;
+    border-bottom: 1px solid var(--Primary-Primary200, #DDD);
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.NotLoggedInHeadWrapper {
+    height: 100%;
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    & img{
+        /* max-width: 80%; */
+        max-height: 90%;
+    }
+}
+
+.NotLoggedInBottom {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.NotLoggedInBottomTop {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.NotLoggedInBottomTopRoute {
+    display: flex;
+    height: 50px;
+    padding: 0px 40px;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    text-align: left;
+    color: var(--Base-Base-Black, #171717);
+    font-family: Lora;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    text-decoration: none;
+}
+
+.NotLoggedInBottomTopActive {
+    background: var(--Secondary-Secondary100, #D6EDFF);
+}
+
+.NotLoggedInBottomBottom {
+    display: flex;
+    width: 100%;
+    padding: 0px 40px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    text-decoration: none;
+
+
+
+    & a:first-child {
+        display: flex;
+        height: 40px;
+        padding: 7.5px;
+        justify-content: center;
+        align-items: center;
+        gap: 7.5px;
+
+        border-radius: 8px;
+        border: 1px solid var(--Secondary-Secondary, #0066B2);
+        width: 100%;
+        color: var(--Secondary-Secondary, #0066B2);
+        font-family: Lora;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+        text-decoration: none;
+    }
+
+    & a:last-child {
+        width: 100%;
+        display: flex;
+        height: 40px;
+        padding: 7.5px;
+        justify-content: center;
+        align-items: center;
+        gap: 7.5px;
+        color: var(--Base-Base-White, #FFF);
+        font-family: Lora;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        border-radius: 8px;
+        background: var(--Secondary-Secondary, #0066B2);
+        text-decoration: none;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .NotLoggedIn {
+        width: 100%;
+        min-height: 100vh;
+    }
+}

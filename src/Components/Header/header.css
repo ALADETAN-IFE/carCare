@@ -218,3 +218,12 @@ header {
         }
     }
 }
+
+@media screen and (max-width: 34.9375rem) {
+    .menu {
+        display: flex;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+    }
+}

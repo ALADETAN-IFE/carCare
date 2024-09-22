@@ -1,7 +1,143 @@
-import { Link } from 'react-router-dom'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 import './confirm.css'
+import { useDispatch, useSelector } from 'react-redux'
+import { setmechTobeBooked, setuserBookingForm } from '../../../../../Global/Redux-actions/carCare'
+import { useEffect, useState } from 'react'
+import axios from 'axios'
+import { toast } from 'react-toastify'
 
-const Confirm = ({ setbook }) => {
+const Confirm = ({ setbook, setpages }) => {
+  const { mechId } = useParams()
+  const { mechTobeBooked,
+    userBookingForm,
+    UserDatas,
+    UserDataWithToken
+  } = useSelector((state) => state.carCare)
+  const [bookingInputsObject, setbookingInputsObject] = useState(userBookingForm)
+  const [mechTobeBookedDetails, setmechTobeBookedDetails] = useState(mechTobeBooked)
+  const [totalAmount, settotalAmount] = useState(93000)
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+  const changeMech = () => {
+    dispatch(setmechTobeBooked({}))
+    setbookingInputsObject({ ...bookingInputsObject, mechName: "" })
+    setTimeout(() => {
+      navigate("/mechanics")
+    }, 1000);
+  }
+  useEffect(() => {
+    dispatch(setuserBookingForm(bookingInputsObject))
+  }, [bookingInputsObject])
+
+  const experienceCalc = (years) => {
+    console.log(years)
+    if (years > 10 && years < 20) {
+      return ` 10 + years`
+    }
+    if (years > 20 && years < 30) {
+      return ` 20 + years`
+    }
+    if (years > 30) {
+      return ` 20 + years`
+    }
+    if (years < 2) {
+      return ` ${years} year`
+    }
+    else {
+      return ` ${years} years`
+    }
+  }
+
+  const sendUserDetails = async () => {
+    const token = UserDataWithToken.token
+    try {
+      const url = import.meta.env.VITE_API_Url
+      const res = await axios.post(`${url}/api/v1/customer-Booking/${mechId}`,
+        bookingInputsObject,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,  // Add token for authentication
+          },
+        }
+      )
+      console.log(res, "res")
+    } catch (error) {
+      console.log(error, "error")
+
+    }
+  }
+
+
+  function payKorapay() {
+    window.Korapay.initialize({
+      key: import.meta.env.VITE_KORA_Public_Key,
+      reference: `carCare_${Date.now()}`,
+      amount: Number(totalAmount),
+      currency: "NGN",
+      customer: {
+        name: UserDatas.fullName,
+        email: UserDatas.email
+      },
+      notification_url: "https://example.com/webhook",
+      // notification_url: sendUserDetails(),
+      // onClose: function () {
+      //   // Handle when modal is closed
+      // },
+
+      // onSuccess: sendUserDetails(),
+      onSuccess: function (data) {
+        // Handle when payment is successful
+        console.log(data, "data")
+        const url = import.meta.env.VITE_API_Url
+        const token = UserDataWithToken.token
+        axios.post(`${url}/api/v1/customer-Booking/${mechId}`,
+          {...bookingInputsObject, totalCost:totalAmount },
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,  // Add token for authentication
+            },
+          }).then(res => {
+            console.log(res, "res")
+            toast.success(res?.data?.message)
+            setTimeout(() => {
+              dispatch(setuserBookingForm({}))
+              navigate("/app")
+              setbook(false)
+              setpages("booking")
+            }, 2000);
+          }).catch((error) => {
+            console.log(error, "error")
+            if (error?.response?.data?.message == "You cannot book again until 30 minutes have passed since your last pending appointment.") {
+              toast.info("You cannot book again until 30 minutes have passed since your last pending appointment.")
+              setTimeout(() => {
+                dispatch(setuserBookingForm({}))
+                navigate("/app")
+                setbook(false)
+                setpages("booking")
+              }, 2000);
+            }
+          }
+          )
+      },
+
+      onFailed: function (data) {
+        // Handle when payment fails
+        console.log(data, "data")
+        // dispatch(setuserBookingForm({}))
+      },
+      onPending: function (data) {
+        // Handle when payment fails
+        console.log(data, "data")
+        // dispatch(setuserBookingForm({}))
+      },
+      onTokenized: function (data) {
+        // Handle when payment fails
+        console.log(data, "data")
+        // dispatch(setuserBookingForm({}))
+      },
+    });
+  }
+
   return (
     <div className="confirmBookingContainer" >
       <div className='confirmBookingBox'>
@@ -19,7 +155,18 @@ const Confirm = ({ setbook }) => {
               <div className="confirmBookingMiddleTopDetails">
                 <div>
                   <span className='span1'>Service:</span>
-                  <span className='span2'>Tire Replacement</span>
+
+                  {
+                    bookingInputsObject?.service ?
+                      <>
+                        {
+                          bookingInputsObject?.service.map((e, i) => (
+                            <span className='span2' key={i}>{e?.name}</span>
+                          ))
+                        }
+                      </>
+                      : null
+                  }
                 </div>
                 <div>
                   <span className='span1'>Date & Time:</span>
@@ -31,12 +178,22 @@ const Confirm = ({ setbook }) => {
                 </div>
               </div>
               <div className="confirmBookingMiddleTopMech">
-                <div className="confirmBookingMiddleTopMechLeft"></div>
+                <div className="confirmBookingMiddleTopMechLeft"
+                  style={{ background: !mechTobeBookedDetails?.profilePicture?.pictureUrl ? `#FBFBFB` : `url(${mechTobeBookedDetails?.profilePicture?.pictureUrl})` }}
+                ></div>
                 <div className="confirmBookingMiddleTopMechRight">
-                  <h3>Williams Olagoke</h3>
+                  <h3>{mechTobeBookedDetails?.fullName}</h3>
                   <h4>Rating: ★★★★☆ (4.5/5)</h4>
-                  <p>Years of Experience: <span>10 Years</span></p>
-                  <Link to={"/mechanics"}>Change</Link>
+                  <p>Years of Experience: <span> 
+                    {
+                      mechTobeBookedDetails?.yearsOfExperience ?
+                      <>
+                    {experienceCalc(mechTobeBookedDetails?.yearsOfExperience)}
+                      </>
+                      : <>2 years</>
+                    }
+                    </span></p>
+                  <Link onClick={changeMech}>Change</Link>
                 </div>
               </div>
               <div className="confirmBookingMiddleTopCost">
@@ -58,14 +215,17 @@ const Confirm = ({ setbook }) => {
           <div className="confirmBookingMiddleBottom">
             <div className="confirmBookingMiddleBottomWrapper">
               <h3>Total</h3>
-              <p>₦<span> 93,000</span></p>
+              <p>₦<span> {totalAmount}</span></p>
             </div>
           </div>
         </div>
         <div className="confirmBookingBottom">
           <div className="confirmBookingBottomWrapper">
             <button className='go_back' onClick={() => setbook(false)}>BACK</button>
-            <button className='checkout_btn'>CHECKOUT</button>
+            <button className='checkout_btn'
+              onClick={payKorapay}
+            // onClick={()=> dispatch(setuserBookingForm({}))}
+            >CHECKOUT</button>
           </div>
         </div>
       </div>

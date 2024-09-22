@@ -30,7 +30,7 @@ const ratingStars = (rating) => {
 
     return (
         <div className="rating-stars">
-            {[...Array(fullStars)].map((_, i) => (
+            {[...Array(fullStars)]?.map((_, i) => (
                 <IoStar key={`full-${i}`} className="full-star" />
             ))}
             {decimal >= 0.75 ? (
@@ -38,7 +38,7 @@ const ratingStars = (rating) => {
             ) : decimal >= 0.25 ? (
                 <IoIosStarHalf className="half-star" />
             ) : null}
-            {[...Array(5 - fullStars - (decimal >= 0.25 ? 1 : 0))].map((_, i) => (
+            {[...Array(5 - fullStars - (decimal >= 0.25 ? 1 : 0))]?.map((_, i) => (
                 <IoStar key={`empty-${i}`} className="empty-star" />
             ))}
         </div>
@@ -146,13 +146,14 @@ const MechanicsCard = ({mech}) => {
     const navigate = useNavigate()
   return (
     <div className="mechanicsCard">
-        <div className="mechanicsCardTop">
-            <img src={mech?.image} alt="" />
+        <div className="mechanicsCardTop" 
+        style={{background: !mech?.profilePicture?.pictureUrl ? "black": `url(${mech?.profilePicture?.pictureUrl})`}}>
+            {/* <img src={mech?.profilePicture?.pictureUrl} alt="" /> */}
         </div>
         <div className="mechanicsCardBottom">
             <div className="mechanicsCardBottomDetailsTop">
-                <p>{mech?.name}</p>
-                <span>{ratingStars(mech?.rating)}</span>
+                <p>{mech?.fullName}</p>
+                {/* <span>{ratingStars(mech?.rating)}</span> */}
             </div>
             <div className="mechanicsCardBottomDetails">
             Specializations:   
@@ -161,10 +162,11 @@ const MechanicsCard = ({mech}) => {
                     <span key={i}>{e}</span>
                 ))
             }. */}
-            <span> {mech?.specialization?.join(", ")}</span>.
+            {/* <span> {mech?.specialization?.join(", ")}</span>. */}
             </div>
             <div className="mechanicsCardBottomDetails1">
-                {mech?.certification.join(", ")}
+                {/* {mech?.certification.join(", ")} */}
+                ASE Certified, Master Technician.
             </div>
             <div className="mechanicsCardBottomDetails2"
             >

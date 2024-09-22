@@ -1,15 +1,17 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import '../../VerifyEmail/VerifyEmail.css'
 
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import AuthHeader from '../../AuthHeader/AuthHeader';
 import { clearnotVerified } from '../../../Global/Redux-actions/carCare';
 import { useDispatch } from 'react-redux';
+import { BeatLoader } from 'react-spinners';
+import axios from 'axios';
 
 
 const MechEmailVerf = () => {
   const { token } = useParams()
-  console.log(token)
+  // console.log(token)
   const navigate = useNavigate()
   const dispatch = useDispatch()
   const [loading, setLoading] = useState(true)
@@ -20,16 +22,19 @@ const MechEmailVerf = () => {
 
   const handleSubmit = async () => {
     try {
-      const url = "https://carcareconnectproject.onrender.com"
+      const url = import.meta.env.VITE_API_Url
       const response = await axios.patch(`${url}/api/v1/mech/verifyEmail/${token}`)
-      console.log(response)
+      // console.log(response)
       setLoading(true);
       if (response.status === 200) {
         setLoading(false);
         setError(null);
+        setTimeout(() => {
+          navigate('/login');
+        }, 3000); // Adding a delay before redirecting
         // setTimeout(() => {
-        //   navigate('/login');
-        // }, 3000); // Adding a delay before redirecting
+        //   navigate("/mechInfo")
+        // }, 3000);
       } else if (response.status === 400 || response.status === 401) {
         setError('Invalid or expired token.');
       }
@@ -39,7 +44,8 @@ const MechEmailVerf = () => {
         alert("You are currently offline")
         dispatch(clearnotVerified())
       }
-      setError('Verification Failed. Please check your network or try again later.');
+      // setError('Verification Failed. Please check your network or try again later.');
+      setError(`${error?.response?.data?.error}`);
       setLoading(false); // Ensure loading is set to false if error occurs
     }
   }
@@ -51,6 +57,10 @@ const MechEmailVerf = () => {
     flexDirection: "column",
     gap: "20px",
     alignItems: "center",
+  }
+  const handleNavigate = (e) => {
+    e.preventDefault()
+    navigate("/login")
   }
   return (
 
@@ -69,7 +79,21 @@ const MechEmailVerf = () => {
               : !token ?
                 <h1>{"error"}</h1>
                 : error ?
-                  <h1>{error}</h1>
+                  <>
+                    <h1 style={{ fontSize: "35px" }}>{error}</h1>
+                    {
+                      error == "User already verified" ?
+                        <button className='resetPassword'
+                          onClick={handleNavigate}
+                          style={{ transitionDuration: '0ms' }}>
+                          Proceed to Login</button>
+                        :
+                        <p>Didn't Receive the Email? Check your spam <br />
+                          folder or <Link to='/signup' className='signup__link'>
+                            Click here to resend</Link>
+                        </p>
+                    }
+                  </>
                   :
                   // <h1>Verification was successful! Redirecting to login...</h1>
                   <div className="popup__content">
@@ -81,7 +105,7 @@ const MechEmailVerf = () => {
                     </div>
                     <div className="popup__content__bottom">
                       <button className='resetPassword'
-                        // onClick={handleNavigate}
+                        onClick={handleNavigate}
                         style={{ transitionDuration: '0ms' }}>continue</button>
                       <div>
                         <p>Didn't Receive the Email? Check your spam <br />

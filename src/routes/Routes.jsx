@@ -151,6 +151,21 @@ const Routes = createHashRouter([
                         // ]
                     },
                     {
+                        path: "/app/:customerId/:mechId",
+                        element: <DriverLayout />,
+                        // children: [
+                        //     {
+                        //         // index: true,
+                        //         path:"/app",
+                        //         element: <Driver/>,
+                        //     },
+                        //     // {
+                        //     //     path:"booking",
+                        //     //     element: <Booking/>,
+                        //     // }
+                        // ]
+                    },
+                    {
                         path: "/mechanics",
                         element: <AllMechanics />
                     },

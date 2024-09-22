@@ -21,7 +21,7 @@ const VerifyEmail = () => {
 
   const handleSubmit = async () => {
     try {
-      const url = "https://carcareconnectproject.onrender.com"
+      const url = import.meta.env.VITE_API_Url
       const response = await axios.patch(`${url}/api/v1/verifyEmail/${token}`)
       console.log(response)
       setLoading(true);
@@ -39,8 +39,8 @@ const VerifyEmail = () => {
         alert("You are currently offline")
         dispatch(clearnotVerified())
       }
-        console.log(error)
-      setError('Verification Failed. Please check your network or try again later.');
+      console.log(error)
+      setError(`${error?.response?.data?.error}`);
       setLoading(false); // Ensure loading is set to false if error occurs
     }
   }
@@ -52,6 +52,10 @@ const VerifyEmail = () => {
     flexDirection: "column",
     gap: "20px",
     alignItems: "center",
+  }
+  const handleNavigate = (e) => {
+    e.preventDefault()
+    navigate("/login")
   }
   return (
 
@@ -70,25 +74,39 @@ const VerifyEmail = () => {
               : !token ?
                 <h1>{"error"}</h1>
                 : error ?
-                  <h1>{error}</h1>
+                  <>
+                    <h1 style={{ fontSize: "35px" }}>{error}</h1>
+                    {
+                      error == "User already verified" ?
+                        <button className='resetPassword'
+                          onClick={handleNavigate}
+                          style={{ transitionDuration: '0ms' }}>
+                          Proceed to Login</button>
+                        :
+                        <p>Didn't Receive the Email? Check your spam <br />
+                          folder or <Link to='/signup' className='signup__link'>
+                            Click here to resend</Link>
+                        </p>
+                    }
+                  </>
                   :
                   // <h1>Verification was successful! Redirecting to login...</h1>
                   <div className="popup__content">
                     <div className="popup__content__top">
-                      <h1>VERIFY YOUR EMAIL</h1>
-                      <p>We're excited to have you on board, Fave Joy! <br />
+                      <h1>EMAIL VERIFIED</h1>
+                      <p>We're excited to have you on board,  <br />
                         Click the button to verify your email and <br />
                         start enjoying effortless car care </p>
                     </div>
                     <div className="popup__content__bottom">
                       <button className='resetPassword'
-                        // onClick={handleNavigate}
+                        onClick={handleNavigate}
                         style={{ transitionDuration: '0ms' }}>
-                          Proceed to Login</button>
+                        Proceed to Login</button>
                       <div>
                         <p>Didn't Receive the Email? Check your spam <br />
                           folder or <Link to='/signup' className='signup__link'>
-                          Click here to resend</Link>
+                            Click here to resend</Link>
                         </p>
                       </div>
                     </div>
@@ -109,10 +127,7 @@ export default VerifyEmail
 
 // const VerifyEmail = () => {
 //   const navigate = useNavigate()
-//   const handleNavigate = (e) => {
-//     e.preventDefault()
-//     navigate("/")
-//   }
+
 //   return (
 //     <div className='VerifyEmail__container'>
 //       <header className='authHeader'>

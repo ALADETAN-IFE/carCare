@@ -3,11 +3,18 @@ import BookingPagePagination from "../../Pages/App/Driver/Booking/BookingPagePag
 import "./mechTable.css"
 import { CgMoreVertical } from "react-icons/cg"
 import MechTableDatas from "./mechTableDatas"
+import axios from "axios"
+import { useState } from "react"
+import { toast } from "react-toastify"
+import Swal from 'sweetalert2';
+
 
 const MechTable = ({ totalPages, currentPage, setCurrentPage,
     indexOfFirstBooking, indexOfLastBooking, currentBookings1, currentBookings,
-    bookingPage }) => {
+    bookingPage, token }) => {
     const dispatch = useDispatch()
+    const [loading, setloading] = useState(false)
+    const [ActionTaken, setActionTaken] = useState(null)
     // {
     //     customer: "Anjola Akindoju",
     //     vehcleDetails: "Toyota Camry 2019",
@@ -19,6 +26,56 @@ const MechTable = ({ totalPages, currentPage, setCurrentPage,
     //   },
     // <div className="mechTable_for_mech_booking">
     //     <div className="tableHead tableHead_for_mech_booking">
+
+    // const BookingAction = ({ bookingId, token }) => {
+    // Define the function inside the component
+    // const bookingId = 
+    const acceptOrRejectBooking = async (action, bookingId) => {
+        const url1 = import.meta.env.VITE_API_Url
+        const url = `${url1}/api/v1/mech/acceptOrReject/${bookingId}`;
+        setloading(true)
+        try {
+            const response = await axios.put(url, { action }, {
+                headers: {
+                    'Authorization': `Bearer ${token}`, // Optional, if authentication is required
+                    'Content-Type': 'application/json'
+                }
+            });
+
+            // console.log('Success:', response);
+            // console.log('Success:', response.data.message);
+            // alert(`Success: ${response.data.message}`);
+            toast.success(response?.data?.data?.title)
+            // Display success alert
+            Swal.fire({
+                icon: 'success',
+                title: 'Success',
+                text: response?.data?.data?.title,
+            });
+            setloading(false)
+        } catch (error) {
+            setloading(false)
+            // console.error('Error:', error);
+            const errorMsg = error.response ? error.response.data.message : error.message;
+            // console.error('Error:', errorMsg);
+            toast.error(errorMsg)
+
+            // Display error alert
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: errorMsg,
+            });
+
+            // alert(`Error: ${errorMsg}`);
+        }
+    };
+    // }
+
+    const handleAction = (action, bookingId) => {
+        acceptOrRejectBooking(action, bookingId);
+        setActionTaken(action)
+    };
     return (
         <>
             {
@@ -100,13 +157,42 @@ const MechTable = ({ totalPages, currentPage, setCurrentPage,
                                                 currentBookings.map((booking, i) => (
                                                     <tr key={i}>
                                                         <td data-label="Customer"> {booking?.customer}</td>
-                                                        <td data-label="Vehicle Details">{booking?.vehcleDetails}</td>
-                                                        <td data-label="Service Type">{booking?.serviceType}</td>
+                                                        <td data-label="Vehicle Details">{booking?.brand} {booking?.model}  {booking?.year}</td>
+                                                        <td data-label="Service Type">
+                                                            {booking?.service?.map((e) => (
+                                                                <>{e?.name}</>
+                                                            ))
+                                                            }</td>
                                                         <td data-label="Date & Time"> {booking?.date}</td>
-                                                        <td data-label="Location">{booking?.customersLocation}</td>
-                                                        <td data-label="Actions" className="" style={{ display: "flex", justifyContent: "center", gap: "10px"}}>
-                                                            <button className="Action1">{booking?.Action1}</button>
-                                                            <button className="Action2">{booking?.Action2}</button> </td>
+                                                        <td data-label="Location">{booking?.city}</td>
+                                                        <td data-label="Actions" className="" style={{ display: "flex", justifyContent: "center", gap: "10px" }}>
+                                                            {
+                                                                loading ?
+                                                                    <>
+                                                                        <button className="Action1"  style={{ background: "gray" }}>
+                                                                            {
+                                                                                ActionTaken == "Accept" ?
+                                                                                    "Accepting..."
+                                                                                    :
+                                                                                    "Rejecting..."
+                                                                            }
+                                                                        </button>
+                                                                        <button className="Action2"  style={{ background: "gray" }}>
+                                                                            {
+                                                                                ActionTaken == "Accept" ?
+                                                                                    "Accepting..."
+                                                                                    :
+                                                                                    "Rejecting..."
+                                                                            }
+                                                                        </button>
+                                                                    </>
+                                                                    :
+                                                                    <>
+                                                                        <button className="Action1" onClick={() => handleAction('Accept', booking.id)} >Accept</button>
+                                                                        <button className="Action2" onClick={() => handleAction('Reject', booking.id)} >Reject</button>
+                                                                    </>
+                                                            }
+                                                        </td>
                                                     </tr>
                                                 ))
                                             }

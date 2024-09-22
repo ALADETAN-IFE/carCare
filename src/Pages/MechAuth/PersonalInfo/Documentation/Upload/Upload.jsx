@@ -70,7 +70,8 @@ const ImageUploadButton = ({ setimages, images, setSelectedImageName,
 
     // Use createObjectURL only for images, as documents do not need to be previewed as images
     if (validImageTypes.includes(file.type)) {
-      setimages({ ...images, [index]: URL.createObjectURL(file) });
+      // setimages({ ...images, [index]: URL.createObjectURL(file) });
+      setimages({ ...images, [index]: file });
     } else {
       setimages({ ...images, [index]: file.name }); // Just store the name for documents
     }
@@ -85,6 +86,7 @@ const ImageUploadButton = ({ setimages, images, setSelectedImageName,
         onChange={handleImageChange}
         style={styles.fileInput}
         // id="file-upload"
+        // value={}
         id={`file-upload-${index}`} // Unique ID for each file input
       />
       <label

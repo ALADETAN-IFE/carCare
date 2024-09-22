@@ -1,15 +1,43 @@
 import './driver.css'
 import dasboardBlueIcon from "../../../assets/svg/dasboardBlueIcon.svg"
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { BiPlus } from 'react-icons/bi'
 import { useNavigate } from 'react-router-dom'
 import { setAppbookingFormPage } from '../../../Global/Redux-actions/carCare'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import axios from 'axios'
 
 const Driver = ({ setpages }) => {
-  const [bookingHistory, setbookingHistory] = useState(0)
+  const [currentBookings, setcurrentBookings] = useState([])
+  const {UserDataWithToken, UserDatas} = useSelector((state) => state.carCare)
+  const [bookingHistory, setbookingHistory] = useState(currentBookings?.length)
   const navigate = useNavigate()
   const dispatch = useDispatch()
+  const getAllCurrentBookings = async () => {
+    const token = UserDataWithToken.token
+    const url = import.meta.env.VITE_API_Url
+    // setloading(true)
+    try {
+      const res = await axios.get(`${url}/api/v1/mech/allbookings`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,  // Add token for authentication
+          },
+        }
+      )
+      // console.log(res?.data?.data, "setcurrentBookings")
+      setcurrentBookings(res?.data?.data)
+      setbookingHistory(res?.data?.data.length)
+      // console.log(currentBookings1, "currentBookings1")
+      // setloading(false)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  useEffect(()=>{
+    getAllCurrentBookings()
+  },[])
   const startBooking = () => {
     dispatch(setAppbookingFormPage(0))
     setpages("addbooking")
@@ -17,7 +45,7 @@ const Driver = ({ setpages }) => {
   return (
     <div className='driverPage'>
       <div className="driverPageTop">
-        <h3>Welcome, Favour</h3>
+        <h3>Welcome, {UserDatas?.fullName}</h3>
       </div>
       <div className="driverPageMiddle">
         <div className="driverPageMiddleWrapper">

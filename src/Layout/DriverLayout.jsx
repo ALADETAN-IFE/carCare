@@ -15,70 +15,92 @@ import axios from "axios"
 
 const DriverLayout = () => {
   // addBooking
-  const {customerId} = useParams()
-  const {appPages, UserDatas} = useSelector((state)=> state.carCare)
-  
+  const { customerId, mechId } = useParams()
+  const { appPages,
+    UserDatas,
+    UserDataWithToken,
+    typeOfUser,
+    isLoggedIn,
+  } = useSelector((state) => state.carCare)
+
   const dispatch = useDispatch()
   const navigate = useNavigate()
   useEffect(() => {
     setpages1(appPages)
   }, [appPages])
-  
+
   const [pages, setpages1] = useState(appPages)
   const [book, setbook] = useState(false)
   const setpages = (pageName) => {
     dispatch(setAppPages(pageName))
   }
   const setcustomerId = () => {
-    if (!customerId) {
-      navigate(`/app/${UserDatas._id}`)
-    }
+    // if (!customerId) {
+    navigate(`/app/${UserDatas._id}`)
+    // }
   }
-  const getUserDetails = async () =>{
+  const getUserDetails = async () => {
+    const token = UserDataWithToken.token
     try {
       // const customerId = UserDatas._id
-      const url = "https://carcareconnectproject.onrender.com"
-      const res = await axios.get(`${url}/api/v1/oneCustomers/${customerId}`)
+      const url = import.meta.env.VITE_API_Url
+      const res = await axios.get(`${url}/api/v1/oneCustomers/${customerId}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,  // Add token for authentication
+          },
+        }
+      )
       console.log(res)
     } catch (error) {
       console.log(error)
-      if (!navigator.onLine) {
-        alert("You are currently offline")
-        dispatch(clearnotVerified())
-      }
+      // if (!navigator.onLine) {
+      //   alert("You are currently offline")
+      //   dispatch(clearnotVerified())
+      // }
     }
   }
-  useEffect(()=>{
-    if (!customerId) {
-      setcustomerId()
+  useEffect(() => {
+    if (mechId && pages == "addbooking") {
+
     } else {
-      getUserDetails()
+      if (!customerId) {
+        setcustomerId()
+      } else {
+        setcustomerId()
+        getUserDetails()
+      }
+      
     }
-  },[appPages])
+  }, [appPages])
+  // console.log(UserDatas, "UserDatas" )
+  // console.log(UserDataWithToken, "UserDataWithToken" )
+  console.log(typeOfUser, "typeOfUser")
+  // console.log(isLoggedIn, "isLoggedIn" )
   return (
-    <div className="layout" 
+    <div className="layout"
     // style={book ? {overflow: "hidden", height: "100vh"} : {overflow: "auto"}}
     >
-        {
-                book ? 
-                <Confirm setbook={setbook} />
-                : null
-            }
-      <SideBar pages={pages} setpages={setpages} book={book}/>
+      {
+        book ?
+          <Confirm setbook={setbook} setpages={setpages}/>
+          : null
+      }
+      <SideBar pages={pages} setpages={setpages} book={book} />
       <div className="layoutDown">
-      <LayoutHeader LayoutHeaderStyle/>
+        <LayoutHeader LayoutHeaderStyle />
         {/* <Outlet /> */}
         {
           pages == "app" || pages == "" ?
-          <Driver setpages={setpages} />
-          : 
-          pages == "booking" ?
-          <Booking setpages={setpages} />
-          : pages == "addbooking" ?
-          <AddBooking setbook={setbook} />
-          : pages == "settings" ?
-          <Settings/>
-          : null
+            <Driver setpages={setpages} />
+            :
+            pages == "booking" ?
+              <Booking setpages={setpages} pages={pages} />
+              : pages == "addbooking" ?
+                <AddBooking setbook={setbook} />
+                : pages == "settings" ?
+                  <Settings />
+                  : null
         }
       </div>
     </div>
