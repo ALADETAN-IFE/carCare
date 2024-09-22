@@ -62,7 +62,7 @@ const MechInfo = () => {
                             Business Name
                         </label>
                         <input type="text" className='infoInput'
-                           
+                           value={mechCompleteDetailsState?.businessName}
                            name='businessName'
                             onChange={setData}
                         />
@@ -72,7 +72,7 @@ const MechInfo = () => {
                             Business Registration Number*
                         </label>
                         <input type="text" className='infoInput' 
-                       
+                       value={mechCompleteDetailsState?.businessRegNumber}
                        name="businessRegNumber"
                         onChange={setData}
                         />
@@ -82,7 +82,7 @@ const MechInfo = () => {
                             Business Address
                         </label>
                         <input type="text" className='infoInput' 
-                       
+                       value={mechCompleteDetailsState?.businessAddress}
                        name='businessAddress'
                         onChange={setData}
                         />
@@ -92,7 +92,7 @@ const MechInfo = () => {
                             Area of Specialization
                         </label>
                         <input type="text" className='infoInput'
-                       
+                       value={mechCompleteDetailsState?.areaOfSpecialization}
                        name='areaOfSpecialization'
                         onChange={setData}
                         />
@@ -102,7 +102,8 @@ const MechInfo = () => {
                             Years of Experiences
                         </label>
                         <input type="text" className='infoInput'
-                       
+                       inputMode="numeric"
+                       value={mechCompleteDetailsState?.yearsOfExperience}
                        name='yearsOfExperience'
                         onChange={setData}
                         />

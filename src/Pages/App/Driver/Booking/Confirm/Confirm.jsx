@@ -91,7 +91,7 @@ const Confirm = ({ setbook, setpages }) => {
         const url = import.meta.env.VITE_API_Url
         const token = UserDataWithToken.token
         axios.post(`${url}/api/v1/customer-Booking/${mechId}`,
-          bookingInputsObject,
+          {...bookingInputsObject, totalCost:totalAmount },
           {
             headers: {
               Authorization: `Bearer ${token}`,  // Add token for authentication
@@ -184,7 +184,15 @@ const Confirm = ({ setbook, setpages }) => {
                 <div className="confirmBookingMiddleTopMechRight">
                   <h3>{mechTobeBookedDetails?.fullName}</h3>
                   <h4>Rating: ★★★★☆ (4.5/5)</h4>
-                  <p>Years of Experience: <span> {experienceCalc(mechTobeBookedDetails?.yearsOfExperience)}</span></p>
+                  <p>Years of Experience: <span> 
+                    {
+                      mechTobeBookedDetails?.yearsOfExperience ?
+                      <>
+                    {experienceCalc(mechTobeBookedDetails?.yearsOfExperience)}
+                      </>
+                      : <>2 years</>
+                    }
+                    </span></p>
                   <Link onClick={changeMech}>Change</Link>
                 </div>
               </div>

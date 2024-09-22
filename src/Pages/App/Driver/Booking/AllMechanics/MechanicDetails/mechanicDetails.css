@@ -273,6 +273,7 @@
     .mechanicDetailsLeft{
         display: flex;
         justify-content: center;
+        height: 400px;
     }
 
     .mechanicDetailsRight, .mechanicDetailsLeft {

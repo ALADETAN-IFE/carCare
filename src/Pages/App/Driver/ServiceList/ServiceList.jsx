@@ -58,7 +58,7 @@ const ServiceList = () => {
     setSelectedServices(
       isChecked
         ? [...selectedServices, service]
-        : selectedServices.filter(item => item.id !== service.id)
+        : selectedServices.filter(item => item.name !== service.name)
     );
 
     console.log(service)

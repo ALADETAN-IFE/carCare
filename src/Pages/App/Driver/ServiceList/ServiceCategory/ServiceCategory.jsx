@@ -7,12 +7,12 @@ const ServiceCategory = ({ pages = [], setPages }) => {
   const navigate = useNavigate()
   const selectOption = [
     { text: 'Tire & Wheels', to: "tire" },
-    { text: "General Service", to: "service" },
-    { text: "AC Service and Repairs", to: "ACrepair" },
-    { text: "Brake System", to: "brake" },
-    { text: "Preventive Service", to: "prevent" },
-    { text: "Windshield & Glass", to: "glass" },
-    { text: "Steering System", to: "steering" },
+    // { text: "General Service", to: "service" },
+    // { text: "AC Service and Repairs", to: "ACrepair" },
+    // { text: "Brake System", to: "brake" },
+    // { text: "Preventive Service", to: "prevent" },
+    // { text: "Windshield & Glass", to: "glass" },
+    // { text: "Steering System", to: "steering" },
   ]
 
   return (

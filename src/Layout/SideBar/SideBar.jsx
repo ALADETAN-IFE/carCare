@@ -199,7 +199,7 @@ const SideBar = ({ pages, setpages, book }) => {
     }
     return (
         <div className={navBarVisibility ? "sidebar sidebar_increase" : "sidebar"}
-            style={navBarVisibility && width < 500 ? { display: "flex", paddingTop: 0} :
+            style={navBarVisibility && width < 500 ? { display: "flex", paddingTop: 0 } :
                 !navBarVisibility && width < 500 ? { display: "none" } : null}
         >
             <div className="sideBarTop">
@@ -239,7 +239,7 @@ const SideBar = ({ pages, setpages, book }) => {
                                     adminicSideBarNav?.map((e, i) => (
                                         <NavLink className={pages.includes(e?.to) ? "sideBarNavActive sideBarNav" : "sideBarNav"}
                                             style={navBarVisibility ? null : { fontSize: "20px", justifyContent: "center", padding: "0px 0px" }}
-                                            key={i} onClick={() => setpages(e?.to)}>
+                                            key={i} onClick={() => { setpages(e?.to), width < 500 ? dispatch(closeNavBarVisibility()): null }}>
                                             {e?.icon}
                                             <span style={navBarVisibility ? null : { display: "none" }}>
                                                 {e?.text}
@@ -255,7 +255,7 @@ const SideBar = ({ pages, setpages, book }) => {
                                         mechanicSideBarNav?.map((e, i) => (
                                             <NavLink className={pages.includes(e?.to) ? "sideBarNavActive sideBarNav" : "sideBarNav"}
                                                 style={navBarVisibility ? null : { fontSize: "20px", justifyContent: "center", padding: "0px 0px" }}
-                                                key={i} onClick={() => setpages(e?.to)}>
+                                                key={i} onClick={() => { setpages(e?.to), width < 500 ? dispatch(closeNavBarVisibility()): null }}>
                                                 {e?.icon}
                                                 <span style={navBarVisibility ? null : { display: "none" }}>
                                                     {e?.text}
@@ -270,7 +270,7 @@ const SideBar = ({ pages, setpages, book }) => {
                                         userSideBarNav?.map((e, i) => (
                                             <NavLink className={pages.includes(e?.to) ? "sideBarNavActive sideBarNav" : "sideBarNav"}
                                                 style={navBarVisibility ? null : { fontSize: "20px", justifyContent: "center", padding: "0px 0px" }}
-                                                key={i} onClick={() => setpages(e?.to)}>
+                                                key={i} onClick={() => { setpages(e?.to), width < 500 ? dispatch(closeNavBarVisibility()): null }}>
                                                 {e?.icon}
                                                 <span style={navBarVisibility ? null : { display: "none" }}>
                                                     {e?.text}

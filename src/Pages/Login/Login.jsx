@@ -34,30 +34,61 @@ const Login = () => {
         // console.log(response)
         // dispatch(clearnotVerified())
         dispatch(setUserDataWithToken(response?.data))
-        toast.success("Login Sucessfull")
+
         dispatch(setUserDatas(response?.data?.data))
         // console.log(response?.data?.data?.position)
         setloading(false)
         dispatch(logIn())
         if (response?.data?.data?.position == "customer") {
+          Swal.fire({
+            icon: 'success',
+            title: 'Success',
+            text: response?.data?.message,
+            timer: 3000,
+            // showConfirmButton: false,
+            confirmButtonText: 'OK'
+          });
           dispatch(setTypeOfUser("Driver"))
           setTimeout(() => {
             navigate("/app")
           }, 3000);
-          } else if (response?.data?.data?.position == "mechanic") {
-           if (response?.data?.data.approved == "Pending") {
-             toast.info("Please complete your details to continue ")
-             setTimeout(() => {
+        } else if (response?.data?.data?.position == "mechanic") {
+          if (response?.data?.data.approved == "Pending") {
+            toast.info("Please complete your details to continue ")
+            Swal.fire({
+              icon: 'info',
+              title: 'Pending Approval',
+              text: 'Please complete your details to continue.',
+              confirmButtonText: 'OK',
+              timer: 2000,
+            }).then((result) => {
+              if (result.isConfirmed) {
+                // Navigate to the page for completing details
+                navigate("/mechInfo");
+              }
+            });
+            setTimeout(() => {
               navigate("/mechInfo")
             }, 2000);
-           } else {
+          } else {
             dispatch(setTypeOfUser("Mechanic"))
+            // Success alert with navigation after 3 seconds
+            Swal.fire({
+              icon: 'success',
+              title: 'Welcome!',
+              text: 'You are now logged in as a Mechanic.',
+              timer: 3000,
+              showConfirmButton: false,
+            }).then(() => {
+              // Navigate to the mechanic dashboard
+              navigate("/app/mech");
+            });
             setTimeout(() => {
               navigate("/app/mech")
             }, 3000);
-           }
+          }
         }
-        
+
       } catch (error) {
         toast.error(error?.response?.data?.message)
         Swal.fire({
