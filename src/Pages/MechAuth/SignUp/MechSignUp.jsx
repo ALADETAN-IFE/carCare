@@ -55,7 +55,8 @@ const MechSignUp = () => {
   //   return emailRegex.test(input);
   // };
   const validateGmail = (input) => {
-    const gmailRegex = /^[^\s@]+@gmail\.com$/;
+       // const gmailRegex = /^[^\s@]+@gmail\.com$/;
+    const gmailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return gmailRegex.test(input);
   };
   // console.log(email,"big")
@@ -215,15 +216,16 @@ const MechSignUp = () => {
      ) {
       const apiData = { fullName, email, password, phoneNumber }
       console.log(apiData, "apiData")
+      const trimEmail = email.trim()
       if (fullName.trim() === "") {
         toast.error("Full name is required");
       }
       else if (email.trim() === "") {
         toast.error("Email is required");
       }
-      else if (!validateGmail(email)) {
+      else if (!validateGmail(trimEmail)) {
         // setEmailError(true);
-        toast.error("Inavlid G-mail format");
+        toast.error("Inavlid G-mail format")
       }
       else if (phoneNumber.trim() === "") {
         toast.error("Phone number is required");
@@ -280,12 +282,17 @@ const MechSignUp = () => {
         // }, 3000);
       } catch (error) {
         console.log(error)
-        if (!navigator.onLine) {
-          alert("You are currently offline")
-          dispatch(clearnotVerified())
-        }
+        // dispatch(clearnotVerified())
+        // if (!navigator.onLine) {
+        //   alert("You are currently offline")
+        // }
         setloading(false)
+        // toast.error(error?.response?.data?.message)
+          const fullName = error?.response?.data?.errors[0]
         toast.error(error?.response?.data?.message)
+        if (fullName) {
+          toast.error(fullName)
+        }
       }
     }
     // {

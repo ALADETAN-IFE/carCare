@@ -54,7 +54,8 @@ const SignUp = () => {
   //   return emailRegex.test(input);
   // };
   const validateGmail = (input) => {
-    const gmailRegex = /^[^\s@]+@gmail\.com$/;
+    // const gmailRegex = /^[^\s@]+@gmail\.com$/;
+    const gmailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return gmailRegex.test(input);
   };
   // console.log(email,"big")
@@ -224,7 +225,7 @@ const SignUp = () => {
       else if (email.trim() === "") {
         toast.error("Email is required");
       }
-      else if (!validateGmail(email)) {
+      else if (!validateGmail(email.trim())) {
         // setEmailError(true);
         toast.error("Inavlid G-mail format");
       }
@@ -286,7 +287,9 @@ const SignUp = () => {
         //   alert("You are currently offline")
         // }
         setloading(false)
-        const fullName = error?.response?.data?.errors[0]
+
+        // toast.error(error?.response?.data?.message)
+          const fullName = error?.response?.data?.errors[0]
         toast.error(error?.response?.data?.message)
         if (fullName) {
           toast.error(fullName)
