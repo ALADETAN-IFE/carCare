@@ -170,11 +170,11 @@ const Confirm = ({ setbook, setpages }) => {
                 </div>
                 <div>
                   <span className='span1'>Date & Time:</span>
-                  <span className='span2'> September 10, 2024, 2:00 PM</span>
+                  <span className='span2'> {bookingInputsObject?.date}, {bookingInputsObject?.time}</span>
                 </div>
                 <div>
                   <span className='span1'>Location:</span>
-                  <span className='span2'>On-site Service at [No. 45, Ojulegba road, Ojuelegba, Lagos]</span>
+                  <span className='span2'>{bookingInputsObject?.serviceType} at [No. 45, Ojulegba road, Ojuelegba, Lagos]</span>
                 </div>
               </div>
               <div className="confirmBookingMiddleTopMech">

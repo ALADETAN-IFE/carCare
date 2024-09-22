@@ -29,12 +29,12 @@ const MechEmailVerf = () => {
       if (response.status === 200) {
         setLoading(false);
         setError(null);
-        // setTimeout(() => {
-        //   navigate('/login');
-        // }, 3000); // Adding a delay before redirecting
         setTimeout(() => {
-          navigate("/mechInfo")
-        }, 3000);
+          navigate('/login');
+        }, 3000); // Adding a delay before redirecting
+        // setTimeout(() => {
+        //   navigate("/mechInfo")
+        // }, 3000);
       } else if (response.status === 400 || response.status === 401) {
         setError('Invalid or expired token.');
       }

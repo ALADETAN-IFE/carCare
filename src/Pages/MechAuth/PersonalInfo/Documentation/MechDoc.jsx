@@ -41,7 +41,10 @@ const MechDoc = () => {
         }))
 
         dispatch(setmechCompleteDetails(mechCompleteDetailsState))
+        setmechCompleteDetailsState(mechCompleteDetails)
     }, [images])
+    // useEffect(()=> {
+    // }, [images])
     console.log(mechCompleteDetailsState)
     const onlyNumbers = (input) => {
         // Check if the entire input consists only of numbers
@@ -194,7 +197,7 @@ const MechDoc = () => {
     
                 console.log(response);
     
-                navigate("/login");
+                navigate("/app/mech");
                 setloading(false);
                 toast.success(response?.data?.message);
             } catch (error) {

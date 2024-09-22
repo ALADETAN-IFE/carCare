@@ -28,6 +28,9 @@ const Mechanic = ({ setpages }) => {
       )
       console.log(res, "setcurrentBookings")
       // console.log(res?.data?.data, "setcurrentBookings")
+      const mechDetasils = res?.data?.data.filter((e)=>{
+        
+      })
       setcurrentBookings(res?.data?.data)
       setbookingHistory(res?.data?.data.length)
       // if (res?.data) {
