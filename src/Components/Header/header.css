@@ -190,7 +190,14 @@ header {
     position: relative;
 }
 
-@media screen {}
+@media screen and (max-width:
+/*  700px */
+43.75rem)  {
+    .laptopMenu,
+    .headerMiddle {
+        display: none;
+    }
+}
 
 @media screen and (max-width:
     /*  559px */

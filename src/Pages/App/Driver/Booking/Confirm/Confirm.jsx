@@ -55,7 +55,7 @@ const Confirm = ({ setbook, setpages }) => {
     const url = import.meta.env.VITE_API_Url
     const token = UserDataWithToken.token
     axios.post(`${url}/api/v1/customer-Booking/${mechId}`,
-      { ...bookingInputsObject, totalCost: totalAmount },
+      { ...bookingInputsObject, totalCost: totalAmount, labourCost: "15000",  },
       {
         headers: {
           Authorization: `Bearer ${token}`,  // Add token for authentication
