@@ -17,14 +17,14 @@ import axios from "axios"
 
 const MechanicLayout = () => {
   // addBooking
-  const {mechId} = useParams()
-  const {appPages, UserDatas} = useSelector((state)=> state.carCare)
+  const { mechId } = useParams()
+  const { appPages, UserDatas, UserDataWithToken } = useSelector((state) => state.carCare)
   const dispatch = useDispatch()
   const navigate = useNavigate()
   useEffect(() => {
     setpages1(appPages)
   }, [appPages])
-  
+
   const [pages, setpages1] = useState(appPages)
   const [book, setbook] = useState(false)
   const setpages = (pageName) => {
@@ -46,51 +46,54 @@ const MechanicLayout = () => {
   //    dispatch(setTypeOfUser("Mechanic"))
   //   }
   // }
-  const getUserDetails = async () =>{
+  const getUserDetails = async () => {
+    const token = UserDataWithToken.token
     try {
       // const mechId = UserDatas._id
       const url = import.meta.env.VITE_API_Url
-      const res = await axios.get(`${url}/api/v1/mech/${mechId}`)
+      const res = await axios.get(`${url}/api/v1/oneMech/${mechId}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,  // Add token for authentication
+        },
+      })
       console.log(res)
     } catch (error) {
       console.log(error)
-      // if (!navigator.onLine) {
-      //   alert("You are currently offline")
-      //   dispatch(clearnotVerified())
-      // }
+
     }
   }
-  useEffect(()=>{
+  useEffect(() => {
     // verifyIfDetailsAreComplete()
+    getUserDetails()
     if (!mechId) {
       setmechId()
     } else {
       getUserDetails()
     }
-  },[appPages])
-  
+  }, [appPages])
+
   return (
-    <div className="layout" 
+    <div className="layout"
     // style={book ? {overflow: "hidden", height: "100vh"} : {overflow: "auto"}}
     >
-        {
-                book ? 
-                <Confirm setbook={setbook} />
-                : null
-            }
-      <SideBar pages={pages} setpages={setpages}/>
+      {
+        book ?
+          <Confirm setbook={setbook} />
+          : null
+      }
+      <SideBar pages={pages} setpages={setpages} />
       <div className="layoutDown">
-      <LayoutHeader LayoutHeaderStyle/>
+        <LayoutHeader LayoutHeaderStyle />
         {/* <Outlet /> */}
         {
           pages == "app" || pages == "" ?
-          <Mechanic setpages={setpages} />
-          : 
-          pages == "booking" ?
-          <MechanicBooking setpages={setpages} />
-          : pages == "settings" ?
-          <Settings/>
-          : null
+            <Mechanic setpages={setpages} />
+            :
+            pages == "booking" ?
+              <MechanicBooking setpages={setpages} />
+              : pages == "settings" ?
+                <Settings />
+                : null
         }
       </div>
     </div>

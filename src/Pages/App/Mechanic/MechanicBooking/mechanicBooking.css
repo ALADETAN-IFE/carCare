@@ -81,10 +81,22 @@
             }
 
             & .cardsBottom {
+                width: 100%;
                 display: flex;
                 align-items: center;
                 gap: 56px;
                 height: 36px;
+                justify-content: flex-end;
+
+                & P {
+                    color: var(--Secondary-Secondary1000, #003257);
+                    text-align: right;
+                    font-family: Lora;
+                    font-size: 32px;
+                    font-style: normal;
+                    font-weight: 600;
+                    line-height: normal;    
+                }
             }
         }
     }

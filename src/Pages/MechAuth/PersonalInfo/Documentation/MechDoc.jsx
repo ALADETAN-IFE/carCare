@@ -41,7 +41,7 @@ const MechDoc = () => {
         }))
 
         dispatch(setmechCompleteDetails(mechCompleteDetailsState))
-        setmechCompleteDetailsState(mechCompleteDetails)
+        // setmechCompleteDetailsState(mechCompleteDetails)
     }, [images])
     // useEffect(()=> {
     // }, [images])
@@ -200,6 +200,7 @@ const MechDoc = () => {
                 navigate("/app/mech");
                 setloading(false);
                 toast.success(response?.data?.message);
+                dispatch(setmechCompleteDetails({}))
             } catch (error) {
                 console.log(error);
                 if (error?.response?.data?.errors) {

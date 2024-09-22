@@ -19,7 +19,7 @@ const LayoutHeader = ({ LayoutHeaderStyle }) => {
   const [width, setwidth] = useState(window.innerWidth)
   setInterval(() => {
     setwidth(window.innerWidth)
-}, 500);
+  }, 500);
   const navigate = useNavigate()
   const getInitials = (fullName) => {
     // Split the full name into an array of words (assuming names are separated by spaces)
@@ -59,8 +59,9 @@ const LayoutHeader = ({ LayoutHeaderStyle }) => {
       <ScrollToTop />
       {
         LayoutHeaderStyle ?
-          <div className="layoutHeader" style={width < 500 && !navBarVisibility ? {justifyContent: 
-            "space-around"
+          <div className="layoutHeader" style={width < 500 && !navBarVisibility ? {
+            justifyContent:
+              "space-around"
           } : null}>
             <div className="layoutHeaderMenu">
               {
@@ -70,14 +71,18 @@ const LayoutHeader = ({ LayoutHeaderStyle }) => {
                   <GiHamburgerMenu size={26} onClick={opensideBarVisibility} style={{ cursor: "pointer" }} />
               }
             </div>
-            <div className="layoutHeaderLeft">
-              <img src={Logo} alt="" onClick={() => navigate(-1)}
-                style={{ cursor: "pointer", maxHeight: "40px" }}
-              />
-            </div>
-            <div className="layoutHeaderRight" style={width < 500 && !navBarVisibility ? {gap: 
-            "10px"
-          } : null} >
+            {
+              width > 500 ? null
+                : <div className="layoutHeaderLeft">
+                  <img src={Logo} alt="" onClick={() => navigate(-1)}
+                    style={{ cursor: "pointer", maxHeight: "40px" }}
+                  />
+                </div>
+            }
+            <div className="layoutHeaderRight" style={width < 500 && !navBarVisibility ? {
+              gap:
+                "10px"
+            } : null} >
               <AiOutlineQuestionCircle size={24} />
               <IoPersonCircleSharp size={30} />
 

@@ -1,95 +1,60 @@
 import "./mechanicBooking.css"
 import { useEffect, useState } from 'react'
 import { setAppbookingFormPage } from '../../../../Global/Redux-actions/carCare'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import MechTable from "../../../../Components/MechTable/MechTable"
+import axios from "axios"
 const MechanicBooking = ({ setpages }) => {
-    const [currentBookings1, setcurrentBookings] = useState([
-        {
-            customer: "Anjola Akindoju",
-            vehcleDetails: "Toyota Camry 2019",
-            serviceType: "Tire replacement",
-            date: "10/09/24",
-            Action: "completed",
-            status: "Pending",
-            customersLocation: "123 main street, Ikeja",
-          },
-          {
-            customer: "Anjola Akindoju",
-            vehcleDetails: "Toyota Camry 2019",
-            serviceType: "Tire replacement",
-            date: "10/09/24",
-            Action: "completed",
-            status: "Pending",
-            customersLocation: "123 main street, Ikeja",
-          },
-          {
-            customer: "Anjola Akindoju",
-            vehcleDetails: "Toyota Camry 2019",
-            serviceType: "Tire replacement",
-            date: "10/09/24",
-            Action: "completed",
-            status: "Pending",
-            customersLocation: "123 main street, Ikeja",
-          },
-          {
-            customer: "Anjola Akindoju",
-            vehcleDetails: "Toyota Camry 2019",
-            serviceType: "Tire replacement",
-            date: "10/09/24",
-            Action: "completed",
-            status: "Pending",
-            customersLocation: "123 main street, Ikeja",
-          },
-          {
-            customer: "Anjola Akindoju",
-            vehcleDetails: "Toyota Camry 2019",
-            serviceType: "Tire replacement",
-            date: "10/09/24",
-            Action: "completed",
-            status: "Pending",
-            customersLocation: "123 main street, Ikeja",
-          },
-          {
-            customer: "Anjola Akindoju",
-            vehcleDetails: "Toyota Camry 2019",
-            serviceType: "Tire replacement",
-            date: "10/09/24",
-            Action: "completed",
-            status: "Pending",
-            customersLocation: "123 main street, Ikeja",
-          },
-          {
-            customer: "Anjola Akindoju",
-            vehcleDetails: "Toyota Camry 2019",
-            serviceType: "Tire replacement",
-            date: "10/09/24",
-            Action: "completed",
-            status: "Pending",
-            customersLocation: "123 main street, Ikeja",
-          },
-          {
-            customer: "Anjola Akindoju",
-            vehcleDetails: "Toyota Camry 2019",
-            serviceType: "Tire replacement",
-            date: "10/09/24",
-            Action: "completed",
-            status: "Pending",
-            customersLocation: "123 main street, Ikeja",
-          },
-          {
-            customer: "Anjola Akindoju",
-            vehcleDetails: "Toyota Camry 2019",
-            serviceType: "Tire replacement",
-            date: "10/09/24",
-            Action: "completed",
-            status: "Pending",
-            customersLocation: "123 main street, Ikeja",
-          },
-    ])
+    const { UserDataWithToken, UserDatas } = useSelector((state) => state.carCare)
+    const [currentBookings1, setcurrentBookings] = useState([])
+    const [ServiceRequests, setServiceRequests] = useState("loading...")
+    const [AcceptedRequests, setAcceptedRequests] = useState("loading...")
+    const [DeclinedRequests, setDeclinedRequests] = useState("loading...")
+    const [Completed, setCompleted] = useState("loading...")
     const [currentPage, setCurrentPage] = useState(1);
     const bookingsPerPage = 8; // Number of bookings per page
+    const token = UserDataWithToken.token
+    const getAllCurrentBookings = async () => {
+        const url = import.meta.env.VITE_API_Url
+        // setloading(true)
+        try {
+            const res = await axios.get(`${url}/api/v1/mech/allbookings`,
+                // const res = await axios.get(`${url}/api/v1/pending-Booking`,
+                {
+                    headers: {
+                        Authorization: `Bearer ${token}`,  // Add token for authentication
+                    },
+                }
+            )
+            console.log(res, "setcurrentBookings")
+            // console.log(res?.data?.data, "setcurrentBookings")
+            const mechDetasils = res?.data?.data.filter((e) => {
+                return e.status == "Accept"
+            })
+            console.log(mechDetasils, "filter")
+            setcurrentBookings(mechDetasils)
+            setServiceRequests(mechDetasils?.length)
+            setAcceptedRequests(mechDetasils?.length)
+            setDeclinedRequests(mechDetasils?.length)
+            //   setbookingHistory(mechDetasils.length)
+            // setcurrentBookings(res?.data?.data)
+            //   setbookingHistory(res?.data?.data.length)
+            // if (res?.data) {
+            //   setcurrentBookings([])
+            // } else {
+            //   setcurrentBookings(res?.data?.data)
+            // }
+            // console.log(currentBookings, "currentBookings1")
+            // setloading(false)
+        } catch (error) {
+            console.log(error, error)
+            setcurrentBookings([])
+        }
+    }
 
+    useEffect(() => {
+        getAllCurrentBookings()
+    }, [])
     // Get the current bookings based on the pagination
     const indexOfLastBooking = currentPage * bookingsPerPage;
     const indexOfFirstBooking = indexOfLastBooking - bookingsPerPage;
@@ -111,7 +76,7 @@ const MechanicBooking = ({ setpages }) => {
                 </svg>,
                 text: "Service Requests"
             },
-            bottom: ""
+            bottom: ServiceRequests
         },
         {
             top: {
@@ -123,7 +88,7 @@ const MechanicBooking = ({ setpages }) => {
                 </svg>,
                 text: "Accepted Requests"
             },
-            bottom: ""
+            bottom: AcceptedRequests
         },
         {
             top: {
@@ -134,7 +99,7 @@ const MechanicBooking = ({ setpages }) => {
                 </svg>,
                 text: "Declined Request"
             },
-            bottom: ""
+            bottom: DeclinedRequests
         },
         {
             top: {
@@ -145,7 +110,7 @@ const MechanicBooking = ({ setpages }) => {
                 </svg>,
                 text: "Completed"
             },
-            bottom: ""
+            bottom: Completed
         },
     ]
     return (
@@ -162,7 +127,9 @@ const MechanicBooking = ({ setpages }) => {
                                         {e?.top?.icon}
                                         <span> {e?.top?.text}</span>
                                     </div>
-                                    <div className="cardsBottom"></div>
+                                    <div className="cardsBottom">
+                                        {e?.bottom}
+                                    </div>
                                 </div>
                             ))
                         }
@@ -172,6 +139,7 @@ const MechanicBooking = ({ setpages }) => {
 
                     <h3 className="mech_booking_head">Booking ({currentBookings1?.length})</h3>
                     <MechTable
+                        token={token}
                         setpages={setpages}
                         currentBookings={currentBookings}
                         totalPages={totalPages}

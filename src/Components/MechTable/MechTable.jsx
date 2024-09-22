@@ -7,33 +7,22 @@ import axios from "axios"
 import { useState } from "react"
 import { toast } from "react-toastify"
 import Swal from 'sweetalert2';
+import { BeatLoader } from "react-spinners"
 
 
 const MechTable = ({ totalPages, currentPage, setCurrentPage,
     indexOfFirstBooking, indexOfLastBooking, currentBookings1, currentBookings,
-    bookingPage, token }) => {
+    bookingPage, token, setActionTaken, ActionTaken }) => {
     const dispatch = useDispatch()
-    const [loading, setloading] = useState(false)
-    const [ActionTaken, setActionTaken] = useState(null)
-    // {
-    //     customer: "Anjola Akindoju",
-    //     vehcleDetails: "Toyota Camry 2019",
-    //     serviceType: "Tire replacement",
-    //     date: "10/09/24",
-    //     Action1: "Accept",
-    //     Action2: "Decline",
-    //     customersLocation: "123 main street, Ikeja",
-    //   },
-    // <div className="mechTable_for_mech_booking">
-    //     <div className="tableHead tableHead_for_mech_booking">
+    const [loading, setloading] = useState({})
 
-    // const BookingAction = ({ bookingId, token }) => {
-    // Define the function inside the component
-    // const bookingId = 
+
+   
     const acceptOrRejectBooking = async (action, bookingId) => {
         const url1 = import.meta.env.VITE_API_Url
         const url = `${url1}/api/v1/mech/acceptOrReject/${bookingId}`;
-        setloading(true)
+        // setloading(true)
+        setloading((prev => ({ ...prev, [bookingId]: true })))
         try {
             const response = await axios.put(url, { action }, {
                 headers: {
@@ -52,9 +41,10 @@ const MechTable = ({ totalPages, currentPage, setCurrentPage,
                 title: 'Success',
                 text: response?.data?.data?.title,
             });
-            setloading(false)
+            // setloading(false)
+            setActionTaken(null)
         } catch (error) {
-            setloading(false)
+            // setloading(false)
             // console.error('Error:', error);
             const errorMsg = error.response ? error.response.data.message : error.message;
             // console.error('Error:', errorMsg);
@@ -68,14 +58,39 @@ const MechTable = ({ totalPages, currentPage, setCurrentPage,
             });
 
             // alert(`Error: ${errorMsg}`);
+        } finally {
+            // Stop loading for the specific booking
+            setloading(prev => ({ ...prev, [bookingId]: false }));
         }
     };
-    // }
 
     const handleAction = (action, bookingId) => {
         acceptOrRejectBooking(action, bookingId);
         setActionTaken(action)
     };
+
+    const completeBooking = async (bookingId) => {
+        setloading(prev => ({ ...prev, [bookingId]: true }));
+        const url1 = import.meta.env.VITE_API_Url
+        const url = `${url1}/api/v1/complete/Booking/${bookingId}`;
+        try {
+            const response = await axios.post(url,{}, {
+                headers: {
+                    'Authorization': `Bearer ${token}`, // Optional, if authentication is required
+                    'Content-Type': 'application/json'
+                }
+            });
+            console.log(response)
+        } catch (error) {
+            console.log(error)
+            
+        }finally {
+            // Stop loading for the specific booking
+            setloading(prev => ({ ...prev, [bookingId]: false }));
+        }
+    }
+
+
     return (
         <>
             {
@@ -103,14 +118,24 @@ const MechTable = ({ totalPages, currentPage, setCurrentPage,
                                                 currentBookings.map((booking, i) => (
                                                     <tr key={i}>
                                                         <td data-label="Customer"> {booking?.customer}</td>
-                                                        <td data-label="Vehicle Details">{booking?.vehcleDetails}</td>
-                                                        <td data-label="Service Type">{booking?.serviceType}</td>
+                                                        <td data-label="Vehicle Details">{booking?.brand} {booking?.model}  {booking?.year}</td>
+                                                        <td data-label="Service Type">
+                                                            {booking?.service?.map((e) => (
+                                                                <>{e?.name}</>
+                                                            ))
+                                                            }</td>
                                                         <td data-label="Date & Time"> {booking?.date}</td>
-                                                        <td data-label="Location">{booking?.customersLocation}</td>
+                                                        <td data-label="Location">{booking?.city}</td>
                                                         <td data-label="Status" >
                                                             <p className="booking_table_staus">{booking?.status}</p></td>
                                                         <td data-label="Action" className="" style={{ display: "flex", justifyContent: "center" }}>
-                                                            <p className="booking_table_active">{booking?.Action}</p> </td>
+                                                            {
+                                                                loading[booking.id] ?
+                                                                <p className="booking_table_active" ><BeatLoader/></p>
+                                                                : 
+                                                                <p className="booking_table_active" onClick={()=>completeBooking(booking.id)}>Complete</p>
+                                                            }
+                                                        </td>
                                                     </tr>
                                                 ))
                                             }
@@ -167,9 +192,9 @@ const MechTable = ({ totalPages, currentPage, setCurrentPage,
                                                         <td data-label="Location">{booking?.city}</td>
                                                         <td data-label="Actions" className="" style={{ display: "flex", justifyContent: "center", gap: "10px" }}>
                                                             {
-                                                                loading ?
+                                                                loading[booking.id] ?
                                                                     <>
-                                                                        <button className="Action1"  style={{ background: "gray" }}>
+                                                                        <button className="Action1" style={{ background: "gray" }}>
                                                                             {
                                                                                 ActionTaken == "Accept" ?
                                                                                     "Accepting..."
@@ -177,7 +202,7 @@ const MechTable = ({ totalPages, currentPage, setCurrentPage,
                                                                                     "Rejecting..."
                                                                             }
                                                                         </button>
-                                                                        <button className="Action2"  style={{ background: "gray" }}>
+                                                                        <button className="Action2" style={{ background: "gray" }}>
                                                                             {
                                                                                 ActionTaken == "Accept" ?
                                                                                     "Accepting..."
