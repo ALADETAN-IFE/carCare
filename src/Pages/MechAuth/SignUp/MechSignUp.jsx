@@ -9,6 +9,8 @@ import { BeatLoader } from 'react-spinners';
 import axios from 'axios';
 import { useDispatch } from 'react-redux';
 import { clearnotVerified, setUserDataWithToken } from '../../../Global/Redux-actions/carCare';
+import Swal from 'sweetalert2';
+
 
 
 const MechSignUp = () => {
@@ -55,7 +57,7 @@ const MechSignUp = () => {
   //   return emailRegex.test(input);
   // };
   const validateGmail = (input) => {
-       // const gmailRegex = /^[^\s@]+@gmail\.com$/;
+    // const gmailRegex = /^[^\s@]+@gmail\.com$/;
     const gmailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return gmailRegex.test(input);
   };
@@ -116,54 +118,54 @@ const MechSignUp = () => {
 
     // } else {
     //   setPasswordError(true);
-      // setPassWordCheck(true);
-      // console.log("true", 1)
-      if (newData.length > 7) {
-        setPasswordErrorLength(false);
-        // setPasswordError(false);
-      } else {
-        setPasswordErrorLength(true);
-        setPasswordError(true)
-        // toast.error("Password must be up to 8 character")
-      }
+    // setPassWordCheck(true);
+    // console.log("true", 1)
+    if (newData.length > 7) {
+      setPasswordErrorLength(false);
+      // setPasswordError(false);
+    } else {
+      setPasswordErrorLength(true);
+      setPasswordError(true)
+      // toast.error("Password must be up to 8 character")
+    }
 
-      if (containsLowercase(newData)) {
-        setPasswordErrorLow(false);
-        // setPasswordError(false);
-      } else {
-        setPasswordErrorLow(true);
-        setPasswordError(true);
-        // toast.error("Password must contain lowercase character")
+    if (containsLowercase(newData)) {
+      setPasswordErrorLow(false);
+      // setPasswordError(false);
+    } else {
+      setPasswordErrorLow(true);
+      setPasswordError(true);
+      // toast.error("Password must contain lowercase character")
 
-      }
+    }
 
-      if (containsUpperrcase(newData)) {
-        setPasswordErrorUpper(false);
-        // setPasswordError(false);
-      } else {
-        setPasswordErrorUpper(true);
-        setPasswordError(true);
-        // toast.error("Password must contain uppercase character")
-      }
+    if (containsUpperrcase(newData)) {
+      setPasswordErrorUpper(false);
+      // setPasswordError(false);
+    } else {
+      setPasswordErrorUpper(true);
+      setPasswordError(true);
+      // toast.error("Password must contain uppercase character")
+    }
 
-      if (containsNumber(newData)) {
-        setPasswordErrorNumber(false);
-        // setPasswordError(false);
-      } else {
-        setPasswordErrorNumber(true);
-        setPasswordError(true);
-        // toast.error("Password must contain at least one number")
-      }
+    if (containsNumber(newData)) {
+      setPasswordErrorNumber(false);
+      // setPasswordError(false);
+    } else {
+      setPasswordErrorNumber(true);
+      setPasswordError(true);
+      // toast.error("Password must contain at least one number")
+    }
 
-      if (containsSymbol(newData)) {
-        setPasswordErrorSymbol(false);
-        // setPasswordError(false);
-      } else {
-        setPasswordErrorSymbol(true);
-        setPasswordError(true);
-        // toast.error("Password must contain at least one symbol")
+    if (containsSymbol(newData)) {
+      setPasswordErrorSymbol(false);
+      // setPasswordError(false);
+    } else {
+      setPasswordErrorSymbol(true);
+      setPasswordError(true);
+      // toast.error("Password must contain at least one symbol")
 
-      }
+    }
     // }
     // console.log(passWordCheck, "passWordCheck")
     // console.log(passwordErrorLength, "passwordErrorLength")
@@ -213,7 +215,7 @@ const MechSignUp = () => {
       passwordErrorlow ||
       passwordErrorUpper || passwordErrorNumber ||
       passwordErrorLength || passwordErrorSymbol
-     ) {
+    ) {
       const apiData = { fullName, email, password, phoneNumber }
       console.log(apiData, "apiData")
       const trimEmail = email.trim()
@@ -273,9 +275,25 @@ const MechSignUp = () => {
       try {
         const response = await axios.post(`${url}/api/v1/mech/sign-up`, apiData)
         console.log(response)
-       
+
         setloading(false)
+        // Success alert
         toast.success(response?.data?.message)
+        Swal.fire({
+          icon: 'success',
+          title: 'Success',
+          text: response?.data?.message,
+          // timer: 3000,
+          // showConfirmButton: false,
+          confirmButtonText: 'OK'
+        }).then((result) => {
+          if (result.isConfirmed) {
+            // Navigate to login page when OK is clicked
+            navigate("/login");
+          }
+        });
+
+
         dispatch(setUserDataWithToken(response?.data?.data))
         // setTimeout(() => {
         //   navigate("/mechInfo")
@@ -288,10 +306,22 @@ const MechSignUp = () => {
         // }
         setloading(false)
         // toast.error(error?.response?.data?.message)
-          const fullName = error?.response?.data?.errors[0]
+
         toast.error(error?.response?.data?.message)
+        // Error alert
+        Swal.fire({
+          icon: 'error',
+          title: 'Error',
+          text: error?.response?.data?.message || 'Something went wrong!',
+        });
+        const fullName = error?.response?.data?.errors[0]
         if (fullName) {
           toast.error(fullName)
+          Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            text: fullName,
+          });
         }
       }
     }
@@ -324,39 +354,39 @@ const MechSignUp = () => {
               <div className='signUp__input'>
                 <label htmlFor="">Full Name</label>
                 <input required={true} type="text" placeholder='John Doe'
-                 onChange={(e) => setfullName(e.target.value)}
+                  onChange={(e) => setfullName(e.target.value)}
                 />
               </div>
               <div className='signUp__input'>
                 <label htmlFor="">Email Address</label>
-                <input required={true} type='text'
-                onChange={handleEmail}
-                placeholder='Enter your email address' />
+                <input required={true} type='email'
+                  onChange={handleEmail}
+                  placeholder='Enter your email address' />
               </div>
 
               <div className='signUp__input'>
                 <label htmlFor="">Phone Number</label>
                 <input required={true}
-                //  type="number"
-                type="tel" id="phone" name="phone"
-                // pattern="[0-9]{11}" 
-                // pattern="/^[0-9]+$/" 
-                pattern="/\d/"
-                inputMode="numeric"
-                value={phoneNumber}
-                min="0"
-                maxLength="11"
-                onChange={handlePhoneNumber}
-                placeholder='090-xxxx-xxxx' />
+                  //  type="number"
+                  type="tel" id="phone" name="phone"
+                  // pattern="[0-9]{11}" 
+                  // pattern="/^[0-9]+$/" 
+                  pattern="/\d/"
+                  inputMode="numeric"
+                  value={phoneNumber}
+                  min="0"
+                  maxLength="11"
+                  onChange={handlePhoneNumber}
+                  placeholder='090-xxxx-xxxx' />
               </div>
 
               <div className='signUp__input'>
                 <label htmlFor="">Password</label>
                 <div className='signUp__input__password'>
-                <input required={true} type={seePassword ? "password" : "text"} 
-                placeholder='Enter your password'
-                  onChange={handlePassWord}
-                />
+                  <input required={true} type={seePassword ? "password" : "text"}
+                    placeholder='Enter your password'
+                    onChange={handlePassWord}
+                  />
                   {seePassword ? <IoEye onClick={() => setSeePassword(!seePassword)} /> : <IoEyeOff onClick={() => setSeePassword(!seePassword)} />}
                 </div>
               </div>
@@ -364,10 +394,10 @@ const MechSignUp = () => {
               <div className='signUp__input'>
                 <label htmlFor="">Confirm Password</label>
                 <div className='signUp__input__password'>
-                <input required={true} type={seePassword ? "password" : "text"}
-                  onChange={handleConfirmPassWord}
+                  <input required={true} type={seePassword ? "password" : "text"}
+                    onChange={handleConfirmPassWord}
                   // placeholder='Enter your password here'
-                />
+                  />
                   {seePassword ? <IoEye onClick={() => setSeePassword(!seePassword)} /> : <IoEyeOff onClick={() => setSeePassword(!seePassword)} />}
                 </div>
               </div>
