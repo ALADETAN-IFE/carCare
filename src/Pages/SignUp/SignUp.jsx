@@ -201,12 +201,12 @@ const SignUp = () => {
     e.preventDefault()
     const url = import.meta.env.VITE_API_Url
     // navigate("/verifyEmail")
-    console.log(passwordError, "apiData")
-    console.log(passwordErrorlow, "passwordErrorlow")
-    console.log(passwordErrorUpper, "passwordErrorUpper")
-    console.log(passwordErrorNumber, "passwordErrorNumber")
-    console.log(passwordErrorLength, "passwordErrorLength")
-    console.log(passwordErrorSymbol, "passwordErrorSymbol")
+    // console.log(passwordError, "apiData")
+    // console.log(passwordErrorlow, "passwordErrorlow")
+    // console.log(passwordErrorUpper, "passwordErrorUpper")
+    // console.log(passwordErrorNumber, "passwordErrorNumber")
+    // console.log(passwordErrorLength, "passwordErrorLength")
+    // console.log(passwordErrorSymbol, "passwordErrorSymbol")
 
     console.log(url, "url")
     if (!fullName ||

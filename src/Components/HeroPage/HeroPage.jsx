@@ -6,13 +6,14 @@ import hero3 from "../../assets/images/HeroPage/hero section 3.png";
 import mobilehero1 from "../../assets/images/HeroPage/mobile hero section1.png";
 import mobilehero2 from "../../assets/images/HeroPage/mobile hero section2.png";
 import mobilehero3 from "../../assets/images/HeroPage/mobile hero section3.png";
+import { useNavigate } from "react-router-dom";
 // import mobilehero1 from "../../assets/images/HeroPage/hero-section-mobile3.png";
 
 
 const HeroPage = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
-
+  const navigate = useNavigate()
   const desktopImages = [hero1, hero2, hero3];
   const mobileImages = [mobilehero1 , mobilehero2, mobilehero3];
   const images = isMobile ? mobileImages : desktopImages;
@@ -93,7 +94,7 @@ const HeroPage = () => {
         </h1>
         <p className="carousel__description">{titles[currentIndex].thirdPTag}</p>
        </div>
-       <button className="carousel__button">Get Started</button>
+       <button className="carousel__button" onClick={()=> navigate("/signup")}>Get Started</button>
       </div>
       
     </div>

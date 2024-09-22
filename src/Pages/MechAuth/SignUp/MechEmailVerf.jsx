@@ -79,7 +79,21 @@ const MechEmailVerf = () => {
               : !token ?
                 <h1>{"error"}</h1>
                 : error ?
-                  <h1>{error}</h1>
+                  <>
+                    <h1 style={{ fontSize: "35px" }}>{error}</h1>
+                    {
+                      error == "User already verified" ?
+                        <button className='resetPassword'
+                          onClick={handleNavigate}
+                          style={{ transitionDuration: '0ms' }}>
+                          Proceed to Login</button>
+                        :
+                        <p>Didn't Receive the Email? Check your spam <br />
+                          folder or <Link to='/signup' className='signup__link'>
+                            Click here to resend</Link>
+                        </p>
+                    }
+                  </>
                   :
                   // <h1>Verification was successful! Redirecting to login...</h1>
                   <div className="popup__content">

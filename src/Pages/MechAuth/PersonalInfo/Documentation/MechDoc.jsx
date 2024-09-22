@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setmechCompleteDetails } from '../../../../Global/Redux-actions/carCare';
 import { toast } from 'react-toastify';
 import axios from 'axios';
+import { BeatLoader } from 'react-spinners';
 
 
 const MechDoc = () => {
@@ -40,14 +41,99 @@ const MechDoc = () => {
         }))
 
         dispatch(setmechCompleteDetails(mechCompleteDetailsState))
-    })
-
+    }, [images])
+    console.log(mechCompleteDetailsState)
+    const onlyNumbers = (input) => {
+        // Check if the entire input consists only of numbers
+        return /^\d+$/.test(input);
+      };
+    // const handleClick = async () => {
+    //     // console.log(Object.create(images), "obj")
+    //     console.log(mechCompleteDetailsState, "mechCompleteDetails")
+    //         const url = import.meta.env.VITE_API_Url
+    //     console.log(mechCompleteDetails)
+    //     setIsAnimating(true);
+    //     if (!mechCompleteDetails.businessName ||
+    //         !mechCompleteDetails.businessRegNumber || 
+    //         !mechCompleteDetails.businessAddress ||
+    //         !mechCompleteDetails.areaOfSpecialization ||
+    //         !mechCompleteDetails.yearsOfExperience ||
+    //         !mechCompleteDetails.profilePicture ||
+    //         !mechCompleteDetails.identification ||
+    //         !mechCompleteDetails.certification 
+    //     ) {
+    //         if (!mechCompleteDetails.businessName) {
+    //             toast.error("Business name is required")
+    //         }
+    //         else if (!mechCompleteDetails.businessRegNumber) {
+    //             toast.error("Business registration number is required")
+    //         }
+    //         else if (!mechCompleteDetails.businessAddress) {
+    //             toast.error("Business address is required")
+    //         }
+    //         else if (!mechCompleteDetails.areaOfSpecialization) {
+    //             toast.error("Area of specialization is required")
+    //         }
+    //         else if (!mechCompleteDetails.yearsOfExperience) {
+    //             toast.error("Years of experience is required")
+    //         }
+    //         else if (!onlyNumbers(mechCompleteDetails.yearsOfExperience)) {
+    //             toast.error("Years of experience is meant to be a number only")
+    //         }
+    //         else if (!mechCompleteDetails.profilePicture) {
+    //             toast.error("Profile picture is required")
+    //         }
+    //         else if (!mechCompleteDetails.identification) {
+    //             toast.error("Identification is required")
+    //         }
+    //         else if (!mechCompleteDetails.certification) {
+    //             toast.error("Certification is required")
+    //         }
+    //     } else {
+    //         console.log(mechCompleteDetails, "hello")       
+    //         try {
+    //             setloading(true)
+    //             const token = UserDataWithToken.token
+    //             const response = await axios.post(`${url}/api/v1/mech/completeProfile`, mechCompleteDetails, {
+    //                 headers: {
+    //                     'Content-Type': 'multipart/form-data', 
+    //                     Authorization: `Bearer ${token}`,  // Add token for authentication
+    //                 },
+    //             });
+    //             console.log(response)
+    //             console.log(response?.response?.data?.message)
+            
+    //             navigate("/login")
+    //             setloading(false)
+    //             toast.success(response?.data?.message)
+    //           } catch (error) {
+    //               setloading(false)
+    //             console.log(error)
+    //             if (error?.response?.data.errors) {
+    //                 toast.error(error?.response?.data.errors[0])
+    //                 toast.error(error?.response?.data.errors[1])
+    //             }
+    //             if (!navigator.onLine) {
+    //               alert("You are currently offline")
+    //               dispatch(clearnotVerified())
+    //             }
+    //             toast.error(error?.response?.data?.message)
+    //           }
+          
+              
+    //         // 
+    //     }
+    //     // dispatch(setmechCompleteDetails())
+    //     // setTimeout(() => {
+    //     //     navigate("/login");
+    //     // }, 300); // 300ms to match the animation duration
+    // };
+    
     const handleClick = async () => {
-        // console.log(Object.create(images), "obj")
-        console.log(mechCompleteDetailsState, "mechCompleteDetails")
-            const url = import.meta.env.VITE_API_Url
-        console.log(mechCompleteDetails)
+        console.log(mechCompleteDetails, "mechCompleteDetails");
         setIsAnimating(true);
+        const url = import.meta.env.VITE_API_Url
+        // Validate required fields
         if (!mechCompleteDetails.businessName ||
             !mechCompleteDetails.businessRegNumber || 
             !mechCompleteDetails.businessAddress ||
@@ -58,67 +144,79 @@ const MechDoc = () => {
             !mechCompleteDetails.certification 
         ) {
             if (!mechCompleteDetails.businessName) {
-                toast.error("Business name is required")
-            }
-            else if (!mechCompleteDetails.businessRegNumber) {
-                toast.error("Business registration number is required")
-            }
-            else if (!mechCompleteDetails.businessAddress) {
-                toast.error("Business address is required")
-            }
-            else if (!mechCompleteDetails.areaOfSpecialization) {
-                toast.error("Area of specialization is required")
-            }
-            else if (!mechCompleteDetails.yearsOfExperience) {
-                toast.error("Years of experience is required")
-            }
-            else if (!mechCompleteDetails.profilePicture) {
-                toast.error("Profile picture is required")
-            }
-            else if (!mechCompleteDetails.identification) {
-                toast.error("Identification is required")
-            }
-            else if (!mechCompleteDetails.certification) {
-                toast.error("Certification is required")
+                toast.error("Business name is required");
+            } else if (!mechCompleteDetails.businessRegNumber) {
+                toast.error("Business registration number is required");
+            } else if (!mechCompleteDetails.businessAddress) {
+                toast.error("Business address is required");
+            } else if (!mechCompleteDetails.areaOfSpecialization) {
+                toast.error("Area of specialization is required");
+            } else if (!mechCompleteDetails.yearsOfExperience) {
+                toast.error("Years of experience is required");
+            } else if (!onlyNumbers(mechCompleteDetails.yearsOfExperience)) {
+                toast.error("Years of experience is meant to be a number only");
+            } else if (!mechCompleteDetails.profilePicture) {
+                toast.error("Profile picture is required");
+            } else if (!mechCompleteDetails.identification) {
+                toast.error("Identification is required");
+            } else if (!mechCompleteDetails.certification) {
+                toast.error("Certification is required");
             }
         } else {
-            console.log(mechCompleteDetails, "hello")       
+            console.log(mechCompleteDetails, "Validated form data");
+    
             try {
-                setloading(true)
-                const token = UserDataWithToken.token
-                const response = await axios.post(`${url}/api/v1/mech/completeProfile`, mechCompleteDetails, {
+                setloading(true);
+    
+                // Create a FormData instance for file uploads
+                const formData = new FormData();
+                
+                // Append files to formData
+                formData.append('profilePicture', mechCompleteDetails.profilePicture);
+                formData.append('identification', mechCompleteDetails.identification);
+                formData.append('certification', mechCompleteDetails.certification);
+    
+                // Append non-file fields
+                formData.append('businessName', mechCompleteDetails.businessName);
+                formData.append('businessAddress', mechCompleteDetails.businessAddress);
+                formData.append('areaOfSpecialization', mechCompleteDetails.areaOfSpecialization);
+                formData.append('yearsOfExperience', mechCompleteDetails.yearsOfExperience);
+                formData.append('businessRegNumber', mechCompleteDetails.businessRegNumber);
+    
+                // Send the request with multipart/form-data
+                const token = UserDataWithToken.token;
+                const response = await axios.post(`${url}/api/v1/mech/completeProfile`, formData, {
                     headers: {
-                        'Content-Type': 'multipart/form-data', 
+                        'Content-Type': 'multipart/form-data',
                         Authorization: `Bearer ${token}`,  // Add token for authentication
                     },
                 });
-                console.log(response)
-                navigate("/login")
-                setloading(false)
-                toast.success(response?.data?.message)
-              } catch (error) {
-                console.log(error)
-                if (error?.response?.data.errors) {
-                    toast.error(error?.response?.data.errors[0])
-                    toast.error(error?.response?.data.errors[1])
+    
+                console.log(response);
+    
+                navigate("/login");
+                setloading(false);
+                toast.success(response?.data?.message);
+            } catch (error) {
+                console.log(error);
+                if (error?.response?.data?.errors) {
+                    toast.error(error?.response?.data?.errors[0]);
+                    toast.error(error?.response?.data?.errors[1]);
+                } else {
+                    toast.error(error?.response?.data?.message);
                 }
+    
                 if (!navigator.onLine) {
-                  alert("You are currently offline")
-                  dispatch(clearnotVerified())
+                    alert("You are currently offline");
+                    dispatch(clearnotVerified());
                 }
-                setloading(false)
-                toast.error(error?.response?.data?.message)
-              }
-          
-              
-            // 
+                setloading(false);
+            }
         }
-        // dispatch(setmechCompleteDetails())
-        // setTimeout(() => {
-        //     navigate("/login");
-        // }, 300); // 300ms to match the animation duration
     };
+
     // console.log(images, "images")
+    
     // console.log(selectedImageName, "selectedImageName")
 
     const requirements = [
@@ -254,3 +352,4 @@ const MechDoc = () => {
 }
 
 export default MechDoc
+
