@@ -53,24 +53,24 @@ const Login = () => {
             navigate("/app")
           }, 3000);
         } else if (response?.data?.data?.position == "mechanic") {
-          if (response?.data?.data.approved == "Pending") {
-            toast.info("Please complete your details to continue ")
-            Swal.fire({
-              icon: 'info',
-              title: 'Pending Approval',
-              text: 'Please complete your details to continue.',
-              confirmButtonText: 'OK',
-              timer: 2000,
-            }).then((result) => {
-              if (result.isConfirmed) {
-                // Navigate to the page for completing details
-                navigate("/mechInfo");
-              }
-            });
-            setTimeout(() => {
-              navigate("/mechInfo")
-            }, 2000);
-          } else {
+          // if (response?.data?.data.approved == "Pending") {
+          //   toast.info("Please complete your details to continue")
+          //   Swal.fire({
+          //     icon: 'info',
+          //     title: 'Pending Approval',
+          //     text: 'Please complete your details to continue.',
+          //     confirmButtonText: 'OK',
+          //     timer: 2000,
+          //   }).then((result) => {
+          //     if (result.isConfirmed) {
+          //       // Navigate to the page for completing details
+          //       navigate("/mechInfo");
+          //     }
+          //   });
+          //   setTimeout(() => {
+          //     navigate("/mechInfo")
+          //   }, 2000);
+          // } else {
             dispatch(setTypeOfUser("Mechanic"))
             // Success alert with navigation after 3 seconds
             Swal.fire({
@@ -87,7 +87,7 @@ const Login = () => {
               navigate("/app/mech")
             }, 3000);
           }
-        }
+        // }
 
       } catch (error) {
         toast.error(error?.response?.data?.message)

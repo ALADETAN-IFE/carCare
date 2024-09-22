@@ -36,16 +36,16 @@ const MechanicLayout = () => {
       navigate(`/app/mech/${UserDatas._id}`)
     }
   }
-  const verifyIfDetailsAreComplete = () => {
-    if (UserDatas.approved == "Pending") {
-      toast.info("Please complete your details to continue ")
-      setTimeout(() => {
-       navigate("/mechInfo")
-     }, 2000);
-    } else {
-     dispatch(setTypeOfUser("Mechanic"))
-    }
-  }
+  // const verifyIfDetailsAreComplete = () => {
+  //   if (UserDatas.approved == "Pending") {
+  //     toast.info("Please complete your details to continue ")
+  //     setTimeout(() => {
+  //      navigate("/mechInfo")
+  //    }, 2000);
+  //   } else {
+  //    dispatch(setTypeOfUser("Mechanic"))
+  //   }
+  // }
   const getUserDetails = async () =>{
     try {
       // const mechId = UserDatas._id
@@ -61,7 +61,7 @@ const MechanicLayout = () => {
     }
   }
   useEffect(()=>{
-    verifyIfDetailsAreComplete()
+    // verifyIfDetailsAreComplete()
     if (!mechId) {
       setmechId()
     } else {
