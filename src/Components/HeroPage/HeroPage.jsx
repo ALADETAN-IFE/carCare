@@ -34,8 +34,8 @@ const HeroPage = () => {
       thirdPTag: `Our mechanics are dedicated to ensuring your car is in optimal condition. Every service is backed by our guarantee of satisfaction.`,
     },
     {
-      firstPtag: "Broken Down? We've Got You", bluePTag: " Covered.",
-      
+      firstPtag: "Broken Down? We've Got You", 
+      bluePTag: " Covered.",
       thirdPTag: `We'll tow your car to a trusted mechanic and get you back on the road quickly and safely.`,
     },
   ];
