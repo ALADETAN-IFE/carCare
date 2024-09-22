@@ -220,13 +220,14 @@ const SignUp = () => {
     ) {
       // const apiData = { fullName, email, password, phoneNumber }
       // console.log(apiData, "apiData")
+       const trimEmail = email.trim()
       if (fullName.trim() === "") {
         toast.error("Full name is required");
       }
       else if (email.trim() === "") {
         toast.error("Email is required");
       }
-      else if (!validateGmail(email.trim())) {
+      else if (!validateGmail(trimEmail)) {
         // setEmailError(true);
         toast.error("Inavlid G-mail format");
       }
