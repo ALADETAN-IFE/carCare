@@ -63,7 +63,7 @@ const Login = () => {
         Swal.fire({
           icon: 'error',
           title: 'Error',
-          text: fullName,
+          text: error?.response?.data?.message,
         });
         setloading(false)
       }
