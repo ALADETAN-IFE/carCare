@@ -8,6 +8,8 @@ import { clearnotVerified, logIn, setnotVerified, setTypeOfUser, setUserDatas, s
 import { BeatLoader } from 'react-spinners';
 import { toast } from 'react-toastify';
 import axios from "axios";
+import Swal from 'sweetalert2';
+
 
 const Login = () => {
   const [seePassword, setSeePassword] = useState(false)
@@ -58,7 +60,11 @@ const Login = () => {
         
       } catch (error) {
         toast.error(error?.response?.data?.message)
-      
+        Swal.fire({
+          icon: 'error',
+          title: 'Error',
+          text: fullName,
+        });
         setloading(false)
       }
     }

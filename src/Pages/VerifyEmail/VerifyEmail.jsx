@@ -93,8 +93,8 @@ const VerifyEmail = () => {
                   // <h1>Verification was successful! Redirecting to login...</h1>
                   <div className="popup__content">
                     <div className="popup__content__top">
-                      <h1>VERIFY YOUR EMAIL</h1>
-                      <p>We're excited to have you on board, Fave Joy! <br />
+                      <h1>EMAIL VERIFIED</h1>
+                      <p>We're excited to have you on board,  <br />
                         Click the button to verify your email and <br />
                         start enjoying effortless car care </p>
                     </div>

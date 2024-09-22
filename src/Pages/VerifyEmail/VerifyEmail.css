@@ -44,6 +44,12 @@
     gap: 30px;
 }
 
+@media screen and (max-width: 500px) {
+    .VerifyEmail__content{
+        width: 95%;
+    }
+}
+
 /* @media screen and (max-width: 375px) {
     .VerifyEmail__container {
         width: 100%;

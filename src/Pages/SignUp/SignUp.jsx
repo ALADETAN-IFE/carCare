@@ -9,6 +9,7 @@ import { BeatLoader } from 'react-spinners';
 import axios from "axios";
 import { clearnotVerified } from '../../Global/Redux-actions/carCare';
 import { useDispatch } from 'react-redux';
+import Swal from 'sweetalert2';
 
 const SignUp = () => {
   const [fullName, setfullName] = useState("")
@@ -114,55 +115,55 @@ const SignUp = () => {
     //   setPasswordError(false);
 
     // } else {
+    // setPasswordError(true);
+    // setPassWordCheck(true);
+    // console.log("true", 1)
+    if (newData.length > 7) {
+      setPasswordErrorLength(false);
+      // setPasswordError(false);
+    } else {
+      setPasswordErrorLength(true);
+      setPasswordError(true)
+      // toast.error("Password must be up to 8 character")
+    }
+
+    if (containsLowercase(newData)) {
+      setPasswordErrorLow(false);
+      // setPasswordError(false);
+    } else {
+      setPasswordErrorLow(true);
       // setPasswordError(true);
-      // setPassWordCheck(true);
-      // console.log("true", 1)
-      if (newData.length > 7) {
-        setPasswordErrorLength(false);
-        // setPasswordError(false);
-      } else {
-        setPasswordErrorLength(true);
-        setPasswordError(true)
-        // toast.error("Password must be up to 8 character")
-      }
+      // toast.error("Password must contain lowercase character")
 
-      if (containsLowercase(newData)) {
-        setPasswordErrorLow(false);
-        // setPasswordError(false);
-      } else {
-        setPasswordErrorLow(true);
-        // setPasswordError(true);
-        // toast.error("Password must contain lowercase character")
+    }
 
-      }
+    if (containsUpperrcase(newData)) {
+      setPasswordErrorUpper(false);
+      // setPasswordError(false);
+    } else {
+      setPasswordErrorUpper(true);
+      // setPasswordError(true);
+      // toast.error("Password must contain uppercase character")
+    }
 
-      if (containsUpperrcase(newData)) {
-        setPasswordErrorUpper(false);
-        // setPasswordError(false);
-      } else {
-        setPasswordErrorUpper(true);
-        // setPasswordError(true);
-        // toast.error("Password must contain uppercase character")
-      }
+    if (containsNumber(newData)) {
+      setPasswordErrorNumber(false);
+      // setPasswordError(false);
+    } else {
+      setPasswordErrorNumber(true);
+      // setPasswordError(true);
+      // toast.error("Password must contain at least one number")
+    }
 
-      if (containsNumber(newData)) {
-        setPasswordErrorNumber(false);
-        // setPasswordError(false);
-      } else {
-        setPasswordErrorNumber(true);
-        // setPasswordError(true);
-        // toast.error("Password must contain at least one number")
-      }
+    if (containsSymbol(newData)) {
+      setPasswordErrorSymbol(false);
+      // setPasswordError(false);
+    } else {
+      setPasswordErrorSymbol(true);
+      // setPasswordError(true);
+      // toast.error("Password must contain at least one symbol")
 
-      if (containsSymbol(newData)) {
-        setPasswordErrorSymbol(false);
-        // setPasswordError(false);
-      } else {
-        setPasswordErrorSymbol(true);
-        // setPasswordError(true);
-        // toast.error("Password must contain at least one symbol")
-
-      }
+    }
     // }
     // console.log(passWordCheck, "passWordCheck")
     // console.log(passwordErrorLength, "passwordErrorLength")
@@ -182,7 +183,7 @@ const SignUp = () => {
     }
     // else if (newData !== password) {
     //   // toast.error("Passwords are not the same")
-      setPasswordError(true);
+    setPasswordError(true);
     // }
     //  else{
     //   setCPassWordCheck(false);
@@ -193,7 +194,7 @@ const SignUp = () => {
   // useEffect(() => {
 
   // }, [password])
-  
+
 
   const navigate = useNavigate()
   const handlesignUp = async (e) => {
@@ -212,8 +213,8 @@ const SignUp = () => {
       !email ||
       !phoneNumber ||
       !password ||
-      password !== confirmPassword 
-       || passwordErrorlow ||
+      password !== confirmPassword
+      || passwordErrorlow ||
       passwordErrorUpper || passwordErrorNumber ||
       passwordErrorLength || passwordErrorSymbol
     ) {
@@ -249,8 +250,8 @@ const SignUp = () => {
       else if (password !== confirmPassword) {
         toast.error("Passwords are not the same");
       }
-      else 
-      // if (passwordError) {
+      else
+        // if (passwordError) {
         if (passwordErrorlow) {
           toast.error("Password must contain lowercase character")
         }
@@ -277,9 +278,23 @@ const SignUp = () => {
       try {
         const response = await axios.post(`${url}/api/v1/sign-up`, apiData)
         console.log(response)
-        navigate("")
+        navigate("/login")
         setloading(false)
+        // Success alert
         toast.success(response?.data?.message)
+        Swal.fire({
+          icon: 'success',
+          title: 'Success',
+          text: response?.data?.message,
+          // timer: 3000,
+          // showConfirmButton: false,
+          confirmButtonText: 'OK'
+        }).then((result) => {
+          if (result.isConfirmed) {
+            // Navigate to login page when OK is clicked
+            navigate("/login");
+          }
+        });
       } catch (error) {
         console.log(error)
         // dispatch(clearnotVerified())
@@ -289,10 +304,21 @@ const SignUp = () => {
         setloading(false)
 
         // toast.error(error?.response?.data?.message)
-          const fullName = error?.response?.data?.errors[0]
+        // Error alert
         toast.error(error?.response?.data?.message)
+        Swal.fire({
+          icon: 'error',
+          title: 'Error',
+          text: error?.response?.data?.message || 'Something went wrong!',
+        });
+        const fullName = error?.response?.data?.errors[0]
         if (fullName) {
           toast.error(fullName)
+          Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            text: fullName,
+          });
         }
       }
     }
@@ -329,7 +355,7 @@ const SignUp = () => {
             </div>
             <div className='signUp__input'>
               <label htmlFor="">Email Address</label>
-              <input required={true} type='text'
+              <input required={true} type='email'
                 onChange={handleEmail}
                 placeholder='Enter your email address' />
             </div>
