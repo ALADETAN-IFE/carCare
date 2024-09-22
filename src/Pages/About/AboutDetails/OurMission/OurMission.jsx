@@ -1,6 +1,6 @@
 import React from 'react'
 import "./OurMission.css"
-import growYourbusiness from '../../../../assets/images/growYourbusiness.png'
+// import growYourbusiness from '../../../../assets/images/growYourbusiness.png'
 
 const OurMission = () => {
   return (

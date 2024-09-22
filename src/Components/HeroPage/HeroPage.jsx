@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./heroPage.css";
-// import hero1 from "../../assets/images/HeroPage/hero section.png";
-// import hero2 from "../../assets/images/HeroPage/hero section 2.png";
-// import hero3 from "../../assets/images/HeroPage/hero section 3.png";
+ import hero1 from "../../assets/images/HeroPage/hero section.png"; import hero2 from "../../assets/images/HeroPage/hero section 2.png"; import hero3 from "../../assets/images/HeroPage/hero section 3.png";
 import mobilehero1 from "../../assets/images/HeroPage/mobile hero section1.png";
 import mobilehero2 from "../../assets/images/HeroPage/mobile hero section2.png";
 import mobilehero3 from "../../assets/images/HeroPage/mobile hero section3.png";
@@ -51,9 +49,9 @@ const HeroPage = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // const handleNext = () => {
+  //  const handleNext = () => {
   //   setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-  // };
+  //  };
 
 
   const length = titles.length;

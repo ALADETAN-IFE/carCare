@@ -10,12 +10,10 @@
 }
 .ourStory__left{
     display: flex;
+    gap: 350px;
     width: 42rem;
-    height: 37.3125rem;
-   gap: 350px;
-    /* padding: 9.875rem 5.5rem; */
-    /* justify-content: center;
-    align-items: center; */
+    height: 37.5rem;
+    flex-shrink: 0;
     
 }
 .leftbg{
@@ -43,12 +41,13 @@
     flex-direction: column;
     width: 48rem;
     height: 37.3125rem;
-    /* padding: 9.875rem 5.5rem; */
-    /* justify-content: center; */
+    padding: 9.875rem 5.5rem;
+    justify-content: center;
     align-items: center;
     /* flex-shrink: 0; */
-
 }
+
+
 .ourStory__right h1{
     color: var(--Base-Base-Black, #171717);
 font-family: "Alegreya SC";
@@ -67,107 +66,126 @@ font-weight: 500;
 line-height: 180%; /* 2.7rem */
 }
 
-/* For screens with a max-width of 550px */
-@media (max-width: 550px) {
+/* For screens with max-width of 768px */
+@media (max-width: 768px) {
     .ourStory__container {
-        display: block;
-        /* flex-direction: column;
-        align-items: center; */
-        gap: 20px; /* Adjusted gap for smaller screens */
+      flex-direction: column;
+      height: auto;
+      gap: 20px;
+      padding: 2rem;
     }
-
+  
     .ourStory__left, .ourStory__right {
-        width: 100%; /* Full width for the column layout */
-        height: auto; /* Adjust height to fit content */
-        padding: 2rem 1.5rem; /* Adjust padding for smaller screens */
-        justify-content: center;
-        align-items: center;
+      width: 100%;
+      height: auto;
+      padding: 2rem;
     }
-
-    .leftbg, .rightbg {
-        width: 100%; /* Set width to 100% for responsiveness */
-        height: auto; /* Adjust height to fit content */
-        transform: none; /* Remove rotation for easier display */
+  
+    .leftbg {
+      width: 14rem;
+      height: 25rem;
+      transform: rotate(-30deg);
+      padding: 7rem 4rem;
     }
-
+  
+    .rightbg {
+      width: 5rem;
+      height: 22rem;
+    }
+  
     .ourStory__right h1 {
-        font-size: 2rem; /* Adjust font size */
-        text-align: center; /* Center-align the text */
+      font-size: 2rem;
+      text-align: center;
     }
-
+  
     .ourStory__right p {
-        font-size: 1.25rem; /* Slightly smaller font size */
-        line-height: 1.8rem;
-        text-align: center;
+      font-size: 1.25rem;
+      text-align: center;
     }
-}
-
-/* For screens with a max-width of 421px */
-@media (max-width: 421px) {
+  }
+  
+  /* For screens with max-width of 550px */
+  @media (max-width: 550px) {
     .ourStory__container {
-        gap: 15px; /* Reduce the gap */
+      padding: 1.5rem;
+      gap: 15px;
     }
-
-    .ourStory__left, .ourStory__right {
-        padding: 1.5rem 1rem; /* Reduce padding */
+  
+    .ourStory__left {
+      gap: 20px;
     }
-
-    .leftbg, .rightbg {
-        padding: 0.5rem; /* Adjust padding */
+  
+    .leftbg {
+      width: 12rem;
+      height: 20rem;
+      padding: 6rem 3rem;
     }
-
+  
+    .rightbg {
+      width: 4rem;
+      height: 18rem;
+    }
+  
     .ourStory__right h1 {
-        font-size: 1.8rem; /* Further reduce font size */
+      font-size: 1.75rem;
     }
-
+  
     .ourStory__right p {
-        font-size: 1.2rem; /* Adjust font size */
-        line-height: 1.6rem;
+      font-size: 1.125rem;
     }
-}
-
-/* For screens with a max-width of 375px */
-@media (max-width: 375px) {
+  }
+  
+  /* For screens with max-width of 421px */
+  @media (max-width: 421px) {
     .ourStory__container {
-        gap: 10px; /* Further reduce gap */
+      padding: 1rem;
+      gap: 10px;
     }
-
-    .ourStory__left, .ourStory__right {
-        padding: 1rem 0.5rem; /* Minimal padding */
+  
+    .leftbg {
+      width: 10rem;
+      height: 17rem;
+      padding: 5rem 2.5rem;
     }
-
-    .leftbg, .rightbg {
-        padding: 0.5rem; /* Adjust padding */
-        height: auto; /* Allow height to adjust automatically */
+  
+    .rightbg {
+      width: 3rem;
+      height: 15rem;
     }
-
+  
     .ourStory__right h1 {
-        font-size: 1.5rem; /* Smaller font size for small screens */
+      font-size: 1.5rem;
     }
-
+  
     .ourStory__right p {
-        font-size: 1rem; /* Smaller text size */
-        line-height: 1.5rem;
+      font-size: 1rem;
     }
-}
-
-
-/* @media screen and (max-width: 421px) {
-
-
+  }
+  
+  /* For screens with max-width of 375px */
+  @media (max-width: 375px) {
     .ourStory__container {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        /* gap: 0px; 
-        align-items: center;
-        justify-content: center;
-
-        & .ourStory__left,
-        .ourStory__right{
-            width: 100%;
-            height: 50%;
-        }
-
+      padding: 0.75rem;
+      gap: 8px;
     }
-} */
+  
+    .leftbg {
+      width: 9rem;
+      height: 15rem;
+      padding: 4rem 2rem;
+    }
+  
+    .rightbg {
+      width: 2.5rem;
+      height: 13rem;
+    }
+  
+    .ourStory__right h1 {
+      font-size: 1.25rem;
+    }
+  
+    .ourStory__right p {
+      font-size: 0.875rem;
+    }
+  }
+  

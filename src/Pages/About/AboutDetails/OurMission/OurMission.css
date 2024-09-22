@@ -11,21 +11,18 @@
     flex-direction: column;
     width: 48rem;
     height: 37.3125rem;
-    /* padding: 9.875rem 5.5rem; */
+    padding: 8.53125rem 5.5rem;
     justify-content: center;
     align-items: center;
-    /* flex-shrink: 0; */
-
+    flex-shrink: 0;
 }
 .OurMissionRight{
-    display: flex;
-    flex-direction: column;
-    width: 48rem;
-    height: 37.3125rem;
-    padding: 9.875rem 5.5rem;
-    justify-content: center;
-    align-items: center;
+    width: 42rem;
+    height: 37.5rem;
+    flex-shrink: 0;
+    background-color: #171717;
 }
+
 .OurMissionLeft h1{
     color: var(--Base-Base-Black, #171717);
     font-family: "Alegreya SC";
@@ -43,107 +40,95 @@
     font-weight: 500;
     line-height: 180%; /* 2.7rem */
 }
-.OurMissionRight img{
-    width: 35rem;
-    border-radius: 1px;
-    border: none;
-}
 
-/* For screens with a max-width of 550px */
-@media (max-width: 550px) {
-    .ourMission {
-        display: flex;
-        flex-direction: column; 
-        /* align-items: center;  */
-        gap: 20px; /* Adjusted gap for smaller screens */
+
+/* For screens with max-width of 768px */
+@media (max-width: 768px) {
+    .OurMission {
+      flex-direction: column;
+      height: auto;
+      padding: 2rem;
+      justify-content: center;
     }
-
-    .ourMissionLeft, .OurMissionRight {
-        width: 100%; /* Full width for the column layout */
-        height: auto; /* Adjust height to fit content */
-        padding: 2rem 1.5rem; /* Adjust padding for smaller screens */
-        justify-content: center;
-        align-items: center;
+  
+    .OurMissionLeft, .OurMissionRight {
+      width: 100%;
+      padding: 4rem 2rem;
+      height: auto;
     }
-
-   
-
-    .ourMissionLeft h1 {
-        font-size: 2rem; /* Adjust font size */
-        text-align: center; /* Center-align the text */
+  
+    .OurMissionLeft {
+      padding: 4rem 2rem;
     }
-
-    .ourMissionLeft p {
-        font-size: 1.25rem; /* Slightly smaller font size */
-        /* line-height: 1.8rem; */
-        text-align: center;
+  
+    .OurMissionLeft h1 {
+      font-size: 2rem;
+      text-align: center;
     }
-}
-
-/* For screens with a max-width of 421px */
-@media (max-width: 421px) {
-    .ourMission {
-        display: flex;
-        flex-direction: column;
-        gap: 15px; /* Reduce the gap */
+  
+    .OurMissionLeft p {
+      font-size: 1.25rem;
+      text-align: center;
     }
-
-    .ourMissionLeft, .OurMissionRight {
-        padding: 1.5rem 1rem; /* Reduce padding */
+  }
+  
+  /* For screens with max-width of 550px */
+  @media (max-width: 550px) {
+    .OurMission {
+      padding: 1.5rem;
     }
-
-    .ourMissionLeft h1 {
-        font-size: 1.8rem; /* Further reduce font size */
+  
+    .OurMissionLeft, .OurMissionRight {
+      padding: 3rem 1.5rem;
     }
-
-    .ourMissionLeft p {
-        font-size: 1.2rem; /* Adjust font size */
-        line-height: 1.6rem;
+  
+    .OurMissionLeft h1 {
+      font-size: 1.75rem;
     }
-}
-
-/* For screens with a max-width of 375px */
-@media (max-width: 375px) {
-    .ourMission {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 10px; /* Further reduce gap */
+  
+    .OurMissionLeft p {
+      font-size: 1.125rem;
     }
-
-    .ourMissionLeft, .OurMissionRight {
-        padding: 20px; /* Minimal padding */
+  }
+  
+  /* For screens with max-width of 421px */
+  @media (max-width: 421px) {
+    .OurMission {
+      padding: 1rem;
     }
-
-    
-
-    .ourMissionLeft h1 {
-        font-size: 28px; /* Smaller font size for small screens */
+  
+    .OurMissionLeft, .OurMissionRight {
+      padding: 2.5rem 1rem;
     }
-
-    .ourMissionLeft p {
-        font-size: 20px; /* Smaller text size */
-        /* line-height: 1.5rem; */
+  
+    .OurMissionLeft h1 {
+      font-size: 1.5rem;
     }
-}
-
-
-
-/* @media screen and (max-width: 421px){
-    .OurMission{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
+  
+    .OurMissionLeft p {
+      font-size: 1rem;
     }
-    .OurMissionLeft{
-        width: 100%;
+  }
+  
+  /* For screens with max-width of 375px */
+  @media (max-width: 375px) {
+    .OurMission {
+      padding: 1rem;
     }
-    /* .OurMissionRight{
-        display: flex;
-        width: 100%;
-        flex-direction: column;
-    } */
- 
+  
+    .OurMissionLeft, .OurMissionRight {
+      padding: 2rem 0.75rem;
+    }
+  
+    .OurMissionLeft h1 {
+      font-size: 1.25rem;
+    }
+  
+    .OurMissionLeft p {
+      font-size: 0.875rem;
+    }
+  }
+  
+
+
+
