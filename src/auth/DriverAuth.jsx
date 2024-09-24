@@ -25,8 +25,11 @@ const DriverAuth = () => {
   
     // Determine the redirect path
   
-    return isLoggedIn && typeOfUser === "Driver" ? <Outlet /> :
+    return !isLoggedIn ? <Outlet /> :
      <Navigate to={redirectPath} replace />;
+
+    // return isLoggedIn && typeOfUser === "Driver" ? <Outlet /> :
+    //  <Navigate to={redirectPath} replace />;
 }
 
 export default DriverAuth

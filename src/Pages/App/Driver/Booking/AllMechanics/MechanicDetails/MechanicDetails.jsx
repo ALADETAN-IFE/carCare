@@ -66,7 +66,7 @@ const MechanicDetails = () => {
         console.log(bookingInputsObject)
         setTimeout(() => {
             setloading2(false)
-            navigate(`/app/${UserDatas?._id}/${mechDetails?._id}`)
+            navigate(`/app/booking/add-booking/${UserDatas?._id}/${mechDetails?._id}`)
         }, 2000);
     }
     useEffect(() => {

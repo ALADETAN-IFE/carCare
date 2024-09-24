@@ -67,20 +67,33 @@
     font-style: normal;
     font-weight: 600;
     line-height: normal;
+    transition: all 350ms ease-in;
 
     & svg {
         fill: var(--Base-Base-Black, #171717);
         /* color: var(--Base-Base-Black, #171717); */
         /* : ; */
     }
+
+    &:hover{
+        background: var(--Secondary-Secondary, #0066B2);
+        color: var(--Base-Base-White, #FFF);
+        border-radius: 5px;
+    
+        & svg {
+            fill: var(--Base-Base-White, #FFF) !important;
+            /* background: var(--Base-Base-White, #FFF); */
+        }
+    }
 }
 
 .sideBarNavActive {
     background: var(--Secondary-Secondary, #0066B2);
     color: var(--Base-Base-White, #FFF);
+    border-radius: 5px;
 
     & svg {
-        fill: var(--Base-Base-White, #FFF);
+        fill: var(--Base-Base-White, #FFF) !important;
         /* background: var(--Base-Base-White, #FFF); */
     }
 

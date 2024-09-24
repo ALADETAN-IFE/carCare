@@ -65,9 +65,9 @@ const Confirm = ({ setbook, setpages }) => {
         toast.success(res?.data?.message)
         setTimeout(() => {
           dispatch(setuserBookingForm({}))
-          navigate("/app")
+          navigate("/app/booking")
           setbook(false)
-          setpages("booking")
+          // setpages("booking")
         }, 2000);
       }).catch((error) => {
         console.log(error, "error")
@@ -75,7 +75,7 @@ const Confirm = ({ setbook, setpages }) => {
           toast.info("You cannot book again until 30 minutes have passed since your last pending appointment.")
           setTimeout(() => {
             dispatch(setuserBookingForm({}))
-            navigate("/app")
+            navigate("/app/booking")
             setbook(false)
             setpages("booking")
           }, 2000);

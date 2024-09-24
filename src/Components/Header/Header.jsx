@@ -1,139 +1,158 @@
-import { Link, NavLink } from "react-router-dom"
-import "./header.css"
-import { BsMenuAppFill } from "react-icons/bs"
-import { useEffect, useState } from "react"
-import Dropdown from "./Dropdown"
-import { FiHelpCircle } from "react-icons/fi"
-import { IoPersonCircleSharp } from "react-icons/io5"
-import LoggedInDropdown from "./LoggedInDropdown/LoggedInDropdown"
-import { useSelector } from "react-redux"
-import Logo from "../../assets/svg/Logo.svg"
-import { BiMenuAltLeft, BiMenuAltRight } from "react-icons/bi"
-import { GiHamburgerMenu } from "react-icons/gi";
-import { IoCloseSharp } from "react-icons/io5";
-import ScrollToTop from "../ScrollToTop"
-import NotLoggedIn from "./NotLoggedIn/NotLoggedIn"
+import React, { useContext, useEffect, useState } from "react";
+import Logo from "../../assets/Logo.svg";
+import Cart from "../../assets/shopping-cart.png";
+import Account from "../../assets/user.png";
+import { IoMenu } from "react-icons/io5";
+import { NavLink, useParams } from "react-router-dom";
+import { useDispatch, useSelector } from 'react-redux'
+// import { loggedUser } from '../Global/Redux-actions/EComSlice'
+import './Header.css'
+import Dropdown from "./Dropdown";
+
 
 const Header = () => {
-  // const [isLoggedIn, setisLoggedIn] = useState(isLoggedIn1)
-  const isLoggedIn = useSelector((state)=> state?.carCare?.isLoggedIn)
+  const {id} = useParams()
+  const existingUsers = useSelector((state)=> state?.ECom?.users)
+  const UserDetails = useSelector((state)=> state?.ECom?.loggedUser)
+  const User = existingUsers.find((e)=> e?.id == UserDetails?.id)
+  const UserID = UserDetails?.id
 
-  
-  const height = window.innerHeight
-  const [width, setwidth] = useState(window.innerWidth)  
-  // const widthL = window.innerWidth
+  const [dropdown, setdropdown] = useState(false)
+  // const User = useSelector((state)=> state?.ECom?.loggedUser)
+  // const {cartLength} = useContext(ECommerceContext)
+  // const [categories, setcategories] = useState([])
+  // const [Loading, setLoading] = useState(false)
   const [showMenu, setshowMenu] = useState(false)
-  const [showMenu2, setshowMenu2] = useState(false)
-  setInterval(() => {
-    setwidth(window.innerWidth)
-  }, 500);
-  useEffect(() => {
-    if (width >= "426") {
-      setshowMenu(false)
-      setshowMenu2(false)
-    }
-  }, [width])
+  // const getCat = async () =>{
+  //     try {
+  //     setLoading(true)
+  //     // const res = await axios.get('https://0102e171fc48489baad111f2151982a2.api.mockbin.io/');
+  //     const res = await axios.get('https://api.escuelajs.co/api/v1/categories');
+  //     // const res1 = await axios.get(`https://dummyjson.com/products/category/${i}`);
+  //     setcategories(res?.data)
+  //     console.log(res?.data)
+  //     setLoading(false)
+  //     } catch (error) {
+  //         console.log(error)
+  //     }
+  // }
+  // useEffect(() => {  
+  //     getCat()
+  // }, [])
+  useEffect(() => {  
+    setTotalQuantity(User?.carts?.length)
+     setuserName(User?.username)
+     
+  }, [existingUsers])
+  // useEffect(() => {  
+  //   setTotalQuantity(User?.carts?.length)
+  //    setuserName(User?.username)
+     
+  // }, )
 
-  const headerMiddle = [
-    {
-      text: "Home",
-      to: "/"
-    },
-    {
-      text: "About",
-      to: "/about"
-    },
-    // {
-    //   text: "Mechanics",
-    //   to: "/mechanics"
-    // },
-    {
-      text: "Blog",
-      to: "/blog"
-    },
-    {
-      text: "Contact",
-      to: "/contact"
-    },
-  ]
 
+
+
+//   const cart = useSelector((state)=> state?.CartsPage?.Carts)
+
+const [TotalQuantity, setTotalQuantity] = useState(0)
+const [userName, setuserName] = useState("userName")
+// useEffect(() => {  
+//   console.log(TotalQuantity)
+// }, [])
+// useEffect(() => {
+//   const total1 = cart.reduce((acc, item) => acc + item.quantity,0)
+//   setTotalQuantity(total1)
+//   // console.log(CartsPage.Carts, "things")
+// }, [cart])
+
+//   useEffect(() => {
+//     // console.log(cart);
+//   }, )
+  
 
   return (
-    <header>
-      {
-        showMenu2 ?
-          <LoggedInDropdown setshowMenu2={setshowMenu2}
-          showMenu2={showMenu2} />
-
-          : null
-      }
-      <div className="headerWrapper">
-        <div className="headerLeft">
-          {/* height = {height}
-          width = {width} */}
-          <img src={Logo} alt={Logo} 
-          // style={{maxWidth: "100%"}} 
-          />
-          </div>
-        <div className="headerMiddle">
-          {
-            headerMiddle?.map((e, i) => (
-              <NavLink className={({ isActive }) => isActive ? "headerActive headerRoute" : "headerNotActive headerRoute"} key={i} to={e?.to}>
-                {e?.text}
-              </NavLink>
-            ))
-          }
+    <div className="Header">
+      <div className="Header__Wrapper">
+        <div className="Logo_Holder">
+          <img src={Logo} alt="" style={{ cursor: "pointer" }} />
         </div>
-        <>
-          {
-            isLoggedIn  ?
-              <div className="headerRightLoggedIn">
-                <div className="headerRightLoggedInIcons">
-                  <FiHelpCircle size={24} />
-                  <IoPersonCircleSharp size={30} onClick={() => setshowMenu2(!showMenu2)} />
-                </div>
-                {/* <div className="menu" onClick={() => setshowMenu(!showMenu)} > */}
-                <div className="menu" onClick={() => setshowMenu(!showMenu)} >
-                  {
-                    showMenu ?
-                      <>
-                      <IoCloseSharp/>
-                      {/* <GiHamburgerMenu size={28} /> */}
-                        {/* <BiMenuAltRight size={26} /> */}
-                        <LoggedInDropdown
-                         headerMiddle={headerMiddle} 
-                         loggedIn
-                         />
-                      </>
-                      : <GiHamburgerMenu    style={{cursor: "pointer"}}/>  
-                  }
-                </div>
+        <div className="Nav_Holder">
+          <nav>
+            <NavLink to={`/home/${UserID}`}
+              className={({ isActive }) =>
+                isActive ?  "HeaderActive" : "HeaderNotActive"
+              }
+            >Home</NavLink>
+          </nav>
+          <nav>
+          <NavLink to="/category"
+              className={({ isActive}) =>
+                isActive ?  "HeaderActive" : "HeaderNotActive"
+              }
+            >Categories</NavLink>
+                    {/* {
+          showMenu ? 
+          <ul>
+              {
+                categories.map((e)=> (
+                  <li>{e?.name}</li>
+                ))
+            }  
+                  <li>produts</li>
+                  <li>produts</li>
+                  <li>produts</li>
 
-              </div> 
-              :
-              <div className="headerRight">
-                <div className="menu" onClick={() => setshowMenu(!showMenu)} >
-                  {
-                    showMenu ?
-                      <>
-                        <IoCloseSharp    style={{cursor: "pointer"}}/>
-                        <NotLoggedIn headerMiddle={headerMiddle} />
-                      </>
-                      : <GiHamburgerMenu    style={{cursor: "pointer"}} />
+          </ul>
+          : null
+        } */}
+          </nav>
+          {/* <input type="search" /> */}
+        </div>
+        <div className="Cart_Account__Holder">
+          <div className="Cart_Holder" onMouseEnter={()=> setdropdown(true)} >
+            <img src={Account} alt="" />
+            {/* <span>{userName}</span> */}
+            <span >Account</span>
+          </div>
+          <div className="Cart_Holder">
+            <img src={Cart} alt="" />
+            <span>
+              <NavLink to={`/cart/${UserID}`}
+                className={({ isActive }) =>
+                    isActive ? "HeaderActive" : "HeaderNotActive"
                   }
-                </div>
-                <div className="laptopMenu">
-                  <Link to="/login" className="header-btn sign-in">Sign In</Link>
-                  <Link to="/signup" className="header-btn">Sign Up</Link>
-                </div>
-              </div>
+              >Cart 
+               ({TotalQuantity})
+              </NavLink>
+            </span>
+          </div>
+        </div>
+        <IoMenu className="Menu_Icon" onClick={()=> setshowMenu(!showMenu)}/>
+        {
+          showMenu ? 
+          <ul style={{background: "red"}}>
+              {/* {
+                categories.map((e)=> (
+                  <li>{e?.name}</li>
+                ))
+            } */}   
+                  <li>produts</li>
+                  <li>produts</li>
+                  <li>produts</li>
 
-          }
-        </>
+          </ul>
+          : null
+        }
+        {
+          dropdown ? 
+          <Dropdown setdropdown={setdropdown} userName={userName}/>
+          : null
+        }
       </div>
-      <ScrollToTop/>
-    </header>
-  )
-}
+    </div>
+  );
+};
 
-export default Header
+export default Header;
+

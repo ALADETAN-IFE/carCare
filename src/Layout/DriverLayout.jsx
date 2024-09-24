@@ -10,19 +10,23 @@ import SideBar from "./SideBar/SideBar"
 import { useEffect, useState } from "react"
 import { clearnotVerified, setAppPages } from "../Global/Redux-actions/carCare"
 import Settings from "../Pages/App/Driver/settings/settings"
-import { useNavigate, useParams } from "react-router-dom"
+import { Outlet, useLocation, useNavigate, useParams } from "react-router-dom"
 import axios from "axios"
 
 const DriverLayout = () => {
   // addBooking
-  const { customerId, mechId } = useParams()
+  
+  // const { customerId, mechId } = useParams()
+  const {pathname} = useLocation()
+  console.log(pathname, "pathname")
+  console.log(useLocation(), "useLocation()")
   const { appPages,
     UserDatas,
     UserDataWithToken,
     typeOfUser,
     isLoggedIn,
   } = useSelector((state) => state.carCare)
-
+  const  customerId  = UserDatas._id
   const dispatch = useDispatch()
   const navigate = useNavigate()
   useEffect(() => {
@@ -36,42 +40,43 @@ const DriverLayout = () => {
   }
   const setcustomerId = () => {
     // if (!customerId) {
-    navigate(`/app/${UserDatas._id}`)
+    // navigate(`/app/${UserDatas._id}`)
+    navigate(`${pathname}/111`)
     // }
   }
-  const getUserDetails = async () => {
-    const token = UserDataWithToken.token
-    try {
-      // const customerId = UserDatas._id
-      const url = import.meta.env.VITE_API_Url
-      const res = await axios.get(`${url}/api/v1/oneCustomer/${customerId}`,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,  // Add token for authentication
-          },
-        }
-      )
-      console.log(res)
-    } catch (error) {
-      console.log(error)
-      // if (!navigator.onLine) {
-      //   alert("You are currently offline")
-      //   dispatch(clearnotVerified())
-      // }
-    }
-  }
+  // const getUserDetails = async () => {
+  //   const token = UserDataWithToken.token
+  //   try {
+  //     // const customerId = UserDatas._id
+  //     const url = import.meta.env.VITE_API_Url
+  //     const res = await axios.get(`${url}/api/v1/oneCustomer/${customerId}`,
+  //       {
+  //         headers: {
+  //           Authorization: `Bearer ${token}`,  // Add token for authentication
+  //         },
+  //       }
+  //     )
+  //     console.log(res)
+  //   } catch (error) {
+  //     console.log(error)
+  //     // if (!navigator.onLine) {
+  //     //   alert("You are currently offline")
+  //     //   dispatch(clearnotVerified())
+  //     // }
+  //   }
+  // }
   useEffect(() => {
-    getUserDetails()
-    if (mechId && pages == "addbooking") {
+    // getUserDetails()
+    // if (mechId && pages == "addbooking") {
 
-    } else {
-      if (!customerId) {
-        setcustomerId()
-      } else {
-        setcustomerId()
-      }
+    // } else {
+    //   if (!customerId) {
+    //     setcustomerId()
+    //   } else {
+    //     setcustomerId()
+    //   }
       
-    }
+    // }
   }, [appPages])
   // console.log(UserDatas, "UserDatas" )
   // console.log(UserDataWithToken, "UserDataWithToken" )
@@ -89,8 +94,8 @@ const DriverLayout = () => {
       <SideBar pages={pages} setpages={setpages} book={book} />
       <div className="layoutDown">
         <LayoutHeader LayoutHeaderStyle />
-        {/* <Outlet /> */}
-        {
+        <Outlet />
+        {/* {
           pages == "app" || pages == "" ?
             <Driver setpages={setpages} />
             :
@@ -101,10 +106,38 @@ const DriverLayout = () => {
                 : pages == "settings" ?
                   <Settings />
                   : null
-        }
+        } */}
       </div>
     </div>
   )
+  // return (
+  //   <div className="layout"
+  //   // style={book ? {overflow: "hidden", height: "100vh"} : {overflow: "auto"}}
+  //   >
+  //     {
+  //       book ?
+  //         <Confirm setbook={setbook} setpages={setpages}/>
+  //         : null
+  //     }
+  //     <SideBar pages={pages} setpages={setpages} book={book} />
+  //     <div className="layoutDown">
+  //       <LayoutHeader LayoutHeaderStyle />
+  //       {/* <Outlet /> */}
+  //       {
+  //         pages == "app" || pages == "" ?
+  //           <Driver setpages={setpages} />
+  //           :
+  //           pages == "booking" ?
+  //             <Booking setpages={setpages} pages={pages} />
+  //             : pages == "addbooking" ?
+  //               <AddBooking setbook={setbook} />
+  //               : pages == "settings" ?
+  //                 <Settings />
+  //                 : null
+  //       }
+  //     </div>
+  //   </div>
+  // )
 }
 
 export default DriverLayout

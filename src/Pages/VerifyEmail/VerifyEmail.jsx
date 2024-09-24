@@ -29,7 +29,7 @@ const VerifyEmail = () => {
         setLoading(false);
         setError(null);
         // setTimeout(() => {
-        //   navigate('/login');
+        //   navigate('/app');
         // }, 3000); // Adding a delay before redirecting
       } else if (response.status === 400 || response.status === 401) {
         setError('Invalid or expired token.');

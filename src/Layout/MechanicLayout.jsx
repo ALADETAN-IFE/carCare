@@ -12,13 +12,17 @@ import { clearnotVerified, setAppPages, setTypeOfUser } from "../Global/Redux-ac
 import Settings from "../Pages/App/Driver/settings/settings"
 import Mechanic from "../Pages/App/Mechanic/Mechanics"
 import MechanicBooking from "../Pages/App/Mechanic/MechanicBooking/MechanicBooking"
-import { useNavigate, useParams } from "react-router-dom"
+import { Outlet, useLocation, useNavigate, useParams } from "react-router-dom"
 import axios from "axios"
 
 const MechanicLayout = () => {
   // addBooking
-  const { mechId } = useParams()
+  // const { mechId } = useParams()
+  const {pathname} = useLocation()
+  console.log(pathname, "pathname")
+  console.log(useLocation(), "useLocation()")
   const { appPages, UserDatas, UserDataWithToken } = useSelector((state) => state.carCare)
+  const  mechId  = UserDatas._id
   const dispatch = useDispatch()
   const navigate = useNavigate()
   useEffect(() => {
@@ -66,7 +70,7 @@ const MechanicLayout = () => {
     // verifyIfDetailsAreComplete()
     getUserDetails()
     if (!mechId) {
-      setmechId()
+      // setmechId()
     } else {
       getUserDetails()
     }
@@ -84,8 +88,8 @@ const MechanicLayout = () => {
       <SideBar pages={pages} setpages={setpages} />
       <div className="layoutDown">
         <LayoutHeader LayoutHeaderStyle />
-        {/* <Outlet /> */}
-        {
+        <Outlet />
+        {/* {
           pages == "app" || pages == "" ?
             <Mechanic setpages={setpages} />
             :
@@ -94,7 +98,7 @@ const MechanicLayout = () => {
               : pages == "settings" ?
                 <Settings />
                 : null
-        }
+        } */}
       </div>
     </div>
   )
