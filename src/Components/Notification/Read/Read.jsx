@@ -1,15 +1,17 @@
 import { IoIosClose } from "react-icons/io"
 
-const Read = () => {
+const Read = ({handleDelete, notes}) => {
     return (
         <div className="notifications read">
             <div className="notificationsWrapper">
                 <img src={"https://res.cloudinary.com/dserpv6p5/image/upload/v1727200703/cafrvombbtrd7kzeebqd.svg"} alt="" />
                 <div className="notificationstxt">
-                    Your appointment with Anjola Akindoju is confirmed for 6th of Sept. at 10am. Get ready
-                    for expert care for your vehicle
+                   {notes?.notesHead}
                 </div>
-                <IoIosClose size={35} />
+                <IoIosClose 
+                size={35}
+                onClick={()=> handleDelete(notes?._id)}
+                />
             </div>
         </div>
     )

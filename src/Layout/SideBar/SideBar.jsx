@@ -24,7 +24,7 @@ const SideBar = ({ pages, setpages, book }) => {
     const [User, setUser] = useState(typeOfUser)
     const [isHover, setisHover] = useState([])
     const [logOutEndPoint, setlogOutEndPoint] = useState("")
-    console.log(isHover)
+    // console.log(logOutEndPoint)
     setInterval(() => {
         setwidth(window.innerWidth)
     }, 500);
@@ -229,10 +229,11 @@ const SideBar = ({ pages, setpages, book }) => {
                     icon: "success",
                     title: "Logged out successfully",
                 });
-
+                console.log(response)
                 // Dispatch logOut action to clear user data from the Redux store
                 dispatch(logOut());
             } catch (error) {
+                console.log(error)
                 // Handle errors during logout
                 Swal.fire({
                     icon: "error",
