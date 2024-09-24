@@ -153,6 +153,10 @@ const Routes = createHashRouter([
                 exact: true,
                 element: <Mechanic />,
               },
+              // {
+              //   path: "earnings",
+              //   element: <Booking />,
+              // },
               {
                 path: "booking",
                 element: <Booking />,

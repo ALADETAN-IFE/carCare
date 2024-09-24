@@ -1,46 +1,189 @@
+.layoutDown {
+  /* padding-bottom: 0 ; */
+}
+
 .notification {
-    width: 100%;
-    padding-top: 57px;
-  }
-  
-  .topNotification {
-    width: 100%;
+  width: 100%;
+  /* height: 100%; */
+  padding-top: 57px;
+  margin-bottom: 0;
+  /* padding-top: 40px; */
+  overflow: hidden;
+  /* height: 100%; */
+  /* background: greenyellow; */
+  display: flex;
+  flex-direction: column;
+  /* gap: 4px; */
+}
+
+.topNotification {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  min-height: 35px;
+  border-bottom: 1px solid  #CCC;;
+
+  & .topNotificationWrapper {
+    width: 90%;
     display: flex;
-    justify-content: center;
-  
-    & .topNotificationWrapper {
-      width: 90%;
-      display: flex;
-      align-items: center;
-      gap: 66px;
-  
-      & .topNotificationBtnsHolder {
-        min-height: 35px;
-        /* background: #000; */
-  
-        & button {
-          color: #000;
-          text-align: center;
-          font-family: Lora;
-          font-size: 16px;
-          font-style: normal;
-          font-weight: 400;
-          line-height: normal;
-          letter-spacing: 0.64px;
-          background: white;
-          border: none;
-          outline: none;
-          min-height: 20px;
-          width: 100%;
-  
-          &:hover {
-            background: white !important;
-          }
-        }
+    align-items: center;
+    gap: 66px;
+    height: 100%;
+
+    & .topNotificationBtnsHolder {
+      /* min-height: 35px; */
+      height: 100%;
+      /* background: #000; */
+      /* transition: all 400ms ease-in-out ; */
+      position: relative;
+
+    }
+
+    & .topNotificationBtnsHolderActive {
+      min-height: 35px;
+      /* background: #000; */
+      /* transition: all 400ms ease-in-out ; */
+      position: relative;
+
+    }
+
+    /* & .topNotificationBtnsHolderActive::before {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%) scaleX(0);
+      transform-origin: center;
+      width: 100%;
+      height: 2px;
+      background-color: var(--Secondary-Secondary, #0066B2);
+      transition: transform 0.4s ease-in-out;
+    }
+
+    & .topNotificationBtnsHolderActive:hover::before,
+    & .topNotificationBtnsHolderActive[style*="borderBottom"]::before {
+      transform: translateX(-50%) scaleX(1);
+    } */
+
+    .topNotificationBtnsHolderActive::before {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%) scaleX(0);
+      /* Start from center and scale to 0 */
+      transform-origin: center;
+      /* Make sure it scales from the center */
+      width: 100%;
+      height: 2px;
+      background-color: var(--Secondary-Secondary, #0066B2);
+      animation-name: line;
+      animation-duration: 0.4s;
+      animation-fill-mode: forwards;
+      animation-direction: normal;
+      /* transition: transform 0.4s ease-in-out; */
+    }
+
+    /* .topNotificationBtnsHolderActive::before {
+      transform: translateX(-50%) scaleX(0); /* When active, scale to full width 
+    } */
+
+    & button {
+      color: #000;
+      text-align: center;
+      font-family: Lora;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      letter-spacing: 0.64px;
+      background: white;
+      border: none;
+      outline: none;
+      min-height: 20px;
+      width: 100%;
+
+      &:hover {
+        background: white !important;
       }
     }
   }
-  
-  .bodyNotification {
+}
+
+
+.notification.scrolled {
+  /* background-color: #e0e0e0;  */
+  /* Style when scrolled */
+  padding-top: 40px;
+}
+
+
+@keyframes line {
+  0% {
+    transform: translateX(-50%) scaleX(0);
   }
-  
+
+  100% {
+    transform: translateX(-50%) scaleX(1);
+  }
+}
+
+.bodyNotification {
+  width: 100%;
+  height: 100%;
+  /* background: #a37f7f; */
+
+  & .bodyNotificationWrapper {
+    width: 100%;
+    overflow: scroll;
+
+    max-height: 100%;
+    /* max-height: 400px;  */
+    /* Set a fixed or max height */
+    overflow-y: auto;
+    /* Enable vertical scrolling */
+    display: flex;
+    flex-direction: column;
+    /* gap: 5px; */
+
+    & .notifications {
+      width: 100%;
+      /* gap: 15px; */
+      min-height: 80px;
+      /* background: #a19696; */
+      background: #f8f6f6;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      /* padding: 20px; */
+      /* background: #000; */
+      cursor: pointer;
+
+      & .notificationsWrapper {
+        width: 90%;
+        display: flex;
+        /* gap: 20px; */
+        justify-content: space-between;
+        height: 100%;
+        align-items: center;
+        /* background: #1b6ead; */
+
+        & .notificationstxt {
+          /* background: palegreen; */
+          width: 75%;
+          color: #000;
+          font-family: Lora;
+          font-size: 20px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: normal;
+        }
+      }
+    }
+
+    & .read {
+      background: var(--Secondary-Secondary100, #D6EDFF);
+    }
+
+  }
+}
