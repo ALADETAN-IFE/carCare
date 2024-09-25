@@ -6,9 +6,7 @@
     justify-content: center;
     align-items: center;
 
-    background:linear-gradient(rgba(23, 23, 23, 0.40), rgba(23, 23, 23, 0.40)), url("https://res.cloudinary.com/dserpv6p5/image/upload/v1726846624/qc0vcr3u8wag998jecj2.png");
-    /* object-fit: cover; */
-    background-repeat: no-repeat;
+    background:linear-gradient(rgba(23, 23, 23, 0.40), rgba(23, 23, 23, 0.40)), url("https://res.cloudinary.com/dserpv6p5/image/upload/v1727297938/lsfuqybnsutj3humrkrv.png");
     padding: 34px 168px 38px 168px;
     /* align-self: stretch; */
 }

@@ -1,7 +1,7 @@
 .OurMission{
     display: flex;
     width: 100%;
-    height: 100vh;
+    /* height: 100vh; */
     justify-content: space-around;
     align-items: center;
     background-color: #fff;
@@ -9,7 +9,7 @@
 .OurMissionLeft{
     display: flex;
     flex-direction: column;
-    width: 48rem;
+    width: 42rem;
     height: 37.3125rem;
     padding: 8.53125rem 5.5rem;
     justify-content: center;
@@ -17,10 +17,20 @@
     flex-shrink: 0;
 }
 .OurMissionRight{
+    display: flex;
+    gap: 350px;
+    width: 48rem;
+    height: 37.5rem;
+    background-image: url("https://res.cloudinary.com/dserpv6p5/image/upload/v1727269643/hmxjd7jvymqxut6xvasd.png"); 
+
+
+
+    /* display: flex;
     width: 42rem;
     height: 37.5rem;
-    flex-shrink: 0;
-    background-color: #171717;
+    /* flex-shrink: 0; 
+    background-image: url("https://res.cloudinary.com/dserpv6p5/image/upload/v1727269006/gtswwgtnkviihqf2ghby.png"); */
+    /* background-image: url("https://res.cloudinary.com/dserpv6p5/image/upload/v1727268325/we9qo6cyctexcbprolxn.png"); */
 }
 
 .OurMissionLeft h1{
@@ -99,6 +109,7 @@
   
     .OurMissionLeft, .OurMissionRight {
       padding: 2.5rem 1rem;
+      
     }
   
     .OurMissionLeft h1 {

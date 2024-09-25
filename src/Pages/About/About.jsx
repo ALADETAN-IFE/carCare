@@ -5,6 +5,7 @@ import AboutHeroPage from "./AboutDetails/AboutHeroPage"
 import Offers from "./AboutDetails/Offers/Offers"
 import OurMission from "./AboutDetails/OurMission/OurMission"
 import OurStory from "./AboutDetails/OurStory/OurStory"
+import TheTeam from "./AboutDetails/The-Team/TheTeam"
 // import AboutHeroPage from "./AboutDetails/AboutDetails"
 
 const About = () => {
@@ -15,6 +16,7 @@ const About = () => {
         <OurStory/>
         <OurMission/>
         <Offers/>
+        <TheTeam/>
         <Footer/>
     </div>
   )

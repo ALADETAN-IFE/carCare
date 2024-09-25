@@ -11,7 +11,7 @@ const OurMission = () => {
 
         </div>
         <div className='OurMissionRight'>
-          {/* <img src={growYourbusiness} alt="" /> */}
+          {/* <img src={"https://res.cloudinary.com/dserpv6p5/image/upload/v1727268325/we9qo6cyctexcbprolxn.png"} alt="" /> */}
         </div>
 
     </div>
