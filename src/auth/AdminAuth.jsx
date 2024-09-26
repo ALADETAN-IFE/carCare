@@ -15,7 +15,7 @@ const AdminAuth = () => {
         sessionStorage.setItem('lastVisitedPage', "/login");
       }
     }, [isLoggedIn, location.pathname]);
-    console.log(typeOfUser, "ad")
+    // console.log(typeOfUser, "ad")
     // Determine the redirect path
     const redirectPath = sessionStorage.getItem('lastVisitedPage') || '/';
   

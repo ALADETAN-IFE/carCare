@@ -36,7 +36,7 @@ const DriverLayout = () => {
 
   const [pages, setpages1] = useState(appPages)
   const [book, setbook] = useState(booked)
-  console.log(book, "book")
+  // console.log(book, "book")
  
   const setpages = (pageName) => {
     dispatch(setAppPages(pageName))
