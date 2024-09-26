@@ -22,7 +22,8 @@
     width: 48rem;
     height: 37.5rem;
     background-image: url("https://res.cloudinary.com/dserpv6p5/image/upload/v1727269643/hmxjd7jvymqxut6xvasd.png"); 
-
+    background-repeat: no-repeat;
+    
 
 
     /* display: flex;
