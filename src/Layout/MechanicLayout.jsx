@@ -19,8 +19,8 @@ const MechanicLayout = () => {
   // addBooking
   // const { mechId } = useParams()
   const {pathname} = useLocation()
-  console.log(pathname, "pathname")
-  console.log(useLocation(), "useLocation()")
+  // console.log(pathname, "pathname")
+  // console.log(useLocation(), "useLocation()")
   const { appPages, UserDatas, UserDataWithToken } = useSelector((state) => state.carCare)
   const  mechId  = UserDatas._id
   const dispatch = useDispatch()
@@ -60,9 +60,9 @@ const MechanicLayout = () => {
           Authorization: `Bearer ${token}`,  // Add token for authentication
         },
       })
-      console.log(res)
+      // console.log(res)
     } catch (error) {
-      console.log(error)
+      // console.log(error)
 
     }
   }

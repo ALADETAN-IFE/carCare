@@ -21,7 +21,7 @@ const DriverAuth = () => {
       }
       }
     }, [isLoggedIn, location.pathname]);
-    console.log(typeOfUser, "driv")
+    // console.log(typeOfUser, "driv")
   
     // Determine the redirect path
   

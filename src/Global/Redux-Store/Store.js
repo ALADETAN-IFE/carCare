@@ -17,6 +17,11 @@ const persistConfig = {
   storage,
 }
 
+if (import.meta.env.VITE_NODE_ENV === 'production') {
+  // console.log("production")
+  // window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ = undefined;
+}
+
 const persistedReducer = persistReducer(persistConfig, carCareReducer)
 
 export const store = configureStore({
@@ -29,6 +34,7 @@ export const store = configureStore({
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
     }),
+    devTools: import.meta.env.VITE_NODE_ENV !== 'production',
 })
 
 export const persistor = persistStore(store)

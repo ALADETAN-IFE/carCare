@@ -10,7 +10,7 @@ const Auth = () => {
   // useEffect(() => {
   //   setisLoggedIn(isLoggedIn1)
   // }, )
-  console.log(typeOfUser)
+  // console.log(typeOfUser)
   return isLoggedIn && typeOfUser.trim() !== ""? <Outlet/>  :  <Navigate to="/login" replace={true}/>
   // return !isLoggedIn && typeOfUser.trim() == ""? <Outlet/>  :  <Navigate to="/login" replace={true}/>
 }

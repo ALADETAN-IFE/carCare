@@ -103,8 +103,8 @@ const SideBar = ({ pages, setpages, book }) => {
     );
     const unread = notifications?.filter((e)=> e.read == "false")
 
-    console.log(unread, "unread")
-    console.log(notifications, "notifications")
+    // console.log(unread, "unread")
+    // console.log(notifications, "notifications")
 
 
     const userSideBarNav = [
@@ -238,11 +238,11 @@ const SideBar = ({ pages, setpages, book }) => {
                     icon: "success",
                     title: "Logged out successfully",
                 });
-                console.log(response)
+                // console.log(response)
                 // Dispatch logOut action to clear user data from the Redux store
                 dispatch(logOut());
             } catch (error) {
-                console.log(error)
+                // console.log(error)
                 // Handle errors during logout
                 Swal.fire({
                     icon: "error",
