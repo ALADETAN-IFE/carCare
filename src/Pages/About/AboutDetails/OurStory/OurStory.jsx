@@ -5,9 +5,7 @@ const OurStory = () => {
   return (
     <div className='ourStory__container'>
         <div className='ourStory__left'> 
-            <div className="leftbg"></div>
-            <div className="rightbg"></div>
-
+           
         </div>
         <div className='ourStory__right'>
             <h1>Our Story</h1>

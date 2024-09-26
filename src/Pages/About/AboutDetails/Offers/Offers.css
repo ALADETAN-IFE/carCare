@@ -1,0 +1,268 @@
+ .offers{
+    display: flex;
+    width: 100%;
+    height: 37.5rem;
+    padding-bottom: 4.25rem;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.offers__container{
+    display: flex;
+    width: 100%;
+    height: 20.375rem;
+    padding: 4rem;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 0.5rem;
+    background: linear-gradient(0deg, rgba(11, 20, 47, 0.90) 0%, rgba(11, 20, 47, 0.90) 100%), url(<path-to-image>) lightgray 50% / cover no-repeat;
+}
+.offerBoxLeft{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+}
+
+
+.offerText{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.9375rem;
+    /* align-self: stretch;
+     */
+}
+.offerText h1{
+    color: var(--Base-Base-White, #FFF);
+    font-family: "Alegreya SC";
+    font-size: 2.25rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-transform: capitalize;
+}
+.offerText p{
+    color: var(--Base-Base-White, #FFF);
+    font-family: Lora;
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-transform: capitalize;
+
+}
+.offerBtn{
+    display: flex;
+    width: 11.25rem;
+    height: 3.75rem;
+    padding: 1rem 1.625rem;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0.5rem;
+    border: 1px solid var(--Base-Base-White, #FFF);
+}
+
+.offerBoxesRight{
+    display: flex;
+    padding: 3rem 1.5rem; 
+    /* flex-direction: column; */
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    
+}
+.offerBox{
+    display: flex;
+    width: 12.5rem;
+    height: 15.875rem;
+    padding: 3rem 1.5rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0.625rem;
+    border: 1px solid var(--Base-Base-White, #FFF);
+}
+.offerBoxIcon{
+    display: flex;
+    flex-direction: column;
+    width: 4.375rem;
+    height: 4.375rem;
+    justify-content: center;
+    align-items: center;
+
+} 
+.offerBoxIcon img{
+    width: 2.70938rem;
+    height: 2.73438rem;
+    flex-shrink: 0;
+}
+.offerBoxIcon p{
+    color: var(--Base-Base-White, #FFF);
+    text-align: center;
+    text-shadow: 0px 0px 12.5px rgba(255, 255, 255, 0.46);
+    font-family: Oswald;
+    font-size: 0.9375rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 151.523%; /* 1.4205rem */
+    }
+
+
+  
+
+
+  /* For screens with max-width of 768px */
+@media (max-width: 768px) {
+    .offers {
+      flex-direction: column;
+      height: auto;
+      padding-bottom: 3rem;
+    }
+
+    .offers__container {
+      flex-direction: column;
+      height: auto;
+      padding: 3rem;
+    }
+
+    .offerBoxLeft {
+      width: 100%;
+      align-items: center;
+    }
+
+    .offerText {
+      gap: 0.75rem;
+      text-align: start;
+    }
+
+    .offerText h1 {
+      font-size: 2rem;
+    }
+
+    .offerText p {
+      font-size: 1.375rem;
+    }
+
+    .offerBoxesRight {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+    }
+
+    .offerBox {
+      width: 10rem;
+      height: 11.5rem;
+    }
+
+    .offerBtn {
+        display: flex;
+        width: 150px;
+        /* justify-content: center;
+        align-items: center; */
+        position: absolute;
+        right: -7.46875rem;
+        bottom: -25.4375rem;
+        border-radius: 0.3125rem;
+        border: 1px solid var(--Base-Base-White, #FFF);
+    }
+}
+
+/* For screens with max-width of 421px */
+@media (max-width: 550px) {
+    .offers {
+      flex-direction: column;
+      height: auto;
+      padding-bottom: 2rem;
+    }
+
+    .offers__container {
+      flex-direction: column;
+      height: auto;
+      padding: 3rem; 
+    }
+
+    .offerBoxLeft {
+      width: 100%;
+      align-items: center;
+    }
+
+    .offerText h1 {
+      font-size: 1.75rem;
+      text-align: start;
+    }
+
+    .offerText p {
+      font-size: 1.25rem;
+      text-align: start;
+    }
+
+    .offerBtn {
+      width: 100%;
+      height: auto;
+      padding: 0.75rem 1.5rem; 
+    }
+
+    .offerBoxesRight {
+        display: grid; /* Use grid for two-column layout */
+        grid-template-columns: repeat(2, 1fr); /* Two equal columns */
+        gap: 0.75rem;
+      /* flex-direction: row;
+      flex-wrap: wrap;
+      gap: 0.5rem; */
+    }
+
+    .offerBox {
+      width: 8.5rem;
+      height: 9rem;
+      padding: 2rem 1rem; 
+    }
+
+    .offerBox__icon {
+      width: 3.75rem;
+      height: 3.75rem;
+    }
+}
+
+/* For screens with max-width of 375px (two-column layout for offerBoxes) */
+@media (max-width: 375px) {
+    .offers {
+      padding-bottom: 1.5rem; 
+    }
+
+    .offers__container {
+      padding: 1.5rem;
+    }
+
+    .offerText h1 {
+      font-size: 1.5rem;
+    }
+
+    .offerText p {
+      font-size: 1.125rem;
+    }
+
+    .offerBtn {
+      width: 150px;
+      height: auto;
+      padding: 0.5rem 1rem; 
+    }
+
+    .offerBoxesRight {
+      display: grid; /* Use grid for two-column layout */
+      grid-template-columns: repeat(2, 1fr); /* Two equal columns */
+      gap: 0.75rem;
+      
+    }
+
+    .offerBox {
+      width: 100%;
+      height: auto;
+      align-items: center;
+      padding: 1.5rem 0.75rem;
+    }
+}
+
+  
+

@@ -1,0 +1,93 @@
+.blog__article{
+    display: flex;
+    height: 43.125rem;
+    padding: 3.875rem 4.3125rem 3.9375rem 4.375rem;
+    justify-content: center;
+    align-items: center;
+}
+.article__container{
+    display: flex;
+    width: 81.3125rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.25rem;
+}
+.article__container h1{
+    color: var(--Secondary-Secondary, #0066B2);
+    font-family: "Alegreya SC";
+    font-size: 2.25rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.article__view{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 1.25rem;
+    align-self: stretch;
+}
+.article__view p{
+    color: var(--Secondary-Secondary, #0066B2);
+    text-align: right;
+    font-family: Lora;
+    font-size: 0.75rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 1.5625rem; /* 208.333% */
+}
+.article__columns{
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    align-self: stretch;
+}
+.articles{
+    display: flex;
+    width: 19.375rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+}
+.articles h1{
+    color: var(--Secondary-Secondary900, #004375);
+    font-family: "Alegreya SC";
+    font-size: 1.125rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 1.5625rem; /* 138.889% */
+}
+.article__text{
+    color: #6C757D;
+    font-family: Lora;
+    font-size: 0.75rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.article__img{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 0.5rem;
+}
+.art__img{
+    height: 17.5rem;
+    width: 19.375rem;
+    align-self: stretch;
+    border-radius: 0.3125rem;
+    background: url(<path-to-image>) lightgray 50% / cover no-repeat, #C4C4C4;
+    background-color: #004375;
+
+}
+.article__date{
+    color: #6C757D;
+    font-family: Lora;
+    font-size: 0.75rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+     
+}
+

@@ -28,7 +28,34 @@ const ContactUs = () => {
               
             </div>
             <div className="ContactUsBodyBottomRight">
-              sd
+              <div className="contact__details">
+                <h1> Contact Details</h1>
+                <p>Reach Out Anytime. We’re Just a Call, Email, or Visit Away, Ready to Assist You</p>
+              </div>
+              <div className="details__cont">
+              <div className="fullDetails">
+                <img src={"https://res.cloudinary.com/dserpv6p5/image/upload/v1727300007/qpy8ojajpkuyzjpuzum3.png"} className="contactIcon" alt="" />
+                <div className="contact__add">
+                  <h1>Address</h1>
+                  <p>Visit us at our office: 123 CarCare Avenue, Victoria Island, Lagos</p>
+                </div>
+              </div>
+              <div className="fullDetails">
+                <img src={"https://res.cloudinary.com/dserpv6p5/image/upload/v1727301316/oja6dojjpwbyx78crjhc.svg"} className="contactIcon" alt="" />
+                <div className="contact__add">
+                  <h1>Email</h1>
+                  <p>Drop us a line at support@carcare.com and we’ll get back to you within 24 hours.</p>
+                </div>
+              </div>
+              <div className="fullDetails">
+                <img src={"https://res.cloudinary.com/dserpv6p5/image/upload/v1727301504/dsrx1psyxrirjopct1kj.png"} className="contactIcon" alt="" />
+                <div className="contact__add">
+                  <h1>Phone</h1>
+                  <p>+2348122967723</p>
+                </div>
+              </div>
+              </div>
+             
             </div>
           </div>
         </div>

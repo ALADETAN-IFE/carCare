@@ -4,22 +4,15 @@
     align-items: center;
     width: 100%;
     align-self: stretch;
-    /* min-height: 28.875rem; */
-    /* background: #b17474; */
     background: var(--Base-Base-Black);
 }
 
 .FooterDetailsUp {
-    /* height: 382px; */
     height: 23.875rem;
     display: flex;
     justify-content: center;
     background: var(--Base-Base-Black);
     border-bottom: 1px solid var(--Base-Base-White);
-    /* padding-top: 18px;
-    padding-right: 100px;
-    padding-bottom: 56px;
-    padding-left: 69px; */
     padding: 18px 100px 56px 69px;
     gap: 106px;
 
@@ -305,9 +298,6 @@
 
 }
 
-
-
-
 @media screen and (max-width: 550px) {
     .FooterDetails {
         padding: 0 10px;
@@ -375,6 +365,10 @@
         }
     }
 }
+
+
+
+
 
 @media screen and (max-width: 421px) {
     .FooterDetails {
@@ -445,25 +439,3 @@
 }
 
 
-/* @media screen and ( max-width: 375px) {
-    .footerDetailsUpright {
-        display: block;
-        width: 100%;
-        height: 100%;
-        padding: 30px;
-
-
-        & .infoRoutes{
-            display: block;
-            width: 300px;
-            text-align: center;
-            /* align-items: flex-start; */
-            /* background: rgb(157, 124, 124); 
-            gap: 10px;
-            visibility: hidden;
-    }
-    
-    
-
-}
-} */
