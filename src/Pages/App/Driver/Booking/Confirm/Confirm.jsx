@@ -365,7 +365,7 @@ const Confirm = ({ setbook, setpages }) => {
                 ></div>
                 <div className="confirmBookingMiddleTopMechRight">
                   <h3>{mechTobeBookedDetails?.fullName}</h3>
-                  <h4>Rating: ★★★★☆ (4.5/5)</h4>
+                  {/* <h4>Rating: ★★★★☆ (4.5/5)</h4> */}
                   <p>Years of Experience: <span>
                     {
                       mechTobeBookedDetails?.yearsOfExperience ?

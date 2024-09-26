@@ -135,11 +135,11 @@ const SideBar = ({ pages, setpages, book }) => {
             to: "/app/mech",
             icon: <HomeIcon isActive={pathname === "/app/mech"} />,
         },
-        {
-            text: "Earnings",
-            to: "/app/mech/earnings",
-            icon: <EarningIcon isActive={pathname.includes("earnings")} index={1}/>,
-        },
+        // {
+        //     text: "Earnings",
+        //     to: "/app/mech/earnings",
+        //     icon: <EarningIcon isActive={pathname.includes("earnings")} index={1}/>,
+        // },
         {
             text: "Bookings",
             to: "/app/mech/booking",
