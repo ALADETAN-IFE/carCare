@@ -60,6 +60,9 @@
     width: 12.5rem;
     height: 11.5rem;
     background-color: #0066B2;
+    background-position: 100%;
+    object-fit: cover;
+    object-position: center;
 }
 .member{
     display: flex;

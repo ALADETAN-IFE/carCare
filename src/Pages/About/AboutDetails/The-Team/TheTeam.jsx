@@ -20,7 +20,8 @@ const TheTeam = () => {
                 </div>
             </div>
             <div className='member'>
-                <div className="img__div"></div>
+                {/* <div className="img__div"></div> */}
+                <img src={"https://res.cloudinary.com/dserpv6p5/image/upload/v1727319384/tqa0bdivbydttqpip4wu.jpg"} className="img__div" alt="" />
                 <div className='member__id'>
                     <h1>Ife Aladetan</h1>
                     <p>Frontend Developer</p>
