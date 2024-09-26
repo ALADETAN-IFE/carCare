@@ -106,15 +106,15 @@ const Confirm = ({ setbook, setpages }) => {
     }
   }
 
-  const sendUserDetails = async (data) => {
+  const sendUserDetails = async () => {
     // onSuccess: function (data) {
     // Handle when payment is successful
-    console.log(data, "data")
+    // console.log(data, "data")
     const url = import.meta.env.VITE_API_Url
     const token = UserDataWithToken.token
-    const totalAmount = data.amount_paid
-    const expectedAmount = data.amount
-    const paidAmount = data.amount_paid; // Convert back to Naira (from kobo)
+    // const totalAmount = totalAmount
+    const expectedAmount = totalAmount
+    const paidAmount = totalAmount; // Convert back to Naira (from kobo)
     const fee = calculateFivePercent(paidAmount); // Calculate 5% fee
     setCalculatedFee(fee);
     const calculatedFee = totalAmount - fee;
@@ -215,7 +215,7 @@ const Confirm = ({ setbook, setpages }) => {
       onSuccess: function (data) {
         // Handle when payment is successful
         console.log(data, "success")
-        debouncedSendUserDetails(); // Use debounced function
+        debouncedSendUserDetails(data); // Use debounced function
       },
       // onSuccess: function (data) {
       //   // Handle when payment is successful
