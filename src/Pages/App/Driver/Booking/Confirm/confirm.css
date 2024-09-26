@@ -411,6 +411,11 @@
             border: 1px solid var(--Base-Base-Black, #171717);
             background: transparent;
         }
+        & .go_back:hover{
+            color: var(--Base-Base-Black, #171717);
+            border: 1px solid var(--Base-Base-Black, #171717);
+            background: transparent !important;
+        }
 
         & .checkout_btn {
             color: var(--Base-Base-White, #FFF);

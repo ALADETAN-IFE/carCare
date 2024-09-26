@@ -8,17 +8,21 @@ import "./layout.css"
 import LayoutHeader from "./LayoutHeader/LayoutHeader"
 import SideBar from "./SideBar/SideBar"
 import { useEffect, useState } from "react"
-import { clearnotVerified, setAppPages, setTypeOfUser } from "../Global/Redux-actions/carCare"
+import { clearnotVerified, setAppPages, setNotifications, setTypeOfUser } from "../Global/Redux-actions/carCare"
 import Settings from "../Pages/App/Driver/settings/settings"
 import Mechanic from "../Pages/App/Mechanic/Mechanics"
 import MechanicBooking from "../Pages/App/Mechanic/MechanicBooking/MechanicBooking"
-import { useNavigate, useParams } from "react-router-dom"
+import { Outlet, useLocation, useNavigate, useParams } from "react-router-dom"
 import axios from "axios"
 
 const MechanicLayout = () => {
   // addBooking
-  const { mechId } = useParams()
+  // const { mechId } = useParams()
+  const {pathname} = useLocation()
+  console.log(pathname, "pathname")
+  console.log(useLocation(), "useLocation()")
   const { appPages, UserDatas, UserDataWithToken } = useSelector((state) => state.carCare)
+  const  mechId  = UserDatas._id
   const dispatch = useDispatch()
   const navigate = useNavigate()
   useEffect(() => {
@@ -65,12 +69,41 @@ const MechanicLayout = () => {
   useEffect(() => {
     // verifyIfDetailsAreComplete()
     getUserDetails()
-    if (!mechId) {
-      setmechId()
-    } else {
+    // if (!mechId) {
+      // setmechId()
+    // } else {
       getUserDetails()
-    }
+    // }
   }, [appPages])
+
+
+  const getAllNotifications = async () =>{
+    const url = import.meta.env.VITE_API_Url
+    const token = UserDataWithToken.token
+    const config = {
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    }
+    try {
+      const notifications = await axios.get(`${url}/api/v1/mechanics/notifications`, config)
+      // console.log(notifications, "withAPI")
+      // toast.success("Notifications fetched successfully")
+      dispatch(setNotifications(notifications?.data?.data))
+    } catch (error) {
+      // console.log(error)
+      const errMsg = error?.response?.data?.message 
+      // if (errMsg == "No notifications found for this customer.") {
+      //   toast.info("No notifications found")
+      // }
+    } 
+  }
+
+  // console.log(notifications, "notifications"  )
+
+  useEffect(() => {
+   getAllNotifications()
+  }, [])
 
   return (
     <div className="layout"
@@ -84,8 +117,8 @@ const MechanicLayout = () => {
       <SideBar pages={pages} setpages={setpages} />
       <div className="layoutDown">
         <LayoutHeader LayoutHeaderStyle />
-        {/* <Outlet /> */}
-        {
+        <Outlet />
+        {/* {
           pages == "app" || pages == "" ?
             <Mechanic setpages={setpages} />
             :
@@ -94,7 +127,7 @@ const MechanicLayout = () => {
               : pages == "settings" ?
                 <Settings />
                 : null
-        }
+        } */}
       </div>
     </div>
   )

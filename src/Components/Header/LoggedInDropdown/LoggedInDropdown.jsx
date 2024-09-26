@@ -7,20 +7,26 @@ import { BiQuestionMark } from 'react-icons/bi';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { logOut } from '../../../Global/Redux-actions/carCare';
+import Swal from 'sweetalert2';
+import axios from 'axios';
 
 const LoggedInDropdown = ({ setshowMenu2, showMenu2 }) => {
-    const {typeOfUser, UserDatas} = useSelector((state) => state.carCare);
+    const {typeOfUser, UserDatas, UserDataWithToken} = useSelector((state) => state.carCare);
     const [showMenu3, setshowMenu3] = useState(true)
     const [dashboardPath, setdashboardPath] = useState("/app")
+    const [logOutEndPoint, setlogOutEndPoint] = useState("")
     useEffect(() => {
      if (typeOfUser == "Driver") {
          setdashboardPath("/app")   
+         setlogOutEndPoint("api/v1/signout")
      } 
     if (typeOfUser == "Mechanic") {
          setdashboardPath("/app/mech")  
+         setlogOutEndPoint("api/v1/mech/signout")
      }
     if (typeOfUser == "Admin") {
-         setdashboardPath("/app/admin")  
+         setdashboardPath("/app/admin")
+         setlogOutEndPoint("")  
      }
     }, [])
     
@@ -59,6 +65,75 @@ const LoggedInDropdown = ({ setshowMenu2, showMenu2 }) => {
         // }
 
     ]
+
+    const logOutFunc = async () => {
+        // const logOutFunc = () => {
+        const url = import.meta.env.VITE_API_Url
+        const token = UserDataWithToken.token
+        // console.log(UserDataWithToken.token, "UserDataWithToken")
+        // setloading(true)
+        const config = {
+            headers: {
+              Authorization: `Bearer ${token}`
+            }
+          }
+
+        // Display confirmation dialog
+        const result = await Swal.fire({
+            title: "Are you sure you want to log out?",
+            text: "You will need to log in again to access your account!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, log me out",
+            cancelButtonText: "No, cancel",
+        });
+
+        // If the user confirms, proceed with logging out
+        if (result.isConfirmed) {
+            try {
+                // Show loading indicator
+                Swal.fire({
+                    title: "Logging out...",
+                    allowOutsideClick: false,
+                    didOpen: () => {
+                        Swal.showLoading();
+                    },
+                });
+
+                // Call API to log out user
+                const response = await axios.post(
+                    `${url}/${logOutEndPoint}`,
+                    {},
+                    config
+                );
+
+                // Handle successful logout
+                Swal.fire({
+                    icon: "success",
+                    title: "Logged out successfully",
+                });
+                console.log(response)
+                // Dispatch logOut action to clear user data from the Redux store
+                dispatch(logOut());
+            } catch (error) {
+                console.log(error)
+                // Handle errors during logout
+                Swal.fire({
+                    icon: "error",
+                    title: "Logout failed",
+                    text: error.response?.data?.message || "An error occurred during logout",
+                });
+            }
+        } else {
+            // Handle case where the user cancels logout
+            Swal.fire({
+                icon: "info",
+                title: "Logout cancelled",
+            });
+        }
+    }
     return (
         <section className='loggedInDropdown' onClick={removeDropDown}>
             <div className="loggedInDropdownWrapper">
@@ -78,7 +153,7 @@ const LoggedInDropdown = ({ setshowMenu2, showMenu2 }) => {
                                 </Link>
                             ))
                         }
-                        <div className="loggedInDropdownBoxDownBox" onClick={() => dispatch(logOut())}>
+                        <div className="loggedInDropdownBoxDownBox" onClick={logOutFunc}>
                             <RiLogoutCircleLine /><p>Logout</p>
                         </div>
                     </div>

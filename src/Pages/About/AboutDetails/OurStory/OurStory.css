@@ -1,6 +1,7 @@
 .ourStory__container{
     display: flex;
     width: 100%;
+    /* height: 46rem; */
     justify-content: space-around;
     align-items: center;
     background-color: #fff;
@@ -9,46 +10,25 @@
 }
 .ourStory__left{
     display: flex;
-    position: relative;
-    width: 42rem;
-    height: 37.3125rem;
-   gap: 350px;
-    /* padding: 9.875rem 5.5rem; */
-    /* justify-content: center;
-    align-items: center; */
+    gap: 350px;
+    width: 45rem;
+    height: 37.5rem;
+    background-image: url("https://res.cloudinary.com/dserpv6p5/image/upload/v1727267571/yq7dvjg4jswkiyq6viy5.svg");
     
 }
-.leftbg{
-    /* position: absolute; */
-    padding: 9.875rem 5.5rem;
-    width: 18.32013rem;
-    height: 31.2685rem;
-    transform: rotate(-38.775deg);
-    background: var(--Secondary-Secondary, #0066B2);
-}
-.rightbg{
-    /* position: absolute; */
-    background: var(--Secondary-Secondary, #0066B2);
-    width: 6.25rem;
-    height: 27.3125rem;
-    transform: rotate(0deg); 
-    
-    
 
-    
-   
-}
 .ourStory__right{
     display: flex;
     flex-direction: column;
-    width: 48rem;
+    width: 43rem;
     height: 37.3125rem;
     padding: 9.875rem 5.5rem;
     justify-content: center;
     align-items: center;
     /* flex-shrink: 0; */
-
 }
+
+
 .ourStory__right h1{
     color: var(--Base-Base-Black, #171717);
 font-family: "Alegreya SC";
@@ -66,3 +46,127 @@ font-style: normal;
 font-weight: 500;
 line-height: 180%; /* 2.7rem */
 }
+
+/* For screens with max-width of 768px */
+@media (max-width: 768px) {
+    .ourStory__container {
+      flex-direction: column;
+      height: auto;
+      gap: 20px;
+      padding: 2rem;
+    }
+  
+    .ourStory__left, .ourStory__right {
+      width: 100%;
+      height: auto;
+      padding: 2rem;
+    }
+  
+    .leftbg {
+      width: 14rem;
+      height: 25rem;
+      transform: rotate(-30deg);
+      padding: 7rem 4rem;
+    }
+  
+    .rightbg {
+      width: 5rem;
+      height: 22rem;
+    }
+  
+    .ourStory__right h1 {
+      font-size: 2rem;
+      text-align: center;
+    }
+  
+    .ourStory__right p {
+      font-size: 1.25rem;
+      text-align: center;
+    }
+  }
+  
+  /* For screens with max-width of 550px */
+  @media (max-width: 550px) {
+    .ourStory__container {
+      padding: 1.5rem;
+      gap: 15px;
+    }
+  
+    .ourStory__left {
+      gap: 20px;
+    }
+  
+    .leftbg {
+      width: 12rem;
+      height: 20rem;
+      padding: 6rem 3rem;
+    }
+  
+    .rightbg {
+      width: 4rem;
+      height: 18rem;
+    }
+  
+    .ourStory__right h1 {
+      font-size: 1.75rem;
+    }
+  
+    .ourStory__right p {
+      font-size: 1.125rem;
+    }
+  }
+  
+  /* For screens with max-width of 421px */
+  @media (max-width: 421px) {
+    .ourStory__container {
+      padding: 1rem;
+      gap: 10px;
+    }
+  
+    .leftbg {
+      width: 10rem;
+      height: 17rem;
+      padding: 5rem 2.5rem;
+    }
+  
+    .rightbg {
+      width: 3rem;
+      height: 15rem;
+    }
+  
+    .ourStory__right h1 {
+      font-size: 1.5rem;
+    }
+  
+    .ourStory__right p {
+      font-size: 1rem;
+    }
+  }
+  
+  /* For screens with max-width of 375px */
+  @media (max-width: 375px) {
+    .ourStory__container {
+      padding: 0.75rem;
+      gap: 8px;
+    }
+  
+    .leftbg {
+      width: 9rem;
+      height: 15rem;
+      padding: 4rem 2rem;
+    }
+  
+    .rightbg {
+      width: 2.5rem;
+      height: 13rem;
+    }
+  
+    .ourStory__right h1 {
+      font-size: 1.25rem;
+    }
+  
+    .ourStory__right p {
+      font-size: 0.875rem;
+    }
+  }
+  

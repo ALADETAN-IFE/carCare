@@ -27,7 +27,9 @@
   /* object-fit: contain; */
   background-size: cover !important;
   /* background-position: center !important; */
+  background-position: 100% !important;
   background-repeat: no-repeat !important;
+  
 
   & img {
     max-width: 100%;

@@ -10,8 +10,11 @@ import { CgMoreVertical } from 'react-icons/cg'
 import NewTable from '../../../../Components/Table/NewTable'
 import axios from 'axios'
 import { useParams } from 'react-router'
+import { useNavigate, useLocation } from 'react-router-dom'
 
 const Booking = ({ setpages, pages }) => {
+  const {pathname} = useLocation();
+  const navigate = useNavigate()
   const [currentBookings1, setcurrentBookings] = useState([
     // {
     //   mechanic: "Anjola Akindoju",
@@ -140,6 +143,7 @@ const Booking = ({ setpages, pages }) => {
   const [bookingsPerPage, setbookingsPerPage] = useState(7)
   const [loading, setloading] = useState(false)
   const { customerId } = useParams()
+
   useEffect(() => {
     const interval = setInterval(() => {
       setwidth(window.innerWidth)
@@ -153,14 +157,6 @@ const Booking = ({ setpages, pages }) => {
   }, [width])
   const [currentPage, setCurrentPage] = useState(1);
   // const bookingsPerPage = 7; // Number of bookings per page
-  useEffect(() => {
-    // icon: <CgMoreVertical />
-    //   setcurrentBookings((prev)=> prev.map((e)=> {
-    //           e.icon = <CgMoreVertical />
-    //     return e
-    // }))
-  }, [currentPage])
-
 
 
   const getAllCurrentBookings = async () => {
@@ -178,16 +174,18 @@ const Booking = ({ setpages, pages }) => {
       // console.log(res?.data?.data, "setcurrentBookings")
       setcurrentBookings(res?.data?.data)
       // console.log(currentBookings1, "currentBookings1")
-      setloading(false)
     } catch (error) {
       console.log(error)
-
+      
+    }finally{
+      
+      setloading(false)
     }
   }
   useEffect(() => {
     // icon: <CgMoreVertical />
     getAllCurrentBookings()
-  }, [pages])
+  }, [pages, pathname])
   // Get the current bookings based on the pagination
   const indexOfLastBooking = currentPage * bookingsPerPage;
   const indexOfFirstBooking = indexOfLastBooking - bookingsPerPage;
@@ -196,7 +194,9 @@ const Booking = ({ setpages, pages }) => {
   const dispatch = useDispatch()
   const startBooking = () => {
     dispatch(setAppbookingFormPage(0))
-    setpages("addbooking")
+    // setpages("addbooking")
+    navigate("/app/booking/add-booking")
+
   }
   return (
     <div className='bookingPage'>

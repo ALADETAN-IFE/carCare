@@ -40,25 +40,25 @@ const ForgotPassword = () => {
           alert("You are currently offline")
           dispatch(clearnotVerified())
         }
-        if (errMsg == "Your email is not yet verified") {
-          if (notVerified.length >= 2) {
-            try {
-              const responseAgain = await axios.post(`${url}/api/v1/resendEmail`, { email })
-              console.log(responseAgain, "responseAgain")
-              // const responseData = responseAgain?.data?.message.charAt(0).toLowerCase()
-              // const responseData2 = responseAgain?.data?.message.slice(1)
-              // toast.info(`New ${responseData}${responseData2}`)
-            } catch (error) {
-              console.log(error)
-              console.log(error?.response?.data?.error)
-              toast.error(error?.response?.data?.error)
-            }
-          } else {
-            dispatch(setnotVerified(errMsg))
-          }
-        } else {
-          dispatch(clearnotVerified())
-        }
+        // if (errMsg == "Your email is not yet verified") {
+        //   if (notVerified.length >= 2) {
+        //     try {
+        //       const responseAgain = await axios.post(`${url}/api/v1/resendEmail`, { email })
+        //       console.log(responseAgain, "responseAgain")
+        //       // const responseData = responseAgain?.data?.message.charAt(0).toLowerCase()
+        //       // const responseData2 = responseAgain?.data?.message.slice(1)
+        //       // toast.info(`New ${responseData}${responseData2}`)
+        //     } catch (error) {
+        //       console.log(error)
+        //       console.log(error?.response?.data?.error)
+        //       toast.error(error?.response?.data?.error)
+        //     }
+        //   } else {
+        //     dispatch(setnotVerified(errMsg))
+        //   }
+        // } else {
+        //   dispatch(clearnotVerified())
+        // }
         setloading(false)
       }
     }

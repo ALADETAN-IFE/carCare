@@ -158,10 +158,82 @@
 }
 
 .ContactUsBodyBottomRight {
-    width: 43%;
+    display: flex;
+      /* width: 43%; */
+      height: 485.25px;
+width: 34.38688rem;
+padding: 2.5625rem 2.13688rem 2.53125rem 2.1875rem;
+flex-direction: column;
+border-radius: 0.625rem;
+border: 1px solid #565454;
+box-shadow: 1px 5px 15px 0px rgba(0, 0, 0, 0.25);
+gap: 4.3rem;
+
+    /* width: 43%;
     background: #000;
     height: 485.25px;
     border-radius: 10px;
 border: 1px solid #565454;
-box-shadow: 1px 5px 15px 0px rgba(0, 0, 0, 0.25);
+box-shadow: 1px 5px 15px 0px rgba(0, 0, 0, 0.25); */
+}
+.details__cont{
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    
+}
+.contact__details{
+    display: flex;
+height: 1.8125rem;
+flex-direction: column;
+justify-content: center;
+align-self: stretch;
+}
+.contact__details h1{
+    color: var(--Base-Base-Black, #171717);
+text-align: center;
+font-family: "Alegreya SC";
+font-size: 2rem;
+font-style: normal;
+font-weight: 500;
+line-height: 1.25rem; /* 62.5% */
+}
+.contact__details p{
+    color: #050B20;
+text-align: center;
+font-family: Lora;
+font-size: 1.25rem;
+font-style: normal;
+font-weight: 400;
+line-height: 1.73438rem; /* 138.75% */
+}
+.fullDetails{
+    display: flex;
+/* flex-direction: column; */
+align-items: flex-start;
+gap: 2.5rem;
+align-self: stretch;
+
+}
+.contactIcon{
+    width: 1.25rem;
+height: 1.375rem;
+flex-shrink: 0;
+}
+
+.contact__add h1{
+    color: var(--Base-Base-Black, #171717);
+font-family: Oswald;
+font-size: 1.25rem;
+font-style: normal;
+font-weight: 400;
+line-height: 1.125rem; /* 90% */
+}
+.contact__add p{
+    color: #050B20;
+font-family: Oswald;
+font-size: 1rem;
+font-style: normal;
+font-weight: 300;
+line-height: 1.73438rem; /* 173.438% */
 }

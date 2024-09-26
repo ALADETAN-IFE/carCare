@@ -1,35 +1,12 @@
-
 import './AboutDetails.css'
-import React, {useEffect, useState } from "react";
+import React from "react";
 import "../../../Components/HeroPage/heroPage.css";
-// import hero3 from "../../../assets/images/HeroPage/hero section3.png";
-// import mobilehero3 from "../../../assets/images/HeroPage/mobile hero section3.png";
 
 
 
 const AboutHeroPage = () => {
-
-  // const [isMobile, setIsMobile] = useState(false);
-
-  // const desktopImage = [hero3];
-  // const mobileImage = [mobilehero3];
-  // const image = isMobile ? mobileImage : desktopImage;
-
-  // useEffect(() => {
-  //   const handleResize = () => {
-  //     setIsMobile(window.innerWidth < 768);
-  //   };
-
-  //   window.addEventListener("resize", handleResize);
-  //   handleResize(); // Call on initial load
-
-  //   return () => window.removeEventListener("resize", handleResize);
-  // }, []);
-
-
-  
   return (
-    // <div className='aboutDetails__container'>
+    <div className='aboutDetails__container'>
       <div className="heropart">
       <div className="carousel__container">
       {/* This is a background color */}
@@ -49,7 +26,7 @@ const AboutHeroPage = () => {
        </div>
       
     </div>
-{/* </div> */}
+</div>
 
      </div> 
   </div>

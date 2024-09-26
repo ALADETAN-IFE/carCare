@@ -9,7 +9,7 @@ import { IoStar } from "react-icons/io5"
 import { IoIosStarHalf } from "react-icons/io"
 import axios from "axios"
 import { useDispatch, useSelector } from "react-redux"
-import { MoonLoader } from "react-spinners"
+import { ClipLoader, MoonLoader } from "react-spinners"
 import { setmechTobeBooked, setuserBookingForm } from "../../../../../../Global/Redux-actions/carCare"
 
 const MechanicDetails = () => {
@@ -40,8 +40,8 @@ const MechanicDetails = () => {
                     },
                 })
             console.log(response)
-            console.log(response?.data?.data)
-            console.log(response?.data?.message)
+            // console.log(response?.data?.data)
+            // console.log(response?.data?.message)
             setmechDetails(response?.data?.data)
             setloading(false)
         } catch (error) {
@@ -66,7 +66,7 @@ const MechanicDetails = () => {
         console.log(bookingInputsObject)
         setTimeout(() => {
             setloading2(false)
-            navigate(`/app/${UserDatas?._id}/${mechDetails?._id}`)
+            navigate(`/app/booking/add-booking/${UserDatas?._id}/${mechDetails?._id}`)
         }, 2000);
     }
     useEffect(() => {
@@ -88,6 +88,9 @@ const MechanicDetails = () => {
         }
         if (years < 2) {
             return ` ${years} year`
+        }
+        if (!years) {
+            return ` 1 year`
         }
         else {
             return ` ${years} years`
@@ -123,6 +126,17 @@ const MechanicDetails = () => {
             </div>
         );
     }
+    
+
+    const loadingStyle = {
+        width: "100%",
+        // height: "100%",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        // backgroundColor: "rgba(0, 0, 0, 0.7)",
+    
+    }
 
 
     return (
@@ -132,20 +146,21 @@ const MechanicDetails = () => {
                 <div className="mechanicDetailsBodyWrapper">
                     {
                         loading ?
-                            <div className="mechanicDetailsLeft">
-                                <MoonLoader />
+                            <div style={loadingStyle}>
+                                <ClipLoader />
                             </div>
                             :
-                            <div className="mechanicDetailsLeft"
-                                style={{ background: !mechDetails?.profilePicture?.pictureUrl ? `black` : `url(${mechDetails?.profilePicture?.pictureUrl})` }}>
-                                {/* <img src={mechDetails?.profilePicture?.pictureUrl} alt="" /> */}
-                            </div>
-                    }
-                    <div className="mechanicDetailsRight">
-                        {
+                            <>
+                                <div className="mechanicDetailsLeft"
+                                    style={{ background: !mechDetails?.profilePicture?.pictureUrl ? `url(https://res.cloudinary.com/dserpv6p5/image/upload/v1727272485/tqbhwjbdv2djhqgarnlr.jpg)` : `url(${mechDetails?.profilePicture?.pictureUrl})` }}>
+                                    {/* <img src={mechDetails?.profilePicture?.pictureUrl} alt="" /> */}
+                                </div>
+                                {/* // } */}
+                                <div className="mechanicDetailsRight">
+                                    {/* {
                             loading ? <p style={{ alignSelf: "center", justifySelf: "center" }}>Loading...</p>
-                                :
-                                <>
+                                : */}
+                                    {/* <> */}
                                     <div className="mechanicDetailsRight_Top">
                                         <p className="mechDetailsRating">
                                             {/* {mechDetails?.rating} */}
@@ -156,16 +171,18 @@ const MechanicDetails = () => {
                                         <div className="mechanicDetailsRight_Top_Top">
                                             <div className="mechanicDetailsRight_Top_Top_Details1">
                                                 <h3>{mechDetails?.fullName}</h3>
-                                                <h4>  Specializations:
+                                                <h4>  Specializations: 
                                                     <span>
-                                                        {/* {mechDetails?.specialization?.join(", ")} */}
-                                                        ASE Certified, Master Technician.
+                                                        {" "}
+                                                         {mechDetails?.areaOfSpecialization}
+                                                        {/* ASE Certified, Master Technician. */}
                                                     </span>.
                                                 </h4>
                                                 <p>
                                                     Experience:
                                                     <span>
                                                         {experienceCalc(mechDetails?.yearsOfExperience)}
+                                                        
                                                     </span>
                                                 </p>
                                             </div>
@@ -175,18 +192,23 @@ const MechanicDetails = () => {
                                             <div className="mechanicDetailsRight_Top_Top_Details3">
                                                 <h3>Certification</h3>
                                                 <div className="mechanicDetailsCerts">
-                                                    <div className="mechanicDetailsCert" >
+                                                    {
+                                                        mechDetails?.areaOfSpecialization?.split(',')?.map(item => item.trim())?.map((e, i)=> (
+                                                    <div className="mechanicDetailsCert" key={i}>
                                                         <div className="picksCircle"></div>
-                                                        <p> ASE Certified, Master Technician.</p>
+                                                        <p> Certified in {e}</p>
                                                     </div>
-                                                    <div className="mechanicDetailsCert" >
+
+                                                        ))
+                                                    }
+                                                    {/* <div className="mechanicDetailsCert" >
                                                         <div className="picksCircle"></div>
                                                         <p> Certified in Hybrid Vehicle Repair</p>
                                                     </div>
                                                     <div className="mechanicDetailsCert" >
                                                         <div className="picksCircle"></div>
                                                         <p> Specialized in European Car Models</p>
-                                                    </div>
+                                                    </div> */}
                                                     {/* {
                                             mechDetails?.certification?.map((e, i) => (
                                                 <div className="mechanicDetailsCert" key={i}>
@@ -218,18 +240,20 @@ const MechanicDetails = () => {
                                         loading2 ?
                                             <button className="mechanicDetailsRight_Btn"
                                                 disabled style={{ background: "#ccc5c5be" }} color="#2c64d4"
-                                                >Booking...</button>
+                                            >Booking...</button>
                                             // <button className="mechanicDetailsRight_Btn"
                                             //     disabled style={{ background: "#ccc5c5be" }} color="#2c64d4"
                                             //     ><BeatLoader size={20} /></button>
                                             :
                                             <button className="mechanicDetailsRight_Btn"
-                                             onClick={addMech}>Book Now</button>
+                                                onClick={addMech}>Book Now</button>
                                     }
-                                   
-                                </>
-                        }
-                    </div>
+
+                                    {/* </> */}
+                                </div>
+                            </>
+
+                    }
                 </div>
             </div>
             <Footer />

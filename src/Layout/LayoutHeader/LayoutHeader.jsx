@@ -23,10 +23,10 @@ const LayoutHeader = ({ LayoutHeaderStyle }) => {
   const navigate = useNavigate()
   const getInitials = (fullName) => {
     // Split the full name into an array of words (assuming names are separated by spaces)
-    let nameParts = fullName.trim().split(" ");
+    let nameParts = fullName?.trim()?.split(" ");
     // console.log(nameParts)
 
-    if (nameParts.length < 2) {
+    if (nameParts?.length < 2) {
       // Handle cases where there is only one name
       return fullName.charAt(0).toUpperCase();
     }
@@ -45,7 +45,9 @@ const LayoutHeader = ({ LayoutHeaderStyle }) => {
   // Example usage:
   // let initials = getInitials("John Doe"); // Output: JD
   useEffect(() => {
+   if (UserDatas?.fullName) {
     setInitials(getInitials(UserDatas?.fullName))
+   }
   }, [])
   const dispatch = useDispatch()
   const opensideBarVisibility = () => {

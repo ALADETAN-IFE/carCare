@@ -84,7 +84,7 @@ const NewTable = ({ totalPages, currentPage, setCurrentPage,
                                                         </td>
                                                         <td data-label="Status"
                                                             style={{ color: booking?.status === 'Pending' ? 'orange' : 'green' }}
-                                                        > {booking?.status}</td>
+                                                        > {booking?.status}ed</td>
                                                         <td data-label="Date">{booking?.date}</td>
                                                         {/* <td data-label="Total Cost">{booking?.totalCost}</td> */}
                                                         <td data-label="Total Cost">₦ 93,000</td>

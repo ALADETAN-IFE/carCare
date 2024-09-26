@@ -269,7 +269,7 @@
         border-radius: 8px;
     }
 
-    & button:first-child {
+    & .cancelSettings {
         background-color: transparent;
         border: var(--Radius-Sharp, 1px) solid var(--Secondary-Secondary, #0066B2);
         color: var(--Secondary-Secondary, #0066B2);
@@ -285,7 +285,7 @@
         }
     }
 
-    & button:last-child {
+    & .saveSettings {
         background: var(--Secondary-Secondary, #0066B2);
         border: none;
         color: var(--gray-0-white, #FFF);

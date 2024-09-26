@@ -3,14 +3,14 @@ import "./notLoggedIn.css"
 import logo from "../../../assets/svg/Logo.svg"
 import { IoCloseSharp } from "react-icons/io5"
 
-const NotLoggedIn = ({ headerMiddle }) => {
+const NotLoggedIn = ({ headerMiddle, loggedIn }) => {
     return (
         <div className="NotLoggedIn">
             <div className="NotLoggedInHead">
                 <div className="NotLoggedInHeadWrapper">
                     <img src={logo} alt="" />
-                    <IoCloseSharp 
-                    style={{cursor: "pointer"}}
+                    <IoCloseSharp
+                        style={{ cursor: "pointer" }}
                     />
                 </div>
             </div>
@@ -24,12 +24,16 @@ const NotLoggedIn = ({ headerMiddle }) => {
                         ))
                     }
                 </div>
-                <div className="NotLoggedInBottomBottom">
-                    {/* <> */}
-                        <Link to="/login">Sign In</Link>
-                        <Link to="/signup">Sign Up</Link>
-                    {/* </> */}
-                </div>
+                {
+                    loggedIn ? null
+                        :
+                        <div className="NotLoggedInBottomBottom">
+                            {/* <> */}
+                            <Link to="/login">Sign In</Link>
+                            <Link to="/signup">Sign Up</Link>
+                            {/* </> */}
+                        </div>
+                }
             </div>
         </div>
     )

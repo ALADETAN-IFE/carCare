@@ -61,26 +61,39 @@
     /* justify-content: center; */
     gap: 10px;
     text-decoration: none;
-    color: var(--Base-Base-Black, #171717);
+    color: var(--Base-Base-Black, #171717) !important;
     font-family: Lora;
     font-size: 20px;
     font-style: normal;
     font-weight: 600;
     line-height: normal;
+    transition: all 350ms ease-in;
 
     & svg {
-        fill: var(--Base-Base-Black, #171717);
+        fill: var(--Base-Base-Black, #171717) !important;
         /* color: var(--Base-Base-Black, #171717); */
         /* : ; */
+    }
+
+    &:hover{
+        background: var(--Secondary-Secondary, #0066B2) !important;
+        color: var(--Base-Base-White, #FFF) !important;
+        border-radius: 5px;
+    
+        & svg {
+            fill: var(--Base-Base-White, #FFF) !important;
+            /* background: var(--Base-Base-White, #FFF); */
+        }
     }
 }
 
 .sideBarNavActive {
-    background: var(--Secondary-Secondary, #0066B2);
-    color: var(--Base-Base-White, #FFF);
+    background: var(--Secondary-Secondary, #0066B2) !important;
+    color: var(--Base-Base-White, #FFF) !important;
+    border-radius: 5px;
 
     & svg {
-        fill: var(--Base-Base-White, #FFF);
+        fill: var(--Base-Base-White, #FFF) !important;
         /* background: var(--Base-Base-White, #FFF); */
     }
 
@@ -125,6 +138,58 @@
 
 /* @media screen and (max-width: 769px) { */
 @media screen and (max-width: 48.0625rem) {
+    /* span{
+        color: white;
+    } */
+    .sideBarNav {
+        width: 100%;
+        height: 50px;
+        padding: 0px 30px;
+        display: flex;
+        align-items: center;
+        /* justify-content: center; */
+        gap: 10px;
+        text-decoration: none;
+        color: var(--Base-Base-Black, #171717) !important;
+        font-family: Lora;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+        transition: all 350ms ease-in;
+    
+        & svg {
+            fill: var(--Base-Base-Black, #171717) !important;
+            /* color: var(--Base-Base-Black, #171717); */
+            /* : ; */
+        }
+    
+        &:hover{
+            background: var(--Secondary-Secondary, #0066B2) !important;
+            color: var(--Base-Base-White, #FFF) !important;
+            border-radius: 5px;
+        
+            & svg {
+                fill: var(--Base-Base-White, #FFF) !important;
+                /* background: var(--Base-Base-White, #FFF); */
+            }
+        }
+    }
+    
+    .sideBarNavActive {
+        background: var(--Secondary-Secondary, #0066B2) !important;
+        color: var(--Base-Base-White, #FFF) !important;
+        border-radius: 5px;
+    
+        & svg {
+            fill: var(--Base-Base-White, #FFF) !important;
+            /* background: var(--Base-Base-White, #FFF); */
+        }
+        & span {
+            color: var(--Base-Base-White, #FFF) !important;
+        }
+    
+    }
     .sideBarLogo {
         width: 100px;
         height: 74px;

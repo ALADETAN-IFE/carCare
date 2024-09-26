@@ -7,7 +7,8 @@ import { setAppbookingFormPage } from '../../../Global/Redux-actions/carCare'
 import { useDispatch, useSelector } from 'react-redux'
 import axios from 'axios'
 
-const Driver = ({ setpages }) => {
+// const Driver = ({ setpages }) => {
+const Driver = () => {
   const [currentBookings, setcurrentBookings] = useState([])
   const { UserDataWithToken, UserDatas } = useSelector((state) => state.carCare)
   const [bookingHistory, setbookingHistory] = useState(currentBookings?.length)
@@ -40,7 +41,13 @@ const Driver = ({ setpages }) => {
   }, [])
   const startBooking = () => {
     dispatch(setAppbookingFormPage(0))
-    setpages("addbooking")
+    // setpages("addbooking")
+    navigate("/app/booking/add-booking")
+  }
+  const lookBooking = () => {
+    dispatch(setAppbookingFormPage(0))
+    // setpages("addbooking")
+    navigate("/app/booking")
   }
   return (
     <div className='driverPage'>
@@ -78,7 +85,7 @@ const Driver = ({ setpages }) => {
                   <h3>Active Bookings</h3>
                   <p>You have active or previous bookings. Manage or view your requests below.</p>
                 </div>
-                <button className='booking_btn' onClick={() => setpages("booking")}> View Bookings</button>
+                <button className='booking_btn' onClick={lookBooking}> View Bookings</button>
               </div>
           }
         </div>

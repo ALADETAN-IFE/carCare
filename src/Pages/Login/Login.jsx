@@ -39,8 +39,8 @@ const Login = () => {
         // console.log(response?.data?.data?.position)
         setloading(false)
      
-        dispatch(logIn())
         if (response?.data?.data?.position == "customer") {
+          dispatch(logIn())
           Swal.fire({
             icon: 'success',
             title: 'Success',
@@ -71,8 +71,9 @@ const Login = () => {
             setTimeout(() => {
               navigate("/mechInfo")
             }, 2000);
-          } else {
+            dispatch(logIn())
             dispatch(setTypeOfUser("Mechanic"))
+          } else {
             // Success alert with navigation after 3 seconds
             Swal.fire({
               icon: 'success',
@@ -119,7 +120,7 @@ const Login = () => {
           <form onSubmit={handleLogin} className='login__form'>
             <div className='login__input'>
               <label htmlFor="">Email Address</label>
-              <input type="text" placeholder='Enter your email address'
+              <input type="email" placeholder='Enter your email address'
                 onChange={(e) => setemail(e.target.value)}
               />
             </div>

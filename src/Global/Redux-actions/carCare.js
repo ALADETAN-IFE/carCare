@@ -40,7 +40,10 @@ const initialState = {
     //      certification: Required.
     //      insurance: Optional.
     //   }
-    mechTobeBooked: {}
+    mechTobeBooked: {},
+    notifications:[],
+    booked: false,
+    // notifications: []
 }
 
 
@@ -87,6 +90,8 @@ export const carCareSlice = createSlice({
             state.userBookingForm = {};
             state.UserDatas = {}; 
             state.UserDataWithToken = {}; 
+            state.notifications = [];
+            state.booked= false
         },
         setAppPages: (state, { payload }) => {
             // state.UserData = undefined; 
@@ -113,6 +118,13 @@ export const carCareSlice = createSlice({
             // state.UserData = undefined; 
             state.mechTobeBooked = payload;
         },
+        setbooked: (state, { payload }) => {
+            // state.UserData = undefined; 
+            state.booked = payload;
+        },
+        setNotifications : (state, { payload }) => {
+            state.notifications = payload
+        }
 
     }
 });
@@ -121,6 +133,7 @@ export const { setnotVerified, clearnotVerified, openNavBarVisibility, closeNavB
     setmechCompleteDetails, setUserDataWithToken,
     logIn, logOut, setAppPages, setAppbookingFormPage,setUserDatas,
     setuserBookingForm, setTypeOfUser, setmechSettingsPage, setmechTobeBooked,
+     setbooked, setNotifications
 } = carCareSlice.actions;
 export default carCareSlice.reducer;
 

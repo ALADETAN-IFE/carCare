@@ -10,6 +10,7 @@ import { useParams } from "react-router-dom"
 import axios from "axios"
 import { useSelector } from "react-redux"
 import { toast } from "react-toastify"
+import { ClipLoader } from "react-spinners"
 
 const AllMechanics = () => {
     const UserDataWithToken = useSelector((state) => state?.carCare?.UserDataWithToken)
@@ -40,16 +41,15 @@ const AllMechanics = () => {
     }
     const getAllMechs = async () => {
         const url = import.meta.env.VITE_API_Url
-        // console.log(UserDataWithToken.token, "UserDataWithToken")
         const token = UserDataWithToken.token
+        const config = {
+          headers: {
+            Authorization: `Bearer ${token}`
+          }
+        }
         setloading(true)
         try {
-            const response = await axios.get(`${url}/api/v1/mechanics/approved`,
-                {
-                    headers: {
-                        Authorization: `Bearer ${token}`,  // Add token for authentication
-                    },
-                })
+            const response = await axios.get(`${url}/api/v1/mechanics/approved`, config)
             console.log(response)
             console.log(response?.data?.data)
             console.log(response?.data?.message)
@@ -96,7 +96,7 @@ const AllMechanics = () => {
                     </div>
                     <div className="AllMechanicsBodyWrapperMiddle">
                         {
-                            loading ? <p>loading...</p>
+                            loading ? <ClipLoader/>
                                 :
                                 <>
                                     {

@@ -16,6 +16,6 @@
     gap: 2px;
     overflow: auto;
     overflow-x: hidden;
-    padding-bottom: 40px;
+    padding-bottom: 40px !important;
     /* min-height: 100vh; */
 }
