@@ -47,7 +47,7 @@ const Driver = () => {
   const lookBooking = () => {
     dispatch(setAppbookingFormPage(0))
     // setpages("addbooking")
-    navigate("/app/booking/add-booking")
+    navigate("/app/booking")
   }
   return (
     <div className='driverPage'>

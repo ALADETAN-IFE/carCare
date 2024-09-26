@@ -1,14 +1,70 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { BiX } from 'react-icons/bi'
 import { BsEyeFill, BsEyeSlashFill } from 'react-icons/bs'
 import { FaCheck } from 'react-icons/fa'
 import { IoPersonCircleSharp } from 'react-icons/io5'
 import { LuPencil } from 'react-icons/lu'
+import { useSelector } from 'react-redux'
 
 const MechSettings = ({selectedImage, mechSettings, 
     handleImageChange, setshowPassword, 
     showPassword
 }) => {
+  const { typeOfUser, mechSettingsPage, UserDatas, UserDataWithToken } = useSelector((state) => state?.carCare)
+  
+  const [loading, setloading] = useState(false);
+  const [fullName, setfullName] = useState(UserDatas?.fullName);
+  const [cancelToken, setCancelToken] = useState(null); // State to manage cancel token
+  const [formData1, setformData1] = useState({})
+  const [formData2, setformData2] = useState({})
+  const [formData3, setformData3]= useState({})
+  const [formData4, setformData4]= useState({})
+
+  const handleCancel = () => {
+    if (cancelToken) {
+      cancelToken.cancel("Operation canceled by user.");
+      setCancelToken(null); // Reset the cancel token state after canceling
+    }
+  };
+
+  const handleform1Change = (event) => {
+    setformData1({...formData1, [event.target.name]: event.target.value });
+  }
+  const handleform2Change = (event) => {
+    setformData2({...formData2, [event.target.name]: event.target.value });
+  }
+  const handleform3Change = (event) => {
+    setformData3({...formData3, [event.target.name]: event.target.value });
+  }
+  const handleform4Change = (event) => {
+    setformData4({...formData4, [event.target.name]: event.target.value });
+  }
+
+  const updatProfile1 = () => {
+    formData1
+  }
+  const updatProfile2 = () => {
+
+  }
+  const updatProfile3 = () => {
+
+  }
+  const updatProfile4 = () => {
+    // Update mechanic's email
+    // axios.put(`${url}/api/v1/mech/updateMechanicEmail`, { email: email }, { cancelToken: cancelToken })
+    //  .then((response) => {
+    //     console.log(response);
+    //     // Update the state of UserDatas with the new email
+    //     dispatch(updateMechanicEmail(response.data.email));
+    //   })
+    //  .catch((error) => {
+    //     if (axios.isCancel(error)) {
+    //       console.log("Operation canceled by user.");
+    //     } else {
+    //       console.error("Error updating mechanic's email: ", error);
+    //     }
+    //   });
+  }
   return (
     <>
     {
@@ -40,7 +96,7 @@ const MechSettings = ({selectedImage, mechSettings,
                       <LuPencil />
                     </label>
                   </div>
-                  <h3>Favour Joy</h3>
+                  <h3>{UserDatas?.fullName}</h3>
                 </div>
                 <div className="settingsFormUser">
                   <div className="inpuHolder">
@@ -71,8 +127,15 @@ const MechSettings = ({selectedImage, mechSettings,
                 </div>
               </div>
               <div className="settingsWrapperDown">
-                <button>Cancel <BiX /></button>
-                <button>Save <FaCheck /></button>
+              {
+              loading ?
+                <>
+                  <button className="cancelSettings" onClick={handleCancel} >Cancel <BiX /></button>
+                  <button className="saveSettings">Saving... </button>
+                </>
+                :
+                <button onClick={updatProfile1} className="saveSettings">Save <FaCheck /></button>
+            }
               </div>
             </div>
           </div>
@@ -105,8 +168,15 @@ const MechSettings = ({selectedImage, mechSettings,
           </div>
         </div>
         <div className="settingsWrapperDown">
-          <button>Cancel <BiX /></button>
-          <button>Save <FaCheck /></button>
+        {
+              loading ?
+                <>
+                  <button className="cancelSettings" onClick={handleCancel} >Cancel <BiX /></button>
+                  <button className="saveSettings">Saving... </button>
+                </>
+                :
+                <button onClick={updatProfile2} className="saveSettings">Save <FaCheck /></button>
+            }
         </div>
       </div>
     </div>
@@ -126,8 +196,15 @@ const MechSettings = ({selectedImage, mechSettings,
          </div>
        </div>
        <div className="settingsWrapperDown">
-         <button>Cancel <BiX /></button>
-         <button>Save <FaCheck /></button>
+       {
+              loading ?
+                <>
+                  <button className="cancelSettings" onClick={handleCancel} >Cancel <BiX /></button>
+                  <button className="saveSettings">Saving... </button>
+                </>
+                :
+                <button onClick={updatProfile3} className="saveSettings">Save <FaCheck /></button>
+            }
        </div>
      </div>
    </div>
@@ -151,8 +228,15 @@ const MechSettings = ({selectedImage, mechSettings,
          </div>
        </div>
        <div className="settingsWrapperDown">
-         <button>Cancel <BiX /></button>
-         <button>Save <FaCheck /></button>
+       {
+              loading ?
+                <>
+                  <button className="cancelSettings" onClick={handleCancel} >Cancel <BiX /></button>
+                  <button className="saveSettings">Saving... </button>
+                </>
+                :
+                <button onClick={updatProfile4} className="saveSettings">Save <FaCheck /></button>
+            }
        </div>
      </div>
    </div>

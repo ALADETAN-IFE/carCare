@@ -9,7 +9,7 @@ import TimeInput from './TimeInput';
 // import Confirm from '../Confirm/Confirm';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { setAppbookingFormPage, setuserBookingForm } from '../../../../../Global/Redux-actions/carCare';
+import { setAppbookingFormPage, setbooked, setuserBookingForm } from '../../../../../Global/Redux-actions/carCare';
 import { toast } from 'react-toastify';
 import FirstBooking from './FirstBooking';
 import SecondBooking from './SecondBooking';
@@ -135,7 +135,14 @@ const AddBooking = ({ book, setbook }) => {
         toast.error("Service type is required")
       }
     } else {
-      setbook(true)
+      // setbook(true)
+      if (bookingInputsObject?.serviceType == "Pickup & Delivery"
+        && !bookingInputsObject?.pickupLocation
+      ) {
+        toast.error("Input pick up location")
+      } else {
+        dispatch(setbooked(true))
+      }
     }
 
   }

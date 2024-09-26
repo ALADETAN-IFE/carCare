@@ -1,12 +1,12 @@
 import { IoIosClose } from "react-icons/io"
 
-const Read = ({handleDelete, notes}) => {
+const Read = ({handleDelete, notes, viewNotification}) => {
     return (
-        <div className="notifications read">
+        <div className="notifications" onClick={()=> viewNotification(notes?._id)}>
             <div className="notificationsWrapper">
                 <img src={"https://res.cloudinary.com/dserpv6p5/image/upload/v1727200703/cafrvombbtrd7kzeebqd.svg"} alt="" />
                 <div className="notificationstxt">
-                   {notes?.notesHead}
+                {notes?.title}
                 </div>
                 <IoIosClose 
                 size={35}

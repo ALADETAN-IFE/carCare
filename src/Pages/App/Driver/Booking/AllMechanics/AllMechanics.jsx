@@ -10,6 +10,7 @@ import { useParams } from "react-router-dom"
 import axios from "axios"
 import { useSelector } from "react-redux"
 import { toast } from "react-toastify"
+import { ClipLoader } from "react-spinners"
 
 const AllMechanics = () => {
     const UserDataWithToken = useSelector((state) => state?.carCare?.UserDataWithToken)
@@ -95,7 +96,7 @@ const AllMechanics = () => {
                     </div>
                     <div className="AllMechanicsBodyWrapperMiddle">
                         {
-                            loading ? <p>loading...</p>
+                            loading ? <ClipLoader/>
                                 :
                                 <>
                                     {

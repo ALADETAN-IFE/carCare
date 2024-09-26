@@ -12,6 +12,7 @@ const ChangePassword = () => {
     const [showPopUp, setShowPopUp] = useState(false)
     const handlePopup = () => {
         setShowPopUp(!showPopUp);
+        // api/v1/resetPassword
       };  
   return (
     <div className='changePassword__container'>

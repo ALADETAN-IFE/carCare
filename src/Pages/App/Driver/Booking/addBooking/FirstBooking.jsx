@@ -121,8 +121,8 @@ const FirstBooking = ({ setbookingInputsObject, bookingInputsObject, setbookingF
                 </div>
             </div>
             <button className='addBooking_btn'
-             onClick={(e) => setbookingInputsObject({ })}
-            //  onClick={() => setbookingFormsPage(1)} 
+            //  onClick={(e) => setbookingInputsObject({ })}
+             onClick={() => setbookingFormsPage(1)} 
              >Next</button>
         </>
     )

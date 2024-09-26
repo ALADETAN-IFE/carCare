@@ -75,9 +75,9 @@ const ServiceList = () => {
       setTimeout(() => {
         setloading(false)
         if (bookingInputsObject?.mechName) {
-          navigate(`/app/${UserDatas?._id}/${mechTobeBooked?._id}`)
+          navigate(`/app/booking/add-booking/${UserDatas?._id}/${mechTobeBooked?._id}`)
         } else {
-          navigate(`/app/${UserDatas?._id}`)
+          navigate(`/app/booking/add-booking/${UserDatas?._id}`)
         }
       }, 1200);
     }

@@ -147,7 +147,7 @@ const MechanicsCard = ({mech}) => {
   return (
     <div className="mechanicsCard">
         <div className="mechanicsCardTop" 
-        style={{background: !mech?.profilePicture?.pictureUrl ? "black": `url(${mech?.profilePicture?.pictureUrl})`}}>
+        style={{background: !mech?.profilePicture?.pictureUrl ? "url(https://res.cloudinary.com/dserpv6p5/image/upload/v1727272485/tqbhwjbdv2djhqgarnlr.jpg)": `url(${mech?.profilePicture?.pictureUrl})`}}>
             {/* <img src={mech?.profilePicture?.pictureUrl} alt="" /> */}
         </div>
         <div className="mechanicsCardBottom">
@@ -162,11 +162,15 @@ const MechanicsCard = ({mech}) => {
                     <span key={i}>{e}</span>
                 ))
             }. */}
-            {/* <span> {mech?.specialization?.join(", ")}</span>. */}
+            <span> {mech?.areaOfSpecialization}</span>.
             </div>
-            <div className="mechanicsCardBottomDetails1">
+            {/* <div className="mechanicsCardBottomDetails1"> */}
                 {/* {mech?.certification.join(", ")} */}
-                ASE Certified, Master Technician.
+                {/* ASE Certified, Master Technician. */}
+            {/* </div> */}
+            <div className="mechanicsCardBottomDetails1">
+            Address: {mech?.businessAddress}
+               
             </div>
             <div className="mechanicsCardBottomDetails2"
             >

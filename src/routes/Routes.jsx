@@ -315,21 +315,21 @@ const Routes = createHashRouter([
       {
         element: <DriverAuth />,
         children: [
-          {
-            path: "/app",
-            element: <DriverLayout />,
-            // children: [
-            //     {
-            //         // index: true,
-            //         path:"/app",
-            //         element: <Driver/>,
-            //     },
-            //     // {
-            //     //     path:"booking",
-            //     //     element: <Booking/>,
-            //     // }
-            // ]
-          },
+          // {
+          //   path: "/app",
+          //   element: <DriverLayout />,
+          //   // children: [
+          //   //     {
+          //   //         // index: true,
+          //   //         path:"/app",
+          //   //         element: <Driver/>,
+          //   //     },
+          //   //     // {
+          //   //     //     path:"booking",
+          //   //     //     element: <Booking/>,
+          //   //     // }
+          //   // ]
+          // },
           {
             // path: "/app/:customerId",
             path: "/app",
@@ -357,6 +357,10 @@ const Routes = createHashRouter([
               // },
               {
                 path: "booking/add-booking",
+                element: <AddBooking />,
+              },
+              {
+                path: "booking/add-booking/:customerId",
                 element: <AddBooking />,
               },
               {

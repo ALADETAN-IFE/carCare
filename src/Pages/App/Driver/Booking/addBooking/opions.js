@@ -235,3 +235,4 @@ export const brandYears = [
     { value: "Toyota", label: "Toyota", startYear: 1937 },
     { value: "Suzuki", label: "Suzuki", startYear: 1955 } // First car produced
 ];
+

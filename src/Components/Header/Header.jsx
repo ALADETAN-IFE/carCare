@@ -100,10 +100,11 @@ const Header = () => {
                       <IoCloseSharp/>
                       {/* <GiHamburgerMenu size={28} /> */}
                         {/* <BiMenuAltRight size={26} /> */}
-                        <LoggedInDropdown
+                        {/* <LoggedInDropdown
                          headerMiddle={headerMiddle} 
                          loggedIn
-                         />
+                         /> */}
+                          <NotLoggedIn headerMiddle={headerMiddle} loggedIn/>
                       </>
                       : <GiHamburgerMenu    style={{cursor: "pointer"}}/>  
                   }
