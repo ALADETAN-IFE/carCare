@@ -71,9 +71,9 @@ const Login = () => {
             setTimeout(() => {
               navigate("/mechInfo")
             }, 2000);
-            dispatch(logIn())
             dispatch(setTypeOfUser("Mechanic"))
           } else {
+            dispatch(logIn())
             // Success alert with navigation after 3 seconds
             Swal.fire({
               icon: 'success',
